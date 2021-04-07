@@ -3,6 +3,8 @@
 2001-2021 (c) Hoge- Ship  
 https://www.tonyu.jp/  
 Version 1.28 - バージョンアップ履歴  
+  
+2021-04-07：wiki作成中
 
 - まずはゲームをやってみる - Tonyuでこんなことができます。
 - チュートリアル - とりあえずゲームを作ってみたい方はこちらから
@@ -13,3 +15,5 @@ Version 1.28 - バージョンアップ履歴
 ***
 - Tonyu Systemについて
 - 謝辞
+***
+このwikiのリポジトリ（ https://github.com/makkii-bcr/Tonyu1-wiki ）
