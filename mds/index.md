@@ -1,4 +1,4 @@
-# Tonyu System 1 - wiki (2021年版)
+## Tonyu System 1
 
 2001-2021 (c) Hoge- Ship  
 https://www.tonyu.jp/  

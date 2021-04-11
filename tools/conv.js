@@ -16,8 +16,12 @@ function convMain() {
     const mdDir = path.join(curDir, mdsDirName);
     const mdPaths = lsrSync(mdDir);
 
-    const tmplPath = path.join(curDir, templateDirName, 'template.html');
+    const tmplPath = path.join(curDir, templateDirName, 'template2.html');
     const tmplHtmlData = fs.readFileSync(tmplPath);
+
+    const sidebarPath = path.join(mdDir, 'sidebar.md');
+    const sidebarMdData = fs.readFileSync(sidebarPath);
+    const sidebarHtmlData = marked(sidebarMdData.toString());
 
     mdPaths.forEach(mdPath => {
         if (!mdPath.match(/.md$/)) {
@@ -35,7 +39,8 @@ function convMain() {
             // テンプレートhtmlに、markdownのhtmlを埋め込み
             const tmplData = Buffer.from(tmplHtmlData).toString();
             const outData = tmplData.replace('%content', htmlData)
-                .replace('%title', getTitle(htmlData));
+                .replace('%title', getTitle(htmlData))
+                .replace('%sidebar', sidebarHtmlData);
 
             const htmlPath = toHtmlPath(mdDir, mdPath);
             fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
