@@ -1,12 +1,12 @@
-・Tonyu公式  
+・[Tonyu公式HP](https://www.tonyu.jp/)  
 
-・Wikiトップ  
+・[Wikiトップ](./)  
 ・Tonyuとは  
-・ダウンロード  
+・[ダウンロード](./download.html)  
 ・チュートリアル  
 ・命令リファレンス  
 
-・BBS  
-・プロジェクトボード  
+・[プロジェクトボード](https://www.tonyu.jp/project/top.cgi)  
+・[BBS](http://www.tonyu.jp/joyful/joyful.cgi)  
 
-・旧Wiki
+・[旧Wiki](http://hoge1e3.sakura.ne.jp/tonyu/wiki/)

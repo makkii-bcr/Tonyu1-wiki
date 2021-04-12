@@ -84,6 +84,7 @@ nav{
 aside{
     font-size:12px;
     margin-right: 6px;
+    line-height:110%;
 }
 main{
     flex:1;

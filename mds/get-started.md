@@ -15,5 +15,5 @@ Tonyuはアクションゲームを作ることができます。まずどんな
 
 ![returnMain.png](./img/returnMain.png)
 
-[Wiki トップ](./)
+[Wikiトップ](./)
 

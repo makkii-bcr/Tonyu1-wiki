@@ -51,11 +51,6 @@ function convMain() {
             console.log(htmlPath);
         }
     });
-
-    fs.copyFileSync(
-        path.join(curDir, templateDirName, 'style.css'),
-        path.join(curDir, docsDirName, 'style.css'),
-    );
 }
 
 /**
