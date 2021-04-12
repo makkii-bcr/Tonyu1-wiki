@@ -2,7 +2,7 @@
   "name": "tonyu1-wiki",
   "description": "Tonyu System 1 のwiki",
   "version": "1.0.0",
-  "main": "webpack.base.conf.js",
+  "main": "tools/conv.js",
   "type": "module",
   "scripts": {
     "build": "node tools/conv.js",

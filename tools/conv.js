@@ -16,7 +16,7 @@ function convMain() {
     const mdDir = path.join(curDir, mdsDirName);
     const mdPaths = lsrSync(mdDir);
 
-    const tmplPath = path.join(curDir, templateDirName, 'template2.html');
+    const tmplPath = path.join(curDir, templateDirName, 'template.html');
     const tmplHtmlData = fs.readFileSync(tmplPath);
 
     const sidebarPath = path.join(mdDir, 'sidebar.md');
@@ -27,9 +27,11 @@ function convMain() {
         if (!mdPath.match(/.md$/)) {
             // ファイルコピー(mds -> docs)
             const relativePath = mdPath.replace(mdDir, '');
+            const outPath = path.join(curDir, docsDirName, relativePath);
+            fs.mkdirSync(path.dirname(outPath), { recursive: true });
             fs.copyFileSync(
                 path.join(mdDir, relativePath),
-                path.join(curDir, docsDirName, relativePath),
+                outPath
             );
         } else {
             // markdown -> html 変換
