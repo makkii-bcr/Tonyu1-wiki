@@ -97,12 +97,12 @@ dt {
 
 pre {
   border:solid;
-  border-width:1px;
-  border-color:#aaa;
+  border-width:2px;
+  border-color:#fdc;
   /* margin-top:5px;
   margin-bottom:5px; */
   padding:8px 4px 8px 4px;
-  background-color:#efe;
+  background-color:#fed;
   font-size:13px;
 }
 
