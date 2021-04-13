@@ -1,4 +1,5 @@
 
+[Wikiトップ](./)
 
 ## Tonyu1のダウンロード
 
@@ -104,10 +105,6 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 - ドキュメントをリニューアル
 - for文，while文中におけるエラー位置の指摘方法を改善
 
-
-
-
-
 ### フルスクリーンキット
 
 作成したランタイムをフルスクリーンで動作させることが可能です.
@@ -143,10 +140,11 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 [Tonyu1_09Light.exe](http://hoge1e3.sakura.ne.jp/tonyu/dl/Tonyu1_09Light.exe)  
 [Tonyu1_09.exe](http://hoge1e3.sakura.ne.jp/tonyu/dl/Tonyu1_09.exe)  
 
+### 旧Wiki ダウンロード
+
+[旧Wiki ダウンロード](http://hoge1e3.sakura.ne.jp/tonyu/wiki/index.php?%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89)
 
 ***
-
-[ダウンロード（旧Wiki）](http://hoge1e3.sakura.ne.jp/tonyu/wiki/index.php?%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89)
 
 [Wikiトップ](./)
 

@@ -11,7 +11,8 @@ convMain();
 function convMain() {
     const isDeploy = process.argv.some((v) => v === "--deploy");
     const curDir = process.cwd();
-
+    
+    // docsを全削除
     fs.rmSync(path.join(curDir, 'docs'), { recursive: true, force: true });
 
     const mdDir = path.join(curDir, mdsDirName);
@@ -20,14 +21,23 @@ function convMain() {
     const tmplPath = path.join(curDir, templatesDirName, 'template.html');
     const tmplHtmlData = fs.readFileSync(tmplPath);
 
-    const sidebarPath = path.join(mdDir, 'sidebar.md');
-    const sidebarMdData = fs.readFileSync(sidebarPath);
-    const sidebarHtmlData = marked(sidebarMdData.toString());
+    // 共通部品md
+    const sidebarPath = path.join(mdDir, 'tp-sidebar.md');
+    const sidebarHtmlData = convMdToHtml(sidebarPath);
+    const navPcPath = path.join(mdDir, 'tp-nav-pc.md');
+    const navPcHtmlData = convMdToHtml(navPcPath);
+    const navMobilePath = path.join(mdDir, 'tp-nav-mobile.md');
+    const navMobileHtmlData = convMdToHtml(navMobilePath);
+    const footerPath = path.join(mdDir, 'tp-footer.md');
+    const footerHtmlData = convMdToHtml(footerPath);
     
     const dlDirPath = path.join(curDir, 'mds', 'dl');
 
     mdPaths.forEach(mdPath => {
         if (mdPath.match(/.md$/)) {
+            if (mdPath.match(/tp-.*.md$/)) {
+                return;
+            }
             // markdown -> html 変換
             const mdData = fs.readFileSync(mdPath);
             const htmlData = marked(mdData.toString());
@@ -35,8 +45,11 @@ function convMain() {
             // テンプレートhtmlに、markdownのhtmlを埋め込み
             const tmplData = Buffer.from(tmplHtmlData).toString();
             const outData = tmplData.replace('%content', htmlData)
-                .replace('%title', getTitle(htmlData))
-                .replace('%sidebar', sidebarHtmlData);
+                .replace(/%title/g, getTitle(htmlData))
+                .replace(/%sidebar/g, sidebarHtmlData)
+                .replace(/%nav_pc/g, navPcHtmlData)
+                .replace(/%nav_mobile/g, navMobileHtmlData)
+                .replace(/%footer/g, footerHtmlData);
 
             const htmlPath = toHtmlPath(mdDir, mdPath);
             fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
@@ -59,6 +72,17 @@ function convMain() {
             console.log("copy file :", outPath);
         }
     });
+}
+
+/**
+ * mdファイルを読み込んで、変換、HTMLデータを返す
+ * @param {String} htmlPath 
+ * @returns htmlのデータ
+ */
+function convMdToHtml(htmlPath) {
+    const mdData = fs.readFileSync(htmlPath);
+    const htmlData = marked(mdData.toString());
+    return htmlData;
 }
 
 /**

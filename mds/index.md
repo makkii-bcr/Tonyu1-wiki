@@ -8,6 +8,7 @@ https://www.tonyu.jp/
 Version 1.28 - [バージョンアップ履歴](./dl-history.html)
 
 ***
+- [Tonyu1とは](./about.html)
 - [ダウンロード](./download.html)
 ***
 - [まずはゲームをやってみる](./get-started.html) - Tonyuでこんなことができます。
@@ -17,7 +18,6 @@ Version 1.28 - [バージョンアップ履歴](./dl-history.html)
 - 命令リファレンス
 - エラーメッセージ
 ***
-- Tonyu Systemについて
+- [Tonyu Systemについて](./about2.html)
 - 謝辞
 ***
-[github](https://github.com/makkii-bcr/Tonyu1-wiki)

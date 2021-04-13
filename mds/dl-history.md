@@ -267,5 +267,5 @@
 0.102 $map.setBackGround?, $map.setBGColorメソッド追加  
 0.101 ビットマップ読み込みの不具合を修正  
 
-[Wikiトップ](./)
+[ダウンロード](./download.html)
 
