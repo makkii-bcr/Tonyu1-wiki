@@ -42,10 +42,9 @@ function convMain() {
             fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
             fs.writeFileSync(htmlPath, outData);
 
-            console.log(htmlPath);
+            console.log("convert md:", htmlPath);
         } else {
             // dlフォルダはデプロイ時のみコピー
-            console.log(isDeploy, dlDirPath, mdPath, mdPath.indexOf(dlDirPath));
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
                 return;
             }
@@ -57,6 +56,7 @@ function convMain() {
                 path.join(mdDir, relativePath),
                 outPath
             );
+            console.log("copy file :", outPath);
         }
     });
 }

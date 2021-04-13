@@ -21,7 +21,7 @@ jobs:
           node-version: '14.x'
 
       - run: npm ci
-      - run: npm run build --deploy
+      - run: npm run deploy
 
       - name: Deploy to GitHub Pages
         if: success()
