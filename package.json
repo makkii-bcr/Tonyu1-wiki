@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "node tools/conv.js",
+    "deploy": "node tools/conv.js --deploy",
     "server": "http-server -o /docs/",
     "start": "npm run build && npm run server"
   },

@@ -13,7 +13,7 @@ Tonyuはアクションゲームを作ることができます。まずどんな
 
 他のゲームをやるには、「ファイル」＞「メインメニュー」でメニューを表示させてください。
 
-![returnMain.png](./img/returnMain.png)
+![returnMain.png](./img/return-main.png)
 
 [Wikiトップ](./)
 

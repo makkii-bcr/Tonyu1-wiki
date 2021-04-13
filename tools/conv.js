@@ -4,11 +4,12 @@ import path from 'path';
 
 const docsDirName = 'docs';
 const mdsDirName = 'mds';
-const templateDirName = 'template';
+const templatesDirName = 'templates';
 
 convMain();
 
 function convMain() {
+    const isDeploy = process.argv.some((v) => v === "--deploy");
     const curDir = process.cwd();
 
     fs.rmSync(path.join(curDir, 'docs'), { recursive: true, force: true });
@@ -16,24 +17,17 @@ function convMain() {
     const mdDir = path.join(curDir, mdsDirName);
     const mdPaths = lsrSync(mdDir);
 
-    const tmplPath = path.join(curDir, templateDirName, 'template.html');
+    const tmplPath = path.join(curDir, templatesDirName, 'template.html');
     const tmplHtmlData = fs.readFileSync(tmplPath);
 
     const sidebarPath = path.join(mdDir, 'sidebar.md');
     const sidebarMdData = fs.readFileSync(sidebarPath);
     const sidebarHtmlData = marked(sidebarMdData.toString());
+    
+    const dlDirPath = path.join(curDir, 'mds', 'dl');
 
     mdPaths.forEach(mdPath => {
-        if (!mdPath.match(/.md$/)) {
-            // ファイルコピー(mds -> docs)
-            const relativePath = mdPath.replace(mdDir, '');
-            const outPath = path.join(curDir, docsDirName, relativePath);
-            fs.mkdirSync(path.dirname(outPath), { recursive: true });
-            fs.copyFileSync(
-                path.join(mdDir, relativePath),
-                outPath
-            );
-        } else {
+        if (mdPath.match(/.md$/)) {
             // markdown -> html 変換
             const mdData = fs.readFileSync(mdPath);
             const htmlData = marked(mdData.toString());
@@ -49,6 +43,20 @@ function convMain() {
             fs.writeFileSync(htmlPath, outData);
 
             console.log(htmlPath);
+        } else {
+            // dlフォルダはデプロイ時のみコピー
+            console.log(isDeploy, dlDirPath, mdPath, mdPath.indexOf(dlDirPath));
+            if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
+                return;
+            }
+            // ファイルコピー(mds -> docs)
+            const relativePath = mdPath.replace(mdDir, '');
+            const outPath = path.join(curDir, docsDirName, relativePath);
+            fs.mkdirSync(path.dirname(outPath), { recursive: true });
+            fs.copyFileSync(
+                path.join(mdDir, relativePath),
+                outPath
+            );
         }
     });
 }
