@@ -2,7 +2,7 @@
 ・[Tonyu1とは](./about.html)  
 ・[ダウンロード](./download.html)  
 ・[チュートリアル](./tutorial.html)  
-・命令リファレンス  
+・[命令リファレンス](./reference.html)  
 
 ・[Tonyu公式HP](https://www.tonyu.jp/)  
 ・[プロジェクトボード](https://www.tonyu.jp/project/top.cgi)  

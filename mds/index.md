@@ -15,7 +15,7 @@ Version 1.28 - [バージョンアップ履歴](./dl-history.html)
 - [チュートリアル](./tutorial.html) - とりあえずゲームを作ってみたい方はこちらから
 - FAQ
 - 各種ウィンドウの使い方/オプション
-- 命令リファレンス
+- [命令リファレンス](./reference.html)
 - エラーメッセージ
 ***
 - [Tonyu Systemについて](./about2.html)
