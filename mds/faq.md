@@ -1,0 +1,926 @@
+<a href="./">Wikiトップ</a>
+<h2>FAQ</h2>
+
+ユーザの皆様から寄せられた質問に対する解答集です。<BR>
+このFAQを読んでも問題が解決しない場合は、
+質問を<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi">BBS</a>までお寄せください。
+<HR>
+<P>
+<ul>
+<P><a href="faq.html#0"><!--folder--><font size=5>プログラミングTips</font>
+</a>
+<P><li><a href="faq.html#1">
+現在出現している敵の数を数えるにはどうすればよいでしょうか。
+</a>
+<P><li><a href="faq.html#2">
+主人公や敵が壁を通り抜けないようにするにはどうすればよいでしょうか。
+</a>
+<P><li><a href="faq.html#3">
+↑のプログラムで作ったオブジェクトは、壁にめりこむようです。
+</a>
+<P><li><a href="faq.html#4">
+↑のプログラムで作ったオブジェクトは、斜め移動すると壁にひっかかります。スムーズに動かしたいです。
+</a>
+<P><li><a href="faq.html#5">
+↑のプログラムでは、壁が１種類しかありませんが、壁が何種類もある場合はどうやって判定しますか？
+</a>
+<P><li><a href="faq.html#6">
+迷路のような狭い通路を上下左右に動く敵はどうやって作りますか
+
+</a>
+<P><li><a href="faq.html#7">
+ジャンプアクションにおいて、
+敵やプレイヤーがダメージを受けたときに跳ね上がるようなモーションを入れるにはどうすればいいですか。
+</a>
+<P><li><a href="faq.html#8">
+いくつかのメッセージの中からランダムに文字列を選ぶにはどうすればよいでしょうか。
+</a>
+<P><li><a href="faq.html#9">
+車のように左右に曲がりながら進むようにはどうすればよいでしょうか。
+</a>
+<P><li><a href="faq.html#10">
+弾をいろいろな方向に飛ばしたいのですが
+</a>
+<P><li><a href="faq.html#11">
+敵弾をプレイヤーのいる方向に飛ばすにはどうすればよいでしょうか。
+</a>
+<P><li><a href="faq.html#12">
+敵に耐久力(ライフ)を設定したいのですが
+</a>
+<P><li><a href="faq.html#13">
+自機にもライフを設定したいのですが
+</a>
+<P><li><a href="faq.html#14">
+
+チュートリアルで作ったシューティング
+は、自機の弾が貫通してしまいますが、貫通しないようにするにはどうすればよいでしょうか。
+</a>
+<P><li><a href="faq.html#15">
+
+チュートリアルのシューティング
+で、残機を設定する（自機が死んだら次の自機が出現する）にはどうしたらよいでしょうか
+</a>
+<P><li><a href="faq.html#16">
+
+チュートリアルのシューティング
+で、弾に射程距離をもたせるにはどうしたらよいでしょうか
+</a>
+<P><li><a href="faq.html#17">
+ジャンプアクション
+で、敵をジャンプさせるにはどうすればよいでしょうか。
+</a>
+<P><li><a href="faq.html#18">
+ジャンプアクション
+で、動くブロックを作るにはどうすればよいでしょうか。
+</a>
+<P><a href="faq.html#19"><!--folder--><font size=5>トラブルシューティング</font>
+</a>
+<P><li><a href="faq.html#20">
+画面に文字を表示したくて，テキストオブジェクトを作ったのですが，実行すると消えてしまいます．
+</a>
+<P><li><a href="faq.html#21">
+ランタイムを作ったら「ファイルへのアクセスが拒否されました」と表示されます。
+</a>
+<P><li><a href="faq.html#22">
+キャラクタパターン画像の透過色部分が透過されずそのまま表示されてしまい
+ます
+</a>
+<P><li><a href="faq.html#23">
+作ったゲームをやっているとだんだん処理が重くなっていきます
+</a>
+<P><li><a href="faq.html#24">
+マップがうまく描けません。一ヶ所にマップパターンをおくと全体がそのパター
+ンでうめつくされてしまいます。
+</a>
+<P><li><a href="faq.html#25">
+効果音が鳴りません。
+</a>
+<P><li><a href="faq.html#26">
+文法があっているはずなのに「文法エラー」になります。
+</a>
+<P><li><a href="faq.html#27">
+次のようなプログラムを書いたのですが、期待通りに動作しないよう
+です
+</a>
+<P><li><a href="faq.html#28">
+↑のFAQの通りにプログラムを直しましたが、動作がやたら重いです
+</a>
+<P><a href="faq.html#29"><!--folder--><font size=5>その他</font>
+</a>
+<P><li><a href="faq.html#30">
+Tonyuで作ったプログラムを配布するときに、
+Tonyu製作者の許可が必要でしょうか。
+作ったプログラムの有料での配布は可能でしょうか。
+</a>
+<P><li><a href="faq.html#31">
+チュートリアルで登場するSample.bmpのように、1枚のビットマップで複
+数のパターンを定義するにはどのようにしたらよいでしょうか
+</a>
+</ul><HR><ul><P><a name=0><strong><!--folder--><font size=5>プログラミングTips</font>
+</strong><P>
+<P>
+<P><a name=1><li><strong>
+現在出現している敵の数を数えるにはどうすればよいでしょうか。
+</strong><P>
+敵の数を数えるためのオブジェクトを作成します．$enemyCount に敵の数が入ります．
+
+<pre>
+while (1) {
+  $enemyCount=0;  // 敵の数を格納する変数
+  for (t in $chars) {  // すべてのオブジェクトを調べる
+     if (t is Enemy) { //  tが敵だったら
+         $enemyCount++; // $enemyCount を増やす
+     }
+  }
+  update();
+}
+</pre>
+<P><a name=2><li><strong>
+主人公や敵が壁を通り抜けないようにするにはどうすればよいでしょうか。
+</strong><P>
+次のように、移動する前の場所を覚えておき、壁にぶつかったらその場所に戻すようにします。
+($pat_maze+0  が壁のキャラクタパターンです)
+<pre>
+extends SpriteChar;
+while(1) {
+  sx=x;sy=y; // 移動前の場所を保存
+  // キーボードで移動する
+  if (getkey(39)>0) x+=3;
+  if (getkey(37)>0) x-=3; 
+  if (getkey(40)>0) y+=3;
+  if (getkey(38)>0) y-=3;
+  if ($map.getAt(x,y)==$pat_maze+0) {
+    // 壁にぶつかっていたら、移動前の場所に戻る
+    x=sx;y=sy;
+  }
+  update();
+}
+</pre>
+<P><a name=3><li><strong>
+↑のプログラムで作ったオブジェクトは、壁にめりこむようです。
+</strong><P>
+次のように、壁との衝突を判定する箇所をふやします。判定処理を関数にしておくと便利です。
+<pre>
+extends SpriteChar;
+function crashToWall(x,y) {
+  // (x,y)の周囲が壁だったら１，そうでなければ０を返す
+  if ( $map.getAt(x+10,y)==$pat_maze+0 ||
+       $map.getAt(x,y+10)==$pat_maze+0 ||
+       $map.getAt(x-10,y)==$pat_maze+0 ||
+       $map.getAt(x,y-10)==$pat_maze+0 ) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+while(1) {
+  sx=x;sy=y; // 移動前の場所を保存
+  // キーボードで移動する
+  if (getkey(39)>0) x+=3;
+  if (getkey(37)>0) x-=3; 
+  if (getkey(40)>0) y+=3;
+  if (getkey(38)>0) y-=3;
+  if (crashToWall(x,y)==1) {
+    // 壁にぶつかっていたら、移動前の場所に戻る
+    x=sx;y=sy;
+  }
+  update();
+}
+</pre>
+
+<P><a name=4><li><strong>
+↑のプログラムで作ったオブジェクトは、斜め移動すると壁にひっかかります。スムーズに動かしたいです。
+</strong><P>
+次のように、斜めに移動したときに、x座標だけ、あるいはy座標だけをもとの状態に戻すように試みます。
+<pre>
+extends SpriteChar;
+function crashToWall(x,y) {
+  // (x,y)の周囲が壁だったら１，そうでなければ０を返す
+  if ( $map.getAt(x+10,y)==$pat_maze+0 ||
+       $map.getAt(x,y+10)==$pat_maze+0 ||
+       $map.getAt(x-10,y)==$pat_maze+0 ||
+       $map.getAt(x,y-10)==$pat_maze+0 ) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+while(1) {
+  sx=x;sy=y; // 移動前の場所を保存
+  // キーボードで移動する
+  if (getkey(39)>0) x+=3;
+  if (getkey(37)>0) x-=3; 
+  if (getkey(40)>0) y+=3;
+  if (getkey(38)>0) y-=3;
+  if (crashToWall(x,y)==1) {
+    // 壁にぶつかっていたら、移動前の場所に戻る
+    if (crashToWall(sx,y)==0) {
+      // x座標だけもとの状態に戻して、ぶつかっていなければ
+      x=sx; // x座標だけもとの状態に戻す
+    } else if (crashToWall(x,sy)==0) {
+      // y座標だけもとの状態に戻して、ぶつかっていなければ
+      y=sy; // y座標だけもとの状態に戻す
+    } else {
+      // x座標、y座標片方だけもどしたときに、いずれもぶつかっていたら
+      x=sx;y=sy; //両方もとの状態に戻す
+    }
+  }
+  update();
+}
+</pre>
+<P><a name=5><li><strong>
+↑のプログラムでは、壁が１種類しかありませんが、壁が何種類もある場合はどうやって判定しますか？
+</strong><P>
+逆に「通れるキャラクタパターン」に注目しましょう。例えば、通れるキャラクタパターンが１種類（ここでは$pat_maze+1）
+ならば、crashToWallを次のように変更すればよいです
+
+<pre>
+function crashToWall(x,y) {
+  // (x,y)の周囲が壁だったら１，そうでなければ０を返す
+  if ( $map.getAt(x+10,y)!=$pat_maze+1 ||
+       $map.getAt(x,y+10)!=$pat_maze+1 ||
+       $map.getAt(x-10,y)!=$pat_maze+1 ||
+       $map.getAt(x,y-10)!=$pat_maze+1 ) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+</pre>
+
+<P><a name=6><li><strong>
+迷路のような狭い通路を上下左右に動く敵はどうやって作りますか
+
+</strong><P>
+迷路においては、曲がれる箇所が限られます。例えば１パターンあたりの大きさが
+１６＊１６のマップであれば、１６ピクセル動く→向きを変える  ... を繰り返して動く必要があります。
+
+
+<pre>
+extends SpriteChar;
+
+//注意：
+// * $pat_block+0 を通路（通れるマップパターン）とする
+// * 行き止まりがある通路ではうまく動かない（そのまま進んでしまう）
+
+muki=1; // 0:left 1:right 2:up 3:down
+while (1) {
+  // マップ１個あたり 16*16 の通路を動く
+  for(i=0 ;i<8; i++) { // １フレームあたり２ピクセル＊８フレーム
+    if (muki==0) x-=2;
+    if (muki==1) x+=2;
+    if (muki==2) y-=2;
+    if (muki==3) y+=2;
+    update();
+  }
+  // 進行方向に壁があるか、 5分の１の確率で向きを変える
+  if (hasWall()==1 || rnd(5)==0 ) {
+    if (muki==0 || muki==1) {
+      // 横に移動中、縦に移動できる通路があればその方向へ向きを変える
+      if (upOK()==1) muki=2;
+      if (downOK()==1) muki=3;
+    } else if (muki==2 || muki==3) {
+      // 縦に移動中、横に移動できる通路があればその方向へ向きを変える
+      if (leftOK()==1) muki=0;
+      if (rightOK()==1) muki=1;      
+    }
+  }
+  
+}
+function hasWall() {// 進行方向に壁があれば１を、なければ０を返す
+  if (muki==0 && leftOK()) return 0;
+  if (muki==1 && rightOK()) return 0;
+  if (muki==2 && upOK()) return 0;
+  if (muki==3 && downOK()) return 0;
+  return 1;
+}
+function leftOK() { //左に移動できるのなら１を、そうでなければ０を返す
+  if ($map.getAt(x-16,y)==$pat_block+0) return 1;
+  else return 0;
+}
+function rightOK() {//右に移動できるのなら１を、そうでなければ０を返す
+  if ($map.getAt(x+16,y)==$pat_block+0) return 1;
+  else return 0;
+}
+function upOK() {//上に移動できるのなら１を、そうでなければ０を返す
+  if ($map.getAt(x,y-16)==$pat_block+0) return 1;
+  else return 0;
+}
+function downOK() {//下に移動できるのなら１を、そうでなければ０を返す
+  if ($map.getAt(x,y+16)==$pat_block+0) return 1;
+  else return 0;
+}
+</pre>
+<P><a name=7><li><strong>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/jump/Jump_html/html/HID00000001.htm">ジャンプアクション</a>において、
+敵やプレイヤーがダメージを受けたときに跳ね上がるようなモーションを入れるにはどうすればいいですか。
+</strong><P>
+敵（Monster）を次のように変更します。
+<pre>
+extends SpriteChar;
+function damage() {// ダメージを与えるときにここを呼び出す。
+  if (damaged==1) return;
+  damaged=1;
+  life--;
+  if (life<=0) die();
+}
+function damageMotion() {// ダメージ中の動作
+  vy=-8;
+  while(1) {
+    x-=vx;
+    y+=vy;
+    vy++;
+    if (vy>0 && $map.getAt(x,y+24)==$pat_Block+0) break; // 着地したら動作終わり
+    update();
+  }
+  damaged=0;
+}
+// 途中略
+while (1) {
+  if (damaged==1) damageMotion(); //ダメージを受けたら動作開始
+  if (crashTo($snowMan)) {
+      // 自機とぶつかったら
+      if ( $snowMan.y < y-8 && $snowMan.vy>0 ) {
+        // 自機は敵より少し上にいて、下方向に速度をもっているならば
+        damage(); // 敵がダメージを受ける
+        $snowMan.vy=-5; // 自機がはねあがる
+      } else {
+        $snowMan.die(); // そうでなければ自機が死ぬ
+      }
+  }
+  // 途中略
+}
+</pre>
+<P><a name=8><li><strong>
+いくつかのメッセージの中からランダムに文字列を選ぶにはどうすればよいでしょうか。
+</strong><P>
+次のように、配列にメッセージを格納し、その中の要素をランダムに選ぶことで実現できます。
+
+<pre>
+extends TextChar;
+msgs=new Array();  // 配列を作成
+msgs.add("おはよう"); // 配列に要素を追加
+msgs.add("こんにちは");
+msgs.add("こんばんは");
+text=msgs.get(rnd(msgs.size()));  // 要素のうちどれかを表示
+</pre>
+
+<P><a name=9><li><strong>
+車のように左右に曲がりながら進むようにはどうすればよいでしょうか。
+</strong><P>
+次のように、三角関数（sin,cos）を組み合わせて進行方向を決めることができます。
+
+<pre>
+// 移動速度
+speed=1;
+while (1) {
+ // 左右キーで回転する
+ if (getkey(37)) {angle+=1;}
+ if (getkey(39)) {angle-=1;}
+ // 方向にしたがって移動
+ x += cos(angle)*speed;
+ y += sin(angle)*speed;
+ update();
+}
+</pre>
+
+また、speed を変化させることによって加速、減速を表現することができます。
+
+<pre>
+// 移動速度
+speed=1;
+while (1) {
+ // 左右キーで回転する
+ if (getkey(37)) {angle+=1;}
+ if (getkey(39)) {angle-=1;}
+ // 方向にしたがって移動
+ x += cos(angle)*speed;
+ y += sin(angle)*speed;
+ if (getkey(32)) speed=speed+0.1;  // スペースキーが押されていたら加速
+ speed=speed*0.99; // 減速
+ update();
+}
+</pre>
+
+
+<P><a name=10><li><strong>
+弾をいろいろな方向に飛ばしたいのですが
+</strong><P>
+弾を出現させてから、移動方向をあらわすvx,vyの値を設定する方法がよいでしょう。<BR>
+<strong>appearメソッド</strong>は、出現させたオブジェクトを戻り値として持つため、次のよ
+うにすると値が設定できます。
+
+<pre>
+//-------自機の処理(Jiki.tonyu)--------
+extends SpriteChar;
+while(1) {
+ if (getkey(39)>0) {x+=3;vx=6; vy=0;}
+ if (getkey(37)>0) {x-=3;vx=-6; vy=0;}
+ if (getkey(38)>0) {y-=3;vx=0; vy=-6;}
+ if (getkey(40)>0) {y+=3;vx=0; vy=6;}
+ if (getkey(32)==1) {
+  nobj=appear(new Tama(x,y,$pat_sample)); // nobjが、new Tama(x,y,$pat_sample)によって新規作成したオブジェクトを参照するようになる。
+  nobj.vx=vx; // 新しいオブジェクトの変数vxを指定
+  nobj.vy=vy; // 新しいオブジェクトの変数vyを指定
+ }
+ update();
+}
+
+//-------弾の処理(Tama.tonyu)-------
+extends SpriteChar;
+while(1) {
+  x+=vx;y+=vy;
+  update();
+}
+
+</pre>
+<P><a name=11><li><strong>
+敵弾をプレイヤーのいる方向に飛ばすにはどうすればよいでしょうか。
+</strong><P>
+敵が弾を生成した後、プレイヤー($myChar)の位置にもとづき方向(tama.vx, tama.vy)を計算します。
+
+<pre>
+    tama=appear(new Tama(x,y)); // 弾出現
+    dx=$myChar.x-x;  // プレイヤーと敵の位置関係（x方向）
+    dy=$myChar.y-y;  // プレイヤーと敵の位置関係（y方向）
+    a=angle(dx,dy);  //  プレイヤーと敵の角度
+    tama.vx=cos(a)*5;  // 弾の移動方向（x方向）
+    tama.vy=sin(a)*5;  // 弾の移動方向（y方向）
+</pre>
+<P><a name=12><li><strong>
+敵に耐久力(ライフ)を設定したいのですが
+</strong><P>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/upload2/tmp/2002-2-12_20-41-35_BossSample.lzh">このプログラム</a>を参考にしてください。
+
+Boss のプログラムで、体力を減らす処理を行っています。
+<pre>
+extends SpriteChar;
+
+function atariHantei() {
+  for (t in $chars) {
+   if ( t is Tama && crashTo(t) ) {
+     // もし弾 t にぶつかったら
+     life=life-1;  //体力をへらす
+     t.die();      //当たった弾をけす
+     if (life<1) die();   //もし体力がなくなったら死ぬ
+   }
+  }
+}
+
+life=5; // 敵の体力
+
+while(1) {
+ while(x<$screenWidth) {// →移動
+   x=x+2;
+   atariHantei(); //上で定義した当たり判定のメソッドを呼ぶ
+   update();
+ }
+ while(x>0) {  // ←移動
+   x=x-2;
+   atariHantei();  //上で定義した当たり判定のメソッドを呼ぶ
+   update();
+ }
+}
+</pre>
+<P><a name=13><li><strong>
+自機にもライフを設定したいのですが
+</strong><P>
+チュートリアルのシューティングを例にとって説明します。<BR>
+まず、自機に新しくメソッドを追加します。damageという名前で、自機のlife
+を１つへらし、lifeが0になったら死ぬように します
+
+<pre>
+function damage() {
+  life=life-1;
+  if (life<=0) die();
+}
+life=3; // あらかじめ自機のライフをきめておく
+while(1) {
+  if (getkey(39)>0 && x<$screenWidth ) x=x+3;
+  if (getkey(37)>0 && x>0) x=x-3;
+  : （中略)
+}
+</pre>
+-----------
+次に、敵の処理で、自機を破壊する処理のところに注目します
+<pre>
+if (crashTo($myChar)) $myChar.die();
+</pre>
+これをdieのかわりにdamageにします。また、連続してダメージを受けるのをさけるため、敵を殺します
+<pre>
+if (crashTo($myChar)) {
+  $myChar.damage();
+  die();
+}
+</pre>
+<P><a name=14><li><strong>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/wiki/index.php?%A5%B7%A5%E5%A1%BC%A5%C6%A5%A3%A5%F3%A5%B0%A5%B2%A1%BC%A5%E0%A4%CE%BA%EE%C0%AE">
+チュートリアルで作ったシューティング</a>
+は、自機の弾が貫通してしまいますが、貫通しないようにするにはどうすればよいでしょうか。
+</strong><P>
+敵（Enemy)の当たり判定（atariHantei)メソッドで、弾（Tama)ぶつかったときに弾のほうにもdieメソッドを呼びます。
+<pre>
+function atariHantei() {
+  for (t in $chars) {
+   if ( t is Tama && crashTo(t) ) {
+     t.die(); // ここを追加
+     die();
+     $score=$score+10;
+   } 
+  }
+  if (crashTo($myChar)) $myChar.die();
+}
+</pre>
+<P><a name=15><li><strong>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/wiki/index.php?%A5%B7%A5%E5%A1%BC%A5%C6%A5%A3%A5%F3%A5%B0%A5%B2%A1%BC%A5%E0%A4%CE%BA%EE%C0%AE">
+チュートリアルのシューティング</a>
+で、残機を設定する（自機が死んだら次の自機が出現する）にはどうしたらよいでしょうか
+</strong><P>
+次のように、自機が死んだかどうかを監視し、死んだら新しい自機を作り出すオブジェクトを作成します。
+<pre>
+extends SecretChar;
+
+while (1) {
+  if ($myChar.isDead()) {//自機が死んでいたら
+    wait(30); // 30フレーム（0.5 秒）待つ
+    $myChar=appear(new MyChar(200,330,$pat_Sample+0)); // 新しい自機が出現する
+  }
+  update();
+}
+</pre>
+<P><a name=16><li><strong>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/wiki/index.php?%A5%B7%A5%E5%A1%BC%A5%C6%A5%A3%A5%F3%A5%B0%A5%B2%A1%BC%A5%E0%A4%CE%BA%EE%C0%AE">
+チュートリアルのシューティング</a>
+で、弾に射程距離をもたせるにはどうしたらよいでしょうか
+</strong><P>
+弾オブジェクトに、持続時間をあらわす変数を用意し、1フレーム毎に減らしていくようにします。
+<pre>
+extends SpriteChar;
+len=10; // 持続時間
+while(len>0) { // len が 0 になるまで動く
+ y=y-8;
+ len--;
+ update();
+}
+</pre>
+<P><a name=17><li><strong>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/jump/Jump_html/html/HID00000001.htm">ジャンプアクション</a>
+で、敵をジャンプさせるにはどうすればよいでしょうか。
+</strong><P>
+敵に、ジャンプ中の処理を次のように加えます。
+
+<pre>
+while(1) {
+  :
+  :
+  (その他の処理省略)
+  :
+  :
+  // 敵がジャンプする
+  // jumping: ジャンプ中は1、着地中は0
+  // vy: 縦方向の移動量
+  if (jumping) { // ジャンプ中の処理
+    y+=vy;      // 縦方向に vy だけ移動
+    vy=vy+0.5;  // vy に 重力を加える
+    if ($map.getAt(x,y+15)==$pat_Block+0) {// 下にブロックがあれば、着地する
+      jumping=0;
+    }
+  }  else {   // 着地中の処理
+    if (rnd(100)==0) { // 100分の1の確率でジャンプを開始
+      vy=-10;  // ジャンプした瞬間の縦の速度
+      jumping=1;
+    }
+  } 
+}
+</pre>
+
+また、ジャンプ中に、ブロックの端や壁に当たって引き返す処理をさせないようにします。
+
+<pre>
+  if (!jumping) {
+    if ($map.getAt(x+vx,y)==$pat_Block+0 || $map.getAt(x+vx,y+32)!=$pat_Block+0) { // 進行方向のマップパターンがブロック、または斜め下がブロックでなかったら
+      a.pause(); // 待機前にアニメーションを止める
+      updateEx(3); // 3 フレーム待機
+      a.resume(); // 待機後にアニメーション再開
+      vx=-vx; // 進行方向を反転する
+    }
+  }
+</pre>
+<P><a name=18><li><strong>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/jump/Jump_html/html/HID00000001.htm">ジャンプアクション</a>
+で、動くブロックを作るにはどうすればよいでしょうか。
+</strong><P>
+まず、動くブロック(Block)を作成します。
+<pre>
+cx=x; cy=y; // 往復の中心
+vx=5; vy=0; // 最初の移動方向
+while(1) {
+  x+=vx;
+  y+=vy;
+  if (x&lt; cx) vx+=0.1; else vx-=0.1;
+  if (y&lt; cy) vy+=0.1; else vy-=0.1;
+  update();
+}
+</pre>
+
+次に、プレイヤーの処理において、ブロックの処理を追加します。
+<pre>
+while(1) {
+  // ...他の処理は省略
+  // riding : ブロックに乗っていれば、そのブロックオブジェクトを指す。
+  //          乗っていなければNull
+  if (!riding) { //ブロックに乗っていないとき
+    // ブロックを探す
+    for (b in $chars) {
+      // ブロックにぶつかっていて、今下に落ちている途中ならば
+      if (b is Block && crashTo(b) && vy>0) {
+        // ブロックに乗る
+        riding=b;
+        //  offsetX : ブロックと自分の横の相対位置
+        offsetX=x-riding.x;
+      }
+    }
+  } else {  // ブロックに乗っているとき
+    vy=0; // 上下移動しない 
+    x=riding.x+offsetX; // 横位置は、ブロックの位置＋乗ったときの相対位置
+    y=riding.y-32; // 縦位置は、ブロックの位置-32
+    if (getkey(32)==1) { 
+      // スペースキーが押されたら、乗っていない状態になる
+      vy-=10;
+      riding=null;
+    }
+  }
+  // 他の処理は省略...
+}
+</pre>
+<P><a name=19><strong><!--folder--><font size=5>トラブルシューティング</font>
+</strong><P>
+<P>
+<P><a name=20><li><strong>
+画面に文字を表示したくて，テキストオブジェクトを作ったのですが，実行すると消えてしまいます．
+</strong><P>
+Tonyuのオブジェクトは，そのオブジェクトの処理が終了すると消えてしまいます．プログラムに待機する処理か，ループする処理を加えましょう．
+テキストオブジェクトをダブルクリックして，次のようにします．
+
+<pre>
+extends TextChar;
+wait();
+</pre>
+
+テキストオブジェクトに何か処理をさせたい場合は，次のようにします
+<pre>
+extends TextChar;
+
+while(1) {
+  // ここに処理を書く
+  update();
+}
+</pre>
+
+<P><a name=21><li><strong>
+ランタイムを作ったら「ファイルへのアクセスが拒否されました」と表示されます。
+</strong><P>
+使っているファイルに「読みだし専用」ファイルがあると発生します。ファイ
+ルのプロパティで読みだし専用のチェックを外してください。
+<P><a name=22><li><strong>
+キャラクタパターン画像の透過色部分が透過されずそのまま表示されてしまい
+ます
+</strong><P>
+画面のプロパティで、色数が24Bit (Truecolor)の場合この症状が
+発生することがあります。色数を16Bitに落してみて下さい。
+<P><a name=23><li><strong>
+作ったゲームをやっているとだんだん処理が重くなっていきます
+</strong><P>
+画面外に出たオブジェクトを消していない可能性があります。
+オブジェクトを消すには次のいずれかを行う必要があります。
+<ul>
+<li>プログラムの末尾に到達し、プログラムを終了させる
+<li>die();メソッドを呼び出す
+</ul>
+<P>
+次の例を見て下さい。
+<P>
+<pre>
+extends SpriteChar;
+while(1) {
+  x=x+10;
+  update(); 
+}
+</pre>
+<P>
+このオブジェクトは左から右に移動していきますが、
+while(1)となっているため、画面右端にでても動きつづけます。
+whileのループ条件(1) を変更して、次のようにするとよいでしょう。
+<P>
+<pre>
+extends SpriteChar;
+while(<font color=red>x<$screenWidth</font>) {
+  x=x+10;
+  update(); 
+}
+</pre>
+↑このプログラムでは、xが画面右端より左側にいる間だけwhileのなかをまわり
+右端へ到達するとwhileループを脱出し、プログラムが終了します。
+<P>
+または、次のような文を挟んでおくのもよいでしょう。
+<P>
+<pre>
+extends SpriteChar;
+while(1) {
+  x=x+10;
+  <font color=red>if (x<0 || x>$screenWidth || y<0 || y>$screenHeight) die();</font> 
+  update(); 
+}
+</pre>
+追記：Ver 1.07からは<strong>screenOut()</strong>メソッドで代用できます。
+<P>
+<pre>
+extends SpriteChar;
+while(1) {
+  x=x+10;
+  <font color=red>if (screenOut()) die();</font> 
+  update(); 
+}
+</pre>
+<P><a name=24><li><strong>
+マップがうまく描けません。一ヶ所にマップパターンをおくと全体がそのパター
+ンでうめつくされてしまいます。
+</strong><P>
+
+マップを初期化していないと正しく描けません。
+マップを使うには、メニューの「ウィンドウ」＞「マップ作成」 で、
+マップの大きさを予め設定する必要があります。
+<P><a name=25><li><strong>
+効果音が鳴りません。
+</strong><P>
+効果音のwavファイルを他のアプリケーションが使っている場合、鳴らないこ
+とがあります。エクスプローラでそのファイルのあるフォルダを開いている
+だけでも鳴らないことがあるようです。<BR>
+ 他のアプリケーションを終了させてください、それでも鳴らない場合、
+現在作っているプログラムが格納されたフォルダを、まるごと別の場所に
+コピーしてみてください。コピーしたフォルダ内にあるプログラムを
+実行させると鳴る場合があります。
+
+
+
+
+<P><a name=26><li><strong>
+文法があっているはずなのに「文法エラー」になります。
+</strong><P>
+ソースの中に「<font color=red>全角スペース</font>」が入っている可能性があります。
+なにもないところでカーソルを動かしたときに、いっぺんに半角２文字分
+動く場所があったらその部分が全角スペースです。半角スペースになおしてく
+ださい
+<P><a name=27><li><strong>
+次のようなプログラムを書いたのですが、期待通りに動作しないよう
+です
+</strong><P>
+
+<pre>
+extends SpriteChar;
+while(1) {
+// カーソルキーにしたがってうごく。画面端にくると動けないようにする
+  if (getkey(39)>0 && x<$screeenWidth) x+=3;
+  if (getkey(37)>0 && x>0) x-=3; 
+}
+</pre>
+
+<font color=red>スペルミス</font>です。$scree<font
+color=red>e</font>nWidthのスペルを確認してください。
+変数を書きまちがえてもエラーになりません。代わりに
+初期化されていない変数を使うことになるので
+挙動がおかしくなります。充分注意してください。
+<P><a name=28><li><strong>
+↑のFAQの通りにプログラムを直しましたが、動作がやたら重いです
+</strong><P>
+<pre>
+extends SpriteChar;
+while(1) {
+// カーソルキーにしたがってうごく。画面端にくると動けないようにする
+  if (getkey(39)>0 && x<$screenWidth) x+=3;
+  if (getkey(37)>0 && x>0) x-=3; 
+}
+</pre>
+
+<font color=red>update();を忘れています</font>。
+whileループの中に追加してください。
+
+
+<P><a name=29><strong><!--folder--><font size=5>その他</font>
+</strong><P>
+<P>
+<P><a name=30><li><strong>
+Tonyuで作ったプログラムを配布するときに、
+Tonyu製作者の許可が必要でしょうか。
+作ったプログラムの有料での配布は可能でしょうか。
+</strong><P>
+特別な許可はいりません。有料プログラムも配布できます。
+ただし配布できるファイルは次のいずれかです。
+
+<ol>
+<li>
+Tonyuから「ランタイム作成」により作成されたファイルが格納された
+フォルダ全体を、圧縮ツールなどでまとめたもの。
+
+<li>
+
+Tonyuから「ランタイム作成」により作成された"Usr"フォルダ全体を
+圧縮ツールなどでまとめたもの。
+
+</ol>
+
+これらのアーカイブにマニュアルの類など、ユーザが独自に作成したファイル
+を追加してもかまいません。<BR>
+また、ランタイムのファイル名Player.exeは変更してもかまいません。
+それ以外のファイル、フォルダ名は変更すると動作しない可能性があります。
+
+<P><a name=31><li><strong>
+チュートリアルで登場するSample.bmpのように、1枚のビットマップで複
+数のパターンを定義するにはどのようにしたらよいでしょうか
+</strong><P>
+  <a href="/tonyu/wiki/index.php?%A5%AD%A5%E3%A5%E9%A5%AF%A5%BF%A5%D1%A5%BF%A1%BC%A5%F3%CD%D1%A5%D3%A5%C3%A5%C8%A5%DE%A5%C3%A5%D7%A4%CE%BA%EE%A4%EA%CA%FD">キャラクタパターン用ビットマップの作り方</a>
+を参考にファイルを作ってください。
+
+
+</ul>
+<HR><font size=5><a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi">BBS</a>の記事より:</font><P><ul><li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=1424">[1424]</a>  …コマンド入力をさせることはできないんでしょうか? 　例えば　↓→+z　で弾を発射・・・とか。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=1489">[1489]</a>  右へ移動するようにしたんですけど、画面の外へ出てしまい 見えなくなってしまいます。 見えなくなったらオブジェクトを消す、とめる、跳ね返す、 方法を教えてください。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=1733">[1733]</a>  自機が死んだりボスを倒したりしたらそのときの得点を別のページで表示させようと思って下のようなプログラムを書いたんですけどマップを読み込んでますがずっと出て別のページに飛びません。 なぜでしょうか。 extends spritechar;  // 自機の状態判定 if ($kitai.vv==2) gg=2;                  // 変数vv=2の場合は変数gg=2にする else gg=1;                               // その他はgg=1  // gg=1の場合(クリアした場合) while(gg==1) {   drawsprite($viewx+250,$viewy+$screenheight/2,$pat_jui+1); // 敵、敵の弾を消去する   for (bb in $chars) {     if (bb is teki || tekitama || tekitama2) {       bb.die();       $life=10000;     }   }    // テキストを待機状態にする //  for (aa in $chars) { //    if (aa is tokuten) { //      aa.wait(); //      aa.y--; //    } //  } wait(10);   $projectmanager.loadpage($page_aa);   update();                              // 描画を行う }  // gg=2の場合(自機が破壊された場合) while(gg==2) {   drawsprite($viewx+250,$viewy+$screenheight/2,$pat_jui+6);   wait(10);   $projectmanager.loadpage($page_aa);   update();                              // 描画を行う } <BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=1836">[1836]</a>  //前省略　主人公を動かすのが上にある if(getkey(32)==1){//スペースでメニュー表示   s.anim.pause();//主人公のアニメを止める   menu=0;   content=0;   while(1){     //******メニュー     drawdxsprite(x+130,y-30,$pat_frame+0,0,5,0,180,1);//ウインドウ     drawtext(x+95,y-130,"アイテム",$clwhite,15);     drawtext(x+95,y-105,"装備",$clwhite,15);     drawtext(x+95,y- 80,"魔法",$clwhite,15);     drawtext(x+95,y- 55,"ステータス",$clwhite,15);     drawtext(x+95,y-30,"セーブ",$clwhite,15);     drawtext(x+95,y-5,"戻る",$clwhite,15);     drawtext(x+75,y-((6-menu)*25-20),"＞",$clwhite,15);//カーソル     //*****/メニュー              //******name,hp,mp     drawdxsprite(x+130,y+90,$pat_frame+1,0,5,0,180,1);//ウインドウ     drawtext(x+80,y+35,$name,$clwhite,15);//名前     drawtext(x+80,y+35,$hp,$clwhite,15);//hp     drawtext(x+80,y+35,$mp,$clwhite,15);//mp     //*****/name,hp,mp             if(getkey(38)==1){//↑キー       if(content==0){//メニューのどれも選んでいなかったら         if(menu==0)menu=6;//1番上だったら1番下に戻す         menu--;//メニューのカーソルを上に移動       }     }     if(getkey(40)==1){//↓キー       if(content==0){//メニューのどれも選んでいなかったら         if(menu==5)menu=-1;//1番下だったら1番上に戻す         menu++;//メニューのカーソルを下に移動       }     }     if(getkey(32)==1){//スペース　決定       if(menu==4){//セーブ         $savedata.clear();         $savedata.add($projectmanager.getcurrentpagename());//ページを記録         $savedata.add(s.x);//x座標を記録         $savedata.add(s.y);//y座標を記録         $savedata.save("map.data");//書き込み       }       if(menu==5)break;//メニューの戻る     }     update();   } }  未完ですが、rpgのメニューです。 上のソースはwhile(1)の中に入っています。 カーソルをキーボードの上下で動くようにしているつもりなのですが普通に動きません。 左右のカーソルキーを押しながらだと動く。 会話の途中に出てくる「はい」、「いいえ」を選ぶところでも同じ現象が起こります。  不思議です。何故でしょう。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2047">[2047]</a>  敵に弾を当てて倒していると当たった弾が貫通して おくの敵に当たってしまいます。 どうすれば貫通せず敵に当たった弾が消えてくれるんでしょうか？<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2352">[2352]</a>  $mycharがいる(いた?)方向に1直線に飛んでいき、途中で方向が変わらないようなオブジェクトって作れますかね? (要するにシューティングの弾です。)<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2467">[2467]</a>  mycharか敵に問題があると思うんですが 敵を踏んだ瞬間からずっと処理速度が遅くなります なのでここにプログラムを書くので訂正してください 【敵(snowman)】 extends spritechar; vx=2; // 進行方向 a=newanimation(); // animationadapterを作成 a.loop($pat_player+0,$pat_player+2,5); // 敵の2つのパターンを往復するアニメーション while (1) {   if (crashto($mychar)) {$mplayer.play($se_rbyun);       // 自機とぶつかったら       if ( $mychar.y &lt; y-8 && $mychar.vy&gt;0 ) {         // 自機は敵より少し上にいて、下方向に速度をもっているならば         die(); // 敵が死ぬ                    $mychar.vy=-5; // 自機がはねあがる                       } else {         $mplayer.play($se_01);    $mychar.die(); // そうでなければ自機が死ぬ         $projectmanager.loadpage($page_gameover);     }   }   if ($map.getat(x+vx,y)==$pat_block+0 || $map.getat(x+vx,y+32)!=$pat_block+0) {     // 進行方向のマップパターンがブロック、または斜め下がブロックでなかったら     a.pause(); // 待機前にアニメーションを止める     updateex(30); // 30フレーム待機     a.resume(); // 待機後にアニメーション再開     vx=-vx; // 進行方向を反転する   }   x+=vx; // 進行方向へ進む   if (vx&lt;0) f=1; else f=0; // vx が負(左向き)なら反転   update(); }   【mychar】 extends spritechar;  $map.setbgcolor(color(0,200,255)); // 背景色を設定 anim=newanimation(); while (1) { anim.pause();   if (getkey(39) && $map.getat(x+16,y)!=$pat_block+0) {     x+=3;     f=0;     anim.swing($pat_enemy1+0);   }   // ↑ カーソルキー右が押され、さらに右側が壁でなければ右へ移動   if (getkey(37) && $map.getat(x-16,y)!=$pat_block+0) {     x-=3;     f=1;     anim.swing($pat_enemy1+0);   }   // ↑ カーソルキー左が押され、さらに左側が壁でなければ左へ移動   y+=vy; // vy: y 方向の速度。 yにvy を加える   if ($map.getat(x,y+24)==$pat_block+0 ) { // ブロックに当たっていたら      vy=0; // 落下速度を0にする      if (getkey(32)) vy=-10; // スペースキーを押したらジャンプ   } else { // ブロックに当たっていなかったら      vy+=0.5; // 落下速度を上げる   }     $map.scrollto(x-$screenwidth/2,y-$screenheight/2); // スクロールする   update(); }  スミマセン読むの大変だったでしょう <BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=256">[256]</a>  すいません。 また質問です。 えっと例えば、 敵を出すオブジェクト(チュートリアルではufoってやつ)を 出現してから何秒後かに消す(死ぬ)にはどの様にすればよいでしょうか? そこから敵が何匹か出てきて、ある程度時間が立ったら出てこなくしたいのですが、 やり方を教えて下さい。 お願いします。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2596">[2596]</a>  アクションゲームを作っているんですが、テキストとオプジェクトがかさなると、テキストが隠れてしまうんです。 どうしたらいいですか？<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2635">[2635]</a>  「チュートリアル 3 ジャンプアクション」を元にアクションゲームを作っているんですが、ジャンプして下から壁にぶつかると、キャラクターが壁にめり込むんですよ。 どうしたらなおりますか?<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2696">[2696]</a>  if文作成時に、if(){if(){・・・ と重ねて来ましたが、他の人のソースを見て、 if(　()　&&　()　){・・・ が有るのを知りました。ヘルプでは条件式記載されて いませんが、確かにandの機能を果たします。  同様に「or」の機能はどうやって記述すれば良いのでしょうか？ 記述方法でスピードが上がるとの事でしたが、&&とififでは どちらが早くなるのでしょうか？  また、ヘルプに無い演算方法はまだ他にも有るのでしょうか？  よろしくご教授下さい。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2735">[2735]</a>  馬さの質問を3つに分割しました。1スレッドにつき1つのことを聞くようにしてください。 その1  タイトルの作り方を教えてください。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=274">[274]</a>  すいません。 ランキングを30位までに設定したんですけどそれを超えてもポイントの低い奴から削除されません。 なんででしょう・・・。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=288">[288]</a>  弾に弾数制限を入れたいのですが・・・  <BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2905">[2905]</a>  どうもまたしても質問です。 早く教える側になりたいものです．．．．  では本題w 自機が死んだら、その死んだステージにやりなおすような設定 を作ったのですが。ifの文を増やしても3面以上からはどうしても3面からスタートになってしまいます。どうすればいいのでしょうか。   //ステージオプションオブジェクト//  extends secretchar; $map.setbgcolor(color(70,100,150)); $mplayer.play($se_teima,1); $blife=0; $screenwidth=320;$screenheight=240; $bossa=0; $tx2=0; $tx=0; $tika=1; $futu=0; $syuku=0; $bosst=0; $tx3=0; $end=0; $tomare=0; $toma=0; $fade=0; $sta=1;   while (1) {    if ($snowman.x&gt;1168 && $snowman.x&lt;1333)  $sc=1;  else $sc=0;    update(); }   //自機オブジェクト//  extends spritechar;   //ユニット死亡時発生 function ondie() {   if ($tika&gt;0) {$projectmanager.loadpage($page_index2);}   else {$projectmanager.loadpage($page_index);}     if ($tika==2) {$projectmanager.loadpage($page_index3);}   $mantan=1;     } ・・・・・(略)    update(); } <BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2933">[2933]</a>  敵をダメージ制にしたいんですが できますか?<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2950">[2950]</a>  剣で敵をたおすことはできるのですが ダメージ制にしたいんですが シューティングの場合はわかっているのですが 剣で切る場合はどのようにすればいいのですか? 誰かわかりやすく教えてくださいーーー<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=2968">[2968]</a>  敵にライフを作りたいのですが、やり方がわかりません。 いちおう、f&qを見たのですが、まだ分かりません。 どなたか教えてください。お願いします。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3015">[3015]</a>  敵をライフ制にしてみてやってみたんですが 弾が当たっても消えません 誰かライフ制で弾が当たって消える用にしてください お願いします<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3044">[3044]</a>  3044<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3087">[3087]</a>  　以前、マップチップのことでお世話になった者です。マップ作成画面で右ボタンドラッグをした所、正常に表示されるようになりました。いろいろと教えて下さった方々、ありがとうございました。  　また、新たな質問です。現在、『敵から逃げつつ迷路の中を駆けずり回って、お宝を全部頂戴したら出口に向かってgo!』ってな感じのゲームを作っています。ところが、その面をクリアするたびに敵の最初の位置とお宝の場所を乱数で設定したいのですが、どうやったら良いのかが分かりません。 　初期設定ルーチンみたいなものを作れば良いのは分かるのですが、それをどのオブジェクトにどうやって記述したらよいのか…。 　どなたか教えて下さい。 <BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3133">[3133]</a>  このゲーム(画像以外自作+コイン自作)で、 最初からライフとコインの表示ができません…  life:　coin:  と、出てしまいます。 親切な方、教えてor修正して下さい。 お願いシマス(&gt;_&lt;)  (19：23　質問は解決しました。)<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3197">[3197]</a>  3197<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3224">[3224]</a>  ハエのように　すばやく　なをかつ滑らかに動くてきを作りたいのですがどうすればいいでしょうか<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3250">[3250]</a>  えっと、スペースキーをおすと、攻撃のポーズになって、 攻撃するシーンをつくりたいのですが、どうすればつくれるのでしょうか? えっと、記事:1043のやつはやってみたんですが、 なんか敵との当たり判定ができなかったりするんです。 とりあえず、やりにくい点がいくつもあります。 そこのところも教えてくだされば、うれしいとおもっています。 お願いします。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3283">[3283]</a>  3283<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3302">[3302]</a>  初めまして。 いきなりですが、ジャンプアクションで、 敵が踏んでも死なないときがあります。 どうしてでしょうか?<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3315">[3315]</a>  サンプルで使用されている効果音データを自作ゲームで利用したいのですが、利用していいんでしょうか? また、その効果音をつかったゲームの有料販売も、していいんですか? また、効果音に手を加えてもいいんですか?<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3357">[3357]</a>  戦車のゲームを作っています。 敵の戦車についてですが、回転と前進で自機を追跡させたいのですが、やり方が全く分かりません(本当) おしえてください。できれば、敵が画面に映ったら行動を開始して3秒に1回たまをうつようにできませんか?<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3783">[3783]</a>  3783<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3890">[3890]</a>  アイテムをとるとオブジェクトが$mycharの周りをぐるぐる回るようにしたいのですが、 (2つ、3つと増えたときにはの場合は等間隔で回るように) どうすればいいのでしょうか??<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3914">[3914]</a>  $ssを中心にして回転するオブジェクトって出来ますか? <BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=3961">[3961]</a>  通りがかりの5流さんyahoo!japanで「tonyuでrpgを作ろう」をけんさくしたんですけど、でてこなかったんでもっとくわしくおしえてください。 <BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=417">[417]</a>  スタート画面でランダムにバットを振るオブジェクトを作って 動かしてみると、ぎりぎりまで振ってその後 もとの位置に戻ってまたランダムに振るはずが、 振り切ったまま戻ってきません。  どこが悪いんでしょうか? 教えてください。  お願いします。m(_  _)m<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=519">[519]</a>  敵に弾があたると弾が消えるように  $tama.die();  を入れたんですが玉が消えません。 間違ってるところがあったら教えてください。  お願いします。<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=576">[576]</a>  Tonyuの使用及び ゲームを作るのは無料ですか？
+<BR>
+<li>
+<a href="http://hoge1e3.sakura.ne.jp/tonyu/joyful/joyful.cgi?mode=res&no=938">[938]</a>  "z"を押すと自キャラが変身がし、攻撃方法を変化させたいんです。そして、また押すと元に戻るみたいに。1応、3段階ぐらいを考えてるんですが・・・。さらに、ヘルプを見てアイテムの取り方も分かったような気がしたんですが、まったく分かってなかったです(涙)。激シロートなので、分かりやすく教えてもらえると嬉しいです。いつかは、教えられるぐらいになりたいですね・・・(無理かな・・・)。無知な私は、完成するのか・・・(汗)。<BR>
+</ul>
+
+***
+
+<a href="./">Wikiトップ</a>
+

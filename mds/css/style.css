@@ -49,8 +49,10 @@ hr {
 }
 
 ul {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    /* margin-top: 6px;
+    margin-bottom: 6px; */
+    /* padding-top: 0px;
+    padding-bottom: 0px; */
 }
 
 a {
@@ -77,6 +79,31 @@ a:visited {
 a:hover {
     color:#0a0;
     background-color:#bea;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #cccccc;
+}
+th {
+    border: 0px solid #999999;
+}
+dt {
+    font-weight:bold;
+}
+
+pre {
+  border:solid;
+  border-width:1px;
+  border-color:#aaa;
+  /* margin-top:5px;
+  margin-bottom:5px; */
+  padding:8px 4px 8px 4px;
+  background-color:#efe;
+  font-size:13px;
 }
 
 

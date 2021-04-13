@@ -22,7 +22,7 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
   - switch、case、defaultは変数名等には使えなくなる
 - JoyStickの不具合を修正
   - JoyStickを刺して抜いた後、Tonyu1を再起動するとJoyStick取得が重くなる不具合を修正
-    - BBS No.12342に該当 (http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=12342)
+    - [BBS No.12342](http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=12342) に該当
   - JoyStick１つ接続の時、２つ目のJoyStickのボタンも押下しているように取得される不具合を修正
   - １フレーム内にJoyStick取得を複数回行うと、その分getButton()が増えてしまうのを修正
     - getkey()と同じ挙動にした（getButton()等の取得値は１フレームごとに+1）
@@ -44,7 +44,7 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 - MidiPlay.exeは現在使っていないので削除
 
 [Tonyu1_27_2019_0930.zip](./dl/Tonyu1_27_2019_0930.zip)
-- Midiプレイヤー（Kernel/MidiPlayer2.exe）にYellowMusicPlayerを使用するようにしました．
+- Midiプレイヤー（Kernel/MidiPlayer2.exe）に[YellowMusicPlayer](https://www.tonyu.jp/project/viewProject.cgi?mainkey=667&)を使用するようにしました．
 
 [Tonyu1_27_2015_0714.zip](./dl/Tonyu1_27_2015_0714.zip)
 - 描画方式を設定ファイル（Kernel/Cookies.ini）に保存するようにしました

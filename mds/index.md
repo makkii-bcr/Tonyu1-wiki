@@ -13,11 +13,11 @@ Version 1.28 - [バージョンアップ履歴](./dl-history.html)
 ***
 - [まずはゲームをやってみる](./get-started.html) - Tonyuでこんなことができます。
 - [チュートリアル](./tutorial.html) - とりあえずゲームを作ってみたい方はこちらから
-- FAQ
-- 各種ウィンドウの使い方/オプション
+- [FAQ](./faq.html)
+- [各種ウィンドウの使い方/オプション](./wnd-use-opt.html)
 - [命令リファレンス](./reference.html)
-- エラーメッセージ
+- [エラーメッセージ](./error-mes.html)
 ***
 - [Tonyu Systemについて](./about2.html)
-- 謝辞
+- [謝辞](./thanks.html)
 ***

@@ -14,7 +14,7 @@
     - switch、case、defaultは変数名等には使えなくなる
   - JoyStickの不具合を修正
     - JoyStickを刺して抜いた後、Tonyu1を再起動するとJoyStick取得が重くなる不具合を修正
-      - BBS No.12342に該当 (http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=12342)
+      - [BBS No.12342](http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=12342) に該当
     - JoyStick１つ接続の時、２つ目のJoyStickのボタンも押下しているように取得される不具合を修正
     - １フレーム内にJoyStick取得を複数回行うと、その分getButton()が増えてしまうのを修正
       - getkey()と同じ挙動にした（getButton()等の取得値は１フレームごとに+1）
@@ -36,7 +36,7 @@
   - Readme.txtの内容更新
   - MidiPlay.exeは現在使っていないので削除
 - 2019/09/30
-  - Midiプレイヤー（Kernel/MidiPlayer2.exe）にYellowMusicPlayerを使用するようにしました．
+  - Midiプレイヤー（Kernel/MidiPlayer2.exe）に[YellowMusicPlayer](https://www.tonyu.jp/project/viewProject.cgi?mainkey=667&)を使用するようにしました．
 - 2015/07/14
   - 描画方式を設定ファイル（Kernel/Cookies.ini）に保存するようにしました
 - 2015/06/30
@@ -266,6 +266,8 @@
 0.103 クラスリストの削除、並び替え追加、+=演算子追加  
 0.102 $map.setBackGround?, $map.setBGColorメソッド追加  
 0.101 ビットマップ読み込みの不具合を修正  
+
+***
 
 [ダウンロード](./download.html)
 
