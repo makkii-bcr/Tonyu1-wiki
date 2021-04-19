@@ -4,53 +4,71 @@
 ## バージョンアップ履歴
 
 1.28
-- 2021/04/06
-  - Tonyu1_28_2021_0404で発生した不具合を修正
-  - Tonyu.exeにcmmlファイルをD&Dや、cmmlファイルを関連付けして開いた時などに、自動的にプロジェクトを開く機能が効かなくなっていたのを修正
-  - オプションからサウンドoffにするとエラーが出るのを修正
 
-- 2021/04/04
-  - switch文の実装
-    - switch、case、defaultは変数名等には使えなくなる
-  - JoyStickの不具合を修正
-    - JoyStickを刺して抜いた後、Tonyu1を再起動するとJoyStick取得が重くなる不具合を修正
-      - [BBS No.12342](http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=12342) に該当
-    - JoyStick１つ接続の時、２つ目のJoyStickのボタンも押下しているように取得される不具合を修正
-    - １フレーム内にJoyStick取得を複数回行うと、その分getButton()が増えてしまうのを修正
-      - getkey()と同じ挙動にした（getButton()等の取得値は１フレームごとに+1）
-  - ウィンドウが非アクティブ時の挙動修正
-    - FPSが下がりにくいように修正（スリープ時間を100ms→1msに変更）
-      - または、$Optionsのsleep_time値やパフォーマンスウィンドウのCPU負担の設定時間分スリープする
-    - タスクバーから最小化時、非アクティブと検知されない不具合を修正（キー入力・CPU使用率）
-  - 効果音のDelayを3000に変更（Vista以降）
-  - ファイルを開く・保存するダイアログを新しいタイプに変更（Vista以降）
-  - エディタ編集時、ゲーム側でキーが反応しないように修正
-  - エディタの30000バイト制限を廃止（Win9x系は制限を残した）
-  - 稀にMidi再生・停止が失敗する不具合を軽減
-  - ウィンドウやUIの大きさ・位置の修正
-  - 文言の修正、URL・年の更新
+&ensp;2021/04/06
+
+- Tonyu1_28_2021_0404で発生した不具合を修正
+- Tonyu.exeにcmmlファイルをD&Dや、cmmlファイルを関連付けして開いた時などに、自動的にプロジェクトを開く機能が効かなくなっていたのを修正
+- オプションからサウンドoffにするとエラーが出るのを修正
+
+&ensp;2021/04/04
+
+- switch文の実装
+  - switch、case、defaultは変数名等には使えなくなる
+- JoyStickの不具合を修正
+  - JoyStickを刺して抜いた後、Tonyu1を再起動するとJoyStick取得が重くなる不具合を修正
+    - [BBS No.12342](http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=12342) に該当
+  - JoyStick１つ接続の時、２つ目のJoyStickのボタンも押下しているように取得される不具合を修正
+  - １フレーム内にJoyStick取得を複数回行うと、その分getButton()が増えてしまうのを修正
+    - getkey()と同じ挙動にした（getButton()等の取得値は１フレームごとに+1）
+- ウィンドウが非アクティブ時の挙動修正
+  - FPSが下がりにくいように修正（スリープ時間を100ms→1msに変更）
+    - または、$Optionsのsleep_time値やパフォーマンスウィンドウのCPU負担の設定時間分スリープする
+  - タスクバーから最小化時、非アクティブと検知されない不具合を修正（キー入力・CPU使用率）
+- 効果音のDelayを3000に変更（Vista以降）
+- ファイルを開く・保存するダイアログを新しいタイプに変更（Vista以降）
+- エディタ編集時、ゲーム側でキーが反応しないように修正
+- エディタの30000バイト制限を廃止（Win9x系は制限を残した）
+- 稀にMidi再生・停止が失敗する不具合を軽減
+- ウィンドウやUIの大きさ・位置の修正
+- 文言の修正、URL・年の更新
 
 1.27
-- 2019/12/05
-  - [Midiプレイヤーの不具合修正](https://www.tonyu.jp/project/viewComment.cgi?mainkey=4513&)
-  - Readme.txtの内容更新
-  - MidiPlay.exeは現在使っていないので削除
-- 2019/09/30
-  - Midiプレイヤー（Kernel/MidiPlayer2.exe）に[YellowMusicPlayer](https://www.tonyu.jp/project/viewProject.cgi?mainkey=667&)を使用するようにしました．
-- 2015/07/14
-  - 描画方式を設定ファイル（Kernel/Cookies.ini）に保存するようにしました
-- 2015/06/30
-  - $InputBox.open で位置と大きさを指定できるようにしました。
-  - Mathクラスのpow関数で、乗数が整数の場合に誤差が出る不具合を直しました
-- 2015/02/13
-  - Windows8 対応パッチを組み込みました
-  - Player.exeを小さくしました
-  - Mathクラスに 指数関数・対数関数を追加しました
-- 2015/02/12
-- 2015/01/10
-  - Window8対応
-- 2014/01/29
-  - $Options.setの sleep_time の動作を変更：設定値をdefault.tonyuprjには書き込まないようにしました。
+
+&ensp;2019/12/05
+
+- [Midiプレイヤーの不具合修正](https://www.tonyu.jp/project/viewComment.cgi?mainkey=4513&)
+- Readme.txtの内容更新
+- MidiPlay.exeは現在使っていないので削除
+
+&ensp;2019/09/30
+
+- Midiプレイヤー（Kernel/MidiPlayer2.exe）に[YellowMusicPlayer](https://www.tonyu.jp/project/viewProject.cgi?mainkey=667&)を使用するようにしました．
+
+&ensp;2015/07/14
+
+- 描画方式を設定ファイル（Kernel/Cookies.ini）に保存するようにしました
+
+&ensp;2015/06/30
+
+- $InputBox.open で位置と大きさを指定できるようにしました。
+- Mathクラスのpow関数で、乗数が整数の場合に誤差が出る不具合を直しました
+
+&ensp;2015/02/13
+
+- Windows8 対応パッチを組み込みました
+- Player.exeを小さくしました
+- Mathクラスに 指数関数・対数関数を追加しました
+
+&ensp;2015/02/12
+
+&ensp;2015/01/10
+
+- Window8対応
+
+&ensp;2014/01/29
+
+- $Options.setの sleep_time の動作を変更：設定値をdefault.tonyuprjには書き込まないようにしました。
 
 1.26
 - $Options.setメソッドに sleep_time オプション追加

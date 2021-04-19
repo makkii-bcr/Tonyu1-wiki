@@ -3,10 +3,11 @@
   "description": "Tonyu System 1 のwiki",
   "version": "1.0.0",
   "main": "tools/conv.js",
-  "type": "module",
   "scripts": {
     "build": "node tools/conv.js",
-    "deploy": "node tools/conv.js --deploy",
+    "build2": "tsc tools/conv2.ts && node tools/conv2.js",
+    "build3": "ts-node tools/conv2",
+    "deploy": "ts-node tools/conv2 --deploy",
     "server": "http-server -o /docs/",
     "start": "npm run build && npm run server"
   },
@@ -24,7 +25,13 @@
   },
   "homepage": "https://github.com/makkii-bcr/Tonyu1-wiki#readme",
   "devDependencies": {
+    "@types/marked": "^2.0.2",
+    "@types/node": "^14.14.41",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "http-server": "^0.12.3",
-    "marked": "^2.0.2"
+    "marked": "^2.0.3",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
   }
 }
