@@ -77,7 +77,7 @@ function convMain(): void {
 
 /**
  * mdファイルを読み込んで、変換、HTMLデータを返す
- * @param {String} htmlPath 
+ * @param htmlPath 
  * @returns htmlのデータ
  */
 function convMdToHtml(htmlPath: string): string {
@@ -88,8 +88,8 @@ function convMdToHtml(htmlPath: string): string {
 
 /**
  * mdファイルパスをhtmlファイルパスにする
- * @param {String} mdDir 
- * @param {String} mdPath 
+ * @param mdDir 
+ * @param mdPath 
  * @returns 
  */
 function toHtmlPath(mdDir: string, mdPath: string): string {
@@ -101,7 +101,7 @@ function toHtmlPath(mdDir: string, mdPath: string): string {
 
 /**
  * ファイルの一覧を返す（サブフォルダ内のファイル含む）
- * @param {String} dir 
+ * @param dir 
  * @returns ファイルパス配列（絶対パス）
  */
 function lsrSync(dir: string): string[] {
@@ -122,7 +122,7 @@ function lsrSync(dir: string): string[] {
 
 /**
  * <head><title>に入れる文字列を取得する（<h1>～<h3>の文字列を取得）
- * @param {String} htmlData
+ * @param htmlData 
  * @returns 
  */
 function getTitle(htmlData: string): string {

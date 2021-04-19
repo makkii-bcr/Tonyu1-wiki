@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "main": "tools/conv.js",
   "scripts": {
-    "build": "node tools/conv.js",
-    "build2": "tsc tools/conv2.ts && node tools/conv2.js",
-    "build3": "ts-node tools/conv2",
-    "deploy": "ts-node tools/conv2 --deploy",
+    "build": "ts-node tools/conv",
+    "build2": "tsc tools/conv.ts && node tools/conv.js",
+    "deploy": "ts-node tools/conv --deploy",
     "server": "http-server -o /docs/",
     "start": "npm run build && npm run server"
   },

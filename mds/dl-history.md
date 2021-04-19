@@ -5,13 +5,13 @@
 
 1.28
 
-&ensp;2021/04/06
+&emsp;2021/04/06
 
 - Tonyu1_28_2021_0404で発生した不具合を修正
 - Tonyu.exeにcmmlファイルをD&Dや、cmmlファイルを関連付けして開いた時などに、自動的にプロジェクトを開く機能が効かなくなっていたのを修正
 - オプションからサウンドoffにするとエラーが出るのを修正
 
-&ensp;2021/04/04
+&emsp;2021/04/04
 
 - switch文の実装
   - switch、case、defaultは変数名等には使えなくなる
@@ -35,38 +35,38 @@
 
 1.27
 
-&ensp;2019/12/05
+&emsp;2019/12/05
 
 - [Midiプレイヤーの不具合修正](https://www.tonyu.jp/project/viewComment.cgi?mainkey=4513&)
 - Readme.txtの内容更新
 - MidiPlay.exeは現在使っていないので削除
 
-&ensp;2019/09/30
+&emsp;2019/09/30
 
 - Midiプレイヤー（Kernel/MidiPlayer2.exe）に[YellowMusicPlayer](https://www.tonyu.jp/project/viewProject.cgi?mainkey=667&)を使用するようにしました．
 
-&ensp;2015/07/14
+&emsp;2015/07/14
 
 - 描画方式を設定ファイル（Kernel/Cookies.ini）に保存するようにしました
 
-&ensp;2015/06/30
+&emsp;2015/06/30
 
 - $InputBox.open で位置と大きさを指定できるようにしました。
 - Mathクラスのpow関数で、乗数が整数の場合に誤差が出る不具合を直しました
 
-&ensp;2015/02/13
+&emsp;2015/02/13
 
 - Windows8 対応パッチを組み込みました
 - Player.exeを小さくしました
 - Mathクラスに 指数関数・対数関数を追加しました
 
-&ensp;2015/02/12
+&emsp;2015/02/12
 
-&ensp;2015/01/10
+&emsp;2015/01/10
 
 - Window8対応
 
-&ensp;2014/01/29
+&emsp;2014/01/29
 
 - $Options.setの sleep_time の動作を変更：設定値をdefault.tonyuprjには書き込まないようにしました。
 
