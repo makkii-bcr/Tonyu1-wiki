@@ -1,0 +1,4 @@
+Loading ...
+
+しばらく待っても「Loading」が消えない場合は、[Normal版](./index0.html)をお試しください。
+

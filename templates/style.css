@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+body {
+    font-size:14px;
+    /* line-height:150%; */
+    /* margin-top: 0px;
+    margin-bottom: 0px; */
+}
+
+h1, h2, h3 {
+    background: #df8;
+    margin-bottom: 0px;
+    border-left: #af6 solid 10px;
+    padding: 1px 2px 1px 5px;
+    line-height:120%;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+p {
+    /* line-height: 120%; */
+    /* margin-top: 12px;
+    margin-bottom: 12px; */
+}
+
+.nav_pc > p {
+    /* line-height: 120%; */
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+hr {
+    border-style:ridge;
+    /* border-color:#8b8; */
+    border-color:#aca;
+    border-width: 1px 0px;
+    margin-left: 0px;
+    margin-right: 6px;
+}
+
+ul {
+    /* margin-top: 6px;
+    margin-bottom: 6px; */
+    /* padding-top: 0px;
+    padding-bottom: 0px; */
+}
+
+a {
+    /* line-height:100%;
+    margin-top: 0px;
+    margin-bottom: 0px; */
+}
+
+a:link {
+    color:#080;
+    /* background-color:inherit; */
+}
+
+a:active {
+    color:#25c;
+    background-color:#cde;
+}
+
+a:visited {
+    color:#080;
+    background-color:inherit;
+}
+
+a:hover {
+    color:#0a0;
+    background-color:#bea;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #cccccc;
+}
+th {
+    border: 0px solid #999999;
+}
+dt {
+    font-weight:bold;
+}
+
+pre {
+  border:solid;
+  border-width:2px;
+  border-color:#fdc;
+  /* margin-top:5px;
+  margin-bottom:5px; */
+  padding:8px 4px 8px 4px;
+  background-color:#fed;
+  font-size:13px;
+}
+
+
+.container{
+    flex:1;
+    display: flex;
+}
+.container_main{
+    flex:1;
+}
+.nav_mobile{
+    display: none;
+}
+.nav_pc{
+    display: block;
+    font-size: 12px;
+}
+header{
+}
+nav{
+}
+aside{
+    font-size: 12px;
+    margin-right: 16px;
+}
+main{
+    flex: 1;
+}
+footer{
+    font-size: 12px;
+}
+
+/* * {
+    outline: 1px solid #fcc;
+} */
+
+@media screen and (max-width: 600px) {
+    body {
+        overflow: auto;
+    }
+    .container {
+        display: block;
+    }
+    .nav_mobile{
+        display: block;
+        font-size: 12px;
+    }
+    .nav_pc{
+        display: none;
+    }
+    main {
+        display: block;
+    }
+    aside {
+        display: none;
+        font-size: 12px;
+        line-height: 120%;
+    }
+}

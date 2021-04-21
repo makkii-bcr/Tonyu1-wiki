@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 // import marked from 'marked';
 import marked = require('marked');
+import { exit } from 'process';
 
 const docsDirName = 'docs';
 const mdsDirName = 'mds';
@@ -10,17 +11,21 @@ const templatesDirName = 'templates';
 convMain();
 
 function convMain(): void {
-    const isDeploy = process.argv.some((v) => v === "--deploy");
+    const isDeploy = process.argv.some((v) => v === '--deploy');
     const curDir = process.cwd();
 
     // docsを全削除
-    fs.rmSync(path.join(curDir, 'docs'), { recursive: true, force: true });
+    // fs.rmSync(path.join(curDir, 'docs'), { recursive: true, force: true });
 
     const mdDir = path.join(curDir, mdsDirName);
     const mdPaths = lsrSync(mdDir);
 
-    const tmplPath = path.join(curDir, templatesDirName, 'template.html');
-    const tmplHtmlData = fs.readFileSync(tmplPath);
+    const tmplPath = path.join(curDir, templatesDirName, 'template-spa.html');
+    const tmplHtmlData = Buffer.from(fs.readFileSync(tmplPath)).toString();
+    const tmplJsPath = path.join(curDir, templatesDirName, 'template-spa.js');
+    const tmplJsData = Buffer.from(fs.readFileSync(tmplJsPath)).toString();
+    const tmplCssPath = path.join(curDir, templatesDirName, 'style.css');
+    const tmplCssData = Buffer.from(fs.readFileSync(tmplCssPath)).toString();
 
     // 共通部品md
     const sidebarPath = path.join(mdDir, 'tp-sidebar.md');
@@ -32,6 +37,8 @@ function convMain(): void {
     const footerPath = path.join(mdDir, 'tp-footer.md');
     const footerHtmlData = convMdToHtml(footerPath);
 
+
+    let htmlDataSum = '';
     const dlDirPath = path.join(curDir, 'mds', 'dl');
 
     mdPaths.forEach(mdPath => {
@@ -41,24 +48,17 @@ function convMain(): void {
             }
             // markdown -> html 変換
             const mdData = fs.readFileSync(mdPath);
-            const htmlData = marked(mdData.toString());
+            let htmlData = marked(mdData.toString());
 
-            // テンプレートhtmlに、markdownのhtmlを埋め込み
-            const tmplData = Buffer.from(tmplHtmlData).toString();
-            const outData = tmplData.replace('%content', htmlData)
-                .replace(/%title/g, getTitle(htmlData))
-                .replace(/%sidebar/g, sidebarHtmlData)
-                .replace(/%nav_pc/g, navPcHtmlData)
-                .replace(/%nav_mobile/g, navMobileHtmlData)
-                .replace(/href="\.\/"/g, 'href="./index0.html"')
-                .replace(/%footer/g, footerHtmlData);
+            const mdName = path.parse(mdPath).name;
+            // const displayStyle = 'none';
+            const displayStyle = mdName == 'loading' ? 'block' : 'none';
 
-            let htmlPath = toHtmlPath(mdDir, mdPath);
-            htmlPath = htmlPath.replace(/index.html$/g, 'index0.html');
-            fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
-            fs.writeFileSync(htmlPath, outData);
+            htmlDataSum += '<div style="display:' + displayStyle + '" id="' + mdName + '" class="pagediv">\n';
+            htmlDataSum += htmlData;
+            htmlDataSum += '\n</div>\n';
 
-            console.log("convert md:", htmlPath);
+            console.log('convert md:', mdPath);
         } else {
             // dlフォルダはデプロイ時のみコピー
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
@@ -72,9 +72,30 @@ function convMain(): void {
                 path.join(mdDir, relativePath),
                 outPath
             );
-            console.log("copy file :", outPath);
+            console.log('copy file :', outPath);
         }
     });
+
+
+    // テンプレートhtmlに、markdownのhtmlを埋め込み
+    const outData = tmplHtmlData.replace(/%content/g, htmlDataSum)
+        .replace(/%title/g, getTitle(htmlDataSum))
+        .replace(/%sidebar/g, sidebarHtmlData)
+        .replace(/%nav_pc/g, navPcHtmlData)
+        .replace(/%nav_mobile/g, navMobileHtmlData)
+        .replace(/%footer/g, footerHtmlData)
+        .replace(/"%script"/g, tmplJsData)
+        .replace(/\/\*%css\*\//g, tmplCssData)
+        .replace(/href=\"(\.\/)*([a-zA-Z1-9-_]*)(.html)*\"/g,
+            function (match, p1, p2, p3, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
+                //console.log(arguments.length, match, p1, p2, p3, offset);
+                if (p2 == '') p2 = 'index';
+                return 'href="#!' + p2 + '" onclick="showPage(\'' + p2 + '\');"';
+            });
+
+    const htmlPath = toHtmlPath(mdDir, "index.html");
+    fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
+    fs.writeFileSync(htmlPath, outData);
 }
 
 /**
@@ -130,7 +151,7 @@ function lsrSync(dir: string): string[] {
 function getTitle(htmlData: string): string {
     const start = htmlData.match(/<h[1-3]\s*.*?>/);
     const end = htmlData.match(/<\/h[1-3]>/);
-    let title = "";
+    let title = '';
     if (start != null && end != null) {
         const startPos = start.index! + start[0].length;
         const endPos = end.index;
