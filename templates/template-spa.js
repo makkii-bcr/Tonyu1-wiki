@@ -1,11 +1,23 @@
 function showPage(page, isNotScroll) {
-    var pages = document.getElementsByClassName('pagediv');
-    for (var i = 0; i < pages.length; i++) {
-        pages[i].style.display = 'none';
+    if (isNotScroll) {
+        var pages = document.getElementsByClassName('pagediv');
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].style.display = 'none';
+        }
+        var showPageDiv = document.getElementById(page);
+        showPageDiv.style.display = 'block';
+        loadImg(showPageDiv);
+    } else {
+        setTimeout(function () { window.scrollBy(0, -99999999); }, 0);
     }
-    document.getElementById(page).style.display = 'block';
-    if (!isNotScroll) {
-        window.scrollBy(0, -99999999);
+}
+function loadImg(showPageDiv) {
+    var imgs = showPageDiv.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+        var elem = imgs[i];
+        var src = elem.getAttribute('src-t');
+        if (!src) break;
+        elem.setAttribute('src', src);
     }
 }
 
@@ -14,9 +26,13 @@ function catHashTag() {
     var p = l.search('#!');
     var page = "index";
     if (p != -1) {
-        page = l.substring(l.search('#!') + 2, l.length);
+        page = l.substring(p + 2, l.length);
+        var p2 = page.search('#');
+        if (p2 != -1) {
+            page = page.substring(0, p2);
+        }
     }
-    // console.log(page);
+    console.log(page);
     return page;
 }
 

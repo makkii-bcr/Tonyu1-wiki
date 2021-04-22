@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 // import marked from 'marked';
 import marked = require('marked');
-import { exit } from 'process';
+import imageSize from 'image-size';
 
 const docsDirName = 'docs';
 const mdsDirName = 'mds';
@@ -52,7 +52,7 @@ function convMain(): void {
 
             const mdName = path.parse(mdPath).name;
             // const displayStyle = 'none';
-            const displayStyle = mdName == 'loading' ? 'block' : 'none';
+            const displayStyle = mdName == 'a-loading' ? 'block' : 'none';
 
             htmlDataSum += '<div style="display:' + displayStyle + '" id="' + mdName + '" class="pagediv">\n';
             htmlDataSum += htmlData;
@@ -64,6 +64,12 @@ function convMain(): void {
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
                 return;
             }
+            if (path.parse(mdPath).ext == ".png") {
+                const imgSize = imageSize(mdPath);
+                console.log(path.parse(mdPath).base, imgSize.width, imgSize.height);
+            }
+            
+
             // ファイルコピー(mds -> docs)
             const relativePath = mdPath.replace(mdDir, '');
             const outPath = path.join(curDir, docsDirName, relativePath);
@@ -83,15 +89,20 @@ function convMain(): void {
         .replace(/%sidebar/g, sidebarHtmlData)
         .replace(/%nav_pc/g, navPcHtmlData)
         .replace(/%nav_mobile/g, navMobileHtmlData)
-        .replace(/%footer/g, footerHtmlData)
         .replace(/"%script"/g, tmplJsData)
         .replace(/\/\*%css\*\//g, tmplCssData)
-        .replace(/href=\"(\.\/)*([a-zA-Z1-9-_]*)(.html)*\"/g,
-            function (match, p1, p2, p3, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
+        .replace(/src=\"(.*)\"/g,
+            function (match, p1, offset, string) { // <img src="xxx.png">を<img src-t="xxx.png">にする
+                return 'src-t="' + p1 + '"';
+            })
+        .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.html)*(#[a-zA-Z0-9-_]*)*\"/g,
+            function (match, p1, p2, p3, p4, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
                 //console.log(arguments.length, match, p1, p2, p3, offset);
                 if (p2 == '') p2 = 'index';
-                return 'href="#!' + p2 + '" onclick="showPage(\'' + p2 + '\');"';
-            });
+                if (p4 == null) p4 = '';
+                return 'href="#!' + p2 + p4 + '" onclick="showPage(\'' + p2 + '\');"';
+            })
+        .replace(/%footer/g, footerHtmlData);
 
     const htmlPath = toHtmlPath(mdDir, "index.html");
     fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
