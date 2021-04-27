@@ -15,6 +15,10 @@ Tonyu1 Wikiを更新しやすくするため、[旧Wiki](http://hoge1e3.sakura.n
 1. mdsディレクトリ内のmdファイルを編集します
    - フォーマットはGFM（GitHub Flavored Markdown）です
 1. node.jsをインストールし、`npm i && npm start`を実行する
-   - HTMLが生成され、ブラウザが起動してWikiページが表示されます。
+   - HTMLが生成され、ブラウザが起動してWikiページが表示されます
 
-mainブランチにpushした際、新Wikiページに自動的に反映されます。
+## その他
+
+- Wikiページはデフォルトでは、１ページで表示するSinglePage版です
+- Normal版にすると普通の複数ページのWebページとなります
+- mainブランチにpushした際、新Wikiページに自動的に反映されます
