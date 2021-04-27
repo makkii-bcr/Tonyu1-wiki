@@ -2,13 +2,21 @@ function showPage(page, isNotScroll) {
     if (isNotScroll) {
         var pages = document.getElementsByClassName('pagediv');
         for (var i = 0; i < pages.length; i++) {
-            pages[i].style.display = 'none';
+            var p = pages[i];
+            if (p.style.display != 'none') {
+                p.style.display = 'none';
+            }
         }
         var showPageDiv = document.getElementById(page);
-        showPageDiv.style.display = 'block';
+        if (showPageDiv != null) {
+            showPageDiv.style.display = 'block';
+        } else {
+            var notFoundPageDiv = document.getElementById('a-notfound');
+            notFoundPageDiv.style.display = 'block';
+        }
         loadImg(showPageDiv);
     } else {
-        setTimeout(function () { window.scrollBy(0, -99999999); }, 0);
+        setTimeout(function () { window.scrollBy(0, -9999999); }, 0);
     }
 }
 function loadImg(showPageDiv) {

@@ -37,7 +37,7 @@ function convMain(): void {
     const footerPath = path.join(mdDir, 'tp-footer.md');
     const footerHtmlData = convMdToHtml(footerPath);
 
-    const imgAry: { name: string; width: number; height: number; }[] = [];
+    const imgAry: { path: string; width: number; height: number; }[] = [];
 
     let htmlDataSum = '';
     const dlDirPath = path.join(curDir, 'mds', 'dl');
@@ -52,7 +52,6 @@ function convMain(): void {
             let htmlData = marked(mdData.toString());
 
             const mdName = path.parse(mdPath).name;
-            // const displayStyle = 'none';
             const displayStyle = mdName == 'a-loading' ? 'block' : 'none';
 
             htmlDataSum += '<div style="display:' + displayStyle + '" id="' + mdName + '" class="pagediv">\n';
@@ -65,14 +64,14 @@ function convMain(): void {
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
                 return;
             }
-            if (path.parse(mdPath).ext == ".png") {
+            if (path.parse(mdPath).ext == '.png') {
                 const imgSize = imageSize(mdPath);
                 imgAry.push({
-                    name: path.parse(mdPath).base,
+                    path: mdPath,
                     width: imgSize.width || 0,
                     height: imgSize.height || 0
                 });
-                console.log(path.parse(mdPath).base, imgSize.width, imgSize.height);
+                // console.log(path.parse(mdPath).base, imgSize.width, imgSize.height);
             }
 
             // ファイルコピー(mds -> docs)
@@ -100,13 +99,14 @@ function convMain(): void {
             function (match, p1, offset, string) {
                 // <img src="xxx.png">を<img src-t="xxx.png">にする
                 // imgタグにwidth,heightを追加する
-                const img = imgAry.find(obj => p1.lastIndexOf(obj.name)!=-1);
-                const width = img ? 'width="'+img.width+'"' : '';
-                const height = img ? 'height="'+img.height+'"' : '';
-                return 'src-t="' + p1 + '" ' + width + ' ' + height;
+                const img = imgAry.find(obj => path.join(mdDir, p1).indexOf(obj.path)!=-1);
+                const width = img ? ' width="'+img.width+'" ' : '';
+                const height = img ? ' height="'+img.height+'" ' : '';
+                return 'src-t="' + p1 + '"' + width + height;
             })
         .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.html)*(#[a-zA-Z0-9-_]*)*\"/g,
             function (match, p1, p2, p3, p4, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
+                if (p2 == 'index0') return match; // Normal版ページへ遷移できるように普通のリンクにしておく
                 //console.log(arguments.length, match, p1, p2, p3, offset);
                 if (p2 == '') p2 = 'index';
                 if (p4 == null) p4 = '';
@@ -114,7 +114,7 @@ function convMain(): void {
             })
         .replace(/%footer/g, footerHtmlData);
 
-    const htmlPath = toHtmlPath(mdDir, "index.html");
+    const htmlPath = toHtmlPath(mdDir, 'index.html');
     fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
     fs.writeFileSync(htmlPath, outData);
 }

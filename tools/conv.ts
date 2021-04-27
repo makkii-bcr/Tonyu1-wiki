@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 // import marked from 'marked';
 import marked = require('marked');
+import imageSize from 'image-size';
 
 const docsDirName = 'docs';
 const mdsDirName = 'mds';
@@ -10,11 +11,15 @@ const templatesDirName = 'templates';
 convMain();
 
 function convMain(): void {
-    const isDeploy = process.argv.some((v) => v === "--deploy");
+    const isDeploy = process.argv.some((v) => v === '--deploy');
     const curDir = process.cwd();
 
     // docsを全削除
-    fs.rmSync(path.join(curDir, 'docs'), { recursive: true, force: true });
+    try {
+        fs.rmSync(path.join(curDir, 'docs'), { recursive: true, force: true });
+    } catch(e) {
+        //fs.rmdirSync(path.join(curDir, 'docs'), { recursive: true });
+    }
 
     const mdDir = path.join(curDir, mdsDirName);
     const mdPaths = lsrSync(mdDir);
@@ -50,6 +55,14 @@ function convMain(): void {
                 .replace(/%sidebar/g, sidebarHtmlData)
                 .replace(/%nav_pc/g, navPcHtmlData)
                 .replace(/%nav_mobile/g, navMobileHtmlData)
+                .replace(/src=\"(.*?)\"/g,
+                    function (match, p1, offset, string) {
+                        // imgタグにwidth,heightを追加する
+                        const imgSize = imageSize(path.join(path.parse(mdPath).dir, p1));
+                        const width = imgSize ? 'width="'+imgSize.width+'"' : '';
+                        const height = imgSize ? 'height="'+imgSize.height+'"' : '';
+                        return 'src="' + p1 + '" ' + width + ' ' + height;
+                    })
                 .replace(/href="\.\/"/g, 'href="./index0.html"')
                 .replace(/%footer/g, footerHtmlData);
 
@@ -58,7 +71,7 @@ function convMain(): void {
             fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
             fs.writeFileSync(htmlPath, outData);
 
-            console.log("convert md:", htmlPath);
+            console.log('convert md:', htmlPath);
         } else {
             // dlフォルダはデプロイ時のみコピー
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
@@ -72,7 +85,7 @@ function convMain(): void {
                 path.join(mdDir, relativePath),
                 outPath
             );
-            console.log("copy file :", outPath);
+            console.log('copy file :', outPath);
         }
     });
 }
@@ -130,7 +143,7 @@ function lsrSync(dir: string): string[] {
 function getTitle(htmlData: string): string {
     const start = htmlData.match(/<h[1-3]\s*.*?>/);
     const end = htmlData.match(/<\/h[1-3]>/);
-    let title = "";
+    let title = '';
     if (start != null && end != null) {
         const startPos = start.index! + start[0].length;
         const endPos = end.index;
