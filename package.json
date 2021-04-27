@@ -15,7 +15,7 @@
     "run2:spa": "tsc tools/conv-spa.ts && node tools/conv-spa.js",
     "deploy": "ts-node tools/conv --deploy && ts-node tools/conv-spa --deploy",
     "server": "http-server -o /docs/",
-    "start": "npm run build && npm run server"
+    "start": "npm run run && npm run server"
   },
   "directories": {
     "doc": "docs"
