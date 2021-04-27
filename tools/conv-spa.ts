@@ -11,6 +11,8 @@ const templatesDirName = 'templates';
 convMain();
 
 function convMain(): void {
+    console.log('run conv-spa.ts');
+
     const isDeploy = process.argv.some((v) => v === '--deploy');
     const curDir = process.cwd();
 
@@ -58,7 +60,7 @@ function convMain(): void {
             htmlDataSum += htmlData;
             htmlDataSum += '\n</div>\n';
 
-            console.log('convert md:', mdPath);
+            console.log('  convert md:', mdPath);
         } else {
             // dlフォルダはデプロイ時のみコピー
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
@@ -71,7 +73,7 @@ function convMain(): void {
                     width: imgSize.width || 0,
                     height: imgSize.height || 0
                 });
-                // console.log(path.parse(mdPath).base, imgSize.width, imgSize.height);
+                // console.log('  ', path.parse(mdPath).base, imgSize.width, imgSize.height);
             }
 
             // ファイルコピー(mds -> docs)
@@ -82,7 +84,7 @@ function convMain(): void {
                 path.join(mdDir, relativePath),
                 outPath
             );
-            console.log('copy file :', outPath);
+            console.log('  copy file :', outPath);
         }
     });
 
@@ -107,7 +109,7 @@ function convMain(): void {
         .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.html)*(#[a-zA-Z0-9-_]*)*\"/g,
             function (match, p1, p2, p3, p4, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
                 if (p2 == 'index0') return match; // Normal版ページへ遷移できるように普通のリンクにしておく
-                //console.log(arguments.length, match, p1, p2, p3, offset);
+                //console.log('  ', arguments.length, match, p1, p2, p3, offset);
                 if (p2 == '') p2 = 'index';
                 if (p4 == null) p4 = '';
                 return 'href="#!' + p2 + p4 + '" onclick="showPage(\'' + p2 + '\');"';
