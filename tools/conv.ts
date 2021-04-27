@@ -73,7 +73,7 @@ function convMain(): void {
             fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
             fs.writeFileSync(htmlPath, outData);
 
-            console.log('  convert md:', htmlPath);
+            console.log('convert md:', htmlPath);
         } else {
             // dlフォルダはデプロイ時のみコピー
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
@@ -87,7 +87,7 @@ function convMain(): void {
                 path.join(mdDir, relativePath),
                 outPath
             );
-            console.log('  copy file :', outPath);
+            console.log('copy file :', outPath);
         }
     });
 }
