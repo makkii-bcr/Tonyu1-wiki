@@ -1,6 +1,6 @@
 
 
-[←前](./tutorial-basic02.html)&emsp;[次→](./tutorial-basic04.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic02.html)&emsp;[次→](./tr-basic04.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (3/9)
 ## オブジェクトを動かす
@@ -28,4 +28,4 @@ prog1.png
 
 ***
 
-[←前](./tutorial-basic02.html)&emsp;[次→](./tutorial-basic04.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic02.html)&emsp;[次→](./tr-basic04.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)

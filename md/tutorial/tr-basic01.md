@@ -1,5 +1,5 @@
 
-[←目次](./tutorial.html)&emsp;[次→](./tutorial-basic02.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←目次](./tutorial.html)&emsp;[次→](./tr-basic02.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (1/9)
 ## 新規プロジェクトを作る
@@ -14,4 +14,4 @@ tonyu-all.png
 
 ***
 
-[←目次](./tutorial.html)&emsp;[次→](./tutorial-basic02.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←目次](./tutorial.html)&emsp;[次→](./tr-basic02.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)

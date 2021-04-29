@@ -1,6 +1,6 @@
 
 
-[←前](./tutorial-basic05.html)&emsp;[次→](./tutorial-basic07.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic05.html)&emsp;[次→](./tr-basic07.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (6/9)
 ## オブジェクトのキャラクタパターンを指定する
@@ -39,4 +39,4 @@ pchnglast.png
 
 ***
 
-[←前](./tutorial-basic05.html)&emsp;[次→](./tutorial-basic07.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic05.html)&emsp;[次→](./tr-basic07.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)

@@ -1,6 +1,6 @@
 
 
-[←前](./tutorial-basic08.html)&emsp;[目次→](./tutorial.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic08.html)&emsp;[目次→](./tutorial.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (9/9)
 ## オブジェクトを追いかけるオブジェクト
@@ -52,4 +52,4 @@ if文の条件は
 
 ***
 
-[←前](./tutorial-basic08.html)&emsp;[目次→](./tutorial.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic08.html)&emsp;[目次→](./tutorial.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)

@@ -1,6 +1,6 @@
 
 
-[←前](./tutorial-basic07.html)&emsp;[次→](./tutorial-basic09.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic07.html)&emsp;[次→](./tr-basic09.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (8/9)
 ## カーソルキーで動くオブジェクト
@@ -42,4 +42,4 @@ getkeyの部分は次のようにいいかえられます
 
 ***
 
-[←前](./tutorial-basic07.html)&emsp;[次→](./tutorial-basic09.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic07.html)&emsp;[次→](./tr-basic09.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
