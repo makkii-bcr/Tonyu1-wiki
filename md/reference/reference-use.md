@@ -1,5 +1,5 @@
 
-[命令リファレンス](./reference.html)
+[命令リファレンス](./reference.html)&emsp;[Wikiトップ](./)
 
 ## 命令リファレンス:用途別
 
@@ -139,5 +139,5 @@
 
 ***
 
-[命令リファレンス](./reference.html)
+[命令リファレンス](./reference.html)&emsp;[Wikiトップ](./)
 

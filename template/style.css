@@ -98,9 +98,10 @@ table {
 
 td {
     border: 1px solid #ccc;
+    padding: 2px 5px 2px 5px;
 }
 th {
-    border: 0px solid #999;
+    border: 1px solid #ccc;
 }
 dt {
     font-weight:bold;
