@@ -10,20 +10,20 @@ Tonyu1 Wikiを更新しやすくするため、[旧Wiki](http://hoge1e3.sakura.n
 
 ## 指摘・修正など
 
-- 指摘・情報提供などを、Issue登録や連絡などいただいた場合は、何か対応するかもしれません。  
-- Pull requestで修正・ページ追加等していただいた場合は、取り込むかもしれません。
+- 指摘・情報提供などを、Issue登録や連絡などいただいた場合は、何か対応するかもしれません
+- Pull requestで修正・ページ追加等していただいた場合は、取り込むかもしれません
 
 ## wiki作り方
 
-1. mdsディレクトリ内のmdファイルを編集します
+1. mdディレクトリ内のmdファイルを編集します
    - フォーマットはGFM（GitHub Flavored Markdown）です
-1. node.jsをインストールし、`npm i && npm start`を実行する
+1. node.jsをインストールし、`npm i && npm start`を実行します
    - HTMLが生成され、ブラウザが起動してWikiページが表示されます
 
 ## その他
 
 - Wikiページはデフォルトでは、１ページで表示するSinglePage版です
-- Normal版にすると普通の複数ページのWebページとなります
+- Normal版にすると複数ページで表示する、普通のWebページとなります
 - mainブランチにpushした際、新Wikiページに自動的に反映されます
 
 [![Deploy (Github Pages)](https://github.com/makkii-bcr/Tonyu1-wiki/actions/workflows/ghpages-deploy.yml/badge.svg)](https://github.com/makkii-bcr/Tonyu1-wiki/actions/workflows/ghpages-deploy.yml)
