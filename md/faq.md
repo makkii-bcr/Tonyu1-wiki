@@ -7,112 +7,112 @@
 <HR>
 <P>
 <ul>
-<P><a href="faq.html#0"><!--folder--><font size=5>プログラミングTips</font>
+<P><a href="faq.md#0"><!--folder--><font size=5>プログラミングTips</font>
 </a>
-<P><li><a href="faq.html#1">
+<P><li><a href="faq.md#1">
 現在出現している敵の数を数えるにはどうすればよいでしょうか。
 </a>
-<P><li><a href="faq.html#2">
+<P><li><a href="faq.md#2">
 主人公や敵が壁を通り抜けないようにするにはどうすればよいでしょうか。
 </a>
-<P><li><a href="faq.html#3">
+<P><li><a href="faq.md#3">
 ↑のプログラムで作ったオブジェクトは、壁にめりこむようです。
 </a>
-<P><li><a href="faq.html#4">
+<P><li><a href="faq.md#4">
 ↑のプログラムで作ったオブジェクトは、斜め移動すると壁にひっかかります。スムーズに動かしたいです。
 </a>
-<P><li><a href="faq.html#5">
+<P><li><a href="faq.md#5">
 ↑のプログラムでは、壁が１種類しかありませんが、壁が何種類もある場合はどうやって判定しますか？
 </a>
-<P><li><a href="faq.html#6">
+<P><li><a href="faq.md#6">
 迷路のような狭い通路を上下左右に動く敵はどうやって作りますか
 
 </a>
-<P><li><a href="faq.html#7">
+<P><li><a href="faq.md#7">
 ジャンプアクションにおいて、
 敵やプレイヤーがダメージを受けたときに跳ね上がるようなモーションを入れるにはどうすればいいですか。
 </a>
-<P><li><a href="faq.html#8">
+<P><li><a href="faq.md#8">
 いくつかのメッセージの中からランダムに文字列を選ぶにはどうすればよいでしょうか。
 </a>
-<P><li><a href="faq.html#9">
+<P><li><a href="faq.md#9">
 車のように左右に曲がりながら進むようにはどうすればよいでしょうか。
 </a>
-<P><li><a href="faq.html#10">
+<P><li><a href="faq.md#10">
 弾をいろいろな方向に飛ばしたいのですが
 </a>
-<P><li><a href="faq.html#11">
+<P><li><a href="faq.md#11">
 敵弾をプレイヤーのいる方向に飛ばすにはどうすればよいでしょうか。
 </a>
-<P><li><a href="faq.html#12">
+<P><li><a href="faq.md#12">
 敵に耐久力(ライフ)を設定したいのですが
 </a>
-<P><li><a href="faq.html#13">
+<P><li><a href="faq.md#13">
 自機にもライフを設定したいのですが
 </a>
-<P><li><a href="faq.html#14">
+<P><li><a href="faq.md#14">
 
 チュートリアルで作ったシューティング
 は、自機の弾が貫通してしまいますが、貫通しないようにするにはどうすればよいでしょうか。
 </a>
-<P><li><a href="faq.html#15">
+<P><li><a href="faq.md#15">
 
 チュートリアルのシューティング
 で、残機を設定する（自機が死んだら次の自機が出現する）にはどうしたらよいでしょうか
 </a>
-<P><li><a href="faq.html#16">
+<P><li><a href="faq.md#16">
 
 チュートリアルのシューティング
 で、弾に射程距離をもたせるにはどうしたらよいでしょうか
 </a>
-<P><li><a href="faq.html#17">
+<P><li><a href="faq.md#17">
 ジャンプアクション
 で、敵をジャンプさせるにはどうすればよいでしょうか。
 </a>
-<P><li><a href="faq.html#18">
+<P><li><a href="faq.md#18">
 ジャンプアクション
 で、動くブロックを作るにはどうすればよいでしょうか。
 </a>
-<P><a href="faq.html#19"><!--folder--><font size=5>トラブルシューティング</font>
+<P><a href="faq.md#19"><!--folder--><font size=5>トラブルシューティング</font>
 </a>
-<P><li><a href="faq.html#20">
+<P><li><a href="faq.md#20">
 画面に文字を表示したくて，テキストオブジェクトを作ったのですが，実行すると消えてしまいます．
 </a>
-<P><li><a href="faq.html#21">
+<P><li><a href="faq.md#21">
 ランタイムを作ったら「ファイルへのアクセスが拒否されました」と表示されます。
 </a>
-<P><li><a href="faq.html#22">
+<P><li><a href="faq.md#22">
 キャラクタパターン画像の透過色部分が透過されずそのまま表示されてしまい
 ます
 </a>
-<P><li><a href="faq.html#23">
+<P><li><a href="faq.md#23">
 作ったゲームをやっているとだんだん処理が重くなっていきます
 </a>
-<P><li><a href="faq.html#24">
+<P><li><a href="faq.md#24">
 マップがうまく描けません。一ヶ所にマップパターンをおくと全体がそのパター
 ンでうめつくされてしまいます。
 </a>
-<P><li><a href="faq.html#25">
+<P><li><a href="faq.md#25">
 効果音が鳴りません。
 </a>
-<P><li><a href="faq.html#26">
+<P><li><a href="faq.md#26">
 文法があっているはずなのに「文法エラー」になります。
 </a>
-<P><li><a href="faq.html#27">
+<P><li><a href="faq.md#27">
 次のようなプログラムを書いたのですが、期待通りに動作しないよう
 です
 </a>
-<P><li><a href="faq.html#28">
+<P><li><a href="faq.md#28">
 ↑のFAQの通りにプログラムを直しましたが、動作がやたら重いです
 </a>
-<P><a href="faq.html#29"><!--folder--><font size=5>その他</font>
+<P><a href="faq.md#29"><!--folder--><font size=5>その他</font>
 </a>
-<P><li><a href="faq.html#30">
+<P><li><a href="faq.md#30">
 Tonyuで作ったプログラムを配布するときに、
 Tonyu製作者の許可が必要でしょうか。
 作ったプログラムの有料での配布は可能でしょうか。
 </a>
-<P><li><a href="faq.html#31">
+<P><li><a href="faq.md#31">
 チュートリアルで登場するSample.bmpのように、1枚のビットマップで複
 数のパターンを定義するにはどのようにしたらよいでしょうか
 </a>

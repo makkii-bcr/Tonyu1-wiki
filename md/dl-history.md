@@ -1,5 +1,5 @@
 
-[ダウンロード](./download.html)
+[ダウンロード](./download.md)
 
 ## バージョンアップ履歴
 
@@ -285,5 +285,5 @@
 
 ***
 
-[ダウンロード](./download.html)
+[ダウンロード](./download.md)
 

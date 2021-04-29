@@ -3,22 +3,22 @@
 
 ## 命令リファレンス
 
-[命令リファレンス:用途別](./reference-use.html)
+[命令リファレンス:用途別](./reference-use.md)
 
 ### 文法
-代入(=)
-算術演算(+-*/)
-演算代入(+= -=)
+代入
+算術演算
+演算代入
 変数
 .演算子  
-[if](./rf-if.html)
+[if](./rf-if.md)
 while
 for
 break
 switch
 注釈  
 メソッドの呼び出し
-メソッドの定義(function)
+メソッドの定義
 return  
 extends
 is  

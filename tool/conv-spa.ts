@@ -107,7 +107,7 @@ function convMain(): void {
                 const height = img ? ' height="'+img.height+'" ' : '';
                 return 'src-t="' + p1 + '"' + width + height;
             })
-        .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.html)*(#[a-zA-Z0-9-_]*)*\"/g,
+        .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
             function (match, p1, p2, p3, p4, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
                 if (p2 == 'index0') return match; // Normal版ページへ遷移できるように普通のリンクにしておく
                 //console.log(arguments.length, match, p1, p2, p3, offset);

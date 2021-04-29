@@ -1,13 +1,13 @@
 [
 [Wikiトップ](./)
 ]　[
-[命令リファレンス](./reference.html)
+[命令リファレンス](./reference.md)
 |
-[チュートリアル](./tutorial.html)
+[チュートリアル](./tutorial.md)
 |
-[ダウンロード](./download.html)
+[ダウンロード](./download.md)
 ]　[
-[全ページ](./all.html)
+[全ページ](./all.md)
 ]　[
 [Tonyu公式HP](https://www.tonyu.jp/)
 |

@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic04.html)&emsp;[次→](./tr-basic06.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic04.md)&emsp;[次→](./tr-basic06.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (5/9)
 ## オブジェクトをコピーする
@@ -19,4 +19,4 @@ pasted.png
 
 ***
 
-[←前](./tr-basic04.html)&emsp;[次→](./tr-basic06.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic04.md)&emsp;[次→](./tr-basic06.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)

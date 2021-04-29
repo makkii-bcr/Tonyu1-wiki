@@ -1,5 +1,5 @@
 
-[命令リファレンス](./reference.html)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
 
 ## if文
 条件にしたがって、手続きを振り分けます。
@@ -45,5 +45,5 @@ while(1) {
 
 ***
 
-[命令リファレンス](./reference.html)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
 

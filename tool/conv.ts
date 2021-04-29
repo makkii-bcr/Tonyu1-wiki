@@ -68,6 +68,8 @@ function convMain(): void {
                         return 'src="' + p1 + '" ' + width + ' ' + height;
                     })
                 .replace(/href="\.\/"/g, 'href="./index0.html"')
+                .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
+                        'href=\"$1$2.html$4"')
                 .replace(/%footer/g, footerHtmlData);
 
             let htmlPath = toHtmlPath(mdPath);

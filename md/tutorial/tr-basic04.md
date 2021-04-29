@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic03.html)&emsp;[次→](./tr-basic05.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic03.md)&emsp;[次→](./tr-basic05.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (4/9)
 ## オブジェクトを動かす2
@@ -74,4 +74,4 @@ if (条件) 処理
 
 ***
 
-[←前](./tr-basic03.html)&emsp;[次→](./tr-basic05.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic03.md)&emsp;[次→](./tr-basic05.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)

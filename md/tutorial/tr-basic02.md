@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic01.html)&emsp;[次→](./tr-basic03.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic01.md)&emsp;[次→](./tr-basic03.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (2/9)
 ## オブジェクトを作る
@@ -17,4 +17,4 @@ newObj.png
 
 ***
 
-[←前](./tr-basic01.html)&emsp;[次→](./tr-basic03.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic01.md)&emsp;[次→](./tr-basic03.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)

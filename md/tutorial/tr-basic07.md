@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic06.html)&emsp;[次→](./tr-basic08.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic06.md)&emsp;[次→](./tr-basic08.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (7/9)
 ## オブジェクトいろいろ
@@ -71,4 +71,4 @@ ExText.png
 
 ***
 
-[←前](./tr-basic06.html)&emsp;[次→](./tr-basic08.html)&emsp;[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[←前](./tr-basic06.md)&emsp;[次→](./tr-basic08.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)

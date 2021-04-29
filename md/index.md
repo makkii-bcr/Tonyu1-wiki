@@ -5,19 +5,19 @@
 2001-2021 (c) Hoge- Ship  
 https://www.tonyu.jp/  
 
-Version 1.28 - [バージョンアップ履歴](./dl-history.html)
+Version 1.28 - [バージョンアップ履歴](./dl-history.md)
 
 ***
-- [Tonyu1とは](./about.html)
-- [ダウンロード](./download.html)
+- [Tonyu1とは](./about.md)
+- [ダウンロード](./download.md)
 ***
-- [まずはゲームをやってみる](./get-started.html) - Tonyuでこんなことができます。
-- [チュートリアル](./tutorial.html) - とりあえずゲームを作ってみたい方はこちらから
-- [FAQ](./faq.html)
-- [各種ウィンドウの使い方/オプション](./wnd-use-opt.html)
-- [命令リファレンス](./reference.html)
-- [エラーメッセージ](./error-mes.html)
+- [まずはゲームをやってみる](./get-started.md) - Tonyuでこんなことができます。
+- [チュートリアル](./tutorial.md) - とりあえずゲームを作ってみたい方はこちらから
+- [FAQ](./faq.md)
+- [各種ウィンドウの使い方/オプション](./wnd-use-opt.md)
+- [命令リファレンス](./reference.md)
+- [エラーメッセージ](./error-mes.md)
 ***
-- [Tonyu Systemについて](./about2.html)
-- [謝辞](./thanks.html)
+- [Tonyu Systemについて](./about2.md)
+- [謝辞](./thanks.md)
 ***

@@ -1,8 +1,8 @@
 ・[Wikiトップ](./)  
-・[Tonyu1とは](./about.html)  
-・[ダウンロード](./download.html)  
-・[チュートリアル](./tutorial.html)  
-・[命令リファレンス](./reference.html)  
+・[Tonyu1とは](./about.md)  
+・[ダウンロード](./download.md)  
+・[チュートリアル](./tutorial.md)  
+・[命令リファレンス](./reference.md)  
 
 ・[Tonyu公式HP](https://www.tonyu.jp/)  
 ・[プロジェクトボード](https://www.tonyu.jp/project/top.cgi)  

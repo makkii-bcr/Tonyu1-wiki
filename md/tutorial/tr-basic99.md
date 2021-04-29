@@ -1,6 +1,6 @@
 
 
-[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
 
 ### チュートリアル 基礎編 (付録)
 ## キャラクタパターン用ビットマップの作り方
@@ -27,4 +27,4 @@ failAna.png
 
 ***
 
-[チュートリアル](./tutorial.html)&emsp;[Wikiトップ](./)
+[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
