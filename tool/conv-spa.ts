@@ -3,6 +3,7 @@ import * as path from 'path';
 // import marked from 'marked';
 import marked = require('marked');
 import imageSize from 'image-size';
+import { sync as PNGSync, Options as PNGOptions } from 'pngjs3';
 
 const docsDirName = 'docs';
 const mdDirName = 'md';
@@ -102,9 +103,9 @@ function convMain(): void {
             function (match, p1, offset, string) {
                 // <img src="xxx.png">を<img src-t="xxx.png">にする
                 // imgタグにwidth,heightを追加する
-                const img = imgAry.find(obj => path.join(mdDir, p1).indexOf(obj.path)!=-1);
-                const width = img ? ' width="'+img.width+'" ' : '';
-                const height = img ? ' height="'+img.height+'" ' : '';
+                const img = imgAry.find(obj => path.join(mdDir, p1).indexOf(obj.path) != -1);
+                const width = img ? ' width="' + img.width + '" ' : '';
+                const height = img ? ' height="' + img.height + '" ' : '';
                 return 'src-t="' + p1 + '"' + width + height;
             })
         .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,

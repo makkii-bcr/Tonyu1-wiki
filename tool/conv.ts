@@ -20,7 +20,7 @@ function convMain(): void {
     // docsを全削除
     try {
         fs.rmSync(path.join(curDir, 'docs'), { recursive: true, force: true });
-    } catch(e) {
+    } catch (e) {
         //fs.rmdirSync(path.join(curDir, 'docs'), { recursive: true });
     }
 
@@ -63,13 +63,13 @@ function convMain(): void {
                     function (match, p1, offset, string) {
                         // imgタグにwidth,heightを追加する
                         const imgSize = imageSize(path.join(path.parse(mdPath).dir, p1));
-                        const width = imgSize ? 'width="'+imgSize.width+'"' : '';
-                        const height = imgSize ? 'height="'+imgSize.height+'"' : '';
+                        const width = imgSize ? 'width="' + imgSize.width + '"' : '';
+                        const height = imgSize ? 'height="' + imgSize.height + '"' : '';
                         return 'src="' + p1 + '" ' + width + ' ' + height;
                     })
                 .replace(/href="\.\/"/g, 'href="./index0.html"')
                 .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
-                        'href=\"$1$2.html$4"')
+                    'href=\"$1$2.html$4"')
                 .replace(/%footer/g, footerHtmlData);
 
             let htmlPath = toHtmlPath(mdPath);
