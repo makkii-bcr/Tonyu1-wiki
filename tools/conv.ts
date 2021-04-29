@@ -68,7 +68,7 @@ function convMain(): void {
                 .replace(/href="\.\/"/g, 'href="./index0.html"')
                 .replace(/%footer/g, footerHtmlData);
 
-            let htmlPath = toHtmlPath(mdDir, mdPath);
+            let htmlPath = toHtmlPath(mdPath);
             htmlPath = htmlPath.replace(/index.html$/g, 'index0.html');
             fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
             fs.writeFileSync(htmlPath, outData);
@@ -90,6 +90,13 @@ function convMain(): void {
             console.log('copy file :', outPath);
         }
     });
+
+    const outPath = path.join(curDir, docsDirName, 'css', 'style.css');
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    fs.copyFileSync(
+        path.join(curDir, templatesDirName, 'style.css'),
+        outPath
+    );
 }
 
 /**
@@ -109,7 +116,7 @@ function convMdToHtml(htmlPath: string): string {
  * @param mdPath 
  * @returns 
  */
-function toHtmlPath(mdDir: string, mdPath: string): string {
+function toHtmlPath(mdPath: string): string {
     const relativePath = path.parse(mdPath).base
     const tempPath = path.join(process.cwd(), 'docs', relativePath);
     const htmlPath = tempPath.replace(/.md$/, '.html');

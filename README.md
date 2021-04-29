@@ -1,9 +1,12 @@
 # Tonyu1-wiki
+
 Tonyu System 1 の 新Wiki　（作成中）
 
 [新Wikiページ](https://makkii-bcr.github.io/Tonyu1-wiki/)
 
 Tonyu1 Wikiを更新しやすくするため、[旧Wiki](http://hoge1e3.sakura.ne.jp/tonyu/wiki/)から移植中です。
+
+今後Tonyu1の最新版リリースは、この新Wikiで公開します。
 
 ## 指摘・修正など
 
@@ -22,3 +25,5 @@ Tonyu1 Wikiを更新しやすくするため、[旧Wiki](http://hoge1e3.sakura.n
 - Wikiページはデフォルトでは、１ページで表示するSinglePage版です
 - Normal版にすると普通の複数ページのWebページとなります
 - mainブランチにpushした際、新Wikiページに自動的に反映されます
+
+[![Deploy (Github Pages)](https://github.com/makkii-bcr/Tonyu1-wiki/actions/workflows/ghpages-deploy.yml/badge.svg)](https://github.com/makkii-bcr/Tonyu1-wiki/actions/workflows/ghpages-deploy.yml)

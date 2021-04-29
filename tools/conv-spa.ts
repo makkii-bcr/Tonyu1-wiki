@@ -116,7 +116,7 @@ function convMain(): void {
             })
         .replace(/%footer/g, footerHtmlData);
 
-    const htmlPath = toHtmlPath(mdDir, 'index.html');
+    const htmlPath = toHtmlPath('index.html');
     fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
     fs.writeFileSync(htmlPath, outData);
 }
@@ -138,7 +138,7 @@ function convMdToHtml(htmlPath: string): string {
  * @param mdPath 
  * @returns 
  */
-function toHtmlPath(mdDir: string, mdPath: string): string {
+function toHtmlPath(mdPath: string): string {
     const relativePath = path.parse(mdPath).base
     const tempPath = path.join(process.cwd(), 'docs', relativePath);
     const htmlPath = tempPath.replace(/.md$/, '.html');

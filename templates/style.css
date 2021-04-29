@@ -7,11 +7,11 @@ body {
     margin-bottom: 0px; */
 }
 
-h1, h2, h3 {
+h1, h2 {
     background: #df8;
     margin-bottom: 0px;
     border-left: #af6 solid 10px;
-    padding: 1px 2px 1px 5px;
+    padding: 3px 2px 3px 5px;
     line-height:120%;
 }
 
@@ -24,7 +24,15 @@ h2 {
 }
 
 h3 {
-    font-size: 16px;
+    font-size: 15px;
+    background: #efc;
+    margin-bottom: 0px;
+    border-left: #aca solid 5px;
+    border-right: #aca solid 1px;
+    /* border-top: #cec solid 1px; */
+    border-bottom: #aca solid 1px;
+    padding: 2px 2px 1px 10px;
+    line-height:120%;
 }
 
 p {
@@ -40,12 +48,13 @@ p {
 }
 
 hr {
-    border-style:ridge;
+    background: #8b8;
+    border-style: solid;
     /* border-color:#8b8; */
-    border-color:#aca;
+    border-color: #aca;
     border-width: 1px 0px;
-    margin-left: 0px;
-    margin-right: 6px;
+    /* margin-left: 0px; */
+    /* margin-right: 6px; */
 }
 
 ul {
@@ -83,13 +92,15 @@ a:hover {
 
 table {
     border-collapse: collapse;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 td {
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
 }
 th {
-    border: 0px solid #999999;
+    border: 0px solid #999;
 }
 dt {
     font-weight:bold;
