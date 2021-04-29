@@ -3,7 +3,6 @@ import * as path from 'path';
 // import marked from 'marked';
 import marked = require('marked');
 import imageSize from 'image-size';
-import { sync as PNGSync, Options as PNGOptions } from 'pngjs3';
 
 const docsDirName = 'docs';
 const mdDirName = 'md';
