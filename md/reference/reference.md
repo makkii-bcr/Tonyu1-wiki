@@ -35,6 +35,7 @@ $viewY
 $windowX  
 $windowY  
 $fullScreen  
+[$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion.md)
 
 ### オブジェクト・クラス一覧  
   
@@ -52,7 +53,7 @@ $fullScreen
 |$projectManager|ページの読み込みを行います|
 |$ranking|ネットランキングCGIの呼び出しを行います|
 |$SelectBox|選択肢を表示するダイアログボックスです|
-|$System|システムの終了などを行います。|
+|[$System](./rf-system.md)|システムの終了などを行います。|
 |AbstractHashtable|Hashtable、LightHashtableの親クラスです。|
 |AnimationAdaptor|AnimationAdaptorとは、キャラクタパターンを次々に変化させることによるアニメーションを簡単に実現するためのオブジェクトです。|
 |Array|Array(配列)クラスのオブジェクトには、複数の値（要素）を格納することができます。|

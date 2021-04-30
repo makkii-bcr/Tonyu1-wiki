@@ -3,6 +3,39 @@
 
 ## バージョンアップ履歴
 
+1.29
+
+&emsp;2021/05/01
+
+- フレームレート制御の実装を変更
+  - フレームレート制御を、無限ループ＋Sleepから、マルチメディアタイマーに変更した
+  - timeBeginPeriod(1)（WindowsAPI）でタイマー精度を向上
+- CPU使用率を軽減
+- フレームレート(FPS)がより正確になった
+- ゲーム画面のカクツキ（スタッタリング）軽減（DWM有効時）
+  - 擬似的なVSyncを実装
+    - ディスプレイの走査線を取得し、処理タイミングを微調整することでスタッタリングを軽減する
+- カクツキ対策用のメソッド追加
+  - [$System.setVSync](./rf-system-setvsync.md)
+  - [$System.setAdjustScanLine](rf-system-setadjustscanline.md)
+- $System.setFrameRateでFPSを小数単位でも指定できるようになった
+  - $System.setFrameRateのFPS制限を廃止
+- グローバル変数追加
+  - $_fps, $_rps追加（FPSとRPSが実数で取得できる）
+  - ディスプレイの縦横ピクセル数、$displayWidth, $displayHeight
+  - Windowsのバージョンを取得できるよう変数を追加した
+    - [$osPlatformId、$osMajorVer、$osMinorVer](./rf-getosversion.md)
+    - WindowsAPIのGetVersionExと同じ値
+- ランタイムではF3キーで一時停止禁止
+- 効果音のDelayをOS毎に調整
+  - XP以前は1350、Vista, 7は2400、8, 8.1は2500、10は3000
+- ウィンドウの見た目が変わった
+- ウィンドウ移動中などでもゲームが止まらなくなった
+- パフォーマンスウィンドウの変更
+  - FPS表示変更、RPS（Run Per Second）（実行速度）の表示追加、SleepTimeの表示
+- 非アクティブ時ページロードするとキーが効いてしまうのを防止
+- exeにバージョン情報を追加
+
 1.28
 
 &emsp;2021/04/06
