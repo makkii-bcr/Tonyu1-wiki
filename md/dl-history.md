@@ -8,29 +8,24 @@
 &emsp;2021/05/01
 
 - フレームレート制御の実装を変更
-  - フレームレート制御を、無限ループ＋Sleepから、マルチメディアタイマーに変更した
-  - timeBeginPeriod(1)（WindowsAPI）でタイマー精度を向上
+  - ビジーループ＋Sleepから、マルチメディアタイマーに変更
 - CPU使用率を軽減
-- フレームレート(FPS)がより正確になった
 - ゲーム画面のカクツキ（スタッタリング）軽減（DWM有効時）
-  - 擬似的なVSyncを実装
-    - ディスプレイの走査線を取得し、処理タイミングを微調整することでスタッタリングを軽減する
 - カクツキ対策用のメソッド追加
   - [$System.setVSync](./rf-system-setvsync.md)
   - [$System.setAdjustScanLine](rf-system-setadjustscanline.md)
-- $System.setFrameRateでFPSを小数単位でも指定できるようになった
+- $System.setFrameRateでFPSを小数単位でも指定できるようにしました
   - $System.setFrameRateのFPS制限を廃止
 - グローバル変数追加
   - $_fps, $_rps追加（FPSとRPSが実数で取得できる）
-  - ディスプレイの縦横ピクセル数、$displayWidth, $displayHeight
-  - Windowsのバージョンを取得できるよう変数を追加した
-    - [$osPlatformId、$osMajorVer、$osMinorVer](./rf-getosversion.md)
-    - WindowsAPIのGetVersionExと同じ値
-- ランタイムではF3キーで一時停止禁止
+  - ディスプレイの縦横ピクセル数、$displayWidth, $displayHeightを追加
+  - Windowsのバージョン値、[$osPlatformId、$osMajorVer、$osMinorVer](./rf-getosversion.md)を追加
 - 効果音のDelayをOS毎に調整
   - XP以前は1350、Vista, 7は2400、8, 8.1は2500、10は3000
-- ウィンドウの見た目が変わった
-- ウィンドウ移動中などでもゲームが止まらなくなった
+- ウィンドウの見た目が変化しました
+- ランタイムではF3キーで一時停止禁止
+- ウィンドウ移動中などでもゲームが止まらなくなりました
+- フレームレート(FPS)がより正確になりました
 - パフォーマンスウィンドウの変更
   - FPS表示変更、RPS（Run Per Second）（実行速度）の表示追加、SleepTimeの表示
 - 非アクティブ時ページロードするとキーが効いてしまうのを防止
@@ -47,21 +42,17 @@
 &emsp;2021/04/04
 
 - switch文の実装
-  - switch、case、defaultは変数名等には使えなくなる
+  - switch、case、defaultは変数名等には使えなくなります
 - JoyStickの不具合を修正
   - JoyStickを刺して抜いた後、Tonyu1を再起動するとJoyStick取得が重くなる不具合を修正
     - [BBS No.12342](http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=12342) に該当
   - JoyStick１つ接続の時、２つ目のJoyStickのボタンも押下しているように取得される不具合を修正
-  - １フレーム内にJoyStick取得を複数回行うと、その分getButton()が増えてしまうのを修正
-    - getkey()と同じ挙動にした（getButton()等の取得値は１フレームごとに+1）
+  - getkey()と同じ挙動にしました（getButton()等の取得値は１フレームごとに+1）
 - ウィンドウが非アクティブ時の挙動修正
-  - FPSが下がりにくいように修正（スリープ時間を100ms→1msに変更）
-    - または、$Optionsのsleep_time値やパフォーマンスウィンドウのCPU負担の設定時間分スリープする
-  - タスクバーから最小化時、非アクティブと検知されない不具合を修正（キー入力・CPU使用率）
 - 効果音のDelayを3000に変更（Vista以降）
 - ファイルを開く・保存するダイアログを新しいタイプに変更（Vista以降）
 - エディタ編集時、ゲーム側でキーが反応しないように修正
-- エディタの30000バイト制限を廃止（Win9x系は制限を残した）
+- エディタの30000バイト制限を廃止（Win9x系は制限を残しました）
 - 稀にMidi再生・停止が失敗する不具合を軽減
 - ウィンドウやUIの大きさ・位置の修正
 - 文言の修正、URL・年の更新

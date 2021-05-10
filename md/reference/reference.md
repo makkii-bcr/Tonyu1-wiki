@@ -35,7 +35,11 @@ $viewY
 $windowX  
 $windowY  
 $fullScreen  
-[$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion.md)
+$displayWidth  
+$displayHeight  
+[$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion.md)  
+$_fps  
+$_rps  
 
 ### オブジェクト・クラス一覧  
   
