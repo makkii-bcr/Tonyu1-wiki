@@ -1,0 +1,63 @@
+<html>
+<title>PlainChar.getScreenX</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">getScreenXメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+オブジェクトのスクリーン座標のx座標を得ます。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     getScreenX() 
+     
+   <table>   
+     
+   </table>   
+     <BR><strong>戻り値:</strong> スクリーン座標(x座標)
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+※スクリーン座標については<a href="http://tonyu.kake.info.waseda.ac.jp/scroll/html/HID00000001.htm">スクロールのサンプル</a>を参考してください。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> // ここに書いてあるプログラムは、実行する前に画面にマップを描くことをおすすめします(<a href="_a5_c1_a5_e5_a1_bc_a5_c8_a5_ea_a5_a2_a5_eb.html">チュートリアル</a>参照)
+extends SpriteChar;
+while(1) {
+ if (getkey(39)&gt;0 && getScreenX()&lt;$screenWidth-16) x+=3;
+ if (getkey(37)&gt;0 && getScreenX()&gt;16) x-=3; 
+ if (getkey(40)&gt;0 && getScreenY()&lt;$screenHeight-16) y+=3;
+ if (getkey(38)&gt;0 && getScreenY()&gt;16) y-=3;
+ <a href="$map.scrollTo.html">$map.scrollTo</a>(0,t);
+ y-=1;
+ t-=1;
+ update();
+}
+ 
+</pre>
+▲ この例では、カーソルキーでオブジェクトを動かしますが、
+スクロール位置に関係なく画面端を飛び出さないようにします。
+※試しにgetScreenY()をyに変えてみると、しばらくすると上に動けなくなります。
+  
+</td></tr></table>
+ 
+</font>
+</body></html>

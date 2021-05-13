@@ -1,0 +1,226 @@
+<html>
+<title>敵を出現させる</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_c5_a8_a4_f2_c6_b0_a4_ab_a4_b9.html">←前</a>  <a href="_bc_ab_b5_a1_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+<P>
+<font size=-1><a href="#1">敵を出現させる</a><BR>
+&nbsp<a href="#2">UFOを作る</a><BR>
+&nbsp<a href="#3">UFOから敵が出現する</a><BR>
+&nbsp<a href="#4">メソッドを定義する</a><BR>
+</font>
+<P>
+<a name="1"><font size="5">敵を出現させる</font>
+		    
+		    <BR><BR>
+<a name="2"><font size="+1"><strong>UFOを作る</strong></font>
+		    
+                  <BR>
+<P>
+この敵はすぐ下に消えてしまうので、次々と新しいオブジェクトを出現させる仕組みを作ります。
+<P>
+ここでは、UFOを作り、UFOから敵があらわれるという設定にします。
+<a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_f2_ba_ee_a4_eb.html">オブジェクトを作る</a>を参考にUFOのオブジェクトを作成します
+<P>
+<img src="../uploads/mkufo%2epng" alt="mkufo.png" border=0>
+<P>
+キャラクタパターンを設定します。
+<P>
+<img src="../uploads/mkufop%2epng" alt="mkufop.png" border=0>
+<P>
+ダブルクリックして次のように動きを記述します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre> 
+extends SpriteChar;
+while(1) {
+ while(x&lt;$screenWidth) {
+   x=x+2;
+   update();
+ }
+ while(x&gt;0) {
+   x=x-2;
+   update();
+ }
+}</pre></td>
+</tr></table>
+<P>
+<P>
+実行させると、UFOが画面を横方向に往復します。
+<P>
+<a name="3"><font size="+1"><strong>UFOから敵が出現する</strong></font>
+		    
+                  <BR>
+<P>
+さらに、このUFOから敵が出現するようにします。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre> 
+extends SpriteChar;
+while(1) {
+ while(x&lt;$screenWidth) {
+   x=x+2;
+<font color="ee1111">   if (rnd(100)==0) appear(new Enemy(x,y,$pat_Sample+2));</font>
+   update();
+ }
+ while(x&gt;0) {
+   x=x-2;
+   update();
+ }
+}</pre></td>
+</tr></table>
+<P>
+追加した部分について解説します。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+ if (rnd(100)==0) ..</pre></td></tr></table>
+<P>
+<a href="Object.rnd.html">rnd</a>(100)は、0から99までの整数乱数を返します。その値が0のとき、つまり100分の１の確率でifの後ろが実行されます。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+ .. appear(new Enemy(x,y,$pat_Sample+2));</pre></td></tr></table>
+<P>
+これによって、敵クラス(Enemy)のオブジェクトが作成されます。
+出現場所はUFOのいる場所、キャラクタパターンは $pat_Sample+2 ()です
+(<a href="_c3_c6_a4_f2_b7_e2_a4_c4.html">弾を撃つ</a>参考)
+<P>
+上の処理では、左から右に移動しているときしか敵が出現しません。
+右から左に移動中にもこの処理を挿入する必要があります。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+while(1) {
+ while(x&lt;$screenWidth) {
+   x=x+2;
+   if (rnd(100)==0) appear(new Enemy(x,y,$pat_Sample+2));
+   update();
+ }
+<font color="ee1111">  
+ while(x&gt;0) {
+   x=x-2;
+   if (rnd(100)==0) appear(new Enemy(x,y,$pat_Sample+2));
+   update();
+ }</font>
+}</pre></td>
+</tr></table>
+<P>
+<a name="4"><font size="+1"><strong>メソッドを定義する</strong></font>
+		    
+                  <BR>
+<P>
+このプログラムでは敵を出現させるために、全く同じ処理を２箇所に書いたことになります。
+これでもプログラムは正しく動くのですが、いくつか不便な点があります。
+例えば出現確率を変えたいとか、敵のキャラクタパターンを変えたいとかいったときに、両方書き換える必要があります。
+<P>
+そこで、この敵出現処理をまとめることを行います。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre> 
+extends SpriteChar;
+<font color="ee1111">
+function appearEnemy() {
+   if (rnd(100)==0) appear(new Enemy(x,y,$pat_Sample+2));
+}</font>
+<P>
+while(1) {
+ while(x&lt;$screenWidth) {
+   x=x+2;
+<font color="ee1111">   appearEnemy();</font>
+   update();
+ }
+ while(x&gt;0) {
+   x=x-2;
+<font color="ee1111">   appearEnemy();</font>
+   update();
+ }
+}</pre></td>
+</tr></table>
+<P>
+まず、一番上に書いた部分について解説します。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+function appearEnemy() {
+   if (rnd(100)==0) appear(new Enemy(x,y,$pat_Sample+2));
+}</pre></td></tr></table>
+<P>
+これは<a href="_a5_e1_a5_bd_a5_c3_a5_c9_a4_ce_c4_ea_b5_c1.html">メソッド</a>と呼ばれ、ある処理に名前をつけて何度も使えるようにしたものです。ここでは、1/100の確率で敵を出現させる処理に appearEnemyという名前（メソッド名）をつけています。
+ この部分は、最初にいきなり実行されるわけではなく、あとからこのメソッドを呼び出すことによって実行されます。
+<P>
+その呼び出しを行うのが、下のほうに書いた
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+appearEnemy();</pre></td></tr></table>
+<P>
+です。このように
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式:メソッドの呼び出し</strong></font>
+  </td></tr>
+  <tr><td><tt> 
+メソッド名();</tt></td></tr>
+</table>  
+<P>
+と書くことで、いつでもメソッドを呼ぶことができます。
+<P>
+試しに、敵の出現確率を1/50に変えてみましょう。それにはappearEnemyの一箇所を書き換えればよいのです。
+このようにメソッドを使って、よく使う処理をまとめておくと、後で修正が楽になります。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+function appearEnemy() {
+   if (rnd(<font color="ee1111"> 50</font> )==0) appear(new Enemy(x,y,$pat_Sample+2));
+}
+while(1) {
+ while(x&lt;$screenWidth) {
+   x=x+2;
+   appearEnemy();
+   update();
+ }
+ while(x&gt;0) {
+   x=x-2;
+   appearEnemy();
+   update();
+ }
+}</pre></td>
+</tr></table>
+<P>
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_c5_a8_a4_f2_c6_b0_a4_ab_a4_b9.html">←前</a>  <a href="_bc_ab_b5_a1_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+<P>
+<P>
+<P>
+<P>
+<P>
+<P>
+ 
+</font>
+</body></html>

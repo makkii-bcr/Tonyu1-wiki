@@ -1,0 +1,135 @@
+<html>
+<title>Panel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>Panelクラス</h2>
+<P>
+通常の描画メソッド(<a href="Sprite.drawText.html">drawText</a>,<a href="Sprite.drawLine.html">drawLine</a>,<a href="Sprite.drawSprite.html">drawSprite</a>,<a href="Sprite.fillRect.html">fillRect</a>)では、描画されたものは１フレームごとに消去されてしまいます。一度描画したグラフィックスを消さないでおくときは、パネルを使うと便利です。
+<P>
+<P>
+ 
+パネルにアクセスするには、次の２通りがあります。
+<P>
+<ul>
+<li> $panelという変数を頭につけて、通常の描画命令と同様にメソッドを呼びます。
+<li> <a href="PanelChar.html">パネルオブジェクト</a>を作成します。
+</ul>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> //例１(パネルを使わない)：
+extends SpriteChar;
+i=0;
+while(i&lt;$screenHeight) {
+  drawLine(0,0,$screenWidth,i,color(255,255,255));
+  i+=3;
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> //例２：(パネルを使う)：
+extends SpriteChar;
+i=0;
+while(i&lt;$screenHeight) {
+  <strong>$panel.</strong>drawLine(0,0,$screenWidth,i,color(255,255,255));
+  i+=3;
+  update();
+}
+ 
+</pre>
+▲ 例１では、一本の線が上から下に流れる様子が見えますが、例２では、線の描いた跡が全部残ります。
+</td></tr></table>
+<P>
+<strong>※</strong> 
+一度パネルに描いた内容を消去するには、パネルを黒（ color(0,0,0)で指定する色）で塗りつぶします。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例3</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//例3：(パネルの消去)：
+extends SpriteChar;
+i=0;
+while(i&lt;$screenHeight) {
+  $panel. drawLine(0,0,$screenWidth,i,color(255,255,255));
+  i+=3;
+  update();
+}
+$panel.fillRect(0,0,$screenWidth,$screenHeight,color(0,0,0));
+// ↑パネルに描画した内容を消去
+while(i&gt;0) {
+  $panel. drawLine($screenWidth,0,0,i,color(255,255,255));
+  i-=3;
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li><a href="Panel.drawSprite.html">drawSprite</a>
+<li><a href="Panel.drawDxSprite.html">drawDxSprite</a>
+<li><a href="Panel.drawLine.html">drawLine</a>
+<li><a href="Panel.drawBrokenLine.html">drawBrokenLine</a>
+<li><a href="Panel.getPixel.html">getPixel</a>
+<li><a href="Panel.fillRect.html">fillRect</a>
+<li><a href="Panel.drawText.html">drawText</a>
+<li>draw
+<li>stretchDraw
+<li><a href="Panel.copyRect.html">copyRect</a>
+<li><a href="Panel.resize.html">resize</a>
+<li>init
+<li>free
+<li>dispose
+<li>panel
+<li><a href="Panel.setTransparentColor.html">setTransparentColor</a>
+<li><a href="Panel.getTransparentColor.html">getTransparentColor</a>
+<li>clear
+<li><a href="Panel.setPixel.html">setPixel</a>
+</ul>
+<P>
+<P>
+<a name="2"><font size="5">変数一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>_body
+<li><a href="Panel.alpha.html">alpha</a>
+<li><a href="Panel.angle.html">angle</a>
+<li><a href="Panel.height.html">height</a>
+<li>sx
+<li>sy
+<li>target
+<li><a href="Panel.width.html">width</a>
+<li><a href="Panel.zOrder.html">zOrder</a>
+</ul>
+<P>
+<P>
+ 
+</font>
+</body></html>

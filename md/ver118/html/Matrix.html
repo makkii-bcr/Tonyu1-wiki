@@ -1,0 +1,66 @@
+<html>
+<title>Matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>Matrixクラス</h2>
+<P>
+2次元配列を格納するオブジェクトです。
+<P>
+<P>
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends TextChar;
+m=new Matrix(10);  // 横10列の配列を作成
+m.addRows(5);  // 縦に5行追加
+for(y=0 ; y&lt;5 ; y++) {
+  for(x=0 ; x&lt;10 ; x++) {
+     m.set(x,y,x+y);
+  }
+}
+while(1) {
+  x=<a href="Object.valueOf.html">valueOf</a>(<a href="PlainChar.waitInput.html">waitInput</a>("Xの値?"));
+  y=valueOf(waitInput("Yの値?"));
+  text="("+x+","+y+")="+m.get(x,y);
+  update();
+}
+<P>
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li><a href="Matrix.get.html">get</a>
+<li>set
+<li>addRows
+<li>rowCount
+</ul>
+<P>
+<P>
+<a name="2"><font size="5">変数一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>cols
+</ul>
+<P>
+<P>
+ 
+</font>
+</body></html>

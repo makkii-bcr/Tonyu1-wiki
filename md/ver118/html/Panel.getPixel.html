@@ -1,0 +1,68 @@
+<html>
+<title>Panel.getPixel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Panel.html">Panelクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">getPixelメソッド(Panelクラス)</font>
+		    
+		    <BR><BR>
+<P>
+パネルの特定の点における色を得ます。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     getPixel(<font color="blue">x</font>,<font color="blue">y</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>x</font>
+</td>
+<td>: 点のx座標</td>
+</tr><tr><td>
+<font color=blue>y</font>
+</td>
+<td>: 点のy座標</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> パネル上(x,y)における色を整数値で返します
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+戻り値は次の意味を持ちます。
+<P>
+戻り値 ＝  赤成分 + 緑成分 * 256 + 青成分 * 65536
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends TextChar;
+$panel.fillRect(30,30,50,50,$clRed);
+$panel.fillRect(130,30,150,50,$clGreen);
+$panel.fillRect(30,130,50,150,$clBlue);
+while(1) {
+  text="色 ="+$panel.getPixel($mouseX,$mouseY);
+  update();
+}</pre>
+<P>
+</td></tr></table>
+<P>
+パネルについては、<a href="Panel.html">パネルの使い方</a>を参照してください。
+<a href="$panel_a4_c8panel_a4_ce_b0_e3_a4_a4.html">$panelとpanelの違い</a>
+ 
+</font>
+</body></html>

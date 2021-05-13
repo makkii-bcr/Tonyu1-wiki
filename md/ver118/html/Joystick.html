@@ -1,0 +1,69 @@
+<html>
+<title>Joystick</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>Joystickクラス</h2>
+<P>
+ジョイスティックの入力を調べます
+<P>
+ 
+<P>
+<strong>$Joystick</strong>、<strong>$Joystick2</strong>というオブジェクトが、システムによって自動的に用意されています。
+<P>
+通常は$Joystickを用いますが、2個目のジョイスティックを調べたい場合は$Joystick2を用います。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while (1) {
+  if ($Joystick.up()&gt;0) y=y-2;
+  if ($Joystick.down()&gt;0) y=y+2;
+  if ($Joystick.left()&gt;0) x=x-2;
+  if ($Joystick.right()&gt;0) x=x+2;
+  if ($Joystick.button(0)&gt;0) {
+    drawText(x,y,"press",$clWhite);
+  }
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>getX
+<li><a href="Joystick.left.html">left</a>
+<li><a href="Joystick.right.html">right</a>
+<li><a href="Joystick.up.html">up</a>
+<li><a href="Joystick.down.html">down</a>
+<li>getY
+<li><a href="Joystick.button.html">button</a>
+<li>strig
+<li>stick
+<li>JoyStick
+</ul>
+<P>
+<P>
+<a name="2"><font size="5">変数一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>id
+</ul>
+<P>
+<P>
+ 
+</font>
+</body></html>

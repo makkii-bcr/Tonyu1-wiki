@@ -1,0 +1,100 @@
+<html>
+<title>敵を動かす(2)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_bc_ab_b5_a1_a4_f2_c6_b0_a4_ab_a4_b9(2).html">←前</a>　 <a href="_bc_ab_b5_a1_a4_e4_c5_a8_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">次→</a>　 <a href="_a4_e1_a4_a4_a4_ed_a4_f3.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">敵を動かす</font>
+		    
+		    <BR><BR>
+<P>
+敵を作ってみましょう
+敵は次にあげるようなごく単純な動きしかしないものとします
+<P>
+<ul>
+<li> 左右移動しかしない
+<li> 画面端にくるか、一定の確率で移動方向が反転する
+</ul>
+<P>
+<a name="2"><font size="+1"><strong>敵を作る</strong></font>
+		    
+                  <BR>
+<P>
+<a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_f2_ba_ee_a4_eb.html">オブジェクトを作る</a>を参考にオブジェクトを作成します
+<P>
+<img src="../uploads/newEnemy%2epng" alt="newEnemy.png" border=0>
+<P>
+<a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_ce_a5_ad_a5_e3_a5_e9_a5_af_a5_bf_a5_d1_a5_bf_a1_bc_a5_f3_a4_f2_bb_d8_c4_ea_a4_b9_a4_eb.html">オブジェクトのキャラクタパターンを指定する</a>を参考に、自機のパターンを指定します。先ほど用いたSamplesの下のMaze.bmpを使います
+<P>
+<img src="../uploads/selenemy%2epng" alt="selenemy.png" border=0>
+<P>
+<a name="3"><font size="+1"><strong>敵の動きを定義する</strong></font>
+		    
+                  <BR>
+<P>
+敵をダブルクリックし、次のように入力します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+vx=2;
+while(1) {
+ x+=vx;
+ if (x&lt;0) vx=2; 
+ if (x&gt;$screenWidth) vx=-2;
+ if (rnd(500)==0) vx=-vx;
+ update();
+}</pre></td>
+</tr></table>
+<P>
+実行してみましょう。
+左に進んでいるとき、向きが反対になっています。
+そこで、次のような部分を追加してください
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+vx=2;
+while(1) {
+ x+=vx;
+ if (x&lt;0) vx=2;
+ if (x&gt;$screenWidth) vx=-2;
+ if (rnd(500)==0) vx=-vx;
+<font color="ee1111"> if (vx&lt;0) f=1; else f=0;</font>
+ update();
+}</pre></td>
+</tr></table>
+<P>
+変数fは、0以外の値を設定すると、パターンが左右反転します。
+<P>
+<a name="4"><font size="+1"><strong>敵をたくさん配置する</strong></font>
+		    
+                  <BR>
+<P>
+敵が１匹ではおもしろくないので、敵をたくさん配置してみましょう。
+まず敵をクリックし、そのあとメニューの
+「オブジェクト」＞「コピー」を選んでください
+さらに、
+「オブジェクト」＞「貼り付け」を選んでください
+敵がふえました。
+この要領で敵をいくつか配置してみてください。
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_bc_ab_b5_a1_a4_f2_c6_b0_a4_ab_a4_b9(2).html">←前</a>　 <a href="_bc_ab_b5_a1_a4_e4_c5_a8_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">次→</a>　 <a href="_a4_e1_a4_a4_a4_ed_a4_f3.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

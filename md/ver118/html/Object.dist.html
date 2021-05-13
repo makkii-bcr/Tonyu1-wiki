@@ -1,0 +1,61 @@
+<html>
+<title>Object.dist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Object.html">Objectクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">distメソッド(Objectクラス)</font>
+		    
+		    <BR><BR>
+<P>
+線分(0,0)-(x,y)の長さを求めます。
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     dist(<font color="blue">x</font>,<font color="blue">y</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>x</font>
+</td>
+<td>: 線分(0,0)-(x,y)のx</td>
+</tr><tr><td>
+<font color=blue>y</font>
+</td>
+<td>: 線分(0,0)-(x,y)のy</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> 線分(0,0)-(x,y)の長さ
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while (1) {
+  if ( dist(x-$teki.x, y-$teki.y)&lt;50 ) die();
+  update();
+}
+ 
+</pre>
+▲ オブジェクト $teki との距離が50以下になるとdie(); が呼ばれます。
+</td></tr></table>
+<P>
+参照：
+<a href="angle_2csin_2ccos_2cdist_a4_ce_b4_d8_b7_b8.html">angle,sin,cos,distの関係</a>
+ 
+</font>
+</body></html>

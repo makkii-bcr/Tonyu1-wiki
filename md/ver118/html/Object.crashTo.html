@@ -1,0 +1,91 @@
+<html>
+<title>Object.crashTo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Object.html">Objectクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">crashToメソッド(Objectクラス)</font>
+		    
+		    <BR><BR>
+<P>
+他のオブジェクトと衝突しているかどうかを判定します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     crashTo(<font color="blue">t</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>t</font>
+</td>
+<td>:衝突判定の対象となるオブジェクト</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> tと衝突していれば真、そうでなければ偽
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while(1) {
+ if (crashTo($Teki)) die();
+ update();
+}
+<P>
+ 
+</pre>
+▲ 
+$Tekiとぶつかっていたら、die()メソッドを呼びます
+<P>
+  
+</td></tr></table>
+ 
+※crashToは自分で定義することもできます。これを利用して、あたり判定の大きさの調整などができます。
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+<P>
+function crashTo(t) {
+  return dist(t.x-x,t.y-y)&lt;50;
+}
+while(1) {
+ if (crashTo($Teki)) die();
+ update();
+}
+<P>
+<P>
+ 
+</pre>
+▲ 
+この例では、他のオブジェクト(t)との距離が50未満のときにcrashToは真に（このオブジェクトとtがぶつかった）なります。
+<P>
+ 
+  
+</td></tr></table>
+ 
+</font>
+</body></html>

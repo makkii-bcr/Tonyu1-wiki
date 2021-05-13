@@ -1,0 +1,98 @@
+<html>
+<title>DXChar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>DXCharクラス</h2>
+<P>
+DXCharクラスのオブジェクトは、ビットマップパターンの半透明、回転拡大縮小表示が可能です
+<P>
+<P>
+ 
+<P>
+<strong>変数:</strong>
+<P>
+<ul>
+<li><strong>x</strong>
+</ul>
+<blockquote>
+  
+ オブジェクトのx座標を表します。xの値が大きくなるほど右に移動します。
+</blockquote>
+<ul>
+<li><strong>y</strong>
+</ul>
+<blockquote>
+  
+ オブジェクトのy座標を表します。yの値が大きくなるほど下に移動します。
+ （※数学などでは、yが大きいほど上ですが、逆向きになります）
+</blockquote>
+<ul>
+<li><strong>p</strong>
+</ul>
+<blockquote>
+  
+ 表示するキャラクタパターンの番号を表します。
+ キャラクタパターンと番号との対応は、<a href="_a5_ad_a5_e3_a5_e9_a5_af_a5_bf_a5_d1_a5_bf_a1_bc_a5_f3.html">キャラクタパターン</a>ウィンドウを参考にしてください。
+</blockquote>
+<ul>
+<li><strong>f</strong>
+</ul>
+<blockquote>
+  
+ fに１を代入すると、キャラクタパターンの左右を反転します。０を設定すると反転をやめます。
+</blockquote>
+<ul>
+<li><strong>zOrder</strong>
+</ul>
+<blockquote>
+  
+ この値が小さいほど、オブジェクトを手前に表示します。
+</blockquote>
+<P>
+<ul>
+<li><strong>scaleX</strong>
+</ul>
+<blockquote>
+  
+ オブジェクトの拡大率を指定します。scaleYが未定義または0の場合、縦横比は１のままです。
+</blockquote>
+<ul>
+<li><strong>scaleY</strong>
+</ul>
+<blockquote>
+  
+ scaleYを指定すると、横をscaleX倍、縦をscaleY倍拡大します。
+</blockquote>
+<ul>
+<li><strong>angle</strong>
+</ul>
+<blockquote>
+  
+ オブジェクトの回転を指定します。単位は度で右回りです。
+</blockquote>
+<ul>
+<li><strong>alpha</strong>
+</ul>
+<blockquote>
+  
+ オブジェクトの透明度を指定します。255が完全に不透明で、減らすにしたがって透明になっていきます。0にすると見えなくなります。
+</blockquote>
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li><a href="SpriteChar.newAnimation.html">newAnimation</a>
+<li><a href="PlainChar.html">PlainChar</a>クラスのメソッド
+<li><a href="Sprite.html">Sprite</a>クラスのメソッド
+<li><a href="Object.html">Object</a>クラスのメソッド
+</ul>
+<P>
+<P>
+<P>
+ 
+</font>
+</body></html>

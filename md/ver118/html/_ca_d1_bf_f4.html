@@ -1,0 +1,52 @@
+<html>
+<title>変数</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<a name="1"><font size="5">変数</font>
+		    
+		    <BR><BR>
+<P>
+<strong>変数</strong>とは、数値や文字列などのデータを入れるためのものです。
+<P>
+<ul>
+<li><strong>グローバル変数</strong>
+</ul>
+<blockquote>
+ $screenWidth など、先頭が$ で始まる変数はグローバル変数です。
+同じ名前のグローバル変数はシステムで１個しかありません。
+</blockquote>
+<P>
+<ul>
+<li><strong>オブジェクト変数</strong>
+</ul>
+<blockquote>
+ x など、先頭がアルファベットの変数は通常、オブジェクト変数です。
+オブジェクト変数は、同じ名前でもオブジェクト毎に違う値を持ちます。
+</blockquote>
+<P>
+<ul>
+<li><strong>ローカル変数(中級者向き)</strong>
+</ul>
+<blockquote>
+ <a href="_a5_e1_a5_bd_a5_c3_a5_c9_a4_ce_c4_ea_b5_c1.html">メソッドの定義</a>内の引数および、メソッド内で次の書式で宣言された変数はローカル変数です。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> var 変数名  , 変数名, ...  ;</tt></td></tr>
+</table>  
+<P>
+ローカル変数はそのメソッド内だけで有効です。同じ名前のローカル変数でも、宣言されているメソッドが異なる場合、別の変数として扱われます。
+<P>
+また、あるメソッド内で、オブジェクト変数と同名のローカル変数を宣言した場合、ローカル変数への参照を優先し、オブジェクト変数のほうはそのメソッド内で参照できなくなります。
+<P>
+</blockquote>
+<HR>
+<a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

@@ -1,0 +1,121 @@
+<html>
+<title>メソッドの呼び出し</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<a name="1"><font size="5">メソッドの呼び出し</font>
+		    
+		    <BR><BR>
+<P>
+<P>
+<strong>メソッド</strong>とは、ある決まった処理をまとめたものです。
+プログラムからメソッドを呼び出すことによりその処理を実行させることができます。
+<P>
+あらかじめ定義されているメソッドを呼ぶには、次の書式に従います。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+ メソッド名 ( 引数 , 引数 ... )</tt></td></tr>
+</table>  
+<P>
+<i>メソッド名</i>で指定された名前をもつメソッドを呼び出します。
+<i>引数</i>は、呼び出すメソッドに渡す値です。引数の詳細は、
+それぞれのメソッドの説明のところに記載されています。
+<P>
+また、メソッドによっては呼び出す相手を指定する必要があります。その場合は次の書式に従います。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+ 式. メソッド名 ( 引数 , 引数 ... ) </tt></td></tr>
+</table>  
+<P>
+<i>式</i>で表されるオブジェクトに対して、<i>メソッド名</i>で指定された名前をもつメソッドを呼び出します。
+式がが初期化されていなかったり、式がオブジェクトでないと、 次のメッセージが表示されます。
+<P>
+<table bgcolor=#cccccc><tr><td>
+<font color=red><pre>
+変数$xxxは初期化されていないので、メソッド mmm を呼び出せません。
+または
+nullはオブジェクトではないので、メソッド mmmを呼び出せません。</pre></font>
+</td></tr></table>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while (1) {
+  x=x+1;
+  update(); 
+}
+<P>
+</pre>
+▲ update(); によって、<a href="PlainChar.update.html">update</a>メソッドを呼び出します。updateメソッドには引数が不要なので、() をつけるだけにします。
+</td></tr></table>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while (1) {
+  x=x+1;
+  drawText(x,y,"文字",$clWhite);
+  update();
+}
+<P>
+</pre>
+▲ <a href="Sprite.drawText.html">drawText</a>メソッドは、文字を描画する処理を行います。どこにどんな文字を出すかといった情報を引数で渡します。
+</td></tr></table>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例3</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//オブジェクトを２つ作成します。名前は $ObjectA と $ObjectB にして下さい
+//$ObjectAをダブルクリックし、次のように入力します。
+// ------ ObjectA.tonyu :
+extends SpriteChar;
+while (1) {
+  x=x+1;
+  update();
+}
+// ------ ObjectA.tonyu 終わり
+//$ObjectBをダブルクリックし、次のように入力します。
+// ------ ObjectB.tonyu :
+extends SpriteChar;
+while (1) {
+  x=x+1;
+  if (x==300) $ObjectA.die(); // x==300になったら、$ObjectAを消す
+  update();
+}
+// ------ ObjectB.tonyu終わり
+<P>
+</pre>
+▲ オブジェクトに対して <a href="PlainChar.die.html">die</a>メソッドを呼ぶと、そのオブジェクトが消えます。
+</td></tr></table>
+<HR>
+<a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

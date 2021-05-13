@@ -1,0 +1,68 @@
+<html>
+<title>AnimationAdaptor.swing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="AnimationAdaptor.html">AnimationAdaptorクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">swingメソッド(AnimationAdaptorクラス)</font>
+		    
+		    <BR><BR>
+<P>
+アニメーションを繰り返し実行します。指定したパターンの間を往復するアニメーションを実行します。
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     swing(<font color="blue">from</font>,<font color="blue">to</font>,<font color="blue">spd</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>from</font>
+</td>
+<td>: アニメーションの最初のキャラクタパターン</td>
+</tr><tr><td>
+<font color=blue>to</font>
+</td>
+<td>: アニメーションの最後のキャラクタパターン </td>
+</tr><tr><td>
+<font color=blue>spd</font>
+</td>
+<td>: アニメーション速度( spdフレームにつき1パターン進む 。 1が最速 )</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+anim=newAnimation();
+anim.swing($Pat_Sample+4,$Pat_Sample+6,3);
+wait();
+<P>
+このオブジェクトは、次の順番でパターンを切り替えます、この動作を繰り返します。
+$Pat_Sample+4 → $Pat_Sample+5 → $Pat_Sample+6 → $Pat_Sample+5 → 再び$Pat_Sample+4...
+<P>
+<P>
+<P>
+<strong>図1 :</strong><BR>
+<img src="../uploads/bpats2%2epng" alt="bpats2.png" border=0></pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

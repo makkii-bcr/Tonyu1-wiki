@@ -1,0 +1,62 @@
+<html>
+<title>String.length</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="String.html">Stringクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">lengthメソッド(Stringクラス)</font>
+		    
+		    <BR><BR>
+<P>
+文字列の長さを得ます。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     length() 
+     
+   <table>   
+     
+   </table>   
+     <BR><strong>戻り値:</strong> 文字列の長さ
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+全角文字も１文字として数えます。全角文字を2文字として扱いたい場合、<a href="String.byteLength.html">byteLength</a>メソッドを用います
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> /*メニューの「ウィンドウ」＞「コンソール」でコンソールウィンドウを表示し、さらに
+メニューの「ウィンドウ」＞「テスト実行」で表示されるウィンドウに次のように入力し
+F9をおします*/
+a="Tonyuシステム";
+print ("「"+a+"」は"+a.length()+"文字です");
+ 
+</pre>
+▲ コンソールには次のように表示されます。
+<P>
+「Tonyuシステム」は9文字です  
+</td></tr></table>
+ 
+<P>
+注意：
+<P>
+次のように文字定数に直接.length()をつけることはできません
+<P>
+"Tonyu".length(); // エラー
+<P>
+ 
+</font>
+</body></html>

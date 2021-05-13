@@ -1,0 +1,105 @@
+<html>
+<title>Sprite.drawText</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Sprite.html">Spriteクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">drawTextメソッド(Spriteクラス)</font>
+		    
+		    <BR><BR>
+<P>
+文字を描画します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     drawText(<font color="blue">x</font>,<font color="blue">y</font>,<font color="blue">text</font>,<font color="blue">col</font>,<font color="blue">size</font>,<font color="blue">zOrder</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>x</font>
+</td>
+<td>: x座標</td>
+</tr><tr><td>
+<font color=blue>y</font>
+</td>
+<td>: y座標</td>
+</tr><tr><td>
+<font color=blue>text</font>
+</td>
+<td>: 描画する値</td>
+</tr><tr><td>
+<font color=blue>col</font>
+</td>
+<td>: 色(通常<a href="Object.color.html">color</a>メソッドで指定)</td>
+</tr><tr><td>
+<font color=blue>size</font><i>(省略可能)</i>
+</td>
+<td>: サイズ </td>
+</tr><tr><td>
+<font color=blue>zOrder</font><i>(省略可能)</i>
+</td>
+<td>: 描画順序。値が小さいほど手前に描画される</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+i=0;
+while (1) {
+  drawText(x,y-30,"Time",$clWhite);
+  drawText(x,y-10,i,$clWhite);
+  i=i+1/60;
+  update();
+}
+<P>
+</pre>
+▲ オブジェクトの頭上に1秒に1だけ増えるタイマーが表示されます
+</td></tr></table>
+<P>
+<strong>※</strong>  drawTextで描いた図形は、次のフレームを描画する前に消去されます。
+必ず毎回(<a href="PlainChar.update.html">update</a>が呼ばれるたびに)drawTextを実行してください。
+<P>
+次のような例だと、一瞬だけ表示されてすぐ消えてしまいます。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+// 悪い例：
+extends SpriteChar;
+drawText(x,y-30,"Time",color);  // 最初の1フレームしか表示されない
+i=0;
+while (1) {
+  drawText(x,y-10,i,color);
+  i=i+1/60;
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

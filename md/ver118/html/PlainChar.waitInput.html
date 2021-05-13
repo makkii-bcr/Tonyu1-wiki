@@ -1,0 +1,83 @@
+<html>
+<title>PlainChar.waitInput</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">waitInputメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+文字入力用のウィンドウを開き、ユーザがボタン（「Ok」 または「キャンセル」）を押すまで処理を中断します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     waitInput(<font color="blue">title</font>,<font color="blue">prompt</font>,<font color="blue">default</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>title</font>
+</td>
+<td>: 文字入力用のウィンドウのタイトルバーに表示する文字列</td>
+</tr><tr><td>
+<font color=blue>prompt</font>
+</td>
+<td>: プロンプト部分（入力部分のすぐ上）に表示する文字列。改行文字(\n)を使うと複数行表示できます。</td>
+</tr><tr><td>
+<font color=blue>default</font>
+</td>
+<td>: 入力部分にあらかじめ入っている文字列</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> 入力された文字列。
+ユーザが「Ok」「キャンセル」のどちらを押したかは<a href="$InputBox.getStatus.html">$InputBox.getStatus</a>で調べることができます。
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<ul>
+<li>処理を中断したくないときは<a href="$InputBox.open.html">$InputBox.open</a>を用います。
+<li>onMouseDown,onMouseDragメソッドの中ではこのメソッドを呼ばないでください
+</ul>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while (1) {
+  // rに入力結果をいれる
+  r=waitInput("どっちへいきますか","\"L\":←  \"R\":→ "); 
+  if ($InputBox.getStatus()==2) die(); // キャンセル押したら死亡
+  if (r=="Left") { // "Left" を入力したら 、左に移動
+    for (i=0 ; i&lt;16 ; i++) {
+      x--;
+      update();
+    }
+  }
+  if (r=="Right") { // "Right" を入力したら 、左に移動
+    for (i=0 ; i&lt;16 ; i++) {
+      x++;
+      update();
+    }
+  }
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

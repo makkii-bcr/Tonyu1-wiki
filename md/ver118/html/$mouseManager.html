@@ -1,0 +1,63 @@
+<html>
+<title>$mouseManager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<a name="1"><font size="5">$mouseManagerオブジェクト</font>
+		    
+		    <BR><BR>
+<P>
+マウスの制御(マウスカーソルの強制移動、マウスの非表示など)を行います。
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+$mouseManager.showCursor(0);
+while (1) {
+  $mouseManager.moveCursor(100,100);
+  x+=($mouseManager.relX);
+  y+=($mouseManager.relY);
+  update();
+} 
+</pre>
+▲ 
+Windows標準のマウスが消え、代わりにこのオブジェクトがマウスカーソルとして働きます。
+  
+</td></tr></table>
+<P>
+<P>
+<a name="2"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>disable
+<li><a href="$mouseManager.moveCursor.html">moveCursor</a>
+<li><a href="$mouseManager.showCursor.html">showCursor</a>
+<li><a href="$mouseManager.refreshXY.html">refreshXY</a>
+</ul>
+<P>
+<P>
+<a name="3"><font size="5">変数一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>_body
+<li>enabled
+<li><a href="$mouseManager.relX.html">relX</a>
+<li><a href="$mouseManager.relY.html">relY</a>
+</ul>
+<P>
+<P>
+ 
+</font>
+</body></html>

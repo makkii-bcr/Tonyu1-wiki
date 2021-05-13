@@ -1,0 +1,83 @@
+<html>
+<title>extends</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<a name="1"><font size="5">extends</font>
+		    
+		    <BR><BR>
+ 
+<P>
+親クラスを設定します。親クラスを設定すると、親クラスの持っているすべての変数およびメソッドを利用できるようになります。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+extends クラス名;</tt></td></tr>
+</table>  
+<P>
+<ul>
+<li>extendsはかならずファイルの先頭に書いてください。
+<li><i>クラス名</i>で指定されたクラスを親クラスにします。
+</ul>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//----Enemy.tonyu
+extends SpriteChar;
+function atariHantei() {
+   if (crashTo($Jiki)) $Jiki.die();
+}
+//----End Of Enemy.tonyu
+<P>
+//----Teki1.tonyu
+extends Enemy;
+while (1) {
+    x=x+1;
+    atariHantei();
+    update();
+}
+//----End of Teki1.tonyu-----
+<P>
+//----Teki2.tonyu
+extends Enemy;
+while (1) {
+    y=y+1;
+    atariHantei();
+    update();
+}
+//----End of Teki2.tonyu-----
+<P>
+//----Jiki.tonyu (オブジェクト名は$Jikiにします)-----
+extends SpriteChar;
+while (1) {
+   if (getkey(39)&gt;0) x+=3;
+   if (getkey(37)&gt;0) x-=3;
+   if (getkey(40)&gt;0) y+=3;
+   if (getkey(38)&gt;0) y-=3;
+   update();
+}
+//----End of Jiki.tonyu-----</pre>
+<P>
+</td></tr></table>
+<P>
+Teki1,Teki2 からatariHanteiを呼び出していますが、atariHanteiは親クラスのEnemyで定義されています。
+<P>
+このように同じメソッドを複数のクラスで使うときは親クラスを設定すると便利です。
+<P>
+ 特に、atariHanteiの内容を変更するときに、各クラスに同じメソッドが複数のクラスにあると、すべてのメソッドを変更する必要がありますが、親クラスに定義すれば１箇所のみの変更ですみます。
+<HR>
+<a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

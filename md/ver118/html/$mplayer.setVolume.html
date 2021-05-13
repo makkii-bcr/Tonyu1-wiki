@@ -1,0 +1,56 @@
+<html>
+<title>$mplayer.setVolume</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="$mplayer.html">$mplayerクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">setVolumeメソッド($mplayerクラス)</font>
+		    
+		    <BR><BR>
+<P>
+BGMの音量を調節します
+<P>
+<P>
+ 
+<P>
+<i>このメソッドはまだ使えません。</i>
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     setVolume(<font color="blue">vol</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>vol</font>
+</td>
+<td>:音量(0-256)</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre>for (i=256 ; i&gt;0; i--) {
+  $mplayer.setVolume(i);
+  update();
+}</pre>
+▲ フェードアウトします。他の音楽を鳴らす前には$mplayer.setVolume(256)を実行してください。（音が出なくなります）
+</td></tr></table>
+<P>
+ 
+</font>
+</body></html>

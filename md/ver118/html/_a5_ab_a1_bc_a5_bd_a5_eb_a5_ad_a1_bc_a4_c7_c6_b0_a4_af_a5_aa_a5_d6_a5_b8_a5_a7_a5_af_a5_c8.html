@@ -1,0 +1,77 @@
+<html>
+<title>カーソルキーで動くオブジェクト</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_a4_a4_ed_a4_a4_a4_ed.html">←前</a> <a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_f2_c4_c9_a4_a4_a4_ab_a4_b1_a4_eb_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8.html">次→</a>  <a href="_a5_c1_a5_e5_a1_bc_a5_c8_a5_ea_a5_a2_a5_eb.html">チュートリアルトップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">カーソルキーで動くオブジェクト</font>
+		    
+		    <BR><BR>
+<P>
+基礎編のまとめとして、典型的なオブジェクトを２つほど作ってみます。まずカーソルキーを使って動かせるオブジェクトです。
+<P>
+<a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_f2_ba_ee_a4_eb.html">オブジェクトを作る</a>を参考に、新しいオブジェクトを作成します
+<P>
+<img src="../uploads/class3%2epng" alt="class3.png" border=0>
+<P>
+オブジェクトをダブルクリックし、次のように入力します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+while(1) {
+&nbsp;if (getkey(39)&gt;0) x+=3;
+&nbsp;if (getkey(37)&gt;0) x-=3;
+&nbsp;if (getkey(40)&gt;0) y+=3;
+&nbsp;if (getkey(38)&gt;0) y-=3;
+&nbsp;update();
+}</pre></td>
+</tr></table>
+<P>
+新しくgetkeyというものがでてきましたが、
+これはキー入力を判定するのに用います。
+<P>
+ getkey(x)は、キーが押されているかどうかの判定を行います。
+xは調べたいキーの番号で
+ 39がカーソルキーの右, 37が左です
+ 38がカーソルキーの上, 40が下です
+<P>
+ getkey(x)はキーの状態によって、次のような値を表します:
+<ul>
+<li>&nbsp;&nbsp;0:押されていない
+<li>&nbsp;&nbsp;1:今押されたばかり
+<li>&nbsp;&nbsp;2以上:押しっぱなしになっている
+</ul>
+※他のキーの状態を調べたい場合は<a href="Object.getkey.html">getkey</a>を参照してください。
+<P>
+getkeyの部分は次のようにいいかえられます
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+ if (右がおされた) 右に3だけ移動;
+&nbsp;if (左がおされた) 左に3だけ移動;
+&nbsp;if (下がおされた) 下に3だけ移動;
+&nbsp;if (上がおされた) 上に3だけ移動;
+</pre></td>
+</tr></table>
+<P>
+実行してみましょう。カーソルキーをつかって動かせます。
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_a4_a4_ed_a4_a4_a4_ed.html">←前</a> <a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_f2_c4_c9_a4_a4_a4_ab_a4_b1_a4_eb_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8.html">次→</a>  <a href="_a5_c1_a5_e5_a1_bc_a5_c8_a5_ea_a5_a2_a5_eb.html">チュートリアルトップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

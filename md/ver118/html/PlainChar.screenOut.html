@@ -1,0 +1,69 @@
+<html>
+<title>PlainChar.screenOut</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">screenOutメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+オブジェクトが画面外に出たかどうかを判定します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     screenOut() 
+     
+   <table>   
+     
+   </table>   
+     <BR><strong>戻り値:</strong> 画面外に出ていない場合は0、
+画面外に出ている場合は0より大きい値を返す。<BR>
+その値は x方向にはみだしたドット数＋y方向にはみだしたドット数
+<P>
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while(1) {
+  if (screenOut()&gt;0) die();
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3; 
+  if (getkey(40)&gt;0) y+=3;
+  if (getkey(38)&gt;0) y-=3;  
+  update();
+}
+<P>
+<P>
+ 
+</pre>
+▲ 
+カーソルキーでオブジェクトを動かしていくと、画面外に出た瞬間に死亡します
+なお、
+  if (screenOut()&gt;0) die();
+は
+  if (screenOut()) die();
+と書いても同じ動作をします。
+  
+</td></tr></table>
+ 
+</font>
+</body></html>

@@ -1,0 +1,60 @@
+<html>
+<title>Panel.alpha</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Panel.html">Panelクラスの説明</a>に戻る
+<HR>
+<a name="1"><font size="5">変数alpha</font>
+		    
+		    <BR><BR>
+パネルの透明度を指定します。255が完全に不透明で、減らすにしたがって透明になっていきます。0にすると見えなくなります。
+<P>
+ 
+<P>
+ 
+参考：
+パネルオブジェクトの透明度は、次の例のように指定します。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends PanelChar;
+resize(100,100);
+panel.fillRect(0,0,100,100,$clWhite);
+panel.drawText(0,0,"パネル",$clBlue,18);
+wait(60);
+alpha=128; // 透明度を128にする
+wait();
+<P>
+</pre>
+<P>
+</td></tr></table>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+// 悪い例
+extends PanelChar;
+resize(100,100);
+panel.fillRect(0,0,100,100,$clWhite);
+panel.drawText(0,0,"パネル",$clBlue,18);
+wait(60);
+panel.alpha=128; // panel.alpha に代入しても透明度は変化しません
+wait();
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

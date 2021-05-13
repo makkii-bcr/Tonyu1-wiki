@@ -1,0 +1,72 @@
+<html>
+<title>for (xx in $chars)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<a name="1"><font size="5">for (xx in $chars)</font>
+		    
+		    <BR><BR>
+<P>
+<P>
+画面上のすべてのオブジェクトに対して処理を行います
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+for (変数名 in $chars) 処理</tt></td></tr>
+</table>  
+<P>
+<i>変数名</i>で表される変数に画面上のオブジェクトを順番に代入していき、<i>処理</i>を行います。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//----Enemy.tonyu
+extends SpriteChar;
+while (1) {
+    y=y+1;
+    update();
+}
+//----End of Enemy.tonyu-----
+<P>
+//-----Jiki.tonyu--------
+extends SpriteChar;
+while (1) {
+ if (getkey(39)&gt;0) x+=3;
+ if (getkey(37)&gt;0) x-=3;
+ if (getkey(40)&gt;0) y+=3;
+ if (getkey(38)&gt;0) y-=3;
+ for (e in $chars) {
+  if (e <a href="is.html">is</a> Enemy && <a href="PlainChar.crashTo.html">crashTo</a>(e)) <a href="PlainChar.die.html">die</a>();
+ }
+ update();
+}
+//----End of Jiki.tonyu-----
+</pre>
+▲ Jikiは、画面上のEnemyクラスのオブジェクトeのうちのどれかに対して、
+<a href="PlainChar.crashTo.html">crashTo</a>(e)が成立すれば<a href="PlainChar.die.html">die</a>();を呼び出します。
+<P>
+すなわち、Enemyクラスのいずれかに当たると死亡します。
+<P>
+</td></tr></table>
+<P>
+<a name="2"><font size="5">関連</font>
+		    
+		    <BR><BR>
+<ul>
+<li><a href="is.html">is</a> 
+</ul>
+<HR>
+<a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

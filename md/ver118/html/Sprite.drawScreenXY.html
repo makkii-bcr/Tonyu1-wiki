@@ -1,0 +1,77 @@
+<html>
+<title>Sprite.drawScreenXY</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Sprite.html">Spriteクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">drawScreenXYメソッド(Spriteクラス)</font>
+		    
+		    <BR><BR>
+<P>
+各種描画命令において、座標系にスクリーン座標を使うか、ワールド座標を使うかを指定します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     drawScreenXY(<font color="blue">sc</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>sc</font>
+</td>
+<td>: 0=ワールド座標を使う 1=スクリーン座標を使う</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+主に、画面がスクロールするゲームにおいて、スコア表示など特定のオブジェクトを
+スクロールさせたくない場合に用います。
+<P>
+ 
+オブジェクトをスクロールにあわせて動かないようにするには次のようなメソッドを定義します。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends TextChar;
+function draw() {
+  drawScreenXY(1);
+  super.draw();
+  drawScreenXY(0);
+}
+x=100;
+y=20;
+text="Score : 0";
+wait();
+<P>
+</pre>
+▲ このオブジェクトはスクロールしても必ず画面上の(100,20)の位置にあります 
+</td></tr></table>
+<P>
+ 
+drawScreenXYメソッドは、<a href="Sprite.drawSprite.html">drawSprite</a>、<a href="Sprite.drawDxSprite.html">drawDXSprite</a>、<a href="Sprite.drawText.html">drawText</a>、<a href="Sprite.drawLine.html">drawLine</a>、<a href="Sprite.fillRect.html">fillRect</a>の各メソッドにおける引数xとyに機能します。
+<P>
+<ul>
+<li>ワールド座標を用いた場合、(x,y)の値をワールド座標として解釈します。この場合スクロールした位置により画面上の表示位置が変化します。
+<li>スクリーン座標を用いた場合、スクロールしても画面上の位置は変化しません。
+</ul>
+<P>
+スクリーン座標、ワールド座標については<a href="http://tonyu.kake.info.waseda.ac.jp/scroll/html/HID00000001.htm">スクロールのサンプル</a>を参照してください。
+<P>
+ 
+</font>
+</body></html>

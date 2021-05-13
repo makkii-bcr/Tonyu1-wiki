@@ -1,0 +1,63 @@
+<html>
+<title>Object.randomize</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Object.html">Objectクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">randomizeメソッド(Objectクラス)</font>
+		    
+		    <BR><BR>
+<P>
+<a href="Object.rnd.html">rnd</a>メソッドが生成する乱数の系列(乱数の発生順序)を設定します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     randomize(<font color="blue">seed</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>seed</font><i>(省略可能)</i>
+</td>
+<td>: 乱数系列を表す整数( 0 ～ 16777215 )。 省略すると、システムタイマによって乱数系列が設定されます。</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+ 
+このseedの値によって、この後rndメソッドが返す値の順番が決まります。
+seedを省略した場合、プログラムを実行するたびにまったく違う乱数を返すことができます
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+randomize();
+while (1) {
+  if( rnd(10)==0) {
+    x=rnd()*$screenWidth;
+    y=rnd()*$screenHeight;
+  }
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

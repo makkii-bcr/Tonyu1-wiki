@@ -1,0 +1,59 @@
+<html>
+<title>Object.rnd</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Object.html">Objectクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">rndメソッド(Objectクラス)</font>
+		    
+		    <BR><BR>
+<P>
+乱数(でたらめな数)を返します
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     rnd(<font color="blue">n</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>n</font><i>(省略可能)</i>
+</td>
+<td>:  発生させる乱数の範囲。</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> 0 から n-1の整数乱数。nを省略すると0から1の実数乱数を返します。
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> extends SpriteChar;
+while (1) {
+  if( rnd(10)==0) {
+    x=rnd()*$screenWidth;
+    y=rnd()*$screenHeight;
+  }
+  update();
+}
+ 
+</pre>
+▲ 10フレームに１回の確率で、画面上のいろいろな場所にオブジェクトが移動します。
+</td></tr></table>
+<P>
+  実行のたびに違う順序で乱数を発生させるには<a href="Object.randomize.html">randomize</a>メソッドを使います。
+<P>
+ 
+</font>
+</body></html>

@@ -1,0 +1,92 @@
+<html>
+<title>AnimationAdaptor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>AnimationAdaptorクラス</h2>
+<P>
+AnimationAdaptorとは、キャラクタパターンを次々に変化させることによるアニメーションを簡単に実現するためのオブジェクトです。
+<P>
+<P>
+ 
+<P>
+ここでは、図1のようなキャラクタを用意して、オブジェクトを歩かせる処理を考えます。
+<P>
+<P>
+<strong>図1 :</strong><BR>
+<img src="../uploads/chars%2epng" alt="chars.png" border=0>
+<P>
+ 
+まず簡単な例を示します。次のオブジェクトは、キャラクタパターン$pat_chars+0と$pat_chars+1を５フレームごとに交互に表示します。
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+a=<a href="SpriteChar.newAnimation.html">newAnimation</a>();
+a.<a href="AnimationAdaptor.loop.html">loop</a>($pat_chars+0,$pat_chars+1,5);
+wait();
+</pre>
+<P>
+</td></tr></table>
+<P>
+<strong>※</strong>  <a href="SpriteChar.newAnimation.html">newAnimation</a>メソッド, <a href="AnimationAdaptor.loop.html">loop</a>メソッドの説明も参照してください。
+<P>
+  次のオブジェクトは、カーソルキーを使って歩きながら移動するオブジェクトです。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+<P>
+a=newAnimation();
+while(1) {
+  a.pause(); // 動いていないときはアニメーションを止める。
+  // 各カーソルキーが押されたとき、アニメーションを設定する。 左右移動の場合fによって向きも指定する。
+  if (getkey(39)&gt;0) {a.loop($pat_chars+2,$pat_chars+3,3); f=0;  x+=3;}  
+  if (getkey(37)&gt;0) {a.loop($pat_chars+2,$pat_chars+3,3); f=1; x-=3;} 
+  if (getkey(40)&gt;0) {a.loop($pat_chars+0,$pat_chars+1,3); y+=3;}
+  if (getkey(38)&gt;0) {a.loop($pat_chars+4,$pat_chars+5,3); y-=3; }
+  update();
+}
+<P>
+</pre>
+<P>
+</td></tr></table>
+<P>
+ <strong>※</strong> 
+アニメーションさせるコマ数が３つ以上の場合、最初のパターンを１番目の引数、最後のパターンを２番目の引数に指定します（途中のパター
+ンは指定しません）  
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li><a href="AnimationAdaptor.play.html">play</a>
+<li><a href="AnimationAdaptor.loop.html">loop</a>
+<li><a href="AnimationAdaptor.swing.html">swing</a>
+<li><a href="AnimationAdaptor.update3.html">update3</a>
+<li>stop
+<li>update2
+<li><a href="AnimationAdaptor.pause.html">pause</a>
+<li><a href="AnimationAdaptor.resume.html">resume</a>
+</ul>
+<P>
+<P>
+<P>
+ 
+</font>
+</body></html>

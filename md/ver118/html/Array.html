@@ -1,0 +1,99 @@
+<html>
+<title>Array</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>Arrayクラス</h2>
+<P>
+Array(配列)クラスのオブジェクトには、複数の値（要素）を格納することができます。
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//予め<a href="_a5_b3_a5_f3_a5_bd_a1_bc_a5_eb_a5_a6_a5_a3_a5_f3_a5_c9_a5_a6.html">コンソールウィンドウ</a>を表示しておいてください
+extends SpriteChar;
+a=new Array();   // 配列の作成
+a.add("orange");
+a.add("apple");
+print ("要素数="+a.size());
+print ("1番目の要素は"+a.get(0));
+print ("2番目の要素は"+a.get(1));
+ 
+a.insert(1,"banana");
+a.set(0,"grape");
+print ("要素数="+a.size());
+print ("1番目の要素は"+a.get(0));
+print ("2番目の要素は"+a.get(1));
+print ("3番目の要素は"+a.get(2));
+ 
+a.delete(2);
+print ("全要素のリスト");
+for (b in a) {
+ print(b);
+}
+a.save("result.txt"); 
+//files\result.txt に
+//配列の内容が保存されます。
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="1"><font size="5">特殊構文</font>
+		    
+		    <BR><BR>
+<ul>
+<li><a href="for..in.html">for..in</a>
+</ul>
+<a name="2"><font size="5">コンストラクタ</font>
+		    
+		    <BR><BR>
+<ul>
+<li><a href="new Array.html">new Array</a>
+</ul>
+<P>
+<a name="3"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>init
+<li><a href="Array.add.html">add</a>
+<li><a href="Array.insert.html">insert</a>
+<li><a href="Array.get.html">get</a>
+<li><a href="Array.set.html">set</a>
+<li><a href="Array.size.html">size</a>
+<li><a href="Array.delete.html">delete</a>
+<li><a href="Array.indexOf.html">indexOf</a>
+<li><a href="Array.lightIndexOf.html">lightIndexOf</a>
+<li><a href="Array.remove.html">remove</a>
+<li>pack
+<li>free
+<li>gc_mark
+<li><a href="Array.clear.html">clear</a>
+<li><a href="Array.load.html">load</a>
+<li><a href="Array.save.html">save</a>
+</ul>
+<P>
+<P>
+<a name="4"><font size="5">変数一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>_x
+</ul>
+<P>
+<P>
+ 
+</font>
+</body></html>

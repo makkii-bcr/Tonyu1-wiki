@@ -1,0 +1,238 @@
+<html>
+<title>自機を動かす(2)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_a5_de_a5_c3_a5_d7_a4_f2_c9_c1_a4_af.html">←前</a>　 <a href="_c5_a8_a4_f2_c6_b0_a4_ab_a4_b9(2).html">次→</a>　 <a href="_a4_e1_a4_a4_a4_ed_a4_f3.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">自機を動かす</font>
+		    
+		    <BR><BR>
+<P>
+<a name="2"><font size="+1"><strong>自機を作る</strong></font>
+		    
+                  <BR>
+<P>
+自機を作ってみましょう。<a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_f2_ba_ee_a4_eb.html">オブジェクトを作る</a>を参考にオブジェクトを作成します
+<P>
+<img src="../uploads/mkmychar%2epng" alt="mkmychar.png" border=0>
+<P>
+<a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_ce_a5_ad_a5_e3_a5_e9_a5_af_a5_bf_a5_d1_a5_bf_a1_bc_a5_f3_a4_f2_bb_d8_c4_ea_a4_b9_a4_eb.html">オブジェクトのキャラクタパターンを指定する</a>を参考に、自機のパターンを指定します。先ほど用いたSamplesの下のMaze.bmpを使います
+<P>
+<img src="../uploads/selPatmy_m%2epng" alt="selPatmy_m.png" border=0>
+<P>
+<a name="3"><font size="+1"><strong>自機の動きを定義する</strong></font>
+		    
+                  <BR>
+<P>
+自機をダブルクリックし、次のように入力します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+while(1) {
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
+  update();
+}</pre></td>
+</tr></table>
+<P>
+実行してみましょう。カーソルキーの右と左で自機を動かせます。
+<P>
+<a name="4"><font size="+1"><strong>下に落ちる</strong></font>
+		    
+                  <BR>
+<P>
+しかし、これだと自機が空中に浮いています。下に落ちる処理を付け加えて見ましょう。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+while(1) {
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
+  y+=3;
+  update();
+}</pre></td>
+</tr></table>
+<P>
+これで実行すると、自機はどんどん下におちていきます。
+<P>
+<a name="5"><font size="+1"><strong>床やはしごの判定を加える</strong></font>
+		    
+                  <BR>
+<P>
+今度は、ずっと落ちっぱなしですね。床やはしごにあたったら止まるようにしないといけません。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+while(1) {
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
+<font color="ee1111">  if ($map.getAt(x,y)==$pat_Maze+1) y+=3;</font>
+  update();
+}</pre></td>
+</tr></table>
+<P>
+ここで新しく<a href="$map.getAt.html">$map.getAt</a>(x,y)という命令がでてきますが、これは
+<P>
+「(x,y)地点にあるマップのキャラクタパターンを返す」
+<P>
+という働きがあります
+<P>
+(x,y)とは自分のいる地点ですから、自分が床でもはしごでもない場所（紺色の空間）にいる場合だけ落ちるようにすればよいのです。
+<P>
+<a name="6"><font size="+1"><strong>めり込みを修正する</strong></font>
+		    
+                  <BR>
+<P>
+さて、実行させてみると、確かに床で止まるのですが、ちょっとめりこんだ格好になっています。
+<P>
+この仕組みを説明しましょう。次の図をみてください。
+<P>
+<img src="../uploads/merikomi%2epng" alt="merikomi.png" border=0>
+<P>
+これで、すこしめりこんだ理由はわかったでしょうか
+めりこまないようにするには、もう少し下の点で判定をすればよいのです。
+<P>
+<img src="../uploads/merikomi2%2epng" alt="merikomi2.png" border=0>
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+while(1) {
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
+  if ($map.getAt(x,y<font color="ee1111">+16</font> )==$pat_Maze+1) y+=3;
+  update();
+}</pre></td>
+</tr></table>
+<P>
+さて、これでうごかしてみましょう。
+まだ足りないものがあります。はしごを使っての上下移動ができません。
+<P>
+そこで、自分がはしごの上にいたら上下キーで移動できるようにしましょう
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+while(1) {
+  if (getkey(39)&gt;0) x+=3; 
+  if (getkey(37)&gt;0) x-=3;
+  if ($map.getAt(x,y+16)==$pat_Maze+1) y+=3;
+<font color="ee1111">  if ($map.getAt(x,y)==$pat_maze+2) {
+     if (getkey(40)&gt;0) y+=3;
+     if (getkey(38)&gt;0) y-=3;
+  }</font>
+  update();
+}</pre></td>
+</tr></table>
+<P>
+追加した部分の解説をします。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+ if ($map.getAt(x,y)==$pat_maze+2) {</pre></td></tr></table>
+<P>
+↑ここは、自分のいる場所にはしご（キャラクタパターン番号：$pat_maze+2)があるかどうかの判定です
+<P>
+はしごがある場合はif文の中の処理を行います
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+  
+if (getkey(40)&gt;0) y+=3;   
+if (getkey(38)&gt;0) y-=3;
+</pre></td></tr></table>
+<P>
+↑それぞれ、上や下がおされたら上または下に移動します。
+<P>
+実行させてみましょう。
+とりあえずはしごを使って上下移動ができるようですが...?
+ずっと下を押していたら、壁にめりこんでしまいました。
+<P>
+<img src="../uploads/merikomi3%2epng" alt="merikomi3.png" border=0>
+<P>
+プログラムをもう一度みてみましょう
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+while(1) {
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
+  if ($map.getAt(x,y+16)==$pat_Maze+1) y+=3;
+  if ($map.getAt(x,y)==$pat_maze+2) {
+    if (getkey(40)&gt;0) y+=3;
+    if (getkey(38)&gt;0) y-=3; 
+  }
+  update();
+}</pre></td>
+</tr></table>
+<P>
+下を押したら、下に移動するという処理は
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+ if (getkey(40)&gt;0) y+=3;</pre></td></tr></table>
+<P>
+でやっていますが、ここに「下のほうに壁があったらとまる」という
+判定を加えたほうがよさそうです。
+逆にいえば「下が押されていて、かつ下に壁がなかったら、下に移動できる」と書けばよいのです。
+先ほどの
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+ if ($map.getAt(x,y+16)==$pat_Maze+1) y+=3;</pre></td></tr></table>
+<P>
+という処理は
+「下になにもない空間があった場合、下に移動する（落ちる）」
+という処理でした。これにならって、次のようにかきなおします
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+while(1) {
+ if (getkey(39)&gt;0) x+=3;
+ if (getkey(37)&gt;0) x-=3;
+ if ($map.getAt(x,y+16)==$pat_Maze+1) y+=3;
+ if ($map.getAt(x,y)==$pat_maze+2) {
+   if (getkey(40)&gt;0 <font color="ee1111"> && $map.getAt(x,y+16)!=$pat_Maze+0</font> ) y+=3; 
+   if (getkey(38)&gt;0) y-=3;
+ }
+ update();
+}</pre></td>
+</tr></table>
+<P>
+実行させてみましょう。自機の動きはひとまず完成です。
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_a5_de_a5_c3_a5_d7_a4_f2_c9_c1_a4_af.html">←前</a>　 <a href="_c5_a8_a4_f2_c6_b0_a4_ab_a4_b9(2).html">次→</a>　 <a href="_a4_e1_a4_a4_a4_ed_a4_f3.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

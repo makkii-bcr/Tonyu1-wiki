@@ -1,0 +1,112 @@
+<html>
+<title>得点を表示する</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_c5_a8_a4_ce_c6_b0_a4_ad_a4_cb_ca_d1_b2_bd_a4_f2_a4_c4_a4_b1_a4_eb.html">←前</a>  <a href="_c3_c6_a1_a2_c7_fa_c8_af_a4_f2_ba_ef_bd_fc_a4_b9_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">得点を表示する</font>
+		    
+		    <BR><BR>
+<a name="2"><font size="+1"><strong>文字オブジェクトを作る</strong></font>
+		    
+                  <BR>
+<P>
+やっつけた敵に応じて得点を表示するようにしましょう。
+<P>
+まず得点を表示するためのオブジェクトを作ります。<a href="_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_f2_ba_ee_a4_eb.html">オブジェクトを作る</a>を参考にオブジェクトを作成します。
+「オブジェクトの種類」を「テキスト」にします。
+<P>
+<img src="../uploads/newtext%2epng" alt="newtext.png" border=0>
+<P>
+<blockquote><font size=-1 color=#8888aa> <strong>間違えて「テキスト」でなく、「スプライト」でオブジェクトを作ってしまったら....</strong>
+<P>
+この場合、オブジェクトをダブルクリックし、プログラム先頭の extends SpriteChar;を  extends  TextChar ; に変更し、一回実行し停止させるとテキストオブジェクトに変わります。</font></blockquote>
+<P>
+オブジェクトをダブルクリックして、次のように入力します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends TextChar;
+$score=0;
+while(1) {
+  text="Score:"+$score;
+  update();
+}</pre></td>
+</tr></table>
+<P>
+<a name="3"><font size="+1"><strong>文字を表示する</strong></font>
+		    
+                  <BR>
+<P>
+テキストオブジェクトは、文字をするためのオブジェクトです。
+変数textに文字列を代入すると、その内容が画面に表示されます。
+上のプログラムでは、文字列"Score:"の後ろに変数$scoreの内容を
+付け加えたものをtextに代入しています。
+<P>
+<a name="4"><font size="+1"><strong>グローバル変数を使う</strong></font>
+		    
+                  <BR>
+<P>
+ $scoreという変数には頭に"$"がついています。$で始まる変数はグローバル変数といい、どのオブジェクトからも参照できる変数です。
+逆に、$がついていない変数は、そのオブジェクトが固有にもっている変数です。これをオブジェクト変数と呼びます。オブジェクト変数は、同じ名前でもオブジェクトが違っていれば全く別の変数となります。
+<P>
+$scoreをグローバル変数にしたのは、敵などの他のオブジェクトが得点計算を行う必要があり、表示をこの得点表示用のオブジェクトが行う必要があるからです。
+<P>
+とりあえず実行させてみると、画面上にScore : 0という文字が出ています。
+<P>
+<a name="5"><font size="+1"><strong>得点計算をする</strong></font>
+		    
+                  <BR>
+<P>
+敵が弾にあたってやられた時に得点が増えるようにしましょう。
+敵をダブルクリックし、次のように変更します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+function onDie() {
+  appear(new Bomb(x , y ,$pat_Sample+4));
+}
+function atariHantei() {
+  for (t in $chars) {
+   if ( t is Tama && crashTo(t) ) <font color="ee1111"> {
+     die();
+     $score=$score+10;
+   } </font>
+  }
+  if (crashTo($myChar)) $myChar.die();
+}
+nexty=rnd(50)+100;
+while (y&lt;nexty) {
+  y=y+2;
+  atariHantei();
+  update();
+}
+if (x&lt;$myChar.x) vx=2; else vx=-2;
+while (y&lt;$screenHeight) {
+  y=y+3;
+  x=x+vx;
+  atariHantei();
+  update();
+}</pre></td>
+</tr></table>
+<P>
+実行すると、敵をやっつけるたびに得点がふえていきます。
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="_c5_a8_a4_ce_c6_b0_a4_ad_a4_cb_ca_d1_b2_bd_a4_f2_a4_c4_a4_b1_a4_eb.html">←前</a>  <a href="_c3_c6_a1_a2_c7_fa_c8_af_a4_f2_ba_ef_bd_fc_a4_b9_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

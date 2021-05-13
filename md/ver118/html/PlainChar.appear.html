@@ -1,0 +1,167 @@
+<html>
+<title>PlainChar.appear</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">appearメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+実行中にオブジェクトを出現させます。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     appear(<font color="blue">o</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>o</font>
+</td>
+<td>:出現させるオブジェクト</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> 出現したオブジェクト(o自身)
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+ 
+<a href="SpriteChar.html">スプライトオブジェクト</a>、<a href="DXChar.html">DXスプライトオブジェクト</a>の作成には、次の形式が便利です。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> appear(new <strong>クラス名</strong> ( <strong>x座標</strong> , <strong>y座標</strong> , <strong>キャラクタパターン</strong> , <strong>反転</strong> )) </tt></td></tr>
+</table>  
+<P>
+<ul>
+<li><strong>クラス名</strong>
+</ul>
+<blockquote>
+  
+ 出現させるオブジェクトのクラスを指定します
+</blockquote>
+<ul>
+<li><strong>x座標,y座標</strong>
+</ul>
+<blockquote>
+  
+ 出現位置を指定します
+</blockquote>
+<ul>
+<li><strong>キャラクタパターン</strong>
+</ul>
+<blockquote>
+  
+ 出現したときのキャラクタパターンを指定します
+</blockquote>
+<ul>
+<li><strong>反転(省略可)</strong>
+</ul>
+<blockquote>
+  
+ １を指定するとキャラクタパターンを左右反転します
+</blockquote>
+<P>
+テキストオブジェクトは次の形式で作成します
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> appear(new <strong>クラス名</strong> ( <strong>x座標</strong>, <strong>y座標</strong> , <strong>テキスト</strong>, <strong>色</strong>, <strong>サイズ</strong>)) </tt></td></tr>
+</table>  
+<P>
+<ul>
+<li><strong>クラス名</strong>
+</ul>
+<blockquote>
+  
+ 出現させるオブジェクトのクラスを指定します
+</blockquote>
+<ul>
+<li><strong>テキスト</strong>
+</ul>
+<blockquote>
+  
+ 出現したときのテキストの内容を文字列で指定します
+</blockquote>
+<ul>
+<li><strong>色</strong>
+</ul>
+<blockquote>
+  
+ テキストの色を決めます。通常<a href="Object.color.html">color</a>メソッドを使います。
+</blockquote>
+<ul>
+<li><strong>サイズ</strong>
+</ul>
+<blockquote>
+  
+ 文字の大きさを決めます。省略すると12です
+</blockquote>
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+en=appear(new Enemy(x,y,$pat_enemy+3));
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//---------Tama.tonyu-----
+extends SpriteChar;
+while(1) {
+   x+=vx;y+=vy;
+   update();
+}
+//---End of Tama.tonyu
+<P>
+//---------Jiki.tonyu-----
+extends SpriteChar;
+while(1) {
+   if (getkey(32)==1) {
+      t=new Tama(x,y,10);  // t:出現させるオブジェクト
+      // tの変数を初期化。←を押すと左方向、→を押すと右方向に飛んでいく
+      if (getkey(37)) t.vx=-2;  
+      if (getkey(39)) t.vx=2;  
+      t.vy=-8; 
+      appear(t);  
+   }
+   update();
+}
+//-----End of Jiki.tonyu
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

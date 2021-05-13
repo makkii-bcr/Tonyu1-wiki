@@ -1,0 +1,64 @@
+<html>
+<title>Object.angleDiff</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Object.html">Objectクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">angleDiffメソッド(Objectクラス)</font>
+		    
+		    <BR><BR>
+<P>
+角度の比較を行います。
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     angleDiff(<font color="blue">a</font>,<font color="blue">b</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>a</font>
+</td>
+<td>:角度a</td>
+</tr><tr><td>
+<font color=blue>b</font>
+</td>
+<td>:角度b</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> angleDiff(a,b) は、-180 から 179 までの値を返します。
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+この値は次の性質をもっています。
+<P>
+  angleDiff(a,b) == (a-b) + 360 * n   (nは整数)
+<P>
+言い換えると、angleDiff(a,b)の戻り値は、角度a-b と同じ向きを持つ、-180 から 179 までの角度です。
+<P>
+angleDiff(360,90)  = -90
+<P>
+angleDiff(-50,180) = 130
+<P>
+angleDiffを図で表すと図1のようになります。 
+<P>
+d=angleDiff(a,b);
+<P>
+<P>
+<strong>図1 :</strong><BR>
+<img src="../uploads/angleDiff%2epng" alt="angleDiff.png" border=0>
+<P>
+ 
+angleDiffを用いると、角度a から 角度bに到達するには右回り、左回りのどちらが早いかを判定することができます。angleDiff(a,b)の値が正の
+とき、a から b に 至るには 左回り（aを減らす)が近く、負のときは右回り(aを増やす) のほうが近くなります。
+<P>
+<P>
+ 
+</font>
+</body></html>

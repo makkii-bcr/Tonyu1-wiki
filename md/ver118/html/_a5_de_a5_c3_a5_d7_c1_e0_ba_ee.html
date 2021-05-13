@@ -1,0 +1,73 @@
+<html>
+<title>マップ操作</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+API一覧
+<P>
+マップ操作
+<P>
+ $map.getメソッド
+<P>
+マップパターンを取得します
+<P>
+書式:
+$map.get(mx,my);
+<P>
+ mx  .. マップパターン上のx座標
+my  .. マップパターン上のy座標
+<P>
+戻り値：
+マップ上のmx,myにおけるキャラクタパターン番号を返します
+<P>
+例：
+<P>
+pa=$map.get(4,3);
+<P>
+図の緑枠の部分のキャラクタパターンを返します
+<P>
+<img src="../uploads/map_get%2epng" alt="map_get.png" border=0>
+<P>
+ $map.getAtメソッド
+<P>
+画面上の座標からマップパターンを取得します
+<P>
+書式:
+$map.get(sx,sy);
+<P>
+ sx  .. 画面の座標上のx座標
+sy  .. 画面の座標上のy座標
+<P>
+戻り値：
+画面の座標sx,syにおけるキャラクタパターン番号を返します
+「画面の座標」とは、下の図のように1ドットを単位とした座標です。
+<P>
+例：
+<P>
+pa=$map.getAt(72,56);
+<P>
+図の緑枠の部分のキャラクタパターンを返します。
+<P>
+<img src="../uploads/map_getAt%2epng" alt="map_getAt.png" border=0>
+<P>
+<P>
+ $map.setメソッド
+<P>
+マップパターンを設定します
+<P>
+書式:
+$map.set(mx,my,p);
+<P>
+ mx  .. マップパターン上のmx座標
+my  .. マップパターン上のmy座標
+p   .. 設定するキャラクタパターン番号
+<P>
+マップのmx,myのパターンをpに設定します
+<P>
+※ $map.scrollTo,$viewX,$viewY の各項目は画面スクロールに移転しました
+<P>
+<P>
+API一覧
+ 
+</font>
+</body></html>

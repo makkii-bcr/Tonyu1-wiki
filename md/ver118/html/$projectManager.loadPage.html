@@ -1,0 +1,74 @@
+<html>
+<title>$projectManager.loadPage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="$projectManager.html">$projectManagerクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">loadPageメソッド($projectManagerクラス)</font>
+		    
+		    <BR><BR>
+<P>
+他のページを読み込みます。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     loadPage(<font color="blue">page</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>page</font>
+</td>
+<td>: 読み込むページ</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<P>
+ 
+pageに指定するのは、<a href="_a5_d7_a5_ed_a5_b8_a5_a7_a5_af_a5_c8_a5_de_a5_cd_a1_bc_a5_b8_a5_e3.html">プロジェクトマネージャ</a>に表示されるページ名です。例えば、図1のように表示されている場合、$page_index,
+$page_stage2,$page_startのいずれかを指定します。
+<P>
+<P>
+<P>
+<strong>図1 :</strong><BR>
+<img src="../uploads/1men%2epng" alt="1men.png" border=0>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> $projectManager.loadPage($page_index);
+<P>
+<P>
+</pre>
+▲ 図1で赤く囲ったページ($page_index)を読み込みます。
+</td></tr></table>
+<P>
+<strong>※</strong> 
+loadPageメソッド実行後、次に<a href="PlainChar.update.html">update</a>、<a href="PlainChar.updateEx.html">updateEx</a>、<a href="PlainChar.wait.html">wait</a>の
+いずれかのメソッドが呼ばれるまでは、移動前のページで処理が続行します。
+<P>
+<P>
+ 
+<strong>※</strong>  ページを切り替えたときにBGMを止めない方法 
+<P>
+$Options.set("sound_stopOnPageLoad",1);
+<P>
+参照： <a href="$Options.set.html">$Options.set</a>メソッド
+<P>
+ 
+</font>
+</body></html>
