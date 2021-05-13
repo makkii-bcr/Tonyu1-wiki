@@ -71,6 +71,9 @@ export function getTitle(htmlData: string): string {
  * @param destFilePath 比較先ファイルパス
  */
 export function isUpdateFile(srcFilePath: string, destFilePath: string): boolean {
+    if (!fs.existsSync(srcFilePath) || !fs.existsSync(destFilePath)) {
+        return true;
+    }
     let srcTime = fs.statSync(srcFilePath).mtime.getTime();
     let destTime = fs.statSync(destFilePath).mtime.getTime();
     return srcTime > destTime;
