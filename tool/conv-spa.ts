@@ -3,6 +3,7 @@ import * as path from 'path';
 // import marked from 'marked';
 import marked = require('marked');
 import imageSize from 'image-size';
+import * as base from './base-conv';
 
 const docsDirName = 'docs';
 const mdDirName = 'md';
@@ -17,11 +18,8 @@ function convMain(): void {
     const isDeploy = process.argv.some((v) => v === '--deploy');
     const curDir = process.cwd();
 
-    // docsを全削除
-    // fs.rmSync(path.join(curDir, 'docs'), { recursive: true, force: true });
-
     const mdDir = path.join(curDir, mdDirName);
-    const mdPaths = lsrSync(mdDir);
+    const mdPaths = base.lsrSync(mdDir);
 
     const tmplPath = path.join(curDir, templateDirName, 'template-spa.html');
     const tmplHtmlData = Buffer.from(fs.readFileSync(tmplPath)).toString();
@@ -32,13 +30,13 @@ function convMain(): void {
 
     // 共通部品md
     const sidebarPath = path.join(mdTemplateDirName, 'tp-sidebar.md');
-    const sidebarHtmlData = convMdToHtml(sidebarPath);
+    const sidebarHtmlData = base.convMdToHtml(sidebarPath);
     const navPcPath = path.join(mdTemplateDirName, 'tp-nav-pc.md');
-    const navPcHtmlData = convMdToHtml(navPcPath);
+    const navPcHtmlData = base.convMdToHtml(navPcPath);
     const navMobilePath = path.join(mdTemplateDirName, 'tp-nav-mobile.md');
-    const navMobileHtmlData = convMdToHtml(navMobilePath);
+    const navMobileHtmlData = base.convMdToHtml(navMobilePath);
     const footerPath = path.join(mdTemplateDirName, 'tp-footer.md');
-    const footerHtmlData = convMdToHtml(footerPath);
+    const footerHtmlData = base.convMdToHtml(footerPath);
 
     const imgAry: { path: string; width: number; height: number; }[] = [];
 
@@ -67,32 +65,32 @@ function convMain(): void {
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
                 return;
             }
-            if (path.parse(mdPath).ext == '.png') {
-                const imgSize = imageSize(mdPath);
-                imgAry.push({
-                    path: mdPath,
-                    width: imgSize.width || 0,
-                    height: imgSize.height || 0
-                });
-                // console.log(path.parse(mdPath).base, imgSize.width, imgSize.height);
-            }
-
-            // ファイルコピー(md -> docs)
             const relativePath = mdPath.replace(mdDir, '');
+            const inPath = path.join(mdDir, relativePath);
             const outPath = path.join(curDir, docsDirName, relativePath);
-            fs.mkdirSync(path.dirname(outPath), { recursive: true });
-            fs.copyFileSync(
-                path.join(mdDir, relativePath),
-                outPath
-            );
-            console.log('copy file :', outPath);
+            if (base.isUpdateFile(inPath, outPath)) {
+                if (path.parse(mdPath).ext == '.png') {
+                    const imgSize = imageSize(mdPath);
+                    imgAry.push({
+                        path: mdPath,
+                        width: imgSize.width || 0,
+                        height: imgSize.height || 0
+                    });
+                    // console.log(path.parse(mdPath).base, imgSize.width, imgSize.height);
+                }
+
+                // ファイルコピー(md -> docs)
+                fs.mkdirSync(path.dirname(outPath), { recursive: true });
+                fs.copyFileSync(inPath, outPath);
+                console.log('copy file :', outPath);
+            }
         }
     });
 
 
     // テンプレートhtmlに、markdownのhtmlを埋め込み
     const outData = tmplHtmlData.replace(/%content/g, htmlDataSum)
-        .replace(/%title/g, getTitle(htmlDataSum))
+        .replace(/%title/g, base.getTitle(htmlDataSum))
         .replace(/%sidebar/g, sidebarHtmlData)
         .replace(/%nav_pc/g, navPcHtmlData)
         .replace(/%nav_mobile/g, navMobileHtmlData)
@@ -117,70 +115,8 @@ function convMain(): void {
             })
         .replace(/%footer/g, footerHtmlData);
 
-    const htmlPath = toHtmlPath('index.html');
+    const htmlPath = base.toHtmlPath('index.html');
     fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
     fs.writeFileSync(htmlPath, outData);
-}
-
-/**
- * mdファイルを読み込んで、変換、HTMLデータを返す
- * @param htmlPath 
- * @returns htmlのデータ
- */
-function convMdToHtml(htmlPath: string): string {
-    const mdData = fs.readFileSync(htmlPath);
-    const htmlData = marked(mdData.toString());
-    return htmlData;
-}
-
-/**
- * mdファイルパスをhtmlファイルパスにする
- * @param mdDir 
- * @param mdPath 
- * @returns 
- */
-function toHtmlPath(mdPath: string): string {
-    const relativePath = path.parse(mdPath).base
-    const tempPath = path.join(process.cwd(), 'docs', relativePath);
-    const htmlPath = tempPath.replace(/.md$/, '.html');
-    return htmlPath;
-}
-
-/**
- * ファイルの一覧を返す（サブフォルダ内のファイル含む）
- * @param dir 
- * @returns ファイルパス配列（絶対パス）
- */
-function lsrSync(dir: string): string[] {
-    const retAry: string[] = [];
-    const pathList = fs.readdirSync(dir);
-    pathList.map(p => path.join(dir, p))
-        .forEach(p => {
-            if (fs.statSync(p).isDirectory()) {
-                lsrSync(p).forEach(pp => {
-                    retAry.push(pp);
-                });
-            } else {
-                retAry.push(p);
-            }
-        });
-    return retAry;
-}
-
-/**
- * <head><title>に入れる文字列を取得する（<h1>～<h3>の文字列を取得）
- * @param htmlData 
- * @returns 
- */
-function getTitle(htmlData: string): string {
-    const start = htmlData.match(/<h[1-3]\s*.*?>/);
-    const end = htmlData.match(/<\/h[1-3]>/);
-    let title = '';
-    if (start != null && end != null) {
-        const startPos = start.index! + start[0].length;
-        const endPos = end.index;
-        title = htmlData.substring(startPos, endPos);
-    }
-    return title;
 }
 
