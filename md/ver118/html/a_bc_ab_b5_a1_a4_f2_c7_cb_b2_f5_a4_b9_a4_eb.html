@@ -1,0 +1,160 @@
+<html>
+<title>自機を破壊する</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_c5_a8_a4_f2_bd_d0_b8_bd_a4_b5_a4_bb_a4_eb.html">←前</a> <a href="_c5_a8_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">自機を破壊する</font>
+		    
+		    <BR><BR>
+<a name="2"><font size="+1"><strong>敵と自機がぶつかったら、自機が死ぬ</strong></font>
+		    
+                  <BR>
+<P>
+敵を作りましたが、このままでは弾があたっても、自機がぶつかっても何もおきません。
+まず、敵が自機にあたると自機が破壊されるようにしましょう
+<P>
+敵オブジェクトをダブルクリックして、次の行を追加します
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+while (y&lt;$screenHeight) {
+&nbsp;&nbsp;y=y+2;
+<font color="ee1111">  if (crashTo($myChar)) $myChar.die();</font>
+&nbsp;&nbsp;update();
+}</pre></td>
+</tr></table>
+<P>
+まずifの条件部から見ていきましょう
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+if (crashTo($myChar)) ...</pre></td></tr></table>
+<P>
+ <a href="PlainChar.crashTo.html">crashTo</a>は、この敵が自機($myChar)に当たっているかという判定を行います。
+当たっている場合はif文の後ろが実行されます。
+なお、自機の名前は、自機をクリックし、オブジェクトインスペクタで確認できます。
+<P>
+<img src="../uploads/mycharname%2epng" alt="mycharname.png" border=0>
+<P>
+ぶつかった場合の処理は次のようになります
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+ ...  $myChar.die();</pre></td></tr></table>
+<P>
+これによって自機が死にます。
+<P>
+xx.<a href="PlainChar.die.html">die</a>();は、xxで表されるオブジェクトを殺す命令で、殺されたオブジェクトはただちに処理が止まり、画面上からいなくなります。
+<P>
+それでは実行してみましょう。敵が自機にふれると、自機が消えてしまいました。
+<P>
+<a name="3"><font size="+1"><strong>爆発パターンを作る</strong></font>
+		    
+                  <BR>
+<P>
+しかし、いきなり消えるのはあっけないので、爆発するアニメーションをつけてみましょう。
+<P>
+新規オブジェクトを作成します。
+<P>
+<img src="../uploads/mkbomb%2epng" alt="mkbomb.png" border=0>
+<P>
+キャラクタパターンを、爆発パターンの一番先頭のパターンにします。
+<P>
+<img src="../uploads/mkbombp%2epng" alt="mkbombp.png" border=0>
+<P>
+ダブルクリックして、動作を次のように書きます
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+wait(5);
+p=p+1;
+wait(5);
+p=p+1;
+wait(5);
+p=p+1;
+wait(5);</pre></td>
+</tr></table>
+<P>
+新しくwait(5);という命令が出てきました。これはupdate();に似ています。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> wait(待機フレーム数);</tt></td></tr>
+</table>  
+<P>
+これを行うことにより待機フレーム(コマ)数で指定しただけオブジェクトの動作が止まります。ここでは5フレーム(5コマ)待機します。
+<P>
+その後、変数pの値を１増やしています。変数pは、このオブジェクトのキャラクタパターンを表します。つまり、pを1増やすことにより、キャラクタパターンが次のように変化していきます
+<P>
+<img src="../uploads/bpats%2epng" alt="bpats.png" border=0>
+<P>
+実行してみると、爆発しているようなアニメーションを見ることができます。
+<P>
+<a name="4"><font size="+1"><strong>爆発パターンを出現させる</strong></font>
+		    
+                  <BR>
+<P>
+爆発パターンを、自機が死んだときに発生させるようにしましょう。
+自機オブジェクトをダブルクリックして、次のように変更します
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+<font color="ee1111"> 
+function onDie() {
+&nbsp;&nbsp;appear(new Bomb($myChar.x , $myChar.y ,$pat_Sample+4));
+}
+</font>
+while(1) {
+&nbsp;if (getkey(39)&gt;0 && x&lt;$screenWidth ) x=x+3;
+&nbsp;if (getkey(37)&gt;0 && x&gt;0) x=x-3;
+&nbsp;if (getkey(32)==1) appear(new Tama(x,y,$pat_Sample+1));
+&nbsp;update();
+}</pre></td>
+</tr></table>
+<P>
+<a href="a_c5_a8_a4_f2_bd_d0_b8_bd_a4_b5_a4_bb_a4_eb.html">敵を出現させる</a>で出てきたメソッドを使いました。しかし、先ほどと違ってこの <a href="PlainChar.onDie.html">onDie</a>というメソッドはプログラム中から呼ばれていません。
+<P>
+実はこの onDieという名前をつけたメソッドは特別な意味を持ち、そのオブジェクトが死んだときに行わせる処理を記述できます。実際には、敵のオブジェクトが$myChar.die();
+を呼んだときに、自動的にこの onDieメソッドが呼ばれます。
+<P>
+&nbsp; onDieメソッドの中では、次の処理によって爆発オブジェクトを出現させています。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+ appear(new Bomb($myChar.x , $myChar.y ,$pat_Sample+4));</pre></td></tr></table>
+<P>
+ <a href="PlainChar.appear.html">appear</a>の使い方をもう一度復習しておきましょう
+<P>
+<ul>
+<li><strong>Bomb</strong>は、出現させたいオブジェクトのクラスです。
+<li><strong>$myChar.x</strong> , <strong>$myChar.y</strong>  は、オブジェクトの出現する座標です。
+<li> <strong>$pat_Sample+4</strong>は、オブジェクトのキャラクタパターンを指定します。ここでは<img src="../uploads/bomp%2epng" alt="bomp.png" border=0>です。
+</ul>
+<P>
+&nbsp;<strong>$myChar.x</strong>は、「$myChar<strong>の</strong>x」と解釈できます。このように、オブジェクトに続いてドット(.)と変数名書くと、そのオブジェクトが持っている変数を参照することができます。ここでは、自機のいる場所に爆発を出現させるのにこの参照を用いています。
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_c5_a8_a4_f2_bd_d0_b8_bd_a4_b5_a4_bb_a4_eb.html">←前</a> <a href="_c5_a8_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

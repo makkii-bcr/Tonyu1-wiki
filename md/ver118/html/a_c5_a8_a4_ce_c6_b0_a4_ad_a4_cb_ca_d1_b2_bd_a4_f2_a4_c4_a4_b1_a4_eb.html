@@ -1,0 +1,167 @@
+<html>
+<title>敵の動きに変化をつける</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_c5_a8_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">←前</a>  <a href="_c6_c0_c5_c0_a4_f2_c9_bd_bc_a8_a4_b9_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">敵の動きに変化をつける</font>
+		    
+		    <BR><BR>
+<a name="2"><font size="+1"><strong>新しい動きを追加する</strong></font>
+		    
+                  <BR>
+<P>
+今の敵は、上から下に直線で飛んでくるだけなので、ちょっと変わった動きをつけましょう
+<P>
+途中までは今までどおり下に飛んできて、その後自機のいる方向に曲がって飛んでくるようにします。敵をダブルクリックして、次のようにかきかえましょう。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+function onDie() {
+  appear(new Bomb(x , y ,$pat_Sample+4));
+}
+<P>
+<font color="ee1111">nexty=rnd(50)+100;</font>
+while (y&lt; nexty ) {
+  y=y+2;
+  for (t in $chars) {
+    if ( t is Tama && crashTo(t) ) die();
+  }
+  if (crashTo($myChar)) $myChar.die();
+  update();
+}
+<font color="ee1111"> 
+if (x&lt;$myChar.x) vx=2; else vx=-2;
+while (y&lt;$screenHeight) {
+  y=y+3;
+  x=x+vx;
+  update();
+}</font></pre></td>
+</tr></table>
+<P>
+変更した部分を順番に見ていきましょう
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+ nexty=rnd(50)+100;</pre></td></tr></table>
+<P>
+まず <a href="Object.rnd.html">rnd</a>(50)は、<a href="a_c5_a8_a4_f2_bd_d0_b8_bd_a4_b5_a4_bb_a4_eb.html">敵を出現させる</a>でも登場した、乱数を返すメソッドです。この場合、0から49の整数の乱数が返されます。それに100が加算されるので結果として、nextyには100から149の乱数が代入されます。
+次のwhileの条件が変わっています
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+ while (y&lt; nexty ) {</pre></td></tr></table>
+<P>
+ yがnextyより小さい(nextyより上)にいるまでは、先ほどまでと同じ処理をするようになります。つまり、上のほうにいるときはまっすぐ降りてきます。
+<P>
+そして、動きが変化するところでは、次のような処理を行います
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+ if (x&lt;$myChar.x) vx=2; else vx=-2; </pre></td></tr></table>
+<P>
+vxは、後で説明するように、移動方向のx成分です。
+<P>
+<strong>x&lt;$myChar.x</strong>ならば（つまり、敵の位置が自機より左なら）右に移動するために、 vx=2のように移動方向を正の値(右方向)にします。 
+<P>
+その後ろについている elseは「そうでなかったら」という意味です。すなわち
+ x&lt;$myChar.x<strong>でない</strong>ならば（つまり、敵の位置が自機より右なら）左に移動するために、 vx=-2のように移動方向を負の値(左方向)にします。
+<P>
+上のようにしてvxを設定し、次の処理で実際に移動を行います。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+while (y&lt;$screenHeight) {
+  y=y+3;
+  x=x+vx;
+  update();
+}</pre></td></tr></table>
+<P>
+<a name="3"><font size="+1"><strong>追加した部分でも当たり判定を行う</strong></font>
+		    
+                  <BR>
+<P>
+しかし、これで実行させるとわかりますが、敵が曲がった後、当たり判定（自機が破壊される、弾にあたるとやられる）がまったくなくなってしまいます。
+曲がった後のwhileの中で当たり判定の処理を書き忘れているためです。
+ そこで、最初のwhileで書いてある当たり判定の処理をコピーして持ってきましょう。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+function onDie() {
+  appear(new Bomb(x , y ,$pat_Sample+4));
+}
+nexty=rnd(50)+100;
+while (y&lt;nexty) {
+  y=y+2;
+  for (t in $chars) {
+    if ( t is Tama && crashTo(t) ) die();
+  }
+  if (crashTo($myChar)) $myChar.die();
+  update();
+}
+if (x&lt;$myChar.x) vx=2; else vx=-2;
+while (y&lt;$screenHeight) {
+  y=y+3;
+  x=x+vx;
+<font color="ee1111">  for (t in $chars) {
+    if ( t is Tama && crashTo(t) ) die();
+  }
+  if (crashTo($myChar)) $myChar.die();  </font>
+  update();
+}
+</pre></td>
+</tr></table>
+<P>
+<a href="a_a5_e1_a5_bd_a5_c3_a5_c9_a4_ce_c4_ea_b5_c1.html">メソッド</a>を使うともっと整理できます。当たり判定を行うatariHanteiメソッドを作成してみましょう。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+function onDie() {
+  appear(new Bomb(x , y ,$pat_Sample+4));
+}
+<font color="ee1111">
+function atariHantei() {
+  for (t in $chars) {
+    if ( t is Tama && crashTo(t) ) die();
+  }
+  if (crashTo($myChar)) $myChar.die();
+}</font>
+<P>
+nexty=rnd(50)+100;
+while (y&lt;nexty) {
+  y=y+2;
+<font color="ee1111">  atariHantei();</font>
+  update();
+}
+if (x&lt;$myChar.x) vx=2; else vx=-2;
+while (y&lt;$screenHeight) {
+  y=y+3;
+  x=x+vx;
+<font color="ee1111">  atariHantei();</font>
+  update();
+}</pre></td>
+</tr></table>
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_c5_a8_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">←前</a>  <a href="_c6_c0_c5_c0_a4_f2_c9_bd_bc_a8_a4_b9_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

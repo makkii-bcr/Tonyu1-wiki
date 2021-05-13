@@ -1,0 +1,126 @@
+<html>
+<title>敵を破壊する</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_bc_ab_b5_a1_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">←前</a> <a href="_c5_a8_a4_ce_c6_b0_a4_ad_a4_cb_ca_d1_b2_bd_a4_f2_a4_c4_a4_b1_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">敵を破壊する</font>
+		    
+		    <BR><BR>
+<a name="2"><font size="+1"><strong>敵と弾がぶつかったら、敵が死ぬ</strong></font>
+		    
+                  <BR>
+<P>
+自機がやられっぱなしではゲームになりませんので、敵も破壊されるようにしましょう。
+敵が弾に当たったら敵が死ぬようにすればいいのですから、<a href="a_bc_ab_b5_a1_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">自機を破壊する</a>を参考にこんなプログラムを思いつくかもしれません。
+敵をクリックして、次のような行を追加します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+while (y&lt;$screenHeight) {
+  y=y+2;
+<font color="ee1111">  if (crashTo($tama)) die();</font>
+  if (crashTo($myChar)) $myChar.die();
+  update();
+}</pre></td>
+</tr></table>
+<P>
+しかし、これで実行しても、敵は死んでくれません。
+この文は「$tamaが当たったら(敵が)死ぬ」ということを意味しています。
+$tamaとは、設計時に作った弾(実行を止めても画面上にいるオブジェクト)で、
+しかも$tamaは実行するとすぐ上に飛んで行って消えてしまいます。
+<P>
+一方、自分が撃つ弾は、実行時に新しく発生しているものなので、$tamaというように名前をつけることができません。しかも弾が画面上にいくつあるのかも状況によって変わってきます。
+そこで、実行時に作られたオブジェクトを参照するための仕組みが必要となります。それが 
+<P>
+<a href="for (xx in $chars).html">for (xx in $chars)</a> {}
+<P>
+という文です。さっきの行を消して次のように書いてみましょう。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+while (y&lt;$screenHeight) {
+  y=y+2;
+<font color="ee1111">  for (t in $chars) {
+    if ( t is Tama && crashTo(t) ) die();
+  }</font>
+  if (crashTo($myChar)) $myChar.die();
+  update();
+}</pre></td>
+</tr></table>
+<P>
+まず、最初の行
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+   for (t in $chars) {</pre></td></tr></table>
+<P>
+について解説します
+  これは、今画面上にいる全部のオブジェクトを調べ上げて、変数tに順番代入しながら、内の文を実行します。
+ 例えば、今画面に自機と敵が１つづつ、弾が２つあるとします。
+すると、 for (t in $chars) {は
+まずtに自機オブジェクトを代入し、{ }内の文を実行します。
+それが終わると今度はtに敵オブジェクトを代入し、同様に実行し、
+さらに弾オブジェクトの１個目を代入し実行
+さらに弾オブジェクトの２個目を代入し実行
+という処理を行います。(※ただし、どのオブジェクトが何番目に代入されるかは決まっていません)
+<P>
+次に{}内の処理について解説します。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+<P>
+    if ( t is Tama && crashTo(t) ) die();</pre></td></tr></table>
+<P>
+ifの条件部が&&で区切られているので、"t is Tama"と、"crashTo(t)"が両方成り立ったときだけ、ifの条件部が成立します（<a href="a_bc_ab_b5_a1_a4_f2_c6_b0_a4_ab_a4_b9.html">自機を動かす</a>参照)
+ t is Tama という式は、オブジェクトtのクラスがTamaであるかという判定を行います。
+前述のとおり、 for (t in $chars) {は、画面上の「全部の」オブジェクトを順番に代入していくので、そこには弾以外の自機や敵も含まれます。弾に当たった場合にだけ破壊されなければならないので、tが弾オブジェクトであるかの判定が必要となります。
+つまり ( t is Tama && crashTo(t) )は、tが弾で、その弾にぶつかっていれば、という意味になります。
+ そして、この条件が成り立つと die();によって敵自身が死にます。
+<P>
+実行してみましょう。敵を弾に当てると敵が死ぬようになりました。
+<P>
+<a name="3"><font size="+1"><strong>敵の爆発パターンを作る</strong></font>
+		    
+                  <BR>
+<P>
+敵にも爆発パターンつけてみましょう（<a href="a_bc_ab_b5_a1_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">自機を破壊する</a>参照)
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre> 
+extends SpriteChar;
+<font color="ee1111">function onDie() {
+  appear(new Bomb(x , y ,$pat_Sample+4));
+}</font>
+while (y&lt;$screenHeight) {
+  y=y+2;
+  for (t in $chars) {
+    if ( t is Tama && crashTo(t) ) die();
+  }
+  if (crashTo($myChar)) $myChar.die();
+  update();
+}</pre></td>
+</tr></table>
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_bc_ab_b5_a1_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">←前</a> <a href="_c5_a8_a4_ce_c6_b0_a4_ad_a4_cb_ca_d1_b2_bd_a4_f2_a4_c4_a4_b1_a4_eb.html">次→</a>  <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

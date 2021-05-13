@@ -1,0 +1,42 @@
+<html>
+<title>ランキング用CGIを設置する</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_a5_cd_a5_c3_a5_c8_a5_e9_a5_f3_a5_ad_a5_f3_a5_b0_c2_d0_b1_fe_a4_cb_a4_b9_a4_eb - _a4_cf_a4_b8_a4_e1_a4_cb.html">←前</a>  <a href="_a5_cd_a5_c3_a5_c8_a5_e9_a5_f3_a5_ad_a5_f3_a5_b0_c2_d0_b1_fe_a4_ce_a5_e9_a5_f3_a5_bf_a5_a4_a5_e0_a4_f2_ba_ee_c0_ae_a4_b9_a4_eb.html">次→</a> <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">ランキング用CGIを設置する</font>
+		    
+		    <BR><BR>
+<P>
+<strong>1.</strong> Tonyu Systemのアーカイブに添付されている"Perl"ディレクトリを開きます。
+<P>
+ hiscore.cgi  をテキストエディタで開きます
+<ul>
+<li>1行目の #!/usr/bin/perlを、サーバのPerlの置いてある場所に設定します。
+<li>8行目の $password='<strong>pass</strong>';の値を変更します。任意の英数文字列です。これが「<strong>ネットランキング管理者パスワード</strong>」なります。パスワードを忘れないようにしてください。
+<li>タイトルや、最初に表示されるHTMLの内容をお好みで変更します。
+</ul>
+<P>
+<strong>2.</strong> Perlディレクトリの内容をサーバにコピーします。(FTPを使用する場合、アスキーモードで転送してください)
+<P>
+<strong>3.</strong> パーミッションを設定します
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;hiscore.cgi  :  755(-rwxr-xr-x , 第三者による実行許可)
+&nbsp;&nbsp;&nbsp;&nbsp;data/hiscore :  666(-rw-rw-rw- , 第三者による書き込み許可)
+</pre>
+<P>
+<strong>4.</strong> hiscore.cgiをブラウザで開いて、ランキングのページが表示されるのを確認します
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_a5_cd_a5_c3_a5_c8_a5_e9_a5_f3_a5_ad_a5_f3_a5_b0_c2_d0_b1_fe_a4_cb_a4_b9_a4_eb - _a4_cf_a4_b8_a4_e1_a4_cb.html">←前</a>  <a href="_a5_cd_a5_c3_a5_c8_a5_e9_a5_f3_a5_ad_a5_f3_a5_b0_c2_d0_b1_fe_a4_ce_a5_e9_a5_f3_a5_bf_a5_a4_a5_e0_a4_f2_ba_ee_c0_ae_a4_b9_a4_eb.html">次→</a> <a href="_a5_b7_a5_e5_a1_bc_a5_c6_a5_a3_a5_f3_a5_b0_a5_b2_a1_bc_a5_e0_a4_ce_ba_ee_c0_ae.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>
