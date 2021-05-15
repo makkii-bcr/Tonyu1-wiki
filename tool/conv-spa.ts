@@ -65,20 +65,19 @@ function convMain(): void {
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
                 return;
             }
+            // 画像のwidth,heightを取得する
+            if (path.parse(mdPath).ext == '.png') {
+                const imgSize = imageSize(mdPath);
+                imgAry.push({
+                    path: mdPath,
+                    width: imgSize.width || 0,
+                    height: imgSize.height || 0
+                });
+            }
             const relativePath = mdPath.replace(mdDir, '');
             const inPath = path.join(mdDir, relativePath);
             const outPath = path.join(curDir, docsDirName, relativePath);
             if (base.isUpdateFile(inPath, outPath)) {
-                if (path.parse(mdPath).ext == '.png') {
-                    const imgSize = imageSize(mdPath);
-                    imgAry.push({
-                        path: mdPath,
-                        width: imgSize.width || 0,
-                        height: imgSize.height || 0
-                    });
-                    // console.log(path.parse(mdPath).base, imgSize.width, imgSize.height);
-                }
-
                 // ファイルコピー(md -> docs)
                 fs.mkdirSync(path.dirname(outPath), { recursive: true });
                 fs.copyFileSync(inPath, outPath);
@@ -86,7 +85,6 @@ function convMain(): void {
             }
         }
     });
-
 
     // テンプレートhtmlに、markdownのhtmlを埋め込み
     const outData = tmplHtmlData.replace(/%content/g, htmlDataSum)
