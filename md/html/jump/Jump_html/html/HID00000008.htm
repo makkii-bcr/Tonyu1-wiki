@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text-html; charset=shift-jis">
+<TITLE>敵との当たり判定を作る</TITLE>
+<STYLE TYPE="text/css">a:hover{font-weight:bold;}</STYLE>
+</HEAD>
+<BODY bgcolor="#FFFFE2">
+<SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><a href="HID00000001.htm">トップへ</a><BR>
+<BR>
+<b>敵との当たり判定を作る</b><BR>
+<BR>
+</DIV><LI><b>敵とぶつかったら、自分が死ぬ</b><BR>
+</DIV><BR>
+敵をダブルクリックして、次のように入力します。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+vx=2;  // 進行方向<BR>
+a=newAnimation();    // AnimationAdapterを作成<BR>
+a.loop($pat_Enemy1+0,$pat_Enemy1+1,10); // 敵の２つのパターンを往復するアニメーション<BR>
+while (1) {<BR>
+&nbsp;</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">&nbsp;&nbsp;if (crashTo($snowMan)) $snowMan.die(); // 自機とぶつかったら自機が死ぬ<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">
+&nbsp;&nbsp;if ($map.getAt(x+vx,y)==$pat_Block+0 || $map.getAt(x+vx,y+32)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;// 進行方向のマップパターンがブロック、または斜め下がブロックでなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;a.pause(); // 待機前にアニメーションを止める<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;updateEx(30);    // 30フレーム待機<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;a.resume(); // 待機後にアニメーション再開<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;vx=-vx;          // 進行方向を反転する<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;x+=vx;  // 進行方向へ進む<BR>
+&nbsp;&nbsp;if (vx<0) f=1; else f=0;  // vx が負（左向き）なら反転<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">新しく追加した部分について説明します：<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#800000;font-size:12pt;font-family:ＭＳ ゴシック"> crashToメソッド</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+このメソッドは、指定したオブジェクト（この例では$snowMan）とこのオブジェクト（敵）がぶつかっているかを判定します。ぶつかっている場合if文の中身が実行されます。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#800000;font-size:12pt;font-family:ＭＳ ゴシック"> dieメソッド</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+オブジェクトを殺す（消す）ときに呼び出します。この場合$snowManを消すことになります。<BR>
+<BR>
+これで、敵が自機($snowMan)に触れると、自機が死ぬ処理ができました<BR>
+<BR>
+</DIV><LI><b>自機が敵を踏みつけたら、敵が死ぬ</b><BR>
+</DIV><BR>
+ここでは、「敵を踏みつける」という動作を次のように決めます<BR>
+<BR>
+1. 自機と敵が触れている<BR>
+2. 自機はその敵より少し上にいる（8ドットくらい)<BR>
+3. 自機は下方向に速度をもっている<BR>
+<BR>
+このうち、<BR>
+1. 自機と敵が触れている<BR>
+という判定先ほど次の部分で行いました。<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">   if (crashTo($snowMan)) $snowMan.die();  // 自機とぶつかったら自機が死ぬ<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+そこで、1. が成り立ったときに、 2. と 3. が成り立ったら敵が死に、そうでなければ、自機が死ぬようにします。<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+extends SpriteChar;<BR>
+vx=2;  // 進行方向<BR>
+a=newAnimation();    // AnimationAdapterを作成<BR>
+a.loop($pat_Enemy1+0,$pat_Enemy1+1,10); // 敵の２つのパターンを往復するアニメーション<BR>
+while (1) {<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">&nbsp;&nbsp;if (crashTo($snowMan)) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 自機とぶつかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( $snowMan.y < y-8 && $snowMan.vy>0 ) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 自機は敵より少し上にいて、下方向に速度をもっているならば<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(); // 敵が死ぬ<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$snowMan.die(); // そうでなければ自機が死ぬ<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;}<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">
+&nbsp;&nbsp;if ($map.getAt(x+vx,y)==$pat_Block+0 || $map.getAt(x+vx,y+32)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;// 進行方向のマップパターンがブロック、または斜め下がブロックでなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;a.pause(); // 待機前にアニメーションを止める<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;updateEx(30);    // 30フレーム待機<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;a.resume(); // 待機後にアニメーション再開<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;vx=-vx;          // 進行方向を反転する<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;x+=vx;  // 進行方向へ進む<BR>
+&nbsp;&nbsp;if (vx<0) f=1; else f=0;  // vx が負（左向き）なら反転<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+実行してみましょう。<BR>
+敵に横から当たると、自分が消えてしまいますが、<BR>
+敵を上から踏むと敵が消えます。<BR>
+<BR>
+</DIV><LI><b>敵踏みつけたとき、自分が跳ね上がる<BR>
+</DIV></b><BR>
+多くのジャンプアクションでは、敵を踏みつけた後自分が跳ねるようになっています。<BR>
+<BR>
+<IMG src="../images/haneagari.png" ALT="" BORDER=0><BR>
+<BR>
+この処理をやってみましょう。<BR>
+敵をダブルクリックし、次のように変更します。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+vx=2;  // 進行方向<BR>
+a=newAnimation();    // AnimationAdapterを作成<BR>
+a.loop($pat_Enemy1+0,$pat_Enemy1+1,10); // 敵の２つのパターンを往復するアニメーション<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if (crashTo($snowMan)) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 自機とぶつかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( $snowMan.y < y-8 && $snowMan.vy>0 ) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 自機は敵より少し上にいて、下方向に速度をもっているならば<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(); // 敵が死ぬ<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">&nbsp;&nbsp;$snowMan.vy=-5; // 自機がはねあがる<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">    &nbsp;&nbsp;} else {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$snowMan.die(); // そうでなければ自機が死ぬ<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;if ($map.getAt(x+vx,y)==$pat_Block+0 || $map.getAt(x+vx,y+32)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;// 進行方向のマップパターンがブロック、または斜め下がブロックでなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;a.pause(); // 待機前にアニメーションを止める<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;updateEx(30);    // 30フレーム待機<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;a.resume(); // 待機後にアニメーション再開<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;vx=-vx;          // 進行方向を反転する<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;x+=vx;  // 進行方向へ進む<BR>
+&nbsp;&nbsp;if (vx<0) f=1; else f=0;  // vx が負（左向き）なら反転<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+敵が死んだとき、自機のvy (縦方向の速度) を負の値に設定することで、跳ね上がる処理を行うことができます。<BR>
+<BR>
+</SPAN></DIV><BR>
+</BODY>
+</HTML>

@@ -1,0 +1,142 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text-html; charset=shift-jis">
+<TITLE>Tonyu Systemスクロールのサンプル</TITLE>
+<STYLE TYPE="text/css">a:hover{font-weight:bold;}</STYLE>
+</HEAD>
+<BODY bgcolor="#FFFFE2">
+<a href="../../../../tonyu.kake.info.waseda.ac.jp/">ホーム</a><P>
+<SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:18pt;font-family:ＭＳ ゴシック"> Tonyu Systemスクロールのサンプル</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+このサンプルの解説を読む前に、Tonyuの基本操作やチュートリアルなどを習得した後に読むと理解が深まると思います。<BR>
+<BR>
+
+<font size=5><a href="scroll.lzh">まずアーカイブをダウンロードしてください。</a></font>
+<P>
+アーカイブを解凍し、解凍したフォルダ内のindex.cmmlをTonyuで開きます。<BR>
+<BR>
+実行すると、画面が横にスクロールします。自機はカーソルキーで動きます。<BR>
+<BR>
+<b>プログラムの解説１ ： ワールド座標</b><BR>
+<BR>
+自機をダブルクリックすると次のようなコードが表示されます。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+                         <i> // 画面スクロールにあわせて自機がうごきます</i><BR>
+scx=0;                   <i> // スクロール位置用変数<BR>
+</i> while (1) {<BR>
+  $map.scrollTo(scx,0);  <i> // 画面左上の</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">ワールド座標</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">が(scx,0)になるようにスクロール<BR>
+</i>   scx+=1;                <i> // スクロール位置を１ドット上にずらす<BR>
+</i>   x+=1;                  <i> // スクロールにあわせて自分の座標を増やす<BR>
+</i><BR>
+  <i> // $viewXを使って、画面上端の</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">ワールド座標</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> (x座標)を得ることができます。<BR>
+</i>   if (getkey(37) && x>$viewX) x-=3;              <i> // 左<BR>
+</i>   if (getkey(39) && x<$viewX+$screenWidth) x+=3; <i> // 右<BR>
+</i><BR>
+  <i> // $viewYを使って、画面上端の</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">ワールド座標</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> (y座標)を得ることができます。<BR>
+</i>   if (getkey(38) && y>$viewY) y-=3;              <i>  // 上移動<BR>
+</i>   if (getkey(40) && y<$viewY+$screenHeight) y+=3; <i> // 下移動</i><BR>
+  update();<BR>
+}<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">注釈を見ると「</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">ワールド座標</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">」という用語があります。ワールド座標とは何でしょう。<BR>
+ 今までTonyuでプログラムを作ってきた際に、x、yという変数を使ってオブジェクトの位置を指定したり参照したりしてきました。このように変数（数値）の組み合わせでオブジェクトの位置をあらわす手段のことを「座標」と思ってもらえればよいでしょう。<BR>
+ いままで扱ってきた座標は、<BR>
+<BR>
+画面（ウィンドウ）の左上が(x,y)=(0,0)<BR>
+画面（ウィンドウ）の右下が(x,y)=($screenWidth,$screenHeight)<BR>
+<BR>
+となっていました。例えばウィンドウの大きさが560x384なら$screenWidthは560、$screenHeightは384となります。<BR>
+<BR>
+ このように画面（ウィンドウ）の左上を基準した座標を「スクリーン座標」と呼びます（下図参照）<BR>
+<BR>
+<IMG src="../images/scrAxis.png" ALT="" BORDER=0><BR>
+<BR>
+<BR>
+ではスクリーンでない座標ってなんでしょう。次の図を見てください。これはこのサンプルで使われているマップの全体図です。ゲーム雑誌の攻略記事なんかでよくみる細長－いマップです。<BR>
+<BR>
+<IMG src="../images/allMap.png" ALT="" BORDER=0><BR>
+<BR>
+例えば、この全体マップの中ほどにある、緑の</SPAN><SPAN STYLE="color:#00FF00;font-size:12pt;font-family:ＭＳ ゴシック">★</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">の場所に隠しアイテムがあるとしましょう（実際はないですけど）。<BR>
+<BR>
+その場所を座標で指し示すにはどうすればよいでしょうか。<BR>
+前述のスクリーン座標を使おうとするとまずい点があります。なぜなら、画面はどんどんスクロールしていくため、画面が右に流れれば隠しアイテムの場所も画面上では右に流れてしまい、画面上で「ここだ」ということができないためです。<BR>
+<BR>
+<IMG src="../images/dameScr.png" ALT="" BORDER=0><BR>
+</SPAN><i><SPAN STYLE="color:#008080;font-size:10pt;font-family:ＭＳ ゴシック">上の図の左側の図では★のスクリーン座標は（472,154) 、右側の図では(227,154)となります</SPAN></i><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+ そこで登場するのがワールド座標です。マップ全体に次の図のような座標をあてはめたものがワールド座標になります。<BR>
+<BR>
+<IMG src="../images/worldAxis.png" ALT="" BORDER=0><BR>
+<BR>
+ワールド座標を用いて</SPAN><SPAN STYLE="color:#00FF00;font-size:12pt;font-family:ＭＳ ゴシック">★</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">の位置を表すと（1080,154) となります。<BR>
+<BR>
+<b>プログラムの解説２ ： スクロールする、スクロールした位置を調べる</b><BR>
+<BR>
+実は今までオブジェクトの座標として使っていたxやyの値は、そのオブジェクトの位置をワールド座標で表しているのです。<BR>
+ にもかかわらず、今まで<BR>
+</DIV><DIV ALIGN="center"><BR>
+「x=0にするとオブジェクトがウィンドウの左端に、y=0にすると上端に移動します....」<BR>
+</DIV><BR>
+などと、x,yをスクリーン座標のように扱っていました。それでも何も問題はありませんでした。<BR>
+ なぜなら、Tonyu起動時に表示される画面は<BR>
+</DIV><DIV ALIGN="center"><BR>
+「ウィンドウの左上がワールド座標(0,0)になるように表示」<BR>
+</DIV><BR>
+していたからです。この場合、スクリーン座標とワールド座標は値として同じものになります。（次の図参照)<BR>
+<BR>
+<IMG src="../images/defPos.png" ALT="" BORDER=0><BR>
+<BR>
+さて、もう一度プログラムを見てみましょう<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+                        <i> // 画面スクロールにあわせて自機がうごきます</i><BR>
+scx=0;                  <i> // スクロール位置用変数<BR>
+</i> while (1) {<BR>
+  </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $map.scrollTo(scx,0);</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">  <i> // 画面左上のワールド座標が(scx,0)になるようにスクロール</i><BR>
+  scx+=1;               <i> // スクロール位置を１ドット上にずらす</i><BR>
+   （中略)<BR>
+  update();<BR>
+}<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+$map.scrollTo(scx,0); というメソッド呼び出しに注目しましょう。これがスクロールを行うということは、TonyuヘルプのAPIリファレンスにも書いてあります。<BR>
+例えば、このプログラムのwhileループを500回まわると、scxの値が500になります。<BR>
+この場合<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> $map.scrollTo(scx,0);</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+は<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> $map.scrollTo(</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> 500</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> ,0);</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+と同等になります<BR>
+注釈に</SPAN><i><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> // 画面左上のワールド座標が(scx,0)になるようにスクロール</i><BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">と書いてあります。この場合ワールド座標が(500,0)になるようにスクロール<BR>
+します。つまり、次の図のようにスクロールします。<BR>
+<BR>
+<IMG src="../images/scroll500.png" ALT="" BORDER=0><BR>
+<BR>
+ さらに、プログラムを詳しくみていきましょう。<BR>
+プログラムを実行してみるとわかりますが、自機は画面の端まで移動するとそれより外側には移動できなくなります。<BR>
+そのための判定をしている部分はプログラム上では次の部分です<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">   // </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $viewX</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">を使って、画面上端のワールド座標(x座標)を得ることができます。<BR>
+  if (getkey(37) && x></SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $viewX</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> ) x-=3; // 左<BR>
+  if (getkey(39) && x<</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $viewX</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> +$screenWidth) x+=3; // 右<BR>
+<BR>
+  // </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $viewY</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">を使って、画面上端のワールド座標(y座標)を得ることができます。<BR>
+  if (getkey(38) && y></SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $viewY)</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">  y-=3; // 上移動<BR>
+  if (getkey(40) && y<</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $viewY</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> +$screenHeight) y+=3; // 下移動<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+ $viewX,$viewY という変数が使われています。この２つの変数を参照することで<BR>
+ 現在、画面左上はワールド座標でどの位置にあたるのかを得ることができます。<BR>
+xやyといった値は、自機の位置をワールド座標で表していますので、<BR>
+画面スクロールするにつれて自分の移動できる範囲も移動していきます。<BR>
+次の図のように、画面内で移動できる範囲は、左端が$viewX、右端が$viewX+$screenHeightになります。<BR>
+ ちなみに、このプログラムは横にしかスクロールしないので、$viewYはずっと0<BR>
+です。よって$viewYはなくても正しく動作します。<BR>
+ ここではスクロール方向に縦が加わったときも考え、$viewYをわざと用いています。<BR>
+<BR>
+<IMG src="../images/border.png" ALT="" BORDER=0><BR>
+<BR>
+<BR>
+</SPAN></DIV><BR>
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text-html; charset=shift-jis">
+<TITLE>スクロールする</TITLE>
+<STYLE TYPE="text/css">a:hover{font-weight:bold;}</STYLE>
+</HEAD>
+<BODY bgcolor="#FFFFE2">
+<SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><a href="HID00000001.htm">トップへ</a><BR>
+<BR>
+<b>スクロールする</b><BR>
+<BR>
+普通、ジャンプアクションは画面がどんどん横にスクロールしていきます。<BR>
+このゲームでは、自機は常に画面に中心にいて、周りが縦横ななめにスクロールする方式にします。<BR>
+<BR>
+自機をダブルクリックして、次の文を追加します<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+anim=newAnimation();<BR>
+while (1) {<BR>
+&nbsp;&nbsp;anim.pause();<BR>
+&nbsp;&nbsp;if (getkey(39) && $map.getAt(x+16,y)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;x+=3;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;f=0;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;anim.swing($pat_player+0,$pat_player+2,5);<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;// ↑ カーソルキー右が押され、さらに右側が壁でなければ右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37) && $map.getAt(x-16,y)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;x-=3;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;f=1;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;anim.swing($pat_player+0,$pat_player+2,5);<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;// ↑ カーソルキー左が押され、さらに左側が壁でなければ左へ移動<BR>
+&nbsp;&nbsp;y+=vy;    // vy: y 方向の速度。 yにvy を加える<BR>
+&nbsp;&nbsp;if ($map.getAt(x,y+24)==$pat_Block+0 ) { // ブロックに当たっていたら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy=0; // 落下速度を0にする<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (getkey(32)) vy=-10; // スペースキーを押したらジャンプ<BR>
+&nbsp;&nbsp;} else { // ブロックに当たっていなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy+=0.5;  // 落下速度を上げる<BR>
+&nbsp;&nbsp;}<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">   $map.scrollTo(x-$screenWidth/2,y-$screenHeight/2); // スクロールする<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">   update();<BR>
+}<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</DIV><LI></SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $map.scrollTo(x-$screenWidth/2,y-$screenHeight/2)<BR>
+</DIV><BR>
+</SPAN><b><SPAN STYLE="color:#800000;font-size:12pt;font-family:ＭＳ ゴシック"> $map.scrollTo(X座標,Y座標); </SPAN></b><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">は、</SPAN><b><SPAN STYLE="color:#800000;font-size:12pt;font-family:ＭＳ ゴシック"> (X座標,Y座標)</SPAN></b><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">で指定された場所が画面の左上になるようにします。この場合、自機が丁度真中にくるようにスクロールします。<BR>
+<BR>
+参考：<BR>
+<a href="../../../../../tonyu.kake.info.waseda.ac.jp/html/HID00000114.htm">scrollToメソッド</a><BR>
+<a href="../../../../../tonyu.kake.info.waseda.ac.jp/html/HID00000041.htm">$screenWidth,$screenHeight</a><BR>
+<BR>
+<a href="HID00000007.htm">次へ</a><BR>
+<BR>
+<BR>
+</SPAN></DIV><BR>
+</BODY>
+</HTML>
