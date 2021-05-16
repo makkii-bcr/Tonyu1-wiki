@@ -1,6 +1,6 @@
 
 
-[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic09.md)&emsp;[目次→](./tutorial.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
 
 ### チュートリアル - 基礎編 (付録)
 ## キャラクタパターン用ビットマップの作り方
@@ -32,4 +32,4 @@ Tonyuに読み込むキャラクタパターンは、bmpファイルまたはpng
 
 ***
 
-[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic09.md)&emsp;[目次→](./tutorial.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
