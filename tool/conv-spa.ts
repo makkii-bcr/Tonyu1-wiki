@@ -12,7 +12,7 @@ const mdTemplateDirName = path.join('md', 'template');
 
 convMain();
 
-function convMain(): void {
+export function convMain(): void {
     console.log('run conv-spa.ts');
 
     const isDeploy = process.argv.some((v) => v === '--deploy');

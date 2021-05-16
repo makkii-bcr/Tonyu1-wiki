@@ -4,19 +4,19 @@
   "version": "1.0.0",
   "main": "tool/conv.js",
   "scripts": {
-    "debug": "npm run debug:n && npm run debug:spa",
+    "debug": "tsc tool/conv-all.ts --sourceMap",
     "debug:n": "tsc tool/conv.ts --sourceMap",
     "debug:spa": "tsc tool/conv-spa.ts --sourceMap",
-    "build": "npm run build:n && npm run build:spa",
+    "build": "ts-node tool/conv-all",
     "build:n": "ts-node tool/conv",
     "build:spa": "ts-node tool/conv-spa",
     "build:tsc": "npm run build:tsc:n && npm run build:tsc:spa",
     "build:tsc:n": "tsc tool/conv.ts && node tool/conv.js",
     "build:tsc:spa": "tsc tool/conv-spa.ts && node tool/conv-spa.js",
-    "fullbuild": "ts-node tool/conv --fullbuild && ts-node tool/conv-spa --fullbuild",
-    "deploy": "ts-node tool/conv --deploy && ts-node tool/conv-spa --deploy",
+    "fullbuild": "ts-node tool/conv-all --fullbuild",
+    "deploy": "ts-node tool/conv-all --deploy",
     "server": "http-server -o /docs/",
-    "start": "npm run run && npm run server"
+    "start": "npm run build && npm run server"
   },
   "directories": {
     "doc": "docs"

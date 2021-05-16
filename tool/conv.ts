@@ -12,7 +12,7 @@ const mdTemplateDirName = path.join('md', 'template');
 
 convMain();
 
-function convMain(): void {
+export function convMain(): void {
     console.log('run conv.ts');
 
     const isDeploy = process.argv.some((v) => v === '--deploy');
@@ -46,44 +46,15 @@ function convMain(): void {
     const footerHtmlData = base.convMdToHtml(footerPath);
 
     const dlDirPath = path.join(curDir, 'md', 'dl');
+    const mdFilePathAry: string[] = [];
 
     mdPaths.forEach(mdPath => {
         if (mdPath.match(/.md$/)) {
             if (mdPath.match(/tp-.*.md$/)) {
                 return;
             }
-            let htmlPath = base.toHtmlPath(mdPath).replace(/index.html$/g, 'index0.html');
-            if (base.isUpdateFile(mdPath, htmlPath)) {
-                // markdown -> html 変換
-                const mdData = fs.readFileSync(mdPath);
-                const htmlData = marked(mdData.toString());
-
-                // テンプレートhtmlに、markdownのhtmlを埋め込み
-                const tmplData = Buffer.from(tmplHtmlData).toString();
-                const outData = tmplData.replace('%content', htmlData)
-                    .replace(/%random/g, Math.floor(Math.random() * 1000000000).toString())
-                    .replace(/%title/g, base.getTitle(htmlData))
-                    .replace(/%sidebar/g, sidebarHtmlData)
-                    .replace(/%nav_pc/g, navPcHtmlData)
-                    .replace(/%nav_mobile/g, navMobileHtmlData)
-                    .replace(/src=\"(.*?)\"/g,
-                        function (match, p1, offset, string) {
-                            // imgタグにwidth,heightを追加する
-                            const imgSize = imageSize(path.join(path.parse(mdPath).dir, p1));
-                            const width = imgSize ? 'width="' + imgSize.width + '"' : '';
-                            const height = imgSize ? 'height="' + imgSize.height + '"' : '';
-                            return 'src="' + p1 + '" ' + width + ' ' + height;
-                        })
-                    .replace(/href="\.\/"/g, 'href="./index0.html"')
-                    .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
-                        'href=\"$1$2.html$4"')
-                    .replace(/%footer/g, footerHtmlData);
-
-                fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
-                fs.writeFileSync(htmlPath, outData);
-
-                console.log('convert md:', htmlPath);
-            }
+            // 画像ファイルコピー後にmarkdownの変換を行う（画像サイズ取得が失敗しないように）
+            mdFilePathAry.push(mdPath);
         } else {
             // dlフォルダはデプロイ時のみコピー
             if (!isDeploy && mdPath.indexOf(dlDirPath) != -1) {
@@ -98,6 +69,46 @@ function convMain(): void {
                 fs.copyFileSync(inPath, outPath);
                 console.log('copy file :', outPath);
             }
+        }
+    });
+
+    mdFilePathAry.forEach(mdPath => {
+        let htmlPath = base.toHtmlPath(mdPath).replace(/index.html$/g, 'index0.html');
+        if (base.isUpdateFile(mdPath, htmlPath)) {
+            // markdown -> html 変換
+            const mdData = fs.readFileSync(mdPath);
+            const htmlData = marked(mdData.toString());
+
+            // テンプレートhtmlに、markdownのhtmlを埋め込み
+            const tmplData = Buffer.from(tmplHtmlData).toString();
+            const outData = tmplData.replace('%content', htmlData)
+                .replace(/%random/g, Math.floor(Math.random() * 1000000000).toString())
+                .replace(/%title/g, base.getTitle(htmlData))
+                .replace(/%sidebar/g, sidebarHtmlData)
+                .replace(/%nav_pc/g, navPcHtmlData)
+                .replace(/%nav_mobile/g, navMobileHtmlData)
+                .replace(/src=\"(.*?)\"/g,
+                    function (match, p1, offset, string) {
+                        // imgタグにwidth,heightを追加する
+                        const imgPath = path.join(path.parse(htmlPath).dir, p1);
+                        if (fs.existsSync(imgPath)) {
+                            const imgSize = imageSize(imgPath); 
+                            // console.log(path.parse(imgPath).base, imgSize.width, imgSize.height);
+                            const width = imgSize ? 'width="' + imgSize.width + '"' : '';
+                            const height = imgSize ? 'height="' + imgSize.height + '"' : '';
+                            return 'src="' + p1 + '" ' + width + ' ' + height;
+                        }
+                        return match;
+                    })
+                .replace(/href="\.\/"/g, 'href="./index0.html"')
+                .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
+                    'href=\"$1$2.html$4"')
+                .replace(/%footer/g, footerHtmlData);
+
+            fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
+            fs.writeFileSync(htmlPath, outData);
+
+            console.log('convert md:', htmlPath);
         }
     });
 
