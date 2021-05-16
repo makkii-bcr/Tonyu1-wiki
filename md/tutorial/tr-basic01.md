@@ -8,7 +8,7 @@
 
 新しいページを作るには、「新規プロジェクト」を選択します。
 
-tonyu-all.png
+![tonyu-all.png](./img/tonyu-all.png)
 
 次のように入力し、OKをクリックします。
 

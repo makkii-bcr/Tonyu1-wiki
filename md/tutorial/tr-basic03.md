@@ -7,7 +7,7 @@
 
 作成したオブジェクトをダブルクリックします。 エディタが開きます。
 
-openEd.png
+![open-ed.png](./img/open-ed.png)
 
 ここでは、右方向に移動するという動きを定義してみます。エディタに次のように入力します。
 
@@ -15,12 +15,12 @@ openEd.png
 extends SpriteChar;
 
 while(x<$screenWidth) {
- x+=1;
- update();
+  x+=1;
+  update();
 }
 ```
 
-prog1.png
+![prog1.png](./img/prog1.png)
 
 メニューの「実行」→「実行(F9)」を選択すると、オブジェクトが動くのが確認できます。
 

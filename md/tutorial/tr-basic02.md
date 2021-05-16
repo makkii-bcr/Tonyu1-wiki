@@ -7,11 +7,11 @@
 
 メインウィンドウの「オブジェクト」メニューから「新規」を選択します。
 
-inspect.png
+![inspect.png](./img/inspect.png)
 
 名前とクラス名を次のように入力し、OKを押します。
 
-newObj.png
+![new-obj.png](./img/new-obj.png)
 
 画面に新しいオブジェクトが現れます。
 
