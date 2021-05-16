@@ -64,7 +64,7 @@ export function convMain(): void {
             const relativePath = mdPath.replace(mdDir, '');
             const inPath = path.join(mdDir, relativePath);
             const outPath = path.join(curDir, docsDirName, relativePath);
-            if (!isDeploy && base.isUpdateFile(inPath, outPath)) {
+            if (isDeploy || base.isUpdateFile(inPath, outPath)) {
                 fs.mkdirSync(path.dirname(outPath), { recursive: true });
                 fs.copyFileSync(inPath, outPath);
                 console.log('copy file :', outPath);
@@ -74,7 +74,7 @@ export function convMain(): void {
 
     mdFilePathAry.forEach(mdPath => {
         let htmlPath = base.toHtmlPath(mdPath).replace(/index.html$/g, 'index0.html');
-        if (!isDeploy && base.isUpdateFile(mdPath, htmlPath)) {
+        if (isDeploy || base.isUpdateFile(mdPath, htmlPath)) {
             // markdown -> html 変換
             const mdData = fs.readFileSync(mdPath);
             const htmlData = marked(mdData.toString());

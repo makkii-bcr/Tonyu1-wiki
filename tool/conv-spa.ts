@@ -77,7 +77,7 @@ export function convMain(): void {
             const relativePath = mdPath.replace(mdDir, '');
             const inPath = path.join(mdDir, relativePath);
             const outPath = path.join(curDir, docsDirName, relativePath);
-            if (!isDeploy && base.isUpdateFile(inPath, outPath)) {
+            if (isDeploy || base.isUpdateFile(inPath, outPath)) {
                 // ファイルコピー(md -> docs)
                 fs.mkdirSync(path.dirname(outPath), { recursive: true });
                 fs.copyFileSync(inPath, outPath);
