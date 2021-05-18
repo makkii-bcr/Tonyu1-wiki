@@ -13,10 +13,10 @@ Version 1.29 - [バージョンアップ履歴](./dl-history.md)
 ***
 - [まずはゲームをやってみる](./get-started.md) - Tonyuでこんなことができます。
 - [チュートリアル](./tutorial.md) - とりあえずゲームを作ってみたい方はこちらから
-- [FAQ](./html/faq.html)
 - [各種ウィンドウの使い方/オプション](./wnd-use-opt.md)
 - [命令リファレンス](./reference.md)
 - [エラーメッセージ](./error-mes.md)
+- [FAQ](./html/faq.html)
 ***
 - [Tonyu Systemについて](./about2.md)
 - [謝辞](./thanks.md)
