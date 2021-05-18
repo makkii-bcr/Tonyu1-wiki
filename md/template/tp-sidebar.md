@@ -15,6 +15,7 @@
 
 **2021-07-30**  
 ・[ver1.29リリース](./download)  
+・[M-Twoリリース](./download#m-two)  
 
 **2021-07-05**  
 ・[ver1.29リリース](./download)  

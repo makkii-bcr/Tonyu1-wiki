@@ -33,7 +33,7 @@ $mplayer.playメソッドを呼び出します。
 
 - wavファイル(*.wav)  
 - MIDIファイル(*.mid)  
-- M-Twoオブジェクトファイル(*.mzo) ... 音楽作成ソフト[M-Two](./download)で作成された音楽演奏用ファイル
+- M-Twoオブジェクトファイル(*.mzo) ... 音楽作成ソフト[M-Two](./download#m-two)で作成された音楽演奏用ファイル
 
 
 ***

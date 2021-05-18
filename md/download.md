@@ -197,9 +197,17 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 [Tonyu1_09Light.exe](http://hoge1e3.sakura.ne.jp/tonyu/dl/Tonyu1_09Light.exe)  
 [Tonyu1_09.exe](http://hoge1e3.sakura.ne.jp/tonyu/dl/Tonyu1_09.exe)  
 
-### 旧Wiki ダウンロード
+## M-Two
 
-[旧Wiki ダウンロード](http://hoge1e3.sakura.ne.jp/tonyu/wiki/index.php?%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89)
+M-Twoは音楽作成ツールです。MIDIとは異なり、MMLと呼ばれる言語でテキストファイルを作成することで音楽が演奏できます。  
+演奏される音はMIDIとは一風変わった、ファミコン風味の懐かしい音色です。  
+作成した音楽を自作のプログラムから使えるドライバMEZONETも用意してあります。 
+
+Tonyu System のBGMとして利用できます。
+
+[mtz12.zip](./dl/mtz12.zip) (Ver 1.2)  
+[mtz11.zip](./dl/mtz11.zip) (Ver 1.1)  
+
 
 ***
 
