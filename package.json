@@ -4,19 +4,13 @@
   "version": "1.0.0",
   "main": "tool/conv.js",
   "scripts": {
-    "debug": "tsc tool/conv-all.ts --sourceMap",
-    "debug:n": "tsc tool/conv.ts --sourceMap",
-    "debug:spa": "tsc tool/conv-spa.ts --sourceMap",
-    "build": "ts-node tool/conv-all",
-    "build:n": "ts-node tool/conv",
-    "build:spa": "ts-node tool/conv-spa",
-    "build:tsc": "npm run build:tsc:n && npm run build:tsc:spa",
-    "build:tsc:n": "tsc tool/conv.ts && node tool/conv.js",
-    "build:tsc:spa": "tsc tool/conv-spa.ts && node tool/conv-spa.js",
-    "fullbuild": "ts-node tool/conv-all --fullbuild",
-    "deploy": "ts-node tool/conv-all --deploy",
-    "server": "http-server -o /docs/",
-    "start": "npm run build && npm run server"
+    "build": "ts-node tool/conv",
+    "build:tsc": "tsc tool/conv.ts && node tool/conv.js",
+    "debug": "tsc tool/conv.ts --sourceMap",
+    "fullbuild": "ts-node tool/conv --fullbuild",
+    "deploy": "ts-node tool/conv --deploy",
+    "server": "http-server ./docs/ -o / -g",
+    "start": "npm i && npm run build && npm run server"
   },
   "directories": {
     "doc": "docs"
@@ -32,15 +26,19 @@
   },
   "homepage": "https://github.com/makkii-bcr/Tonyu1-wiki#readme",
   "devDependencies": {
-    "@types/marked": "^2.0.2",
-    "@types/node": "^14.14.43",
+    "@types/html-minifier-terser": "^5.1.1",
+    "@types/marked": "^2.0.3",
+    "@types/node": "^14.17.1",
+    "@types/node-zopfli": "^2.0.1",
     "@types/pngjs": "^6.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "html-minifier-terser": "^5.1.1",
     "http-server": "^0.12.3",
     "image-size": "^1.0.0",
-    "marked": "^2.0.3",
+    "marked": "^2.0.6",
+    "node-zopfli": "^2.1.4",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.2"
   }
 }

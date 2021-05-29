@@ -1,7 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
-// import marked from 'marked';
-import marked = require('marked');
+import marked from 'marked';
+import zopfli from 'node-zopfli';
+import zlib from 'zlib';
 
 /**
  * mdファイルを読み込んで、変換、HTMLデータを返す
@@ -21,10 +22,8 @@ export function convMdToHtml(htmlPath: string): string {
  * @returns 
  */
 export function toHtmlPath(mdPath: string): string {
-    const relativePath = path.parse(mdPath).base
-    const tempPath = path.join(process.cwd(), 'docs', relativePath);
-    const htmlPath = tempPath.replace(/.md$/, '.html');
-    return htmlPath;
+    const fileName = path.parse(mdPath).name + '.html.gz';
+    return path.join(process.cwd(), 'docs', fileName);
 }
 
 /**
@@ -79,4 +78,28 @@ export function isUpdateFile(srcFilePath: string, destFilePath: string): boolean
     return srcTime > destTime;
 }
 
+/**
+ * zopfli圧縮
+ * @param data 
+ * @returns 
+ */
+export function zopfliSync(data: string): Buffer {
+    const input = Buffer.from(data);
+    const gziped = zopfli.gzipSync(input, {
+        // numiterations: 1
+    });
+    return gziped;
+}
+
+/**
+ * gzip圧縮
+ * @param data 
+ * @returns 
+ */
+export function gzipSync(data: string): Buffer {
+    const gziped = zlib.gzipSync(data, {
+        level: 9
+    });
+    return gziped;
+}
 

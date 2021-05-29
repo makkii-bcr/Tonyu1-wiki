@@ -1,3 +1,0 @@
-Loading ...
-
-しばらく待っても「Loading」が消えない場合は、[Normal版](./index0.md)をお試しください。
