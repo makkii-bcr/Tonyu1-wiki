@@ -168,11 +168,11 @@ export function convMain() {
         });
 
         // htmlをgzip圧縮
-        const outDataBuf = isDeploy ? base.zopfliSync(outData) : base.gzipSync(outData);
+        // const outDataBuf = isDeploy ? base.zopfliSync(outData) : base.gzipSync(outData);
 
         const htmlPath = base.toHtmlPath(htmlObj.mdPath);
         fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
-        fs.writeFileSync(htmlPath, outDataBuf);
+        fs.writeFileSync(htmlPath, outData);
 
         console.log('write file :', performance.now() - time, htmlPath);
     });
