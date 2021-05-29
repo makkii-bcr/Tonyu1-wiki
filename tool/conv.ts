@@ -6,7 +6,8 @@ import { minify } from 'html-minifier-terser';
 import { performance } from 'perf_hooks';
 import * as base from './base-conv';
 
-const docsDirName = 'docs';
+const testPubDirName = path.join('docs', 'Tonyu1-wiki');
+const deployPubDirName = 'docs';
 const mdDirName = 'md';
 const templateDirName = 'template';
 const mdTemplateDirName = path.join('md', 'template');
@@ -21,6 +22,7 @@ export function convMain() {
     const isDeploy = process.argv.some((v) => v === '--deploy');
     const isFullBuild = isDeploy || process.argv.some((v) => v === '--fullbuild');
     const curDir = process.cwd();
+    const pubDirName = isDeploy ? deployPubDirName : testPubDirName;
 
     // docsを全削除
     if (isFullBuild) {
@@ -92,7 +94,7 @@ export function convMain() {
             }
             const relativePath = mdPath.replace(mdDir, '');
             const inPath = path.join(mdDir, relativePath);
-            const outPath = path.join(curDir, docsDirName, relativePath);
+            const outPath = path.join(curDir, pubDirName, relativePath);
             if (isFullBuild || base.isUpdateFile(inPath, outPath)) {
                 // ファイルコピー(md -> docs)
                 fs.mkdirSync(path.dirname(outPath), { recursive: true });
@@ -120,7 +122,7 @@ export function convMain() {
 
             let htmlData = obj.data;
             if (isSelfPage) { // 最初に表示するページ
-                htmlTitle = base.getTitle(htmlDataSum);
+                htmlTitle = base.getTitle(htmlData);
             } else {
                 // 非表示のページはimgタグsrcをsrc-tにして画像を読まないようにする
                 // 表示時にjs側でsrcに戻す
@@ -140,37 +142,43 @@ export function convMain() {
         });
 
         // テンプレートhtmlに、markdownのhtmlを埋め込み
-        let outData = tmplHtmlData.replace(/%content/g, htmlDataSum)
-            .replace(/%title/g, htmlTitle)
-            .replace(/%sidebar/g, sidebarHtmlData)
-            .replace(/%nav_pc/g, navPcHtmlData)
-            .replace(/%nav_mobile/g, navMobileHtmlData)
-            .replace(/"%script"/g, tmplJsData)
-            .replace(/\/\*%css\*\//g, tmplCssData)
-            .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
-                function (match, p1, p2, p3, p4, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
-                    if (p2 == '') p2 = 'index';
-                    if (p4 == null) p4 = '';
-                    return 'href="' + p2 + p4 + '"';
-                })
-            .replace(/%footer/g, footerHtmlData);
+        let outData: string | Buffer =
+            tmplHtmlData.replace(/%content/g, htmlDataSum)
+                .replace(/%title/g, htmlTitle)
+                .replace(/%sidebar/g, sidebarHtmlData)
+                .replace(/%nav_pc/g, navPcHtmlData)
+                .replace(/%nav_mobile/g, navMobileHtmlData)
+                .replace(/"%script"/g, tmplJsData)
+                .replace(/\/\*%css\*\//g, tmplCssData)
+                .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
+                    function (match, p1, p2, p3, p4, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
+                        if (p2 == '') p2 = 'index';
+                        if (p4 == null) p4 = '';
+                        return 'href="' + p2 + p4 + '"';
+                    })
+                .replace(/%footer/g, footerHtmlData);
 
-        // html, js, css のminify
-        outData = minify(outData, {
-            continueOnParseError: true,
-            collapseWhitespace: true,
-            minifyCSS: true,
-            minifyJS: true,
-            processConditionalComments: true,
-            removeComments: true,
-            removeRedundantAttributes: true,
-            removeTagWhitespace: true
-        });
+        // Github Pagesは.gzファイルを置いても静的gzipとして扱ってくれないので、deploy時は.htmlを置く
+        let htmlPath = path.join(curDir, pubDirName, base.toHtmlPath(htmlObj.mdPath));
 
-        // htmlをgzip圧縮
-        // const outDataBuf = isDeploy ? base.zopfliSync(outData) : base.gzipSync(outData);
+        if (isDeploy) {
+            // html, js, css のminify
+            outData = minify(outData, {
+                continueOnParseError: true,
+                collapseWhitespace: true,
+                minifyCSS: true,
+                minifyJS: true,
+                processConditionalComments: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeTagWhitespace: true
+            });
+        } else {
+            htmlPath += ".gz";
+            // htmlをgzip圧縮
+            outData = base.gzipSync(outData);
+        }
 
-        const htmlPath = base.toHtmlPath(htmlObj.mdPath);
         fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
         fs.writeFileSync(htmlPath, outData);
 

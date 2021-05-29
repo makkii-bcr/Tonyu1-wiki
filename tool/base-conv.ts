@@ -22,8 +22,7 @@ export function convMdToHtml(htmlPath: string): string {
  * @returns 
  */
 export function toHtmlPath(mdPath: string): string {
-    const fileName = path.parse(mdPath).name + '.html';//'.html.gz';
-    return path.join(process.cwd(), 'docs', fileName);
+    return path.parse(mdPath).name + '.html';//'.html.gz';
 }
 
 /**

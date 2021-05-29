@@ -1,4 +1,6 @@
 
+var rootPath = '/Tonyu1-wiki';
+
 function showPage(page) {
     var pages = document.getElementsByClassName('pagediv');
     for (var i = 0; i < pages.length; i++) {
@@ -58,7 +60,7 @@ function getPageFromAtag(e) {
     if (e.target) {
         if (location.origin == e.target.origin) {
             if (e.target.pathname) {
-                var page = e.target.pathname;
+                var page = e.target.pathname.replace(rootPath, '');
                 if (page == '/') {
                     page = 'index';
                 } else {
@@ -73,7 +75,7 @@ function getPageFromAtag(e) {
 
 function getPageFromPopState(pathname) {
     if (pathname) {
-        var page = pathname;
+        var page = pathname.replace(rootPath, '');
         if (page == '/') {
             page = 'index';
         } else {
