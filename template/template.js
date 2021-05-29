@@ -39,7 +39,9 @@ function convAHref() {
             elem.addEventListener('click', function(e) {
                 var page = getPageFromAtag(e);
                 if (page) {
-                    showPage(page);
+                    if (!page.match(/[\.\/]+/)) { // 「.」や「/」が付いてない時
+                        showPage(page);
+                    }
                     // console.log(page);
                     if (page == 'index') {
                         history.pushState(null, null, './');

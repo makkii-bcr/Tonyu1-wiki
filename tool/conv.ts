@@ -108,7 +108,6 @@ export function convMain() {
 
     // htmlを生成
     htmlAry.forEach(htmlObj => {
-        // if (htmlObj.name != 'index') return;
         const time = performance.now();
 
         // 全htmlをまとめたhtmlを生成（content部分のみ）
@@ -127,7 +126,7 @@ export function convMain() {
                 // 非表示のページはimgタグsrcをsrc-tにして画像を読まないようにする
                 // 表示時にjs側でsrcに戻す
                 htmlData = htmlData.replace(/src=\"(.*?)\"/g,
-                    function (match, p1, offset, string) {
+                    (match, p1, offset, string) => {
                         // <img src="xxx.png">を<img src-t="xxx.png">にする
                         // imgタグにwidth,heightを追加する
                         const img = imgAry.find(obj => path.join(mdDir, p1).indexOf(obj.path) != -1);
@@ -151,7 +150,7 @@ export function convMain() {
                 .replace(/"%script"/g, tmplJsData)
                 .replace(/\/\*%css\*\//g, tmplCssData)
                 .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
-                    function (match, p1, p2, p3, p4, offset, string) { // <a href="./xxx.html">を<a href="#!xxx">にする
+                    (match, p1, p2, p3, p4, offset, string) => { // <a href="./xxx.html">を<a href="#!xxx">にする
                         if (p2 == '') p2 = 'index';
                         if (p4 == null) p4 = '';
                         return 'href="' + p2 + p4 + '"';
