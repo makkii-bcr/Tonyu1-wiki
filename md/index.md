@@ -7,7 +7,7 @@
 2001-2021 (c) Hoge- Ship  
 https://www.tonyu.jp/  
 
-Version 1.29 - [バージョンアップ履歴](./dl-history.md)
+最新版 - Version 1.29（2021-05-01）
 
 ***
 - [Tonyu1とは](./about.md)

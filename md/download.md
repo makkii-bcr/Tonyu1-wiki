@@ -3,8 +3,6 @@
 
 ## Tonyu1のダウンロード
 
-[バージョンアップ履歴](./dl-history.md)
-
 ### 【注意】
 ランタイム等に上書き更新する場合は、  
 exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフォルダを消してください。  
@@ -121,7 +119,7 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 - Sprite.fillPolygon を実行後，他のページを開くとTonyuが強制終了する不具合を修正
 
 [Tonyu1_22.exe](./dl/Tonyu1_22.exe)
-- $System.setStackSize? 追加
+- $System.setStackSize 追加
 - Sprite.fillPolygon 追加
 - ドキュメントをリニューアル
 - for文，while文中におけるエラー位置の指摘方法を改善
@@ -133,6 +131,8 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 [fullscreen0_02.lzh](http://hoge1e3.sakura.ne.jp/tonyu/dl/fullscreen0_02.lzh)
 
 ### 古いバージョン
+
+[過去のバージョンアップ履歴](./dl-history.md)
 
 [Tonyu1_21Beta.zip](http://hoge1e3.sakura.ne.jp/tonyu/dl/Tonyu1_21Beta.zip)  
 [Tonyu1_19Beta.exe](http://hoge1e3.sakura.ne.jp/tonyu/dl/Tonyu1_19Beta.exe)  

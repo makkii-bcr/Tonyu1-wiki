@@ -25,7 +25,7 @@ Tonyuの作成にあたっては、たくさんの方のご協力をいただい
 - DelphiX 堀　浩行さん
 - BREGEXP.DLL Babaさん
 - Delphi用 BREGEXP.DLL利用ユニット 武内 修さん
-- 文字コード変換総合コンポーネントTPzConv? PzFactory?さん
+- 文字コード変換総合コンポーネントTPzConv PzFactoryさん
 - GLDPNG Tarquinさん
 ※GLDPNG(ZLIB)の著作権表示:
 ```

@@ -1,113 +1,7 @@
 
 [ダウンロード](./download.md)&emsp;[Wikiトップ](./)
 
-## バージョンアップ履歴
-
-1.29
-
-&emsp;2021/05/01
-
-- フレームレート制御の実装を変更
-  - ビジーループ＋Sleepから、マルチメディアタイマーに変更
-- CPU使用率を軽減
-- ゲーム画面のカクツキ（スタッタリング）軽減（DWM有効時）
-- カクツキ対策用のメソッド追加
-  - [$System.setVSync](./rf-system-setvsync.md)
-  - [$System.setAdjustScanLine](rf-system-setadjustscanline.md)
-- $System.setFrameRateでFPSを小数単位でも指定できるようにしました
-  - $System.setFrameRateのFPS制限を廃止
-- グローバル変数追加
-  - $_fps, $_rps追加（FPSとRPSが実数で取得できる）
-  - ディスプレイの縦横ピクセル数、$displayWidth, $displayHeightを追加
-  - Windowsのバージョン値、[$osPlatformId、$osMajorVer、$osMinorVer](./rf-getosversion.md)を追加
-- 効果音のDelayをOS毎に調整
-  - XP以前は1350、Vista, 7は2400、8, 8.1は2500、10は3000
-- ウィンドウの見た目が変化しました
-- ランタイムではF3キーで一時停止禁止
-- ウィンドウ移動中などでもゲームが止まらなくなりました
-- フレームレート(FPS)がより正確になりました
-- パフォーマンスウィンドウの変更
-  - FPS表示変更、RPS（Run Per Second）（実行速度）の表示追加、SleepTimeの表示
-- 非アクティブ時ページロードするとキーが効いてしまうのを防止
-- exeにバージョン情報を追加
-
-1.28
-
-&emsp;2021/04/06
-
-- Tonyu1_28_2021_0404で発生した不具合を修正
-  - Tonyu.exeにcmmlファイルをD&Dや、cmmlファイルを関連付けして開いた時などに、自動的にプロジェクトを開く機能が効かなくなっていたのを修正
-  - オプションからサウンドoffにするとエラーが出るのを修正
-
-&emsp;2021/04/04
-
-- switch文の実装
-  - switch、case、defaultは変数名等には使えなくなります
-- JoyStickの不具合を修正
-  - JoyStickを刺して抜いた後、Tonyu1を再起動するとJoyStick取得が重くなる不具合を修正
-    - [BBS No.12342](http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=12342) に該当
-  - JoyStick１つ接続の時、２つ目のJoyStickのボタンも押下しているように取得される不具合を修正
-  - getkey()と同じ挙動にしました（getButton()等の取得値は１フレームごとに+1）
-- ウィンドウが非アクティブ時の挙動修正
-- 効果音のDelayを3000に変更（Vista以降）
-- ファイルを開く・保存するダイアログを新しいタイプに変更（Vista以降）
-- エディタ編集時、ゲーム側でキーが反応しないように修正
-- エディタの30000バイト制限を廃止（Win9x系は制限を残しました）
-- 稀にMidi再生・停止が失敗する不具合を軽減
-- ウィンドウやUIの大きさ・位置の修正
-- 文言の修正、URL・年の更新
-
-1.27
-
-&emsp;2019/12/05
-
-- [Midiプレイヤーの不具合修正](https://www.tonyu.jp/project/viewComment.cgi?mainkey=4513&)
-- Readme.txtの内容更新
-- MidiPlay.exeは現在使っていないので削除
-
-&emsp;2019/09/30
-
-- Midiプレイヤー（Kernel/MidiPlayer2.exe）に[YellowMusicPlayer](https://www.tonyu.jp/project/viewProject.cgi?mainkey=667&)を使用するようにしました．
-
-&emsp;2015/07/14
-
-- 描画方式を設定ファイル（Kernel/Cookies.ini）に保存するようにしました
-
-&emsp;2015/06/30
-
-- $InputBox.open で位置と大きさを指定できるようにしました。
-- Mathクラスのpow関数で、乗数が整数の場合に誤差が出る不具合を直しました
-
-&emsp;2015/02/13
-
-- Windows8 対応パッチを組み込みました
-- Player.exeを小さくしました
-- Mathクラスに 指数関数・対数関数を追加しました
-
-&emsp;2015/02/12、2015/01/10
-
-- Window8対応
-
-&emsp;2014/01/29
-
-- $Options.setの sleep_time の動作を変更：設定値をdefault.tonyuprjには書き込まないようにしました。
-
-1.26
-- $Options.setメソッドに sleep_time オプション追加
-
-1.24
-- $mplayer.setDelayメソッド
-- files フォルダ内でサブフォルダ利用可能
-
-1.23
-- MIDIプレイヤを変更
-- プロジェクト作成・選択時にドライブを選択可能
-
-1.22
-- $System.setStackSize? 追加
-- Sprite.fillPolygon 追加
-- ドキュメントをリニューアル
-- for文，while文中におけるエラー位置の指摘方法を改善
+## 過去のバージョンアップ履歴
 
 1.21
 - panel.save、 panel.loadメソッドを追加
@@ -128,9 +22,9 @@
 - CheckBox 追加
 - RadioButton 追加
 - $Math 追加
-- $TextEditor? 追加
+- $TextEditor 追加
 - TextChar.edit 追加
-- Sprite.centerText, Sprite.drawVerticalText?, Sprite.drawPolygon, Sprite.drawRect, Sprite.drawRectDx?, Sprite.drawTriangle, Sprite.gradationLine, Sprite.gradationRect, Sprite.gradationText 追加
+- Sprite.centerText, Sprite.drawVerticalText, Sprite.drawPolygon, Sprite.drawRect, Sprite.drawRectDx, Sprite.drawTriangle, Sprite.gradationLine, Sprite.gradationRect, Sprite.gradationText 追加
 
 1.17
 - ヘルプ機能をリニューアル
@@ -139,7 +33,7 @@
 - Object.colorHSLメソッド
 - Panel.copyRectメソッド
 - Object.amodメソッド
-- Sprite.drawBrokenLine?、Panel.drawBrokenLine?メソッド
+- Sprite.drawBrokenLine、Panel.drawBrokenLineメソッド
 - Object.floorメソッド
 - Matrixクラス
 - Systemクラス
@@ -147,7 +41,7 @@
 1.16
 - ランタイム実行時にフルスクリーンで表示可能に（別途フルスクリーンキットが必要）
 - $panel.drawDXSpriteメソッド追加
-- $panel.setTransparentColor?メソッド追加
+- $panel.setTransparentColorメソッド追加
 - 貼り付け可能なクリップボードデータの上限を4KBに拡張
 
 1.15
@@ -169,7 +63,7 @@
 - 「nullはオブジェクトではないので..」というエラーメッセージを「変数xxxは初期化されていないので...」というメッセージに変更。
 - absメソッドの説明を追加
 - getGreen,getBlue,getRedメソッド追加
-- crashToLine?メソッド追加
+- crashToLineメソッド追加
 
 1.13
 - timeStopメソッドを追加
@@ -193,14 +87,14 @@
 - 同一引数のgetkeyを１フレームに２回以上呼び出すと押した瞬間の判定ができない不具合を修正
 - valueOfメソッドが負の値を表す文字列を変換できない不具合を修正
 - エディタ内で範囲を選択することにより選択範囲のみインデントが可能に
-- $InputBox?, waitInputで表示される入力ウィンドウのプロンプト表示に複数行を表示可能に
+- $InputBox, waitInputで表示される入力ウィンドウのプロンプト表示に複数行を表示可能に
 
 1.11
 - 起動画面をリニューアル
 - ステータスバー設置
 - レシピ集追加
 - png画像読み込み対応
-- 文字入力機能($InputBox?, waitInput)追加
+- 文字入力機能($InputBox, waitInput)追加
 - ジョイスティック２個使用に対応
 
 1.09
@@ -250,7 +144,7 @@
 1.04
 - 02/2/24 キャラクタパターン用ビットマップのパターン認識方法を改善
 - 2/24 オブジェクトの貼り付けにより同名のオブジェクトができてしまうバグ を修正
-- 2/24 $projectManager.getCurrentPageName?メソッド追加
+- 2/24 $projectManager.getCurrentPageNameメソッド追加
 - 2/24 文字列を== , != 演算子で比較可能に
 
 1.03
@@ -278,10 +172,10 @@
 
 0.111
 - 12/08 Char クラスを推奨されないクラスに。代わりにSpriteCharクラスを使うようにする
-- 12/08 サンプルプログラムにMeteoGrazer?(Meteo)を追加
+- 12/08 サンプルプログラムにMeteoGrazer(Meteo)を追加
 - 12/08 rndメソッドに負の値を指定すると無限ループになるバグを修正
 - 12/07 オブジェクト作成ダイアログを改造
-- 12/06 TextChar , DxChar? ,SecretCharクラス、drawDxSprite?メソッド追加
+- 12/06 TextChar , DxChar ,SecretCharクラス、drawDxSpriteメソッド追加
 - 12/05 color定数8種類($clWhiteなど)を定義
 
 0.110
@@ -301,10 +195,10 @@
 
 0.108 ページ切り替え対応  
 0.107 マップ編集、表示対応  
-0.106 ProjectManager?追加。クリップボードからの貼り付けによる不具合修正。マップスクロール機能追加、returnの後の式省略可能に。  
+0.106 ProjectManager追加。クリップボードからの貼り付けによる不具合修正。マップスクロール機能追加、returnの後の式省略可能に。  
 0.104 サウンド機能追加  
 0.103 クラスリストの削除、並び替え追加、+=演算子追加  
-0.102 $map.setBackGround?, $map.setBGColorメソッド追加  
+0.102 $map.setBackGround, $map.setBGColorメソッド追加  
 0.101 ビットマップ読み込みの不具合を修正  
 
 ***
