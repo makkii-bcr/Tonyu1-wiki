@@ -1,6 +1,8 @@
 
 [命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
 
+<title>命令リファレンス - $System</title>
+
 ## $System
 ### メソッド一覧 
 - exit

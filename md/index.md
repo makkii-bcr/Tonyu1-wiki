@@ -1,5 +1,7 @@
 ## Tonyu System 1
 
+<title>Tonyu1 Wiki</title>
+
 ![banner.png](./img/banner.png)
 
 2001-2021 (c) Hoge- Ship  

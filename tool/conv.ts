@@ -112,50 +112,73 @@ export function convMain() {
 
         // 全htmlをまとめたhtmlを生成（content部分のみ）
         const fileName = htmlObj.name;
-        let htmlTitle = '';
+        let titleHtmlData = '';
         let htmlDataSum = '';
+        let allPageMd = '';
         htmlAry.forEach(obj => {
             const name = obj.name;
             const isSelfPage = name == fileName;
             const displayStyle = isSelfPage ? 'block' : 'none';
 
             let htmlData = obj.data;
-            if (isSelfPage) { // 最初に表示するページ
-                htmlTitle = base.getTitle(htmlData);
-            } else {
-                // 非表示のページはimgタグsrcをsrc-tにして画像を読まないようにする
-                // 表示時にjs側でsrcに戻す
-                htmlData = htmlData.replace(/src=\"(.*?)\"/g,
-                    (match, p1, offset, string) => {
-                        // <img src="xxx.png">を<img src-t="xxx.png">にする
-                        // imgタグにwidth,heightを追加する
-                        const img = imgAry.find(obj => path.join(mdDir, p1).indexOf(obj.path) != -1);
-                        const width = img ? ' width="' + img.width + '" ' : '';
-                        const height = img ? ' height="' + img.height + '" ' : '';
-                        return 'src-t="' + p1 + '"' + width + height;
-                    });
+
+            // title取得
+            let title = base.getTitle(htmlData);
+            htmlData = htmlData.replace(/\<title\>(.*)\<\/title\>/g,
+                (match, p1, offset, string) => {
+                    title = p1;
+                    return '';
+                });
+            // title末尾にサイト名を付ける
+            let titleAndSiteName = title;
+            if (name != 'index') {
+                titleAndSiteName += ' - Tonyu1 Wiki';
             }
-            htmlDataSum += '<div style="display:' + displayStyle + '" id="' + name + '" class="pagediv">\n';
+            if (isSelfPage) { // 最初に表示するページ
+                titleHtmlData = titleAndSiteName;
+            }
+
+            // 非表示のページはimgタグsrcをsrc-tにして画像を読まないようにする
+            // 表示時にjs側でsrcに戻す
+            htmlData = htmlData.replace(/src=\"(.*?)\"/g,
+                (match, p1, offset, string) => {
+                    // <img src="xxx.png">を<img src-t="xxx.png">にする
+                    // imgタグにwidth,heightを追加する
+                    const img = imgAry.find(obj => path.join(mdDir, p1).indexOf(obj.path) != -1);
+                    const width = img ? ' width="' + img.width + '" ' : '';
+                    const height = img ? ' height="' + img.height + '" ' : '';
+                    if (isSelfPage) {
+                        return 'src="' + p1 + '"' + width + height;
+                    } else {
+                        return 'src-t="' + p1 + '"' + width + height;
+                    }
+                });
+
+            htmlDataSum += '<div style="display:' + displayStyle + '" id="' + name + '" class="pagediv" title="' + titleAndSiteName + '">\n';
             htmlDataSum += htmlData;
             htmlDataSum += '\n</div>\n';
+
+            allPageMd += '1. [' + title + '](' + name + ')  \n';
         });
+        const allPageHtmlData = marked(allPageMd);
 
         // テンプレートhtmlに、markdownのhtmlを埋め込み
         let outData: string | Buffer =
-            tmplHtmlData.replace(/%content/g, htmlDataSum)
-                .replace(/%title/g, htmlTitle)
-                .replace(/%sidebar/g, sidebarHtmlData)
-                .replace(/%nav_pc/g, navPcHtmlData)
-                .replace(/%nav_mobile/g, navMobileHtmlData)
-                .replace(/"%script"/g, tmplJsData)
-                .replace(/\/\*%css\*\//g, tmplCssData)
+            tmplHtmlData.replace(/%content%/g, htmlDataSum)
+                .replace(/%title%/g, titleHtmlData)
+                .replace(/%sidebar%/g, sidebarHtmlData)
+                .replace(/%nav_pc%/g, navPcHtmlData)
+                .replace(/%nav_mobile%/g, navMobileHtmlData)
+                .replace(/"%script%"/g, tmplJsData)
+                .replace(/\/\*%css%\*\//g, tmplCssData)
                 .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
                     (match, p1, p2, p3, p4, offset, string) => { // <a href="./xxx.html">を<a href="#!xxx">にする
                         if (p2 == '') p2 = 'index';
                         if (p4 == null) p4 = '';
                         return 'href="' + p2 + p4 + '"';
                     })
-                .replace(/%footer/g, footerHtmlData);
+                .replace(/%footer%/g, footerHtmlData)
+                .replace(/%allpage%/g, allPageHtmlData);
 
         // Github Pagesは.gzファイルを置いても静的gzipとして扱ってくれないので、deploy時は.htmlを置く
         let htmlPath = path.join(curDir, pubDirName, base.toHtmlPath(htmlObj.mdPath));
