@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic02.md)&emsp;[次→](./tr-basic04.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic02)&emsp;[次→](./tr-basic04)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 基礎編 (3/9) - オブジェクトを動かす</title>
 
@@ -30,4 +30,4 @@ while(x<$screenWidth) {
 
 ***
 
-[←前](./tr-basic02.md)&emsp;[次→](./tr-basic04.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic02)&emsp;[次→](./tr-basic04)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

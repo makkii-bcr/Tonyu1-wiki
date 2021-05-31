@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg01.md)&emsp;[次→](./tr-stg03.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg01)&emsp;[次→](./tr-stg03)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (2/11) - 弾を撃つ</title>
 
@@ -60,7 +60,7 @@ if (getkey(32)==1) ...
 
 これは、新しいオブジェクトを作るときの決まり文句で、次のような パラメータを指定します。
 
-**書式：**
+#### 書式
 ```
 appear(new クラス名 ( x座標 , y座標 ,キャラクタパターン ))
 ```
@@ -89,4 +89,4 @@ appear(new クラス名 ( x座標 , y座標 ,キャラクタパターン ))
 
 ***
 
-[←前](./tr-stg01.md)&emsp;[次→](./tr-stg03.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg01)&emsp;[次→](./tr-stg03)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

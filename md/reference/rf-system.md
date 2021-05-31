@@ -1,5 +1,5 @@
 
-[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 
 <title>命令リファレンス - $System</title>
 
@@ -9,10 +9,10 @@
 - getVersion
 - setFrameRate
 - setStackSize
-- [setVSync](./rf-system-setvsync.md)
-- [setAdjustScanLine](./rf-system-setadjustscanline.md)
+- [setVSync](./rf-system-setvsync)
+- [setAdjustScanLine](./rf-system-setadjustscanline)
 
 ***
 
-[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 

@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg04.md)&emsp;[次→](./tr-stg06.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg04)&emsp;[次→](./tr-stg06)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (5/11) - 自機を破壊する</title>
 
@@ -73,7 +73,7 @@ wait(5);
 
 新しくwait(5);という命令が出てきました。これはupdate();に似ています。
 
-**書式：**
+#### 書式
 ```
 wait(待機フレーム数);
 ```
@@ -132,4 +132,4 @@ appearの使い方をもう一度復習しておきましょう
 
 ***
 
-[←前](./tr-stg04.md)&emsp;[次→](./tr-stg06.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg04)&emsp;[次→](./tr-stg06)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

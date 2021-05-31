@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic08.md)&emsp;[次→](./tr-basic99.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic08)&emsp;[次→](./tr-basic99)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 基礎編 (9/9) - オブジェクトを追いかけるオブジェクト</title>
 
@@ -31,7 +31,7 @@ while(1) {
   update();
 }
 ```
-$Cursorの部分は、先ほど確認した[カーソルキーで動くオブジェクト](./tr-basic08.md)で作成したオブジェクトの名前にしてください。  
+$Cursorの部分は、先ほど確認した[カーソルキーで動くオブジェクト](./tr-basic08)で作成したオブジェクトの名前にしてください。  
 実行させると、新しくつくったオブジェクトは、カーソルキーで動かせるオブジェクトのいる方にちかづいてきます。
 
 プログラムの説明をします。
@@ -60,4 +60,4 @@ if文の条件は
 
 ***
 
-[←前](./tr-basic08.md)&emsp;[次→](./tr-basic99.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic08)&emsp;[次→](./tr-basic99)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

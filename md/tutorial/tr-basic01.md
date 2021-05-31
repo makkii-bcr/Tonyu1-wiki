@@ -1,5 +1,5 @@
 
-[←目次](./tutorial.md)&emsp;[次→](./tr-basic02.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←目次](./tutorial)&emsp;[次→](./tr-basic02)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 基礎編 (1/9) - 新規プロジェクトを作る</title>
 
@@ -16,4 +16,4 @@
 
 ***
 
-[←目次](./tutorial.md)&emsp;[次→](./tr-basic02.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←目次](./tutorial)&emsp;[次→](./tr-basic02)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

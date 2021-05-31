@@ -1,5 +1,5 @@
 
-[←目次](./tutorial.md)&emsp;[次→](./tr-stg02.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←目次](./tutorial)&emsp;[次→](./tr-stg02)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (1/11) - 自機を動かす</title>
 
@@ -95,4 +95,4 @@ while(1) {
 
 ***
 
-[←目次](./tutorial.md)&emsp;[次→](./tr-stg02.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←目次](./tutorial)&emsp;[次→](./tr-stg02)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

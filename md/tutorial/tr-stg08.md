@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg07.md)&emsp;[次→](./tr-stg09.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg07)&emsp;[次→](./tr-stg09)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (8/11) - 得点を表示する</title>
 
@@ -86,4 +86,4 @@ while (y<$screenHeight) {
 
 ***
 
-[←前](./tr-stg07.md)&emsp;[次→](./tr-stg09.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg07)&emsp;[次→](./tr-stg09)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

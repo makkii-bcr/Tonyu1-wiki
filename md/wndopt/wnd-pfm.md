@@ -26,7 +26,6 @@
 
 例1
 
-実行方法...
 ```
 extends SpriteChar;
 while(1) {
@@ -38,7 +37,6 @@ while(1) {
 
 例2
 
-実行方法...
 ```
 extends SpriteChar;
 while(1) {

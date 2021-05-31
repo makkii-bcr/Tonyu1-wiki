@@ -1,7 +1,7 @@
 
-[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 
-## 命令リファレンス:用途別
+## 命令リファレンス：用途別
 
 ### 入出力
 - print
@@ -139,5 +139,5 @@
 
 ***
 
-[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 

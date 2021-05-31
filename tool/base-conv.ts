@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import marked from 'marked';
-import zopfli from 'node-zopfli';
 import zlib from 'zlib';
+import zopfli from 'node-zopfli';
 
 /**
  * mdファイルを読み込んで、変換、HTMLデータを返す
@@ -77,17 +77,32 @@ export function isUpdateFile(srcFilePath: string, destFilePath: string): boolean
     return srcTime > destTime;
 }
 
-/**
- * zopfli圧縮
- * @param data 
- * @returns 
- */
-export function zopfliSync(data: string): Buffer {
-    const input = Buffer.from(data);
-    const gziped = zopfli.gzipSync(input, {
-        // numiterations: 1
-    });
-    return gziped;
+const CompressMode = {
+    Gzip: 'gzip',
+    Zopfli: 'zopfli',
+    Brotli: 'brotli',
+} as const;
+type CompressMode = typeof CompressMode[keyof typeof CompressMode];
+
+const compressMode: CompressMode = CompressMode.Gzip;
+export function compress(filePath: string, data: string): {
+    filePath: string,
+    output: Buffer
+} {
+    let output: Buffer;
+    if (compressMode == CompressMode.Gzip) {
+        output = gzipSync(data);
+        filePath += ".gz";
+    } else if (compressMode == CompressMode.Zopfli) {
+        output = zopfliSync(data);
+        filePath += ".gz";
+    } else if (compressMode == CompressMode.Brotli) {
+        output = brotliSync(data);
+        filePath += ".br";
+    } else {
+        output = output!;
+    }
+    return { filePath, output };
 }
 
 /**
@@ -96,9 +111,32 @@ export function zopfliSync(data: string): Buffer {
  * @returns 
  */
 export function gzipSync(data: string): Buffer {
-    const gziped = zlib.gzipSync(data, {
+    const output = zlib.gzipSync(data, {
         level: 9
     });
-    return gziped;
+    return output;
+}
+
+/**
+ * zopfli圧縮（gzip高圧縮版）
+ * @param data 
+ * @returns 
+ */
+export function zopfliSync(data: string): Buffer {
+    const input = Buffer.from(data);
+    const output = zopfli.gzipSync(input, {
+        // numiterations: 1
+    });
+    return output;
+}
+
+/**
+ * brotli圧縮
+ * @param data 
+ * @returns 
+ */
+export function brotliSync(data: string): Buffer {
+    const output = zlib.brotliCompressSync(data, {});
+    return output;
 }
 

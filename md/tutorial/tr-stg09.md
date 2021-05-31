@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg08.md)&emsp;[次→](./tr-stg10.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg08)&emsp;[次→](./tr-stg10)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (9/11) - 弾、爆発を削除する</title>
 
@@ -27,4 +27,4 @@
 
 ***
 
-[←前](./tr-stg08.md)&emsp;[次→](./tr-stg10.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg08)&emsp;[次→](./tr-stg10)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

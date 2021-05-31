@@ -1,12 +1,12 @@
 
-[$System](./rf-system.md)&emsp;[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[$System](./rf-system)&emsp;[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 
 <title>命令リファレンス - $System.setAdjustScanLine</title>
 
 ## $System.setAdjustScanLine
 擬似VSyncの基準位置(走査線)を調節します。
 
-### 書式:
+#### 書式
 ```
 setAdjustScanLine(rate)
 ```
@@ -17,5 +17,5 @@ WindowsXP以前やDWMが無効の場合、ティアリングが発生するた�
 
 ***
 
-[$System](./rf-system.md)&emsp;[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[$System](./rf-system)&emsp;[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 

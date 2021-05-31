@@ -1,5 +1,5 @@
 
-[←前](./tr-maze06.md)&emsp;[目次→](./tutorial.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze06)&emsp;[目次→](./tutorial)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - 迷路ゲーム (7/7) - 配布する</title>
 
@@ -49,4 +49,4 @@
 
 ***
 
-[←前](./tr-maze06.md)&emsp;[目次→](./tutorial.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze06)&emsp;[目次→](./tutorial)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

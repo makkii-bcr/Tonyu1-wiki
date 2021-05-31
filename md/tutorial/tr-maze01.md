@@ -1,5 +1,5 @@
 
-[←目次](./tutorial.md)&emsp;[次→](./tr-maze02.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←目次](./tutorial)&emsp;[次→](./tr-maze02)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - 迷路ゲーム (1/7) - マップを描く</title>
 
@@ -72,4 +72,4 @@
 
 ***
 
-[←目次](./tutorial.md)&emsp;[次→](./tr-maze02.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←目次](./tutorial)&emsp;[次→](./tr-maze02)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

@@ -1,5 +1,5 @@
 
-[←前](./tr-maze05.md)&emsp;[次→](./tr-maze07.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze05)&emsp;[次→](./tr-maze07)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - 迷路ゲーム (6/7) - 次の面に移る</title>
 
@@ -149,4 +149,4 @@ $page_startの部分は、スタート画面のページの名前です。
 
 ***
 
-[←前](./tr-maze05.md)&emsp;[次→](./tr-maze07.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze05)&emsp;[次→](./tr-maze07)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

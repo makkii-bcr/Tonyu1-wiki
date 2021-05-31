@@ -1,5 +1,5 @@
 
-[←前](./tr-maze04.md)&emsp;[次→](./tr-maze06.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze04)&emsp;[次→](./tr-maze06)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - 迷路ゲーム (5/7) - スタート画面を作る</title>
 
@@ -85,7 +85,7 @@ while(1) {
 ```
 これは、他のページを読み込む命令で、次のような使い方をします
 
-**書式：**
+#### 書式
 ```
 $projectManager.loadPage(ページ名);
 ```
@@ -129,4 +129,4 @@ while(1) {
 
 ***
 
-[←前](./tr-maze04.md)&emsp;[次→](./tr-maze06.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze04)&emsp;[次→](./tr-maze06)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

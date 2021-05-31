@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg03.md)&emsp;[次→](./tr-stg05.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg03)&emsp;[次→](./tr-stg05)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (4/11) - 敵を出現させる</title>
 
@@ -138,7 +138,7 @@ appearEnemy();
 
 です。このように
 
-**書式：メソッドの呼び出し**
+#### 書式メソッドの呼び出し
 ```
 メソッド名();
 ```
@@ -169,4 +169,4 @@ while(1) {
 
 ***
 
-[←前](./tr-stg03.md)&emsp;[次→](./tr-stg05.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg03)&emsp;[次→](./tr-stg05)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

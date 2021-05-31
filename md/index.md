@@ -10,16 +10,16 @@ https://www.tonyu.jp/
 最新版 - Version 1.29（2021-05-01）
 
 ***
-- [Tonyu1とは](./about.md)
-- [ダウンロード](./download.md)
+- [Tonyu1とは](./about)
+- [ダウンロード](./download)
 ***
-- [まずはゲームをやってみる](./get-started.md) - Tonyuでこんなことができます。
-- [チュートリアル](./tutorial.md) - とりあえずゲームを作ってみたい方はこちらから
-- [各種ウィンドウの使い方/オプション](./wnd-use-opt.md)
-- [命令リファレンス](./reference.md)
-- [エラーメッセージ](./error-mes.md)
+- [まずはゲームをやってみる](./get-started) - Tonyuでこんなことができます。
+- [チュートリアル](./tutorial) - とりあえずゲームを作ってみたい方はこちらから
+- [各種ウィンドウの使い方/オプション](./wnd-use-opt)
+- [命令リファレンス](./reference)
+- [エラーメッセージ](./error-mes)
 - [FAQ](./html/faq.html)
 ***
-- [Tonyu Systemについて](./about2.md)
-- [謝辞](./thanks.md)
+- [Tonyu Systemについて](./about2)
+- [謝辞](./thanks)
 ***

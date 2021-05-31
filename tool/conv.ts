@@ -196,9 +196,10 @@ export function convMain() {
                 removeTagWhitespace: true
             });
         } else {
-            htmlPath += ".gz";
             // htmlをgzip圧縮
-            outData = base.gzipSync(outData);
+            const ret = base.compress(htmlPath, outData);
+            htmlPath = ret.filePath;
+            outData = ret.output;
         }
 
         fs.mkdirSync(path.dirname(htmlPath), { recursive: true });

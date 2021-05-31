@@ -1,5 +1,5 @@
 
-[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 
 <title>命令リファレンス - $osPlatformId、$osMajorVer、$osMinorVer</title>
 
@@ -21,5 +21,5 @@ Windowsのバージョンを返します。
 
 ***
 
-[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 

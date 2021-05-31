@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic01.md)&emsp;[次→](./tr-basic03.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic01)&emsp;[次→](./tr-basic03)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 基礎編 (2/9) - オブジェクトを作る</title>
 
@@ -19,4 +19,4 @@
 
 ***
 
-[←前](./tr-basic01.md)&emsp;[次→](./tr-basic03.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic01)&emsp;[次→](./tr-basic03)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

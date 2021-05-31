@@ -1,5 +1,5 @@
 
-[←前](./tr-maze03.md)&emsp;[次→](./tr-maze05.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze03)&emsp;[次→](./tr-maze05)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - 迷路ゲーム (4/7) - 自機や敵を破壊する</title>
 
@@ -97,4 +97,4 @@ while(1) {
 
 ***
 
-[←前](./tr-maze03.md)&emsp;[次→](./tr-maze05.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze03)&emsp;[次→](./tr-maze05)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

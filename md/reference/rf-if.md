@@ -1,12 +1,12 @@
 
-[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 
-<title>命令リファレンス - if文</title>
+<title>命令リファレンス - if</title>
 
-## if文
+## if
 条件にしたがって、手続きを振り分けます。
 
-### 書式:
+#### 書式
 ```
 if (条件) 手続き1 else 手続き2
 ```
@@ -47,5 +47,5 @@ while(1) {
 
 ***
 
-[命令リファレンス](./reference.md)&emsp;[Wikiトップ](./)
+[命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 

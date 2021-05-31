@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic07.md)&emsp;[次→](./tr-basic09.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic07)&emsp;[次→](./tr-basic09)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 基礎編 (8/9) - カーソルキーで動くオブジェクト</title>
 
@@ -50,4 +50,4 @@ if (上がおされた) 上に3だけ移動;
 
 ***
 
-[←前](./tr-basic07.md)&emsp;[次→](./tr-basic09.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic07)&emsp;[次→](./tr-basic09)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

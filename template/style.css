@@ -23,12 +23,21 @@ h2 {
 h3 {
     font-size: 15px;
     background: #efc;
-    margin-bottom: 0px;
+    margin-bottom: 12px;
     border-left: #aca solid 5px;
     border-right: #aca solid 1px;
     border-bottom: #aca solid 1px;
     padding: 2px 2px 1px 10px;
     line-height:120%;
+}
+
+h4 {
+    font-size: 14px;
+    background: #dec;
+    margin: 8px 0px 8px 0px;
+    border-left: #aca solid 4px;
+    padding: 3px 14px 2px 12px;
+    line-height: 120%;
 }
 
 .nav_pc > p {
@@ -81,12 +90,14 @@ dt {
 }
 
 pre {
-    border:solid;
-    border-width:2px;
-    border-color:#fdc;
-    padding:8px 4px 8px 4px;
-    background-color:#fff8ee;
-    font-size:13px;
+    display: table;
+    border: solid;
+    border-width: 2px;
+    border-color: #fdc;
+    margin: 8px 0px 8px 0px;
+    padding: 8px 16px 8px 8px;
+    background-color: #fff8ee;
+    font-size: 13px;
 }
 
 

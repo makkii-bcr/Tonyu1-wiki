@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic05.md)&emsp;[次→](./tr-basic07.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic05)&emsp;[次→](./tr-basic07)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 基礎編 (6/9) - オブジェクトのキャラクタパターンを指定する</title>
 
@@ -43,4 +43,4 @@
 
 ***
 
-[←前](./tr-basic05.md)&emsp;[次→](./tr-basic07.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic05)&emsp;[次→](./tr-basic07)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

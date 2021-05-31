@@ -3,43 +3,42 @@
 
 ## 命令リファレンス
 
-[命令リファレンス:用途別](./reference-use.md)
+[命令リファレンス:用途別](./reference-use)
 
 ### 文法
 [代入](./rf-assign)
-算術演算
-演算代入
-変数
-.演算子  
-[if](./rf-if.md)
-while
-for
-break
-switch
-注釈  
-メソッドの呼び出し
-メソッドの定義
-return  
-extends
-is  
-this
-null  
+[算術演算](./rf-arithmetic)
+[演算代入](./rf-assign-oper)
+[変数](./rf-variable)
+[.演算子](./rf-operator)  
+[if](./rf-if)
+[while](./rf-while)
+[for](./rf-for)
+[break](./rf-break)
+[switch](./rf-switch)
+[注釈](./rf-comment)  
+[メソッドの呼び出し](./rf-method-call)
+[メソッドの定義](./rf-method-define)
+[return](./rf-return)  
+[extends](./rf-extends)
+[is](./rf-is)  
+[this](./rf-this)
+[null](./rf-null)  
 
 ### グローバル変数一覧
-$mouseX  
-$mouseY  
-$screenHeight  
-$screenWidth  
-$viewX  
-$viewY  
-$windowX  
-$windowY  
-$fullScreen  
-$displayWidth  
-$displayHeight  
-[$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion.md)  
-$_fps  
-$_rps  
+[$mouseX](./rf-mouse-xy)  
+[$mouseY](./rf-mouse-xy)  
+[$screenHeight](./rf-screen-wh)  
+[$screenWidth](./rf-screen-wh)  
+[$viewX](./rf-view-xy)  
+[$viewY](./rf-view-xy)  
+[$windowX](./rf-window-xy)  
+[$windowY](./rf-window-xy)  
+[$fullScreen](./rf-fullscreen)  
+[$displayWidth](./rf-display-wh)  
+[$displayHeight](./rf-display-wh)  
+[$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion)  
+$_fps, $_rps  
 
 ### オブジェクト・クラス一覧  
   
@@ -57,7 +56,7 @@ $_rps
 |$projectManager|ページの読み込みを行います|
 |$ranking|ネットランキングCGIの呼び出しを行います|
 |$SelectBox|選択肢を表示するダイアログボックスです|
-|[$System](./rf-system.md)|システムの終了などを行います。|
+|[$System](./rf-system)|システムの終了などを行います。|
 |AbstractHashtable|Hashtable、LightHashtableの親クラスです。|
 |AnimationAdaptor|AnimationAdaptorとは、キャラクタパターンを次々に変化させることによるアニメーションを簡単に実現するためのオブジェクトです。|
 |Array|Array(配列)クラスのオブジェクトには、複数の値（要素）を格納することができます。|

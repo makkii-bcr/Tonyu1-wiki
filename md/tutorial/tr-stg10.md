@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg09.md)&emsp;[次→](./tr-stg11.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg09)&emsp;[次→](./tr-stg11)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (10/11) - 配布する</title>
 
@@ -60,4 +60,4 @@
 
 ***
 
-[←前](./tr-stg09.md)&emsp;[次→](./tr-stg11.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg09)&emsp;[次→](./tr-stg11)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

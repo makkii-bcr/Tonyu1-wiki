@@ -1,23 +1,27 @@
 
-(function(){
+(function () {
     var rootPath = '/Tonyu1-wiki';
 
     function showPage(page) {
+        var isFoundPage = false;
         var pages = document.getElementsByClassName('pagediv');
         for (var i = 0; i < pages.length; i++) {
             var p = pages[i];
-            if (p.id == page) {
-                if (p != null) {
+            if (p != null) {
+                if (p.id == page) {
+                    isFoundPage = true;
                     p.style.display = 'block';
                     document.title = p.title;
                     loadImg(p);
                 } else {
-                    var notFoundPageDiv = document.getElementById('a-notfound');
-                    notFoundPageDiv.style.display = 'block';
+                    p.style.display = 'none';
                 }
-            } else {
-                p.style.display = 'none';
             }
+        }
+        if (!isFoundPage) {
+            var notFoundPageDiv = document.getElementById('404');
+            notFoundPageDiv.style.display = 'block';
+            document.title = notFoundPageDiv.title;
         }
     }
 
@@ -38,7 +42,7 @@
             var elem = atags[i];
             var src = elem.getAttribute('href');
             if (src) {
-                elem.addEventListener('click', function(e) {
+                elem.addEventListener('click', function (e) {
                     var page = getPageFromAtag(e);
                     if (page) {
                         if (!page.match(/[\.\/]+/)) { // 「.」や「/」が付いてない時
@@ -97,7 +101,7 @@
 
     function getPageFromOnload() {
         var prm = {};
-        location.search.substring(1).split('&').forEach(function(v) {
+        location.search.substring(1).split('&').forEach(function (v) {
             var s = v.split('=');
             prm[s[0]] = s[1];
         });

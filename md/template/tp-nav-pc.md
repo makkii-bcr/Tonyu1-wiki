@@ -1,11 +1,11 @@
 [
 [Wikiトップ](./)
 ]　[
-[命令リファレンス](./reference.md)
+[命令リファレンス](./reference)
 |
-[チュートリアル](./tutorial.md)
+[チュートリアル](./tutorial)
 |
-[ダウンロード](./download.md)
+[ダウンロード](./download)
 ]　[
-[全ページ](./all.md)
+[全ページ](./all)
 ]

@@ -1,6 +1,6 @@
 
 
-[←前](./tr-basic03.md)&emsp;[次→](./tr-basic05.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic03)&emsp;[次→](./tr-basic05)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 基礎編 (4/9) - オブジェクトを動かす2</title>
 
@@ -69,7 +69,7 @@ if (y>$screenHeight) ...
 
 この「もし～なら～する」という記述はif文と呼ばれ、今後もよく出てくるので覚えておいてください
 
-**書式：**
+#### 書式
 ```
 if (条件) 処理
 ```
@@ -77,4 +77,4 @@ if (条件) 処理
 
 ***
 
-[←前](./tr-basic03.md)&emsp;[次→](./tr-basic05.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-basic03)&emsp;[次→](./tr-basic05)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

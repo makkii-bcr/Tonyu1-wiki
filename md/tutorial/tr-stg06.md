@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg05.md)&emsp;[次→](./tr-stg07.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg05)&emsp;[次→](./tr-stg07)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (6/11) - 敵を破壊する</title>
 
@@ -102,4 +102,4 @@ while (y<$screenHeight) {
 
 ***
 
-[←前](./tr-stg05.md)&emsp;[次→](./tr-stg07.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg05)&emsp;[次→](./tr-stg07)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

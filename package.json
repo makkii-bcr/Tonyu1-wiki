@@ -9,7 +9,7 @@
     "debug": "tsc tool/conv.ts --sourceMap",
     "fullbuild": "ts-node tool/conv --fullbuild",
     "deploy": "ts-node tool/conv --deploy",
-    "server": "http-server ./docs/Tonyu1-wiki -o / -g",
+    "server": "http-server ./docs/Tonyu1-wiki -o / -g -b",
     "start": "npm i && npm run build && npm run server"
   },
   "directories": {
@@ -40,5 +40,6 @@
     "node-zopfli": "^2.1.4",
     "ts-node": "^9.1.1",
     "typescript": "^4.3.2"
-  }
+  },
+  "dependencies": {}
 }

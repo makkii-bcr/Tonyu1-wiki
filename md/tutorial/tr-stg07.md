@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg06.md)&emsp;[次→](./tr-stg08.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg06)&emsp;[次→](./tr-stg08)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (7/11) - 敵の動きに変化をつける</title>
 
@@ -146,4 +146,4 @@ while (y<$screenHeight) {
 
 ***
 
-[←前](./tr-stg06.md)&emsp;[次→](./tr-stg08.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg06)&emsp;[次→](./tr-stg08)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

@@ -1,5 +1,5 @@
 
-[←前](./tr-maze01.md)&emsp;[次→](./tr-maze03.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze01)&emsp;[次→](./tr-maze03)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - 迷路ゲーム (2/7) - 自機を動かす</title>
 
@@ -191,4 +191,4 @@ extends SpriteChar;
 
 ***
 
-[←前](./tr-maze01.md)&emsp;[次→](./tr-maze03.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-maze01)&emsp;[次→](./tr-maze03)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

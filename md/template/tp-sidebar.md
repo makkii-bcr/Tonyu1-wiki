@@ -1,8 +1,8 @@
 ・[Wikiトップ](./)  
-・[Tonyu1とは](./about.md)  
-・[ダウンロード](./download.md)  
-・[チュートリアル](./tutorial.md)  
-・[命令リファレンス](./reference.md)  
+・[Tonyu1とは](./about)  
+・[ダウンロード](./download)  
+・[チュートリアル](./tutorial)  
+・[命令リファレンス](./reference)  
 
 ・[Tonyu公式HP](https://www.tonyu.jp/)  
 ・[プロジェクトボード](https://www.tonyu.jp/project/top.cgi)  
@@ -14,11 +14,11 @@
 ### 更新履歴
 
 **2021-05-01**  
-・[ver1.29リリース](./download.md)  
+・[ver1.29リリース](./download)  
 
 **2021-04-13**  
 ・本Wiki公開  
 
 **2021-04-07**  
-・[ver1.28リリース](./download.md)  
+・[ver1.28リリース](./download)  
 

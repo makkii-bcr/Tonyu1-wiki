@@ -1,6 +1,6 @@
 
 
-[←前](./tr-stg11.md)&emsp;[次→](./tr-stg11-2.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg11)&emsp;[次→](./tr-stg11-2)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
 
 <title>チュートリアル - 実践編 - シューティングゲーム (11-1 / 11) - ネットランキング対応にする - ランキング用CGIを設置する</title>
 
@@ -29,4 +29,4 @@ hiscore.cgi をテキストエディタで開きます
 
 ***
 
-[←前](./tr-stg11.md)&emsp;[次→](./tr-stg11-2.md)&emsp;[チュートリアル](./tutorial.md)&emsp;[Wikiトップ](./)
+[←前](./tr-stg11)&emsp;[次→](./tr-stg11-2)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)

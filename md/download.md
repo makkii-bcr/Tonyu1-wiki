@@ -16,14 +16,14 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 - CPU使用率を軽減
 - ゲーム画面のカクツキ（スタッタリング）軽減（DWM有効時）
 - カクツキ対策用のメソッド追加
-  - [$System.setVSync](./rf-system-setvsync.md)
-  - [$System.setAdjustScanLine](rf-system-setadjustscanline.md)
+  - [$System.setVSync](./rf-system-setvsync)
+  - [$System.setAdjustScanLine](rf-system-setadjustscanline)
 - $System.setFrameRateでFPSを小数単位でも指定できるようにしました
   - $System.setFrameRateのFPS制限を廃止
 - グローバル変数追加
   - $_fps, $_rps追加（FPSとRPSが実数で取得できる）
   - ディスプレイの縦横ピクセル数、$displayWidth, $displayHeightを追加
-  - Windowsのバージョン値、[$osPlatformId、$osMajorVer、$osMinorVer](./rf-getosversion.md)を追加
+  - Windowsのバージョン値、[$osPlatformId、$osMajorVer、$osMinorVer](./rf-getosversion)を追加
 - 効果音のDelayをOS毎に調整
   - XP以前は1350、Vista, 7は2400、8, 8.1は2500、10は3000
 - ウィンドウの見た目が変化しました
@@ -132,7 +132,7 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 
 ### 古いバージョン
 
-[過去のバージョンアップ履歴](./dl-history.md)
+[過去のバージョンアップ履歴](./dl-history)
 
 [Tonyu1_21Beta.zip](http://hoge1e3.sakura.ne.jp/tonyu/dl/Tonyu1_21Beta.zip)  
 [Tonyu1_19Beta.exe](http://hoge1e3.sakura.ne.jp/tonyu/dl/Tonyu1_19Beta.exe)  

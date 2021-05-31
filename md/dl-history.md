@@ -1,5 +1,5 @@
 
-[ダウンロード](./download.md)&emsp;[Wikiトップ](./)
+[ダウンロード](./download)&emsp;[Wikiトップ](./)
 
 ## 過去のバージョンアップ履歴
 
@@ -203,5 +203,5 @@
 
 ***
 
-[ダウンロード](./download.md)&emsp;[Wikiトップ](./)
+[ダウンロード](./download)&emsp;[Wikiトップ](./)
 
