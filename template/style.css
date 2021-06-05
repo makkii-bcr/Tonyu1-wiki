@@ -1,34 +1,38 @@
 @charset "utf-8";
 
 body {
-    font-size:14px;
-}
-
-h1, h2 {
-    background: #df8;
-    margin-bottom: 0px;
-    border-left: #af6 solid 10px;
-    padding: 3px 2px 3px 5px;
-    line-height:120%;
+    font-size: 14px;
+    margin: 0px;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 20px;
+    margin: 0px;
+    background: #b3ff8e;
+    color: #000;
+    margin-bottom: 0px;
+    padding: 8px 20px 8px 20px;
+    line-height: 120%;
 }
 
 h2 {
     font-size: 18px;
+    background: #b3ff8e;
+    margin-bottom: 0px;
+    border-left: #60d13f solid 10px;
+    padding: 3px 2px 3px 5px;
+    line-height: 120%;
 }
 
 h3 {
     font-size: 15px;
-    background: #efc;
+    background: #d3ffbd;
     margin-bottom: 12px;
-    border-left: #aca solid 5px;
-    border-right: #aca solid 1px;
-    border-bottom: #aca solid 1px;
+    border-left: #8ee674 solid 5px;
+    border-right: #8ee674 solid 1px;
+    border-bottom: #8ee674 solid 1px;
     padding: 2px 2px 1px 10px;
-    line-height:120%;
+    line-height: 120%;
 }
 
 h4 {
@@ -104,6 +108,7 @@ pre {
 .container{
     flex:1;
     display: flex;
+    margin: 0px 8px 0px 8px;
 }
 .container_main{
     flex:1;
@@ -121,13 +126,14 @@ nav{
 }
 aside{
     font-size: 12px;
-    margin-right: 16px;
+    margin: 0px 16px 0px 0px;
 }
 main{
     flex: 1;
 }
 footer{
     font-size: 12px;
+    margin: 0px 8px 0px 8px;
 }
 
 /* * {

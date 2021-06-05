@@ -21,8 +21,8 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 - $System.setFrameRateでFPSを小数単位でも指定できるようにしました
   - $System.setFrameRateのFPS制限を廃止
 - グローバル変数追加
-  - $_fps, $_rps追加（FPSとRPSが実数で取得できる）
-  - ディスプレイの縦横ピクセル数、$displayWidth, $displayHeightを追加
+  - [$_fps, $_rps](./rf-fps-rps)追加（FPSとRPSが実数で取得できる）
+  - ディスプレイの縦横ピクセル数、[$displayWidth, $displayHeight](./rf-display-wh)を追加
   - Windowsのバージョン値、[$osPlatformId、$osMajorVer、$osMinorVer](./rf-getosversion)を追加
 - 効果音のDelayをOS毎に調整
   - XP以前は1350、Vista, 7は2400、8, 8.1は2500、10は3000

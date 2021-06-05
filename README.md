@@ -24,7 +24,7 @@ Tonyu1 Wikiを更新しやすくするため、[旧Wiki](http://hoge1e3.sakura.n
 
 - Wikiページは１つのhtmlで複数ページを表示する、独自のSinglePageです。
 - Wikiはmdファイルが原本で、変換スクリプト(conv.ts)でhtmlを生成します。
-  - htmlが原本のページもあり、その場合は変換はされません。
+  - htmlが原本のページもあり、その場合はそのままそのhtmlを使います。
 - templete.htmlはテンプレートのhtmlで、mdファイルから変換したhtml・js・css等を埋め込んで、各々のページを生成します。
 - mainブランチにpushした際、Github ActionsでWikiページに自動的に反映されるようにしています。
 
