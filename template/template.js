@@ -44,22 +44,22 @@
             if (src) {
                 elem.addEventListener('click', function (e) {
                     var page = getPageFromAtag(e);
+                    var isHashUrl = !e.target.hash;
                     if (page) {
                         if (!page.match(/[\.\/]+/)) { // 「.」や「/」が付いてない時
                             showPage(page);
                         }
                         // console.log(page);
-                        if (page == 'index') {
-                            history.pushState(null, null, './');
-                        } else if (page.indexOf('/') != -1) {
-                            return;
-                        } else {
-                            history.pushState(null, null, page);
-                        }
-                        window.scrollBy(0, -9999999);
-                        // ハッシュがある時はその場所までスクロールさせるため、イベントキャンセルしない
-                        if (!e.target.hash) {
+                        if (!e.target.hash) { // URLに#が無い時
+                            if (page == 'index') {
+                                history.pushState(null, null, './');
+                            } else if (page.indexOf('/') != -1) {
+                                return;
+                            } else {
+                                history.pushState(null, null, page);
+                            }
                             e.preventDefault();
+                            window.scrollBy(0, -9999999);
                         }
                     }
                 });

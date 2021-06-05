@@ -7,7 +7,7 @@
 エディット中に使うフォントを指定します
 #### 書式
 ```
-setFont(size,name)
+setFont(size, name)
 ```
 - **size**  
 &emsp;文字の大きさ
