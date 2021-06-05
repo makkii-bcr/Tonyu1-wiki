@@ -26,27 +26,22 @@
 [null](./rf-null)  
 
 ### グローバル変数一覧
-[$mouseX](./rf-mouse-xy)  
-[$mouseY](./rf-mouse-xy)  
-[$screenHeight](./rf-screen-wh)  
-[$screenWidth](./rf-screen-wh)  
-[$viewX](./rf-view-xy)  
-[$viewY](./rf-view-xy)  
-[$windowX](./rf-window-xy)  
-[$windowY](./rf-window-xy)  
+[$mouseX<br>$mouseY](./rf-mouse-xy)  
+[$screenWidth<br>$screenHeight](./rf-screen-wh)  
+[$viewX<br>$viewY](./rf-view-xy)  
+[$windowX<br>$windowY](./rf-window-xy)  
 [$fullScreen](./rf-fullscreen)  
-[$displayWidth](./rf-display-wh)  
-[$displayHeight](./rf-display-wh)  
+[$displayWidth<br>$displayHeight](./rf-display-wh)  
 [$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion)  
-$_fps, $_rps  
+[$_fps, $_rps](./rf-fps-rps)  
 
 ### オブジェクト・クラス一覧  
   
 
 |||
 |--|--|
-|$InputBox|テキストを入力するためのウィンドウを表示します|
-|$TextEditor|$InputBoxより小型の、テキスト入力ウィンドウを表示します。|
+|[$InputBox](./rf-inputbox)|テキストを入力するためのウィンドウを表示します|
+|[$TextEditor](./rf-texteditor)|$InputBoxより小型の、テキスト入力ウィンドウを表示します。|
 |$map|マップパターンの設定や取得、画面のスクロールを行います|
 |$Math|高度な数学関数を提供します|
 |$mplayer|音楽、効果音の制御を行います|

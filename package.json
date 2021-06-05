@@ -9,7 +9,7 @@
     "debug": "tsc tool/conv.ts --sourceMap",
     "fullbuild": "ts-node tool/conv --fullbuild",
     "deploy": "ts-node tool/conv --deploy",
-    "server": "http-server ./docs/Tonyu1-wiki -o / -g -b",
+    "server": "http-server ./docs/ -o ./Tonyu1-wiki -g -b",
     "start": "npm i && npm run build && npm run server"
   },
   "directories": {

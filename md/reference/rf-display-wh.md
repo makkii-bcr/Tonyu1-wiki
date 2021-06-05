@@ -8,8 +8,7 @@
 モニターの解像度を取得します。
 
 $displayWidth には横のピクセル数、  
-$displayHeight には縦のピクセル数  
-が格納されています。
+$displayHeight には縦のピクセル数が格納されています。  
 
 ***
 

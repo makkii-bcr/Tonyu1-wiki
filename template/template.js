@@ -57,7 +57,10 @@
                             history.pushState(null, null, page);
                         }
                         window.scrollBy(0, -9999999);
-                        e.preventDefault();
+                        // ハッシュがある時はその場所までスクロールさせるため、イベントキャンセルしない
+                        if (!e.target.hash) {
+                            e.preventDefault();
+                        }
                     }
                 });
             }
@@ -144,5 +147,4 @@
         }
     };
     document.addEventListener("DOMContentLoaded", ready);
-    // window.onload = load;
 })();
