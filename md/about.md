@@ -14,7 +14,7 @@ Tonyu Systemは，アクションゲームの作成に適したプログラミ�
 [![vis-design1-mini.png](./img/vis-design1-mini.png)](./img/org/vis-design1-org.png)  
 ↑オブジェクトをクリックすると各種パラメータが表示されます。  
 
-[![editor-mini.png](./img/editor-mini.png)](./img/org/editor-mini-org.png)  
+[![editor-mini.png](./img/editor-mini.png)](./img/org/editor-org.png)  
 ↑オブジェクトをダブルクリックすると、コードエディタが開きます。  
 
 ### 並列処理

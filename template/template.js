@@ -44,22 +44,22 @@
             if (src) {
                 elem.addEventListener('click', function (e) {
                     var page = getPageFromAtag(e);
-                    var isHashUrl = !e.target.hash;
+                    var isHashUrl = e.target.hash;
                     if (page) {
                         if (!page.match(/[\.\/]+/)) { // 「.」や「/」が付いてない時
                             showPage(page);
-                        }
-                        // console.log(page);
-                        if (!e.target.hash) { // URLに#が無い時
-                            if (page == 'index') {
-                                history.pushState(null, null, './');
-                            } else if (page.indexOf('/') != -1) {
-                                return;
-                            } else {
-                                history.pushState(null, null, page);
+                            // console.log(page);
+                            if (!isHashUrl) { // URLに#が無い時
+                                if (page == 'index') {
+                                    history.pushState(null, null, './');
+                                } else if (page.indexOf('/') != -1) {
+                                    return;
+                                } else {
+                                    history.pushState(null, null, page);
+                                }
+                                e.preventDefault();
+                                window.scrollBy(0, -9999999);
                             }
-                            e.preventDefault();
-                            window.scrollBy(0, -9999999);
                         }
                     }
                 });
@@ -120,16 +120,12 @@
     }
 
     var locate = function (event) {
-        // console.log('locate location: ' + document.location + ', state: ' + JSON.stringify(event.state));
-        // console.log(event);
         var page = getPageFromPopState(document.location.pathname);
         showPage(page);
-        // history.pushState(null, null, page);
         event.preventDefault();
     };
 
     var ready = function (event) {
-        // console.log('onload location: ' + document.location + ', state: ' + JSON.stringify(event.state));
         var page = getPageFromOnload();
         if (page != null) {
             showPage(page);

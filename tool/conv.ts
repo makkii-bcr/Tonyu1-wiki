@@ -171,12 +171,6 @@ export function convMain() {
                 .replace(/%nav_mobile%/g, navMobileHtmlData)
                 .replace(/"%script%"/g, tmplJsData)
                 .replace(/\/\*%css%\*\//g, tmplCssData)
-                .replace(/href=\"(\.\/)*([a-zA-Z0-9-_]*)(.md|.html)*(#[a-zA-Z0-9-_]*)*\"/g,
-                    (match, p1, p2, p3, p4, offset, string) => { // <a href="./xxx.html">を<a href="#!xxx">にする
-                        if (p2 == '') p2 = 'index';
-                        if (p4 == null) p4 = '';
-                        return 'href="' + p2 + p4 + '"';
-                    })
                 .replace(/%footer%/g, footerHtmlData)
                 .replace(/%allpage%/g, allPageHtmlData);
 

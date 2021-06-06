@@ -10,26 +10,26 @@
 ### メソッド一覧
 |||
 |-|-|
-|[$Math.pow](./rf-math#mathpow)|e(ネイピア数)を累乗した値を返します。|
-|[$Math.exp](./rf-math#mathexp)|e(ネイピア数)を底とした対数を返します。|
-|[$Math.log](./rf-math#mathlog)|べき乗を求めます。|
-|[$Math.pi](./rf-math#mathpi)|円周率πを返します|
-|[$Math.atan](./rf-math#mathatan)|逆正接(アークタンジェント)を求めます。|
-|[$Math.setAtanAccuracy](./rf-math#mathsetatanaccuracy)|[$Math.atan](./rf-math#mathatan)の精度を変更します。|
-|[$Math.angle](./rf-math#mathangle)|高精度なangleメソッドです|
-|[$Math.tan](./rf-math#mathtan)|正接(タンジェント)を求めます。|
-|[$Math.cot](./rf-math#mathcot)|余接（コタンジェント）を求めます。|
-|[$Math.sec](./rf-math#mathsec)|正割（セカント）を求めます。|
-|[$Math.csc](./rf-math#mathcsc)|余割（コセカント）を求めます。|
-|[$Math.asin](./rf-math#mathasin)|逆正弦(アークサイン)を求めます。|
-|[$Math.acos](./rf-math#mathacos)|逆余弦(アークコサイン)を求めます。|
-|[$Math.degrees](./rf-math#mathdegrees)|ラジアンを表す値から、度を計算します|
-|[$Math.radians](./rf-math#mathradians)|度を表す値から、ラジアンを計算します|
-|[$Math.roll](./rf-math#mathroll)|座標を回転させます|
-|[$Math.isOdd](./rf-math#mathisodd)|値が奇数であるかどうかを調べます|
-|[$Math.isEven](./rf-math#mathiseven)|値が偶数であるかどうかを調べます|
-|[$Math.randBetween](./rf-math#mathrandbetween)|2つの値の間を範囲とする、整数乱数を返します|
-|[$Math.randBetweenFloat](./rf-math#mathrandbetweenfloat)|2つの値の間を範囲とする、実数乱数を返します|
+|[$Math.pow](#mathpow)|べき乗を求めます。|
+|[$Math.exp](#mathexp)|e(ネイピア数)を底とした対数を返します。|
+|[$Math.log](#mathlog)|e(ネイピア数)を累乗した値を返します。|
+|[$Math.pi](#mathpi)|円周率πを返します|
+|[$Math.atan](#mathatan)|逆正接(アークタンジェント)を求めます。|
+|[$Math.setAtanAccuracy](#mathsetatanaccuracy)|[$Math.atan](#mathatan)の精度を変更します。|
+|[$Math.angle](#mathangle)|高精度なangleメソッドです|
+|[$Math.tan](#mathtan)|正接(タンジェント)を求めます。|
+|[$Math.cot](#mathcot)|余接（コタンジェント）を求めます。|
+|[$Math.sec](#mathsec)|正割（セカント）を求めます。|
+|[$Math.csc](#mathcsc)|余割（コセカント）を求めます。|
+|[$Math.asin](#mathasin)|逆正弦(アークサイン)を求めます。|
+|[$Math.acos](#mathacos)|逆余弦(アークコサイン)を求めます。|
+|[$Math.degrees](#mathdegrees)|ラジアンを表す値から、度を計算します|
+|[$Math.radians](#mathradians)|度を表す値から、ラジアンを計算します|
+|[$Math.roll](#mathroll)|座標を回転させます|
+|[$Math.isOdd](#mathisodd)|値が奇数であるかどうかを調べます|
+|[$Math.isEven](#mathiseven)|値が偶数であるかどうかを調べます|
+|[$Math.randBetween](#mathrandbetween)|2つの値の間を範囲とする、整数乱数を返します|
+|[$Math.randBetweenFloat](#mathrandbetweenfloat)|2つの値の間を範囲とする、実数乱数を返します|
 
 ***
 
@@ -39,7 +39,7 @@
 
 **書式**
 ```
-$Math.pow(a,b)
+pow(a,b)
 ```
 - **a**  
 &emsp;基数
@@ -52,15 +52,13 @@ aをb乗した値
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.exp
 
 e(ネイピア数)をxで累乗した値を返します。
 
 **書式**
 ```
-$Math.exp(x)
+exp(x)
 ```
 - **x**  
 &emsp;指数
@@ -70,15 +68,13 @@ e(ネイピア数)をxで累乗した値
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.log
 
 e(ネイピア数) を底とした x の対数を返します。
 
 **書式**
 ```
-$Math.log(x)
+log(x)
 ```
 - **x**  
 &emsp;値
@@ -87,8 +83,6 @@ $Math.log(x)
 e(ネイピア数) を底とした x の対数
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.pi
 
@@ -104,8 +98,6 @@ pi()
 πの近似値(3.141592653589793)
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.atan
 
@@ -128,8 +120,6 @@ $Math.setAtanAccuracy
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.setAtanAccuracy
 
 $Math.atanの精度を変更します。
@@ -148,8 +138,6 @@ accuracyが大きくするとatanの値が正確に 求められますが、計�
 10000000より大きいと計算が終わらなくなるので注意してください。  
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.angle
 
@@ -174,8 +162,6 @@ $Math.atanを利用して、従来のangleより高い精度で角度を計算�
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.tan
 
 正接(タンジェント)を求めます。
@@ -193,8 +179,6 @@ tan(t)
 t度の正接を求めます。
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.cot
 
@@ -215,8 +199,6 @@ cot(t)=1/tan(t) です
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.sec
 
 正割（セカント）を求めます。
@@ -235,8 +217,6 @@ t度の正割を求めます。
 sec(t)=1/cos(t) です
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.csc
 
@@ -257,8 +237,6 @@ csc(t)=1/sin(t) です
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.asin
 
 逆正弦(アークサイン)を求めます。
@@ -275,8 +253,6 @@ asin(t)
 sin(x)=tとなるような x。単位は度(ラジアンでありません)
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.acos
 
@@ -295,8 +271,6 @@ cos(x)=tとなるような x。単位は度(ラジアンでありません)
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.degrees
 
 ラジアンを表す値から、度を計算します
@@ -313,8 +287,6 @@ degrees(r)
 ラジアンrを表す角度
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.radians
 
@@ -333,8 +305,6 @@ t度のラジアン
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.roll
 
 座標を回転させます
@@ -349,9 +319,9 @@ roll(sx,sy,angle,cx,cy)
 &emsp;回転させたい点のy座標
 - **angle**  
 &emsp;回転角
-- **cx** (省略可能)  
+- **cx (省略可能)**  
 &emsp;回転の中心のx座標(省略時は0)
-- **cy** (省略可能)  
+- **cy (省略可能)**  
 &emsp;回転の中心のy座標(省略時は0)
 
 **戻り値**
@@ -359,8 +329,6 @@ roll(sx,sy,angle,cx,cy)
 $Math.rx, $Math.ryに、回転後の座標
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.isOdd
 
@@ -379,8 +347,6 @@ nが奇数のとき真
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.isEven
 
 値が偶数であるかどうかを調べます
@@ -397,8 +363,6 @@ isOdd(n)
 nが偶数のとき真
 
 ***
-
-[↑最上部へ](./rf-math#)
 
 ## $Math.randBetween
 
@@ -419,8 +383,6 @@ f&lt;tのときは、f以上t未満の乱数。 t&lt;fの場合t以上f未満。
 
 ***
 
-[↑最上部へ](./rf-math#)
-
 ## $Math.randBetweenFloat
 
 2つの値の間を範囲とする、実数乱数を返します
@@ -437,10 +399,6 @@ randBetweenFloat(f,t)
 **戻り値**
 
 f&lt;tのときは、f以上t未満の乱数。 t&lt;fの場合t以上f未満。t==fの場合t。
-
-***
-
-[↑最上部へ](./rf-math#)
 
 ***
 
