@@ -6,7 +6,9 @@ import { minify } from 'html-minifier-terser';
 import { performance } from 'perf_hooks';
 import * as base from './base-conv';
 
-const testPubDirName = path.join('docs', 'Tonyu1-wiki');
+const repoName = 'Tonyu1-wiki';
+const rootPubDirName = 'docs';
+const testPubDirName = path.join('docs', repoName);
 const deployPubDirName = 'docs';
 const mdDirName = 'md';
 const templateDirName = 'template';
@@ -14,13 +16,14 @@ const mdTemplateDirName = path.join('md', 'template');
 
 convMain();
 
-export function convMain() {
+function convMain() {
     console.log('run conv.ts');
 
     const time3 = performance.now();
 
     const isDeploy = process.argv.some((v) => v === '--deploy');
-    const isFullBuild = isDeploy || process.argv.some((v) => v === '--fullbuild');
+    const isStaging = process.argv.some((v) => v === '--staging');
+    const isFullBuild = isDeploy || isStaging;
     const curDir = process.cwd();
     const pubDirName = isDeploy ? deployPubDirName : testPubDirName;
 
@@ -42,6 +45,8 @@ export function convMain() {
     const tmplHtmlData = Buffer.from(fs.readFileSync(tmplPath)).toString();
     const tmplJsPath = path.join(curDir, templateDirName, 'template.js');
     const tmplJsData = Buffer.from(fs.readFileSync(tmplJsPath)).toString();
+    const tmpl404JsPath = path.join(curDir, templateDirName, 'template404.js');
+    const tmpl404JsData = Buffer.from(fs.readFileSync(tmpl404JsPath)).toString();
     const tmplCssPath = path.join(curDir, templateDirName, 'style.css');
     const tmplCssData = Buffer.from(fs.readFileSync(tmplCssPath)).toString();
 
@@ -108,6 +113,10 @@ export function convMain() {
 
     // htmlを生成
     htmlAry.forEach(htmlObj => {
+        // デバッグ時は404.htmlのみ作成
+        if (!(isDeploy || isStaging || htmlObj.name == '404')) {
+            return;
+        }
         const time = performance.now();
 
         // 全htmlをまとめたhtmlを生成（content部分のみ）
@@ -154,13 +163,15 @@ export function convMain() {
                     }
                 });
 
-            htmlDataSum += '<div style="display:' + displayStyle + '" id="' + name + '" class="pagediv" title="' + titleAndSiteName + '">\n';
+            htmlDataSum += '<div style="display:' + displayStyle + '" id="' + name + '" class="pagediv" title2="' + titleAndSiteName + '">\n';
             htmlDataSum += htmlData;
             htmlDataSum += '\n</div>\n';
 
             allPageMd += '1. [' + title + '](' + name + ')  \n';
         });
         const allPageHtmlData = marked(allPageMd);
+        const tmplJsDataFixed = !(isDeploy || isStaging) && htmlObj.name == '404'
+            ? tmpl404JsData : tmplJsData
 
         // テンプレートhtmlに、markdownのhtmlを埋め込み
         let outData: string | Buffer =
@@ -169,15 +180,15 @@ export function convMain() {
                 .replace(/%sidebar%/g, sidebarHtmlData)
                 .replace(/%nav_pc%/g, navPcHtmlData)
                 .replace(/%nav_mobile%/g, navMobileHtmlData)
-                .replace(/"%script%"/g, tmplJsData)
+                .replace(/"%script%"/g, tmplJsDataFixed)
                 .replace(/\/\*%css%\*\//g, tmplCssData)
                 .replace(/%footer%/g, footerHtmlData)
                 .replace(/%allpage%/g, allPageHtmlData);
 
-        // Github Pagesは.gzファイルを置いても静的gzipとして扱ってくれないので、deploy時は.htmlを置く
         let htmlPath = path.join(curDir, pubDirName, base.toHtmlPath(htmlObj.mdPath));
 
         if (isDeploy) {
+            // Github Pagesは.gzファイルを置いても静的gzipとして扱ってくれないので、deploy時は.htmlを置く
             // html, js, css のminify
             outData = minify(outData, {
                 continueOnParseError: true,
@@ -190,8 +201,13 @@ export function convMain() {
                 removeTagWhitespace: true
             });
         } else {
-            // htmlをgzip圧縮
-            const ret = base.compress(htmlPath, outData);
+            // 開発時は404.htmlのみでSPAするので、404.htmlはルートに作る
+            if (!isStaging && htmlObj.name == '404') {
+                htmlPath = path.join(curDir, rootPubDirName, base.toHtmlPath(htmlObj.mdPath));
+            }
+            // htmlをgzipまたはbrotli圧縮
+            const cmprsMode = isStaging ? base.CompressMode.Gzip : base.CompressMode.Brotli;
+            const ret = base.compress(cmprsMode, htmlPath, outData);
             htmlPath = ret.filePath;
             outData = ret.output;
         }

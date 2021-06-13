@@ -7,7 +7,7 @@
     "build": "ts-node tool/conv",
     "build:tsc": "tsc tool/conv.ts && node tool/conv.js",
     "debug": "tsc tool/conv.ts --sourceMap",
-    "fullbuild": "ts-node tool/conv --fullbuild",
+    "staging": "ts-node tool/conv --staging",
     "deploy": "ts-node tool/conv --deploy",
     "server": "http-server ./docs/ -o ./Tonyu1-wiki -g -b",
     "start": "npm i && npm run build && npm run server"
@@ -28,15 +28,15 @@
   "devDependencies": {
     "@types/html-minifier-terser": "^5.1.1",
     "@types/marked": "^2.0.3",
-    "@types/node": "^14.17.1",
+    "@types/node": "^14.17.3",
     "@types/node-zopfli": "^2.0.1",
     "@types/pngjs": "^6.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.25.0",
-    "@typescript-eslint/parser": "^4.25.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
     "html-minifier-terser": "^5.1.1",
     "http-server": "^0.12.3",
     "image-size": "^1.0.0",
-    "marked": "^2.0.6",
+    "marked": "^2.0.7",
     "node-zopfli": "^2.1.4",
     "ts-node": "^9.1.1",
     "typescript": "^4.3.2"

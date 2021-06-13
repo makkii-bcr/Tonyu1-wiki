@@ -2,6 +2,7 @@
 (function () {
     var rootPath = '/Tonyu1-wiki';
 
+    /** 該当ページを表示 */
     function showPage(page) {
         var isFoundPage = false;
         var pages = document.getElementsByClassName('pagediv');
@@ -11,7 +12,7 @@
                 if (p.id == page) {
                     isFoundPage = true;
                     p.style.display = 'block';
-                    document.title = p.title;
+                    document.title = p.title2;
                     loadImg(p);
                 } else {
                     p.style.display = 'none';
@@ -25,6 +26,7 @@
         }
     }
 
+    /** 該当ページの画像を読み込む */
     function loadImg(showPageDiv) {
         var imgs = showPageDiv.getElementsByTagName('img');
         for (var i = 0; i < imgs.length; i++) {
@@ -36,6 +38,7 @@
         };
     }
 
+    /** aタグのイベントを書き換えて、SPAができるようにする */
     function convAHref() {
         var atags = document.getElementsByTagName('a');
         for (var i = 0; i < atags.length; i++) {
@@ -45,21 +48,19 @@
                 elem.addEventListener('click', function (e) {
                     var page = getPageFromAtag(e);
                     var isHashUrl = e.target.hash;
-                    if (page) {
-                        if (!page.match(/[\.\/]+/)) { // 「.」や「/」が付いてない時
-                            showPage(page);
-                            // console.log(page);
-                            if (!isHashUrl) { // URLに#が無い時
-                                if (page == 'index') {
-                                    history.pushState(null, null, './');
-                                } else if (page.indexOf('/') != -1) {
-                                    return;
-                                } else {
-                                    history.pushState(null, null, page);
-                                }
-                                e.preventDefault();
-                                window.scrollBy(0, -9999999);
+                    if (page && !page.match(/[\.\/]+/)) { // 「.」や「/」が付いてない時
+                        showPage(page);
+                        // console.log(page);
+                        if (!isHashUrl) { // URLに#が無い時
+                            if (page == 'index') {
+                                history.pushState(null, null, './');
+                            } else if (page.indexOf('/') != -1) {
+                                return;
+                            } else {
+                                history.pushState(null, null, page);
                             }
+                            e.preventDefault();
+                            window.scrollBy(0, -9999999);
                         }
                     }
                 });
@@ -72,51 +73,29 @@
         return t.origin || t.protocol + '//' + t.host
     }
 
+    function parsePage(pathname) {
+        if (pathname == '/') {
+            return 'index';
+        } else {
+            return pathname.substring(1);
+        }
+    }
+
     function getPageFromAtag(e) {
-        if (e.target) {
-            if (location.origin == getOriginFromTarget(e.target)) {
-                if (e.target.pathname) {
-                    var page = e.target.pathname.replace(rootPath, '');
-                    if (page == '/') {
-                        page = 'index';
-                    } else {
-                        page = page.substring(1);
-                    }
-                    return page;
-                }
-            }
+        if (e.target
+            && location.origin == getOriginFromTarget(e.target)
+            && e.target.pathname
+        ) {
+            return parsePage(e.target.pathname.replace(rootPath, ''));
         }
         return null;
     }
 
     function getPageFromPopState(pathname) {
         if (pathname) {
-            var page = pathname.replace(rootPath, '');
-            if (page == '/') {
-                page = 'index';
-            } else {
-                page = page.substring(1);
-            }
-            return page;
+            return parsePage(pathname.replace(rootPath, ''));
         }
         return null;
-    }
-
-    function getPageFromOnload() {
-        var prm = {};
-        location.search.substring(1).split('&').forEach(function (v) {
-            var s = v.split('=');
-            prm[s[0]] = s[1];
-        });
-        var page = prm['pg'];
-        if (page != null) {
-            if (page == '/') {
-                page = 'index';
-            } else {
-                page = page.substring(1);
-            }
-        }
-        return page;
     }
 
     var locate = function (event) {
@@ -126,15 +105,15 @@
     };
 
     var ready = function (event) {
-        var page = getPageFromOnload();
-        if (page != null) {
-            showPage(page);
-            if (page == 'index') {
-                history.replaceState(null, null, './');
-            } else {
-                history.replaceState(null, null, page);
-            }
-        }
+        // var page = getPageFromPopState(document.location.pathname);
+        // if (page != null) {
+        //     showPage(page);
+        //     if (page == 'index') {
+        //         history.replaceState(null, null, './');
+        //     } else {
+        //         history.replaceState(null, null, page);
+        //     }
+        // }
         convAHref();
         if (typeof window.onpopstate !== 'undefined') {
             window.onpopstate = locate;

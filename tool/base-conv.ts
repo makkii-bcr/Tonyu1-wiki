@@ -22,7 +22,7 @@ export function convMdToHtml(htmlPath: string): string {
  * @returns 
  */
 export function toHtmlPath(mdPath: string): string {
-    return path.parse(mdPath).name + '.html';//'.html.gz';
+    return path.parse(mdPath).name + '.html';
 }
 
 /**
@@ -77,26 +77,32 @@ export function isUpdateFile(srcFilePath: string, destFilePath: string): boolean
     return srcTime > destTime;
 }
 
-const CompressMode = {
+export const CompressMode = {
     Gzip: 'gzip',
     Zopfli: 'zopfli',
     Brotli: 'brotli',
 } as const;
 type CompressMode = typeof CompressMode[keyof typeof CompressMode];
 
-const compressMode: CompressMode = CompressMode.Gzip;
-export function compress(filePath: string, data: string): {
+/**
+ * 圧縮結果とfilepathを返す
+ * @param mode 圧縮タイプ
+ * @param filePath 元のファイルパス
+ * @param data データ
+ * @returns {filePath, output}
+ */
+export function compress(mode: CompressMode, filePath: string, data: string): {
     filePath: string,
     output: Buffer
 } {
     let output: Buffer;
-    if (compressMode == CompressMode.Gzip) {
+    if (mode == CompressMode.Gzip) {
         output = gzipSync(data);
         filePath += ".gz";
-    } else if (compressMode == CompressMode.Zopfli) {
+    } else if (mode == CompressMode.Zopfli) {
         output = zopfliSync(data);
         filePath += ".gz";
-    } else if (compressMode == CompressMode.Brotli) {
+    } else if (mode == CompressMode.Brotli) {
         output = brotliSync(data);
         filePath += ".br";
     } else {
