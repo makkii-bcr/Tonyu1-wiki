@@ -16,8 +16,8 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 - CPU使用率を軽減
 - ゲーム画面のカクツキ（スタッタリング）軽減（DWM有効時）
 - カクツキ対策用のメソッド追加
-  - [$System.setVSync](./rf-system-setvsync)
-  - [$System.setAdjustScanLine](rf-system-setadjustscanline)
+  - [$System.setVSync](./rf-system#systemsetvsync)
+  - [$System.setAdjustScanLine](rf-system#systemsetadjustscanline)
 - $System.setFrameRateでFPSを小数単位でも指定できるようにしました
   - $System.setFrameRateのFPS制限を廃止
 - グローバル変数追加

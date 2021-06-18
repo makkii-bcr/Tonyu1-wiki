@@ -45,7 +45,7 @@ function convMain() {
     const tmplHtmlData = Buffer.from(fs.readFileSync(tmplPath)).toString();
     const tmplJsPath = path.join(curDir, templateDirName, 'template.js');
     const tmplJsData = Buffer.from(fs.readFileSync(tmplJsPath)).toString();
-    const tmpl404JsPath = path.join(curDir, templateDirName, 'template404.js');
+    const tmpl404JsPath = path.join(curDir, templateDirName, 'template-dev.js');
     const tmpl404JsData = Buffer.from(fs.readFileSync(tmpl404JsPath)).toString();
     const tmplCssPath = path.join(curDir, templateDirName, 'style.css');
     const tmplCssData = Buffer.from(fs.readFileSync(tmplCssPath)).toString();

@@ -12,7 +12,7 @@
                 if (p.id == page) {
                     isFoundPage = true;
                     p.style.display = 'block';
-                    document.title = p.title2;
+                    document.title = p.attributes.title2.value;
                     loadImg(p);
                 } else {
                     p.style.display = 'none';

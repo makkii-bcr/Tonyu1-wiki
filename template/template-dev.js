@@ -12,7 +12,6 @@
                 if (p.id == page) {
                     isFoundPage = true;
                     p.style.display = 'block';
-                    // document.title = p.attributes.title2.value;
                     document.title = p.attributes.title2.value;
                     loadImg(p);
                 } else {
