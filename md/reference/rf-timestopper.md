@@ -30,7 +30,7 @@ releaseAll(nonKill)
 
 **例1**
 
-例は[timeStop](./rf-obuject#objecttimestop)メソッドにあります。
+例は[timeStop](./rf-object#objecttimestop)メソッドにあります。
 
 ***
 
@@ -50,7 +50,7 @@ release(o)
 
 **例1**
 
-例は[timeStop](./rf-obuject#objecttimestop)メソッドにあります。
+例は[timeStop](./rf-object#objecttimestop)メソッドにあります。
 
 ***
 

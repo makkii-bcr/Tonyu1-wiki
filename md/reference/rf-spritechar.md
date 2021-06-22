@@ -19,10 +19,24 @@ SpriteCharクラスのオブジェクトは、ビットマップグラフィッ�
 
 
 ### メソッド一覧
-- newAnimation
-- PlainCharクラスのメソッド
-- Spriteクラスのメソッド
-- Objectクラスのメソッド
+- [newAnimation](#spritecharnewanimation)
+- [PlainChar](./rf-plainchar)クラスのメソッド
+- [Sprite](./rf-sprite)クラスのメソッド
+- [Object](./rf-object)クラスのメソッド
+
+***
+
+## SpriteChar.newAnimation
+新規AnimationAdaptorを作成します。
+
+**書式**
+```
+newAnimation()
+```
+
+**戻り値**
+
+新規作成された[AnimationAdaptor](./rf-animationadaptor)
 
 ***
 

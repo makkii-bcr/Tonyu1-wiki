@@ -23,9 +23,9 @@ DxCharクラスのオブジェクトは、ビットマップパターンの半�
 &emsp;この値が小さいほど、オブジェクトを手前に表示します。
 - **scaleX**  
 &emsp;オブジェクトの拡大率を指定します。  
-&emsp;scaleYが未定義または0の場合、縦横比は1のままです。
-- **scaleY**  
-&emsp;scaleYを指定すると、横をscaleX倍、縦をscaleY倍拡大します。
+&emsp;scaleyが未定義または0の場合、縦横比は1のままです。
+- **scaley**  
+&emsp;scaleyを指定すると、横をscaleX倍、縦をscaley倍拡大します。
 - **angle**  
 &emsp;オブジェクトの回転を指定します。単位は度で右回りです。
 - **alpha**  
@@ -36,14 +36,24 @@ DxCharクラスのオブジェクトは、ビットマップパターンの半�
 
 ### メソッド一覧
 
-- newAnimation
+- [newAnimation](#dxcharcharnewanimation)
 - [PlainChar](./rf-plainchar)クラスのメソッド
 - [Sprite](./rf-sprite)クラスのメソッド
 - [Object](./rf-object)クラスのメソッド
 
 ***
 
+## DxChar.newAnimation
+新規AnimationAdaptorを作成します。
 
+**書式**
+```
+newAnimation()
+```
+
+**戻り値**
+
+新規作成された[AnimationAdaptor](./rf-animationadaptor)
 
 ***
 

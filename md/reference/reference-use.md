@@ -25,55 +25,55 @@
 - フレームマネージャ([FrameManager](./rf-framemanager)クラス)
 
 ### オブジェクト制御
-- die
-- update
-- updateEx
-- wait
-- notify
-- appear
-- setVisible
-- timeStop
+- [die](./rf-plainchar#plainchardie)
+- [update](./rf-plainchar#plaincharupdate)
+- [updateEx](./rf-plainchar#plaincharupdateex)
+- [wait](./rf-plainchar#plaincharwait)
+- [notify](./rf-plainchar#plaincharnotify)
+- [appear](./rf-object#objectappear)
+- [setVisible](./rf-plainchar#plaincharsetvisible)
+- [timeStop](./rf-object#objecttimestop)
 
 ### 判定
 - [for (xx in $chars)](./rf-for-chars)
-- crashTo
-- isDead
-- screenOut
-- getVisible
-- crashToLine
+- [crashTo](./rf-plainchar#plaincharcrashto)
+- [isDead](./rf-plainchar#plaincharisdead)
+- [screenOut](./rf-plainchar#plaincharscreenout)
+- [getVisible](./rf-plainchar#plainchargetvisible)
+- [crashToLine](./rf-plainchar#plaincharcrashtoline)
 
 ### イベント
-- onUpdate
-- onMouseDown
-- onDie
-- onDraw
-- onAppear
+- [onUpdate](./rf-plainchar#plaincharonupdate)
+- [onMouseDown](./rf-plainchar#plaincharonmousedown)
+- [onDie](./rf-plainchar#plaincharondie)
+- [onDraw](./rf-plainchar#plaincharondraw)
+- [onAppear](./rf-plainchar#plaincharonappear)
 
 ### アニメーション
-- newAnimation
+- [newAnimation](./rf-spritechar#spritecharnewanimation)
 
 ### グラフィックス
-- drawText
-- setFont
-- drawLine
-- fillRect
-- color
-- colorHSL
-- getRed
-- getGreen
-- getBlue
-- drawSprite
-- drawDXSprite
-- centerText
-- drawVerticalText
-- drawPolygon
-- drawRect
-- drawRectDx
-- drawTriangle
-- gradationLine
-- gradationRect
-- gradationText
-- パネルの使い方
+- [drawText](./rf-sprite#spritedrawtext)
+- [setFont](./rf-sprite#spritesetfont)
+- [drawLine](./rf-sprite#spritedrawline)
+- [fillRect](./rf-sprite#spritefillrect)
+- [color](./rf-object#objectcolor)
+- [colorHSL](./rf-object#objectcolorhsl)
+- [getRed](./rf-object#objectgetred)
+- [getGreen](./rf-object#objectgetgreen)
+- [getBlue](./rf-object#objectgetblue)
+- [drawSprite](./rf-sprite#spritedrawsprite)
+- [drawDXSprite](./rf-sprite#spritedrawdxsprite)
+- [centerText](./rf-sprite#spritecentertext)
+- [drawVerticalText](./rf-sprite#spritedrawverticaltext)
+- [drawPolygon](./rf-sprite#spritedrawpolygon)
+- [drawRect](./rf-sprite#spritedrawrect)
+- [drawRectDx](./rf-sprite#spritedrawrectdx)
+- [drawTriangle](./rf-sprite#spritedrawtriangle)
+- [gradationLine](./rf-sprite#spritegradationline)
+- [gradationRect](./rf-sprite#spritegradationrect)
+- [gradationText](./rf-sprite#spritegradationtext)
+- [パネルの使い方](./rf-panel)
 
 ### マップ
 - [$map](./rf-map)
@@ -118,11 +118,11 @@
 
 ### 文字列
 - [String](./rf-string)
-  - 文字列結合 +演算子
-  - 文字列比較===演算子
-  - String.length
-  - String.substring
-  - String.split
+  - [文字列結合 +演算子](./rf-string#文字列結合)
+  - [文字列比較 ==演算子](./rf-string#文字列比較)
+  - [String.length](./rf-string#stringlength)
+  - [String.substring](./rf-string#stringsubstring)
+  - [String.split](./rf-string#stringsplit)
 
 ### ファイル
 - [ファイルの扱いについて](./rf-file-handling)

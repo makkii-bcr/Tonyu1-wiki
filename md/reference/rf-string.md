@@ -47,21 +47,22 @@ print(c);
 ```
 extends SpriteChar;
 score=100+200;
-print ("score="+score);
+print("score="+score);
 ```
 ▲ コンソールに"score=300" が表示されます。  
 この例のように、文字列と数値を連結することが可能です。
 
 **注意点**
+
 演算子 + は、両辺の値の種類によって意味が変わってきます。  
 次の例をためしてください。
 
 **例3**
 ```
 extends SpriteChar;
-print ("score="+100+200); // A
-print ("score="+(100+200)); // B
-print (100+200+"=score"); // C
+print("score="+100+200); // A
+print("score="+(100+200)); // B
+print(100+200+"=score"); // C
 ```
 コンソールは次のように表示されます。
 
@@ -78,17 +79,17 @@ score=300
 
 上の例では次のような計算が行われています。
 
-**print ("score="+100+200); // A**
+**print("score="+100+200); // A**
 
 まず、"score="+100 を計算し、結果が"score=100"になる。  
 さらに"score=100"+200 を計算し、結果が"score=100200"になる。
 
-**print ("score="+(100+200)); // B**
+**print("score="+(100+200)); // B**
 
 まず、(100+200)を計算し、結果が300（数値）になる  
 さらに"score="+300 を計算し、結果が"score=300"になる。
 
-**print (100+200+"=score"); // C**
+**print(100+200+"=score"); // C**
 
 まず、100+200を計算し、結果が300（数値）になる  
 さらに300+"=score" を計算し、結果が"300=score"になる。
@@ -103,10 +104,10 @@ score=300
 ```
 extends SpriteChar;
 a="abc";
-if (a=="abc") print (a+" と abc は等しい");
-else print (a+" と abc は等しくない");
-if (a=="def") print (a+" と def は等しい");
-else print (a+" と def は等しくない");
+if (a=="abc") print(a+" と abc は等しい");
+else print(a+" と abc は等しくない");
+if (a=="def") print(a+" と def は等しい");
+else print(a+" と def は等しくない");
 ```
 コンソールは次のように表示されます。
 ```
@@ -269,7 +270,7 @@ byteAtと同じ動作をします。
 
 "1文字"だけを抜き出す場合は
 <pre>
-s.<a href="substring">substring</a>(i,1)
+s.<a href="#stringsubstring">substring</a>(i,1)
 </pre>
 を使います。
 
