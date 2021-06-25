@@ -83,7 +83,7 @@
 ### 画面制御
 - [$map.scrollTo](./rf-map#mapscrollto)
 - [$viewX,$viewY](./rf-view-xy)
-- getScreenX,getScreenY
+- [getScreenX](./rf-plainchar#plainchargetscreenx),[getScreenY](./rf-plainchar#plainchargetscreeny)
 - [$screenWidth,$screenHeight](./rf-screen-wh),[$Window.sizeable](./rf-window#windowsizeable)
 - [$windowX,$windowY](./rf-window-xy)
 - [$map.setBGColor](./rf-map#mapsetbgcolor)
@@ -107,7 +107,7 @@
 - [angleDiff](./rf-object#objectanglediff)
 - [trunc](./rf-object#objecttrunc)
 - [floor](./rf-object#objectfloor)
-- [valueOf](./rf-object#objectvalueOf)
+- [valueOf](./rf-object#objectvalueof)
 - [amod](./rf-object#objectamod)
 
 ### 配列
