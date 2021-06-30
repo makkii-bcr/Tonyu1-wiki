@@ -36,6 +36,22 @@ CGIが実行可能なWebページをお持ちであれば、作成したゲー�
 ### サンプルプログラム
 気軽に遊べるショートゲームを収録。ここで紹介した機能を一通り使っています。
 
+## 動作環境
+
+動作条件
+- Windows 95以降（Windows専用）
+- DirectX6以降
+
+動作するOS  
+- 別途インストール無し
+  - Windows 10, 8.1, 8, 7, Vista, XP, 2000, Me, 98SE
+- DirectX6のインストールが必要
+  - Windows 98, 95
+
+最低動作環境  
+- Windows98 / Pentium 266MHz / メモリ 128MB （[BBS No.8836](http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=8836)より）
+
+
 ***
 
 [Wikiトップ](./)
