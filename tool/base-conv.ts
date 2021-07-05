@@ -2,7 +2,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import marked from 'marked';
 import zlib from 'zlib';
-import zopfli from 'node-zopfli';
 
 /**
  * mdファイルを読み込んで、変換、HTMLデータを返す
@@ -79,7 +78,6 @@ export function isUpdateFile(srcFilePath: string, destFilePath: string): boolean
 
 export const CompressMode = {
     Gzip: 'gzip',
-    Zopfli: 'zopfli',
     Brotli: 'brotli',
 } as const;
 type CompressMode = typeof CompressMode[keyof typeof CompressMode];
@@ -99,9 +97,6 @@ export function compress(mode: CompressMode, filePath: string, data: string): {
     if (mode == CompressMode.Gzip) {
         output = gzipSync(data);
         filePath += ".gz";
-    } else if (mode == CompressMode.Zopfli) {
-        output = zopfliSync(data);
-        filePath += ".gz";
     } else if (mode == CompressMode.Brotli) {
         output = brotliSync(data);
         filePath += ".br";
@@ -119,19 +114,6 @@ export function compress(mode: CompressMode, filePath: string, data: string): {
 export function gzipSync(data: string): Buffer {
     const output = zlib.gzipSync(data, {
         level: 9
-    });
-    return output;
-}
-
-/**
- * zopfli圧縮（gzip高圧縮版）
- * @param data 
- * @returns 
- */
-export function zopfliSync(data: string): Buffer {
-    const input = Buffer.from(data);
-    const output = zopfli.gzipSync(input, {
-        // numiterations: 1
     });
     return output;
 }
