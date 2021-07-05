@@ -36,6 +36,7 @@
 [$displayWidth<br>$displayHeight](./rf-display-wh)  
 [$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion)  
 [$_fps, $_rps](./rf-fps-rps)  
+[$windowActive](./rf-window-active)
 
 ### オブジェクト・クラス一覧  
   
