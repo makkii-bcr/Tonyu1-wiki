@@ -21,7 +21,6 @@ exeファイルを上書きし、Kernelフォルダを置き換えて、Tempフ�
 - 既存不具合の修正、細かい修正、処理速度改善など
   - $map.scrollTo()の高速化
     - $map.scrollTo()でスクロール量が多い場合、処理が重いので軽量化
-  - DxCharやdrawDxSprite()で、画像の右端と下端が1px欠けるバグを修正
   - 特定のウィンドウサイズでTonyuを終了すると、エラーが大量に出る不具合を修正
     - [BBS No.13705](http://www.tonyu.jp/joyful/joyful.cgi?mode=res&no=13705)に該当
   - 起動中にクリックするとエラーが出る不具合を修正
