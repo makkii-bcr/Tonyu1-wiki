@@ -45,8 +45,6 @@ function convMain() {
     const tmplHtmlData = Buffer.from(fs.readFileSync(tmplPath)).toString();
     const tmplJsPath = path.join(curDir, templateDirName, 'template.js');
     const tmplJsData = Buffer.from(fs.readFileSync(tmplJsPath)).toString();
-    const tmpl404JsPath = path.join(curDir, templateDirName, 'template-dev.js');
-    const tmpl404JsData = Buffer.from(fs.readFileSync(tmpl404JsPath)).toString();
     const tmplCssPath = path.join(curDir, templateDirName, 'style.css');
     const tmplCssData = Buffer.from(fs.readFileSync(tmplCssPath)).toString();
 
@@ -170,8 +168,10 @@ function convMain() {
             allPageMd += '1. [' + title + '](' + name + ')  \n';
         });
         const allPageHtmlData = marked(allPageMd);
-        const tmplJsDataFixed = !(isDeploy || isStaging) && htmlObj.name == '404'
-            ? tmpl404JsData : tmplJsData
+        const tmplJsDataFixed = tmplJsData.replace(
+            '$dev',
+            !(isDeploy || isStaging) && htmlObj.name == '404' ? 'true' : 'false'
+            ); // 文字を置き換える
 
         // テンプレートhtmlに、markdownのhtmlを埋め込み
         let outData: string | Buffer =
@@ -205,9 +205,8 @@ function convMain() {
             if (!isStaging && htmlObj.name == '404') {
                 htmlPath = path.join(curDir, rootPubDirName, base.toHtmlPath(htmlObj.mdPath));
             }
-            // htmlをgzipまたはbrotli圧縮
-            const cmprsMode = isStaging ? base.CompressMode.Gzip : base.CompressMode.Brotli;
-            const ret = base.compress(cmprsMode, htmlPath, outData);
+            // htmlをgzip圧縮
+            const ret = base.compress(base.CompressMode.Gzip, htmlPath, outData);
             htmlPath = ret.filePath;
             outData = ret.output;
         }

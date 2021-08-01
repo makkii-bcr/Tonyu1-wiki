@@ -1,5 +1,6 @@
 
 (function () {
+    var isDev = $dev;
     var rootPath = '/Tonyu1-wiki';
 
     /** 該当ページを表示 */
@@ -46,21 +47,33 @@
             var src = elem.getAttribute('href');
             if (src) {
                 elem.addEventListener('click', function (e) {
+                    var nowPage = getPageFromPopState(document.location.pathname);
                     var page = getPageFromAtag(e);
-                    var isHashUrl = e.target.hash;
+                    var hashUrl = e.target.hash;
                     if (page && !page.match(/[\.\/]+/)) { // 「.」や「/」が付いてない時
                         showPage(page);
                         // console.log(page);
-                        if (!isHashUrl) { // URLに#が無い時
-                            if (page == 'index') {
-                                history.pushState(null, null, './');
-                            } else if (page.indexOf('/') != -1) {
-                                return;
+                        if (page == 'index') {
+                            history.pushState(null, null, './' + hashUrl);
+                        } else if (page.indexOf('/') != -1) {
+                            return;
+                        } else {
+                            history.pushState(null, null, page + hashUrl);
+                        }
+                        e.preventDefault();
+                        if (!hashUrl) { // URLに#が無い時
+                            window.scroll(0, 0);
+                        } else {
+                            var offsetTop = document.getElementById(hashUrl.substring(1)).offsetTop;
+                            var userAgent = window.navigator.userAgent.toLowerCase();
+                            if( userAgent.match(/msie/) || userAgent.match(/trident/) ) {
+                                window.scroll(offsetTop, offsetTop); // IE
                             } else {
-                                history.pushState(null, null, page);
+                                window.scroll({
+                                    top: offsetTop,
+                                    behavior: page == nowPage  ? "smooth" : "auto"
+                                });
                             }
-                            e.preventDefault();
-                            window.scrollBy(0, -9999999);
                         }
                     }
                 });
@@ -101,22 +114,24 @@
     var locate = function (event) {
         var page = getPageFromPopState(document.location.pathname);
         showPage(page);
-        event.preventDefault();
+        event.preventDefault(); // なくてもいいかも
     };
 
     var ready = function (event) {
-        // var page = getPageFromPopState(document.location.pathname);
-        // if (page != null) {
-        //     showPage(page);
-        //     if (page == 'index') {
-        //         history.replaceState(null, null, './');
-        //     } else {
-        //         history.replaceState(null, null, page);
-        //     }
-        // }
+        if (isDev) {
+            var page = getPageFromPopState(document.location.pathname);
+            if (page != null) {
+                showPage(page);
+                if (page == 'index') {
+                    history.replaceState(null, null, './');
+                } else {
+                    history.replaceState(null, null, page);
+                }
+            }
+        }
         convAHref();
         if (typeof window.onpopstate !== 'undefined') {
-            window.onpopstate = locate;
+            window.onpopstate = locate; // IE
         } else {
             window.onhashchange = locate;
         }
