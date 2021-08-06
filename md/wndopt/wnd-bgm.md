@@ -21,7 +21,7 @@ BGM、効果音を読み込みます
 
 ### プログラム中でBGM、効果音を鳴らす
 
-$mplayer.playメソッドを呼び出します。
+[$mplayer.play](./rf-mplayer#mplayerplay)メソッドを呼び出します。
 
 たとえば、上の図におけるgreat.wavを鳴らしたい場合は次のように記述します。
 

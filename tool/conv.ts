@@ -169,9 +169,9 @@ function convMain() {
         });
         const allPageHtmlData = marked(allPageMd);
         const tmplJsDataFixed = tmplJsData.replace(
-            '$dev',
+            '$isDev',
             !(isDeploy || isStaging) && htmlObj.name == '404' ? 'true' : 'false'
-            ); // 文字を置き換える
+            ); // 組み込み定数の文字を置き換える
 
         // テンプレートhtmlに、markdownのhtmlを埋め込み
         let outData: string | Buffer =

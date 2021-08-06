@@ -22,7 +22,7 @@
 
 ### Press Space Key という文字を表示する
 
-オブジェクトを作るを参考にオブジェクトを作成します ただし、「オブジェクトの種類」に「テキスト」を選択してください。
+[オブジェクトを作る](./tr-basic02)を参考にオブジェクトを作成します ただし、「オブジェクトの種類」に「テキスト」を選択してください。
 
 ![press-space.png](./img/press-space.png)
 
@@ -39,32 +39,34 @@ while(1) {
 }
 ```
 
-実行させると、画面にPress Space Keyと出ます。
+実行させると、画面に**Press Space Key**と出ます。
 
 ### ページを変える
 
 さらに、スペースキーを押すと先ほどのゲーム画面に移動するようにします。
 
-まず少し準備が要ります。ツールメインウィンドウのprjMan.pngを選んでください。  
-すると、このように$page_index、$page_startといった２つの項目が現れます。  
+まず少し準備が要ります。ツールメインウィンドウの![prj-man.png](./img/prj-man.png)を選んでください。  
+すると、このように **$page_index**、 **$page_start** といった２つの項目が現れます。  
 これは、このゲームが使用するページの一覧です
 
 ![toolprj.png](./img/toolprj.png)
 
 ここでは、
 
-スタート画面のページを$page_start  
-ゲーム画面のページを$page_index  
-としてすすめていきます。  
+- スタート画面のページを$page_start  
+- ゲーム画面のページを$page_index  
+
+としてすすめていきます。
+
 先ほどPress Space Keyを表示させるオブジェクトをダブルクリックし、次のように変更します。
 
-```
+<pre>
 extends TextChar;
 while(1) {
-  if (getkey(32)>0) $projectManager.loadPage($page_index);
+  <span style="color: #f00">if (getkey(32)>0) $projectManager.loadPage($page_index);</span>
   update();
 }
-```
+</pre>
 
 実行させてみましょう。  
 スペースキーをおすと、先ほどのゲーム画面に移動します。  
@@ -75,20 +77,22 @@ while(1) {
 
 さきほどのプログラムの解説です。
 
- if (getkey(32)>0)
-この部分は、自機を動かすで説明したように、キーボードの入力を判定します。  
+```
+if (getkey(32)>0)
+```
+この部分は、[自機を動かす](./tr-maze02)で説明したように、キーボードの入力を判定します。  
 32はスペースキーを表します。  
 スペースキーが押されると、次の部分を実行します。
 
 ```
-  $projectManager.loadPage($page_index);
+$projectManager.loadPage($page_index);
 ```
 これは、他のページを読み込む命令で、次のような使い方をします
 
 #### 書式
-```
-$projectManager.loadPage(ページ名);
-```
+<pre>
+<a href="./rf-projectmanager#projectmanagerloadpage">$projectManager.loadPage</a>(ページ名);
+</pre>
 ページ名は、さきほどプロジェクトマネージャで確認したページの名前です。
 
 ![toolprj.png](./img/toolprj.png)
@@ -103,28 +107,28 @@ $projectManager.loadPage(ページ名);
 
 敵をダブルクリックし、次のように変更します。
 
-```
+<pre>
 extends SpriteChar;
 vx=2;
 while(1) {
   x+=vx;
-  if (x<0) vx=2; if (x>$screenWidth) vx=-2; if (rnd(500)==0) vx=-vx;
+  if (x&lt;0) vx=2; if (x&gt;$screenWidth) vx=-2; if (rnd(500)==0) vx=-vx;
   if (crashTo($myChar)) {
   //↑敵と自機がぶつかったときに
-    if ((vx>0 && $myChar.x<x) || (vx<0 && $myChar.x>x)) {
+    if ((vx&gt;0 && $myChar.x&lt;x) || (vx&lt;0 && $myChar.x&gt;x)) {
     //↑敵が右方向、自機が左　または 敵が左方向、自機が右
       die();
       //↑ならば、敵が死ぬ
     } else {
       $myChar.die();
       //↑そうでなければ自機が死ぬ」
-      $projectManager.loadPage($page_start);
+      <span style="color: #f00">$projectManager.loadPage($page_start);</span>
     }
   }
-  if (vx<0) f=1; else f=0;
+  if (vx&lt;0) f=1; else f=0;
   update();
 }
-```
+</pre>
 これにより、自機が死ぬとスタート画面($page_start)が読み込まれます。
 
 ***

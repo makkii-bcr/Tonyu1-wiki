@@ -15,7 +15,7 @@
 
 ![return-main.png](./img/return-main.png)
 
-迷路ゲーム用の新規プロジェクトを作ります。 新規プロジェクトを作るを参考にしてください。
+迷路ゲーム用の新規プロジェクトを作ります。 [新規プロジェクトを作る](./tr-basic01)を参考にしてください。
 
 ![newmaze.png](./img/newmaze.png)
 
@@ -27,7 +27,7 @@
 
 ![new-map.png](./img/new-map.png)
 
-ツールウィンドウの paticon.png をクリックし、キャラクタパターンウィンドウを表示します。
+ツールウィンドウの ![paticon.png](./img/paticon.png) をクリックし、キャラクタパターンウィンドウを表示します。
 
 ![selmazebmp.png](./img/selmazebmp.png)
 

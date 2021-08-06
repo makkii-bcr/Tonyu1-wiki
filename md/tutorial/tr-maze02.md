@@ -8,11 +8,11 @@
 
 ### 自機を作る
 
-自機を作ってみましょう。オブジェクトを作るを参考にオブジェクトを作成します
+自機を作ってみましょう。[オブジェクトを作る](./tr-basic02)を参考にオブジェクトを作成します
 
 ![mkmychar.png](./img/mkmychar.png)
 
-オブジェクトのキャラクタパターンを指定するを参考に、自機のパターンを指定します。  
+[オブジェクトのキャラクタパターンを指定する](./tr-basic06)を参考に、自機のパターンを指定します。  
 先ほど用いたSamplesの下のMaze.bmpを使います
 
 ![sel-patmy-m.png](./img/sel-patmy-m.png)
@@ -54,17 +54,17 @@ while(1) {
 今度は、ずっと落ちっぱなしですね。  
 床やはしごにあたったら止まるようにしないといけません。
 
-```
+<pre>
 extends SpriteChar;
 while(1) {
-  if (getkey(39)>0) x+=3;
-  if (getkey(37)>0) x-=3;
-  if ($map.getAt(x,y)==$pat_Maze+1) y+=3;
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
+  <span style="color: #f00">if ($map.getAt(x,y)==$pat_Maze+1) y+=3;</span>
   update();
 }
-```
+</pre>
 
-ここで新しく$map.getAt(x,y)という命令がでてきますが、これは
+ここで新しく[$map.getAt](./rf-map#mapgetat)(x,y)という命令がでてきますが、これは
 
 「(x,y)地点にあるマップのキャラクタパターンを返す」
 
@@ -87,34 +87,34 @@ while(1) {
 
 ![merikomi2.png](./img/merikomi2.png)
 
-```
+<pre>
 extends SpriteChar;
 while(1) {
-  if (getkey(39)>0) x+=3;
-  if (getkey(37)>0) x-=3;
-  if ($map.getAt(x,y+16 )==$pat_Maze+1) y+=3;
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
+  if ($map.getAt(x,y<span style="color: #f00">+16</span>)==$pat_Maze+1) y+=3;
   update();
 }
-```
+</pre>
 
 さて、これでうごかしてみましょう。 まだ足りないものがあります。  
 はしごを使っての上下移動ができません。
 
 そこで、自分がはしごの上にいたら上下キーで移動できるようにしましょう
 
-```
+<pre>
 extends SpriteChar;
 while(1) {
-  if (getkey(39)>0) x+=3; 
-  if (getkey(37)>0) x-=3;
+  if (getkey(39)&gt;0) x+=3; 
+  if (getkey(37)&gt;0) x-=3;
   if ($map.getAt(x,y+16)==$pat_Maze+1) y+=3;
-  if ($map.getAt(x,y)==$pat_maze+2) {
-     if (getkey(40)>0) y+=3;
-     if (getkey(38)>0) y-=3;
-  }
+  <span style="color: #f00">if ($map.getAt(x,y)==$pat_maze+2) {
+     if (getkey(40)&gt;0) y+=3;
+     if (getkey(38)&gt;0) y-=3;
+  }</span>
   update();
 }
-```
+</pre>
 
 追加した部分の解説をします。
 
@@ -173,19 +173,19 @@ while(1) {
 という処理は 「下になにもない空間があった場合、下に移動する（落ちる）」 という処理でした。  
 これにならって、次のようにかきなおします
 
-```
+<pre>
 extends SpriteChar;
  while(1) {
-  if (getkey(39)>0) x+=3;
-  if (getkey(37)>0) x-=3;
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
   if ($map.getAt(x,y+16)==$pat_Maze+1) y+=3;
   if ($map.getAt(x,y)==$pat_maze+2) {
-    if (getkey(40)>0  && $map.getAt(x,y+16)!=$pat_Maze+0 ) y+=3; 
-    if (getkey(38)>0) y-=3;
+    if (getkey(40)&gt;0 <span style="color: #f00">&& $map.getAt(x,y+16)!=$pat_Maze+0</span>) y+=3; 
+    if (getkey(38)&gt;0) y-=3;
   }
   update();
 }
-```
+</pre>
 
 実行させてみましょう。自機の動きはひとまず完成です。
 

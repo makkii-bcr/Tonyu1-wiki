@@ -22,7 +22,7 @@
 
 この場合、画面外に出たオブジェクトを消滅する処理を忘れている可能性がありますので 例えば次のような文を挟んでおくことをおすすめします。
 
-screenOutについては命令リファレンスのscreenOutを参照してください。
+screenOutについては命令リファレンスの[screenOut](./rf-plainchar#plaincharscreenout)を参照してください。
 
 ```
  if (screenOut()) die();

@@ -15,7 +15,7 @@
 
 ![open-net-rank.png](./img/open-net-rank.png)
 
-URLに、前項でアップロードしたCGIのURLを設定します。
+URLに、[前項](./tr-stg11-1)でアップロードしたCGIのURLを設定します。
 
 ![set-rank-url.png](./img/set-rank-url.png)
 
@@ -60,7 +60,7 @@ while(!$myChar.isDead()) {
 ```
 
 ↑これは、$myCharつまり自機が死んでいない間、update()を繰り返します。  
-isDead は、オブジェクトが死んでいる( die()メソッドがよばれている)かを検査するメソッドです。
+[isDead](./rf-plainchar#plaincharisdead) は、オブジェクトが死んでいる( die()メソッドがよばれている)かを検査するメソッドです。
 
 ```
 setVisible(1);
@@ -79,9 +79,9 @@ $ranking.openBrowser();
 
 ↑この部分で実際にWeb上にスコア登録をおこないます。
 
-```$ranking.setParam(name,value)```は、登録の際のパラメータを設定します。ここでは、scoreという名前のパラメータに$scoreの値（つまり得点)を設定します。
+[$ranking.setParam](./rf-ranking#rankingsetparam)(name,value)は、登録の際のパラメータを設定します。ここでは、scoreという名前のパラメータに$scoreの値（つまり得点)を設定します。
 
-```$ranking.openBrowser();``` は、ブラウザから登録画面を開きます。
+[$ranking.openBrowser](./rf-ranking#rankingopenbrowser)(); は、ブラウザから登録画面を開きます。
 
 試しに一回実行してみましょう。  
 自機が死んだ後、```Press Return to Regist Hiscore``` が表示されます。  
@@ -93,9 +93,9 @@ $ranking.openBrowser();
 ここでは、ブラウザが開くのとCGIが正常動作するのを確認するだけにします。  
 （この後ランタイムを作成するとハイスコア登録が可能になります）
 
-この状態で、配布するを参考にランタイムを作成します。  
+この状態で、[配布する](./tr-stg10)を参考にランタイムを作成します。  
 このとき、ネットランキングランキング管理者パスワードの欄に、  
-前項で設定した**ネットランキング管理者パスワード**を入力します。
+[前項](./tr-stg11-1)で設定した**ネットランキング管理者パスワード**を入力します。
 
 ![mkpass.png](./img/mkpass.png)
 

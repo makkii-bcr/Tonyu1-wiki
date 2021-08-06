@@ -16,14 +16,13 @@
 
 各項目をダブルクリックするとそのページに移動します。
 
-実行中にページを移動したいときは $projectManager.loadPageメソッドを使います。
+実行中にページを移動したいときは [$projectManager.loadPage](./rf-projectmanager#projectmanagerloadpage)メソッドを使います。
 
 参照
 
-
-チュートリアル:迷路ゲームの作成
-次の面に移る
-スタート画面を作る
+- チュートリアル：[迷路ゲームの作成](./tutorial#tr-mazegame)
+  - [次の面に移る](./tr-maze06)
+  - [スタート画面を作る](./tr-maze05)
 
 
 

@@ -152,7 +152,7 @@ while(1) {
 
 **関連**
 
-for (xx in $chars)
+- for (xx in $chars)
 
 ***
 

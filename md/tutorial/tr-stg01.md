@@ -75,14 +75,14 @@ getkey(x)はキーの状態によって、次のような値を表します
 
 ところで、このままだと右端や左端にはみだしてもそのまま画面外を移動できてしまうので、次のように変更します
 
-```
+<pre>
 extends SpriteChar;
 while(1) {
-  if (getkey(39)>0 && x<$screenWidth) x=x+3;
-  if (getkey(37)>0 && x>0) x=x-3;
+  if (getkey(39)&gt;0 <span style="color: #f00">&& x&lt;$screenWidth</span>) x=x+3;
+  if (getkey(37)&gt;0 <span style="color: #f00">&& x&gt;0</span>) x=x-3;
   update();
 }
-```
+</pre>
 
 このように && で条件をつなげると「～かつ～ならば」という記述ができます。
 

@@ -14,11 +14,11 @@
 
 ### 敵を作る
 
-オブジェクトを作るを参考にオブジェクトを作成します
+[オブジェクトを作る](./tr-basic02)を参考にオブジェクトを作成します
 
 ![new-enemy.png](./img/new-enemy.png)
 
-オブジェクトのキャラクタパターンを指定するを参考に、自機のパターンを指定します。  
+[オブジェクトのキャラクタパターンを指定する](./tr-basic06)を参考に、自機のパターンを指定します。  
 先ほど用いたSamplesの下のMaze.bmpを使います
 
 ![selenemy.png](./img/selenemy.png)
@@ -43,18 +43,18 @@ while(1) {
 左に進んでいるとき、向きが反対になっています。  
 そこで、次のような部分を追加してください
 
-```
+<pre>
 extends SpriteChar;
 vx=2;
 while(1) {
   x+=vx;
-  if (x<0) vx=2;
-  if (x>$screenWidth) vx=-2;
+  if (x&lt;0) vx=2;
+  if (x&gt;$screenWidth) vx=-2;
   if (rnd(500)==0) vx=-vx;
-  if (vx<0) f=1; else f=0;
+  <span style="color: #f00">if (vx&lt;0) f=1; else f=0;</span>
   update();
 }
-```
+</pre>
 
 変数fは、0以外の値を設定すると、パターンが左右反転します。
 

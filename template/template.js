@@ -1,6 +1,6 @@
 
 (function () {
-    var isDev = $dev;
+    var isDev = $isDev;
     var rootPath = '/Tonyu1-wiki';
 
     /** 該当ページを表示 */
@@ -64,7 +64,12 @@
                         if (!hashUrl) { // URLに#が無い時
                             window.scroll(0, 0);
                         } else {
-                            var offsetTop = document.getElementById(hashUrl.substring(1)).offsetTop;
+                            var hashElem = document.getElementById(hashUrl.substring(1));
+                            if (!hashElem) {
+                                window.scroll(0, 0);
+                                return;
+                            }
+                            var offsetTop = hashElem.offsetTop;
                             var userAgent = window.navigator.userAgent.toLowerCase();
                             if( userAgent.match(/msie/) || userAgent.match(/trident/) ) {
                                 window.scroll(offsetTop, offsetTop); // IE
@@ -118,7 +123,7 @@
     };
 
     var ready = function (event) {
-        if (isDev) {
+        if (isDev) { // 初期ページの表示処理
             var page = getPageFromPopState(document.location.pathname);
             if (page != null) {
                 showPage(page);
