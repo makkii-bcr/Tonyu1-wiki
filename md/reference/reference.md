@@ -33,7 +33,7 @@
 [$viewX<br>$viewY](./rf-view-xy)  
 [$windowX<br>$windowY](./rf-window-xy)  
 [$fullScreen](./rf-fullscreen)  
-[$displayWidth<br>$displayHeight](./rf-display-wh)  
+[$displayWidth, $_displayRealWidth<br>$displayHeight, $_displayRealHeight](./rf-display-wh)  
 [$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion)  
 [$_fps, $_rps](./rf-fps-rps)  
 [$windowActive](./rf-window-active)

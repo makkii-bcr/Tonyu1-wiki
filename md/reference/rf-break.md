@@ -7,7 +7,7 @@
 
 [while](./rf-while)文、[for](./rf-for)文のループを抜け出します。
 
-[switch](./rf-switch)文の{}内を抜け出します。
+また、[switch](./rf-switch)文の{}内を抜け出します。
 
 ### 例1
 ```

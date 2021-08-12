@@ -33,58 +33,63 @@ case はいくつも書くことができます。
 default は一番下に１つだけ書くことができ、省略可能です。
 
 ### 例1
-```
+<pre>
 extends SpriteChar;
-a=0;
+<a href="./rf-selectbox">$SelectBox</a>.<a href="./rf-selectbox#selectboxopen">open</a>("何を買いますか？", "ここは武器屋です", "剣", "槍", "斧", "杖");
 while (1) {
-  if (getkey(32)==1) a++;
-  drawText(10, 10, a, $clWhite, 20); // aの値を表示
-  switch (a) {
+  select=<a href="./rf-selectbox">$SelectBox</a>.<a href="./rf-selectbox#selectboxgetstatus">getStatus</a>();
+  switch (select) {
     case 0:
-      x++;
+      text="選択中";
       break;
     case 1:
-      y++;
+      text="剣を買いました";
       break;
     case 2:
-      x--;
+      text="槍を買いました";
       break;
     case 3:
-      y--;
+      text="斧を買いました";
+      break;
+    case 4:
+      text="杖を買いました";
       break;
     default:
-      a=0;
+      text="何も買いませんでした";
   }
+  drawText(10, 10, text, $clWhite, 20); // textの値を表示
   update();
 }
-```
-
-▲ スペースキーを1回押すと、aが1ずつ増加します  
-aが0の場合は、「x++;」が実行されるので、右へ移動します。  
-1の場合は、「y++;」が実行されるので、下へ移動します。  
-2の場合は、「x--;」が実行されるので、左へ移動します。  
-3の場合は、「y--;」が実行されるので、上へ移動します。  
-aが4になると0～3のどれにも一致しないので、defaultの下の「a=0;」が実行されて、aが0に戻ります。
+</pre>
+▲ 選択ダイアログが表示され、以下の動作となります
+- ボタンを押していない間は、selectが0となりcase 0:下の「text="選択中";」が実行されます
+- 左から1番目のボタンを押すと、selectが1となりcase 1:の下、「text="剣を買いました";」が実行されます
+- 左から2番目のボタンを押すと、selectが2となりcase 2:の下、「text="槍を買いました";」が実行されます
+- 左から3番目のボタンを押すと、selectが3となりcase 3:の下、「text="斧を買いました";」が実行されます
+- 左から4番目のボタンを押すと、selectが4となりcase 4:の下、「text="杖を買いました";」が実行されます
+- ダイアログを×ボタンで閉じると、selectが-1となりcase文で書いてある0～4のいずれにも一致しないので、default:の下、「text="何も買いませんでした";」が実行されます
 
 下記のif文と同じ動作になります。
 
 ```
 extends SpriteChar;
-a=0;
+$SelectBox.open("何を買いますか？", "ここは武器屋です", "剣", "槍", "斧", "杖");
 while (1) {
-  if (getkey(32)==1) a++;
-  drawText(10, 10, a, $clWhite, 20); // aの値を表示
-  if (a == 0) {
-    x++;
-  } else if (a == 1) {
-    y++;
-  } else if (a == 2) {
-    x--;
-  } else if (a == 3) {
-    y--;
+  select=$SelectBox.getStatus();
+  if (select == 0) {
+    text="選択中";
+  } else if (select == 1) {
+    text="剣を買いました";
+  } else if (select == 2) {
+    text="槍を買いました";
+  } else if (select == 3) {
+    text="斧を買いました";
+  } else if (select == 4) {
+    text="杖を買いました";
   } else {
-    a=0;
+    text="何も買いませんでした";
   }
+  drawText(10, 10, text, $clWhite, 20); // textの値を表示
   update();
 }
 ```
@@ -92,43 +97,43 @@ while (1) {
 ### 例2
 
 breakがcaseと対になっていない例です。  
-条件に合ったcaseがあると、該当caseからbreakに到達するまで次の行以降が次々に実行されます。  
-breakが無いとswitchの{}内から抜けないため、以下の動作となります。  
-
+breakが無いとswitch文から即座に抜け出さないので、条件に一致したcaseから次々に処理が実行されてしまいますが、  
+その性質をあえて利用することもできます。
 ```
 extends SpriteChar;
-a=0;
+$SelectBox.open("何を買いますか？", "ここは売店です", "お茶", "ジュース", "高い弁当", "弁当");
 while (1) {
-  if (getkey(32)==1) a++;
-  drawText(10, 10, a, $clWhite, 20); // aの値を表示
-  switch (a) {
+  select=$SelectBox.getStatus();
+  text="";
+  switch (select) {
     case 0:
+      text="選択中";
+      break;
     case 1:
     case 2:
-      x++;
-      p=5;
+      text="飲み物を買いました";
       break;
     case 3:
-      y++;
+      text="高級な";
     case 4:
-      x--;
-    case 5:
-      p=10;
+      text=text+"弁当を買いました";
       break;
-    case 6:
-      a=0;
+    default:
+      text="何も買いませんでした";
   }
+  drawText(10, 10, text, $clWhite, 20); // textの値を表示
   update();
 }
 ```
 
-▲ スペースキーを1回押すと、aが1ずつ増加します  
-aが0～2の場合は、「x++;」と「p=5;」が実行されるので、右へ移動し、黄色になります。  
-3の場合は、「y++;」「x--;」「p=10;」が実行されるので、左下へ移動し、青色になります。  
-4の場合は、「x--;」「p=10;」が実行されるので、左へ移動し、青色になります。  
-5の場合は、「p=10;」が実行されるので、移動はせず、青色になります。  
-aが6になると「a=0;」が実行されるので、aが0に戻ります。
-
+▲ 選択ダイアログが表示され、以下の動作となります
+- ボタンを押していない間は、selectが0となりcase 0:下の「text="選択中";」が実行されます
+- 左から1番目と2番目のボタンを押した場合、どちらも「text="飲み物を買いました";」が実行されます
+- 左から3番目のボタンを押すと、case 3:の下「text="高級な";」が実行されますが、break;は無いのでcase 4:の下「text=text+"弁当を買いました";」も実行されます  
+「高級な弁当を買いました」と表示されます
+- 左から4番目のボタンを押すと、case 4:の下、「text=text+"弁当を買いました";」が実行されます  
+「弁当を買いました」と表示されます
+- ダイアログを×ボタンで閉じると、selectが-1となりcase文で書いてある0～4のいずれにも一致しないので、default:の下、「text="何も買いませんでした";」が実行されます
 
 ***
 

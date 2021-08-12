@@ -113,7 +113,7 @@ angle(x,y)
 角度を45で割った余りが22付近になる場合、誤差が大きくなります。  
 もっと正確に求めたい場合は、$Math.angleメソッドを使います。
 
-参照： angle,sin,cos,distの関係
+参照： [angle,sin,cos,distの関係](./rf-angle-sin-cos-dist)
 
 ***
 
@@ -341,7 +341,7 @@ cos(t)
 **戻り値**
 
 t度の余弦を求めます。  
-cosがどのような値をもっているかは、angle,sin,cos,distの関係を参照してください。
+cosがどのような値をもっているかは、[angle,sin,cos,distの関係](./rf-angle-sin-cos-dist)を参照してください。
 
 **例1**
  
@@ -820,7 +820,7 @@ sin(t)
 **戻り値**
 
 t度の正弦を求めます。  
-sinがどのような値をもっているかは、angle,sin,cos,distの関係を参照してください。
+sinがどのような値をもっているかは、[angle,sin,cos,distの関係](./rf-angle-sin-cos-dist)を参照してください。
 
 **例1**
 ```

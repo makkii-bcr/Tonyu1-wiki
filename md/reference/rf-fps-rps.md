@@ -21,16 +21,17 @@ RPS（Run per Second）
 ```
 extends SpriteChar;
 while (1) {
-  drawText(10, 10, "FPS: "+trunc($_fps)+"."+($_fps*10%10), $clWhite);
-  drawText(10, 30, "RPS: "+trunc($_rps)+"."+($_rps*10%10), $clWhite);
+  drawText(10, 10, "FPS: "+trunc($_fps+0.5)+"."+(($_fps+0.5)*10%10), $clWhite);
+  drawText(10, 30, "RPS: "+trunc($_rps+0.5)+"."+(($_rps+0.5)*10%10), $clWhite);
   update();
 }
 ```
 
-$_fpsと$_rpsは実数で返されるので、例えばパフォーマンスウィンドウに「FPS=59.9」と表示されている場合は、  
+$_fpsと$_rpsは実数で返されるので、例えばパフォーマンスウィンドウに「FPS=60.0」と表示されている場合は、  
 59.999641418457 のように返されます。
 
-例1では、$_fpsと$_rpsの小数点第２位以下を切り捨てて表示しています。
+例1では、パフォーマンスウィンドウの、FPS・RPSと同じ値を表示しています。  
+パフォーマンスウィンドウのFPSとRPSの値は、小数点第２位以下を四捨五入して表示しています。
 
 ***
 

@@ -26,21 +26,21 @@ while (1) {
 ```
 
 Jiki.tonyu
-```
+<pre>
 extends SpriteChar;
 while (1) {
-  if (getkey(39)>0) x+=3;
-  if (getkey(37)>0) x-=3;
-  if (getkey(40)>0) y+=3;
-  if (getkey(38)>0) y-=3;
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3;
+  if (getkey(40)&gt;0) y+=3;
+  if (getkey(38)&gt;0) y-=3;
   for (e in $chars) {
-    if (e is Enemy && crashTo(e)) die();
+    if (e <a href="./rf-is">is</a> Enemy && <a href="./rf-plainchar#plaincharcrashto">crashTo</a>(e)) <a href="./rf-plainchar#plainchardie">die</a>();
   }
   update();
 }
-```
+</pre>
 
-▲ Jikiは、画面上のEnemyクラスのオブジェクトeのうちのどれかに対して、 crashTo(e)が成立すればdie();を呼び出します。  
+▲ Jikiは、画面上のEnemyクラスのオブジェクトeのうちのどれかに対して、 [crashTo](./rf-plainchar#plaincharcrashto)(e)が成立すれば[die](./rf-plainchar#plainchardie)();を呼び出します。  
 すなわち、Enemyクラスのいずれかに当たると死亡します。
 
 ### 例2

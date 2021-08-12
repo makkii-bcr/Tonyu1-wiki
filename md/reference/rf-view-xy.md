@@ -5,17 +5,18 @@
 
 ## $viewX, $viewY
 
-$map.scrollToでスクロールした位置を得ます。
+[$map.scrollTo](./rf-map#mapscrollto)でスクロールした位置を得ます。
 
 ### 例1
 
 ここに書いてあるプログラムは、  
 実行する前に画面にマップを描くことをおすすめします  
-(チュートリアル参照)  
+([チュートリアル](./tutorial)参照)  
 ```
 extends SpriteChar;
 while(1) {
-  $map.scrollTo(t,t);t+=1;
+  $map.scrollTo(t,t);
+  t+=1;
   x=$viewX+$mouseX;
   y=$viewY+$mouseY;
   update();

@@ -9,14 +9,14 @@ Tonyuの作成にあたっては、たくさんの方のご協力をいただい
 
 次のクラス、メソッドは、ユーザの皆様よりお寄せいただいたものを修正・登録したものです。
 
-- Object.colorHSL ソンヨルさん
-- Sprite.drawBrokenLine / Panel.drawBrokenLine ラティウスさん
-- $Math　りょうたさん
-- RadioButton CheckBox Sprite.centerText, Sprite.drawVerticalText, Sprite.drawPolygon, Sprite.drawRect, Sprite.drawRectDx, Sprite.drawTriangle, Sprite.gradationLine, Sprite.gradationRect, Sprite.gradationText kenjiさん
+- [Object.colorHSL](./rf-object#objectcolorhsl) ソンヨルさん
+- [Sprite.drawBrokenLine](./rf-sprite#spritedrawbrokenline) / [Panel.drawBrokenLine](./rf-panel#paneldrawbrokenline) ラティウスさん
+- [$Math](./rf-math)　りょうたさん
+- [RadioButton](./rf-radiobutton) [CheckBox](./rf-checkbox) [Sprite.centerText](./rf-sprite#spritecentertext), [Sprite.drawVerticalText](./rf-sprite#spritedrawverticaltext), [Sprite.drawPolygon](./rf-sprite#spritedrawpolygon), [Sprite.drawRect](./rf-sprite#spritedrawrect), [Sprite.drawRectDx](./rf-sprite#spritedrawrectdx), [Sprite.drawTriangle](./rf-sprite#spritedrawtriangle), [Sprite.gradationLine](./rf-sprite#spritegradationline), [Sprite.gradationRect](./rf-sprite#spritegradationrect), [Sprite.gradationText](./rf-sprite#spritegradationtext) kenjiさん
 
 ### ドキュメント  
 
-- このヘルプのangleDiffメソッド、angle,sin,cos,distの関係の項目に含まれる画像は、AKJさんの"Tonyu Tips"にある画像をいただき、加筆訂正したものです。
+- このヘルプの[angleDiff](./rf-object#objectanglediff)メソッド、[angle,sin,cos,distの関係](./rf-angle-sin-cos-dist)の項目に含まれる画像は、AKJさんの"Tonyu Tips"にある画像をいただき、加筆訂正したものです。
 
 ### ライブラリ
 

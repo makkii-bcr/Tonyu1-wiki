@@ -4,7 +4,9 @@
 <title>命令リファレンス - $osPlatformId、$osMajorVer、$osMinorVer</title>
 
 ## $osPlatformId、$osMajorVer、$osMinorVer
-Windowsのバージョンを返します。
+Windowsのバージョンを返します。  
+
+Tonyuを実行しているWindowsのバージョンを判定できます。
 
 |OS|$osPlatformId|$osMajorVer|$osMinorVer|
 |-|-|-|-|
