@@ -25,7 +25,7 @@ while (1) {
 |-|-|
 |[moveCursor](#mousemanagermovecursor)|マウスカーソルを指定した場所に移動します。|
 |[showCursor](#mousemanagershowcursor)|マウスカーソルの表示、非表示を設定します|
-|[refreshXY](#mousemanagerrefreshxy)|直ちに$mouseX,$mouseYが更新します|
+|[refreshXY](#mousemanagerrefreshxy)|直ちに$mouseX,$mouseYを更新します|
 
 ### 変数一覧
 |||
@@ -66,7 +66,7 @@ showCursor(s)
 ***
 
 ## $mouseManager.refreshXY
-$mouseX,$mouseYは、通常、１フレームが終わる毎に自動的に更新されますが、  
+[$mouseX,$mouseY](./rf-mouse-xy)は、通常、１フレームが終わる毎に自動的に更新されますが、  
 このメソッドを呼び出すと、呼び出した時点で直ちに$mouseX,$mouseYが更新されます。  
 通常は呼び出す必要はありません。
 

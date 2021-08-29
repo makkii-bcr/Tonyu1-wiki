@@ -7,7 +7,7 @@
 
 テキストを入力するためのウィンドウを表示します
 
-参考：waitInputメソッド
+参考：[waitInput](./rf-plainchar#plaincharwaitinput)メソッド
 
 ### メソッド一覧
 

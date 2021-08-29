@@ -17,7 +17,7 @@
 ***
 
 ## $Options.get  
-$Options.setメソッドで設定したプロジェクトの設定を得ます。
+[$Options.set](#optionsset)メソッドで設定したプロジェクトの設定を得ます。
 
 **書式**
 ```
@@ -50,9 +50,9 @@ set(name,value)
 - **deactivation_pause**  
 &emsp;値(value)が1ならば、Tonyuがアクティブでないときに実行を自動的に一時停止します。0なら一時停止しません。
 - **deactivation_disableKey**  
-&emsp;値(value)が1ならば、Tonyuがアクティブでないときにgetkeyメソッドを無効にします。0なら無効にしません。
+&emsp;値(value)が1ならば、Tonyuがアクティブでないときに[getkey](./rf-object#objectgetkey)メソッドを無効にします。0なら無効にしません。
 - **sound_stopOnPageLoad**  
-&emsp;値(value)が1ならば、$projectManager.loadPageメソッドでページを切り替えたときにBGMを停止します。0ならページをまたがってそのまま演奏されます。
+&emsp;値(value)が1ならば、[$projectManager.loadPage](./rf-projectmanager#projectmanagerloadpage)メソッドでページを切り替えたときにBGMを停止します。0ならページをまたがってそのまま演奏されます。
 - **sleep_time**  
 &emsp;フレームごとにCPUをスリープする時間（単位：ミリ秒）を設定します。  
 &emsp;「パフォーマンス」ウィンドウの「CPU負荷」をプログラムから動的に設定するためのオプションです。  

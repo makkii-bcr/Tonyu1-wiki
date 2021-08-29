@@ -37,7 +37,7 @@ $projectManager.loadPage($page_index);
 ```
 ▲ 図1で赤く囲ったページ($page_index)を読み込みます。
 
-※ loadPageメソッド実行後、次にupdate、updateEx、waitの いずれかのメソッドが呼ばれるまでは、移動前のページで処理が続行します。
+※ loadPageメソッド実行後、次に[update](./rf-plainchar#plaincharupdate)、[updateEx](./rf-plainchar#plaincharupdateex)、[wait](./rf-plainchar#plaincharwait)の いずれかのメソッドが呼ばれるまでは、移動前のページで処理が続行します。
 
 ※ ページを切り替えたときにBGMを止めない方法
 

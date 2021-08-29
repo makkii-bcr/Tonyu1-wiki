@@ -7,7 +7,7 @@
 
 選択肢を表示するダイアログボックスです
 
-※ waitSelectも参考にしてください。
+※ [waitSelect](./rf-plainchar#plaincharwaitselect)も参考にしてください。
 
 ### 例1
 
@@ -59,7 +59,7 @@ open(prompt,title,st1,st2,st3,st4)
 &emsp;
 4個目のボタンの文字列 （省略すると表示しない)
 
-waitSelectと異なり、ボタンが押されるまで処理を中断しません。
+[waitSelect](./rf-plainchar#plaincharwaitselect)と異なり、ボタンが押されるまで処理を中断しません。
 
 どのボタンが押されたか[$SelectBox.getStatus](#selectboxgetstatus)で調べます。
 

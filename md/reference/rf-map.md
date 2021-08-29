@@ -140,7 +140,7 @@ while(1) {
 
 **参考**
 
-[スクロールのサンプル](./html/jump/jump_html/html/HID00000001.htm)
+[スクロールのサンプル](./html/scroll/html/HID00000001.htm)
 
 ***
 
@@ -168,7 +168,7 @@ getBGColor()
 setBGColor(col)
 ```
 - **col**  
-&emsp;色（通常、colorメソッドで指定)
+&emsp;色（通常、[color](./rf-object#objectcolor)メソッドで指定)
 
 **例1**
 

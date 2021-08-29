@@ -44,8 +44,8 @@ Tonyuでプログラムを作成する方法を学習します。
   1. [スタート画面を作る](./tr-maze05)
   1. [次の面に移る](./tr-maze06)
   1. [配布する](./tr-maze07)
-- [スクロールのサンプル](./html/jump/jump_html/html/HID00000001.htm)
-- [ジャンプアクション](./html/scroll/html/HID00000001.htm)
+- [スクロールのサンプル](./html/scroll/html/HID00000001.htm)
+- [ジャンプアクション](./html/jump/jump_html/html/HID00000001.htm)
 
 ***
 

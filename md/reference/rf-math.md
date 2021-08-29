@@ -112,17 +112,17 @@ atan(t)
 
 **戻り値**  
 
-tan(x)=tとなるような x。単位は度(ラジアンでありません)
+[tan](#mathtan)(x)=tとなるような x。単位は度(ラジアンでありません)
 
 **参考**  
 
-$Math.setAtanAccuracy
+[$Math.setAtanAccuracy](#mathsetatanaccuracy)
 
 ***
 
 ## $Math.setAtanAccuracy
 
-$Math.atanの精度を変更します。
+[$Math.atan](#mathatan)の精度を変更します。
 
 **書式**
 ```
@@ -141,7 +141,7 @@ accuracyが大きくするとatanの値が正確に 求められますが、計�
 
 ## $Math.angle
 
-高精度なangleメソッドです
+高精度な[angle](./rf-object#objectangle)メソッドです
 
 **書式**
 
@@ -158,7 +158,7 @@ angle(x,y)
 
 線分(1,0)-(0,0)と(0,0)-(x,y)のなす角(単位:度)
 
-$Math.atanを利用して、従来のangleより高い精度で角度を計算します。
+[$Math.atan](#mathatan)を利用して、従来の[angle](./rf-object#objectangle)より高い精度で角度を計算します。
 
 ***
 
@@ -250,7 +250,7 @@ asin(t)
 
 **戻り値**
 
-sin(x)=tとなるような x。単位は度(ラジアンでありません)
+[sin](./rf-object#objectsin)(x)=tとなるような x。単位は度(ラジアンでありません)
 
 ***
 
@@ -267,7 +267,7 @@ acos(t)
 
 **戻り値**
 
-cos(x)=tとなるような x。単位は度(ラジアンでありません)
+[cos](./rf-object#objectcos)(x)=tとなるような x。単位は度(ラジアンでありません)
 
 ***
 
@@ -343,7 +343,7 @@ isOdd(n)
 
 **戻り値**
 
-nが奇数のとき真
+nが奇数のとき[真](./rf-true-false)
 
 ***
 
@@ -360,7 +360,7 @@ isOdd(n)
 
 **戻り値**
 
-nが偶数のとき真
+nが偶数のとき[真](./rf-true-false)
 
 ***
 
