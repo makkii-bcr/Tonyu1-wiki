@@ -44,13 +44,15 @@ while (1) {
 
 ### メソッド一覧
 |||
-|-|-|
-|[get](#hashtableget)|指定されたキーに対応する値を取り出します|
-|[put](#hashtableput)|キーと値の組を追加します。|
-|[iterator](#hashtableiterator)|キーや値をすべて調べるためのイテレータを作成します。|
-|[remove](#hashtableremove)|キーとそれに対応する値を削除します。|
-|[size](#hashtablesize)|格納されているキーの数(=値の数) を返します。|
-
+-|-
+[get](#hashtableget)|指定されたキーに対応する値を取り出します
+[put](#hashtableput)|キーと値の組を追加します。
+[iterator](#hashtableiterator)|キーや値をすべて調べるためのイテレータを作成します。
+[remove](#hashtableremove)|キーとそれに対応する値を削除します。
+[size](#hashtablesize)|格納されているキーの数(=値の数) を返します。
+[hasNext](#hashtablehasnext)|[イテレータ](#hashtableiterator)から[nextKey](#hashtablenextkey)メソッドや[nextValue](#hashtablenextvalue)メソッドを使って取り出せる組が残っているか調べます。
+[nextKey](#hashtablenextkey)|[イテレータ](#hashtableiterator)から次の組を取り出し、取り出した組のキーを返します。
+[nextValue](#hashtablenextvalue)|[イテレータ](#hashtableiterator)から次の組を取り出し、取り出した組の値を返します。
 ***
 
 ## Hashtable.get
@@ -66,7 +68,7 @@ get(key)
 
 **戻り値**
 
-ハッシュテーブルhにおけるキーkeyに対応する値
+ハッシュテーブルにおけるキーkeyに対応する値
 
 ***
 
@@ -99,7 +101,7 @@ iterator()
 
 ハッシュテーブルのイテレータ
 
-イテレータに対しては hasNextメソッド, nextKeyメソッド, nextValueメソッドを呼ぶことができます。
+イテレータに対しては [hasNext](#hashtablehasnext)メソッド, [nextKey](#hashtablenextkey)メソッド, [nextValue](#hashtablenextvalue)メソッドを呼ぶことができます。
 
 **例1**
 ```
@@ -160,7 +162,53 @@ size()
 
 **戻り値**
 
-ハッシュテーブルhに格納されているキーの数
+ハッシュテーブルに格納されているキーの数
+
+***
+
+## Hashtable.hasNext
+[イテレータ](#hashtableiterator)から[nextKey](#hashtablenextkey)メソッドや[nextValue](#hashtablenextvalue)メソッドを使って取り出せる組が残っているか調べます。
+
+**書式**
+```
+hasNext()
+```
+
+**戻り値**
+
+イテレータから取り出せる項目が残っている場合 1、 残っていない場合 0
+
+***
+
+## Hashtable.nextKey
+[イテレータ](#hashtableiterator)から次の組を取り出し、取り出した組のキーを返します。
+
+**書式**
+```
+nextKey()
+```
+
+**戻り値**
+
+イテレータから取り出した組のキー
+
+※このメソッドと[nextValue](#hashtablenextvalue)メソッドは一緒に使わないことを推奨します。
+
+***
+
+## Hashtable.nextValue
+[イテレータ](#hashtableiterator)から次の組を取り出し、取り出した組の値を返します。
+
+**書式**
+```
+nextValue()
+```
+
+**戻り値**
+
+イテレータから取り出した組の値
+
+※このメソッドと[nextKey](#hashtablenextkey)メソッドは一緒に使わないことを推奨します。
 
 ***
 

@@ -5,7 +5,7 @@
 
 ## ファイルの扱いについて
 
-FileReaderオブジェクト、FileWriterオブジェクト、Array.loadメソッド、Array.saveメソッドを用いると、  
+[FileReader](./rf-filereader)オブジェクト、[FileWriter](./rf-filewriter)オブジェクト、[Array.load](./rf-array#arrayload)メソッド、[Array.save](./rf-array#arraysave)メソッドを用いると、  
 ファイルに対する読み込み、書き込み操作ができます。
 
 セキュリティの観点から、Tonyuで扱えるファイルは、次のディレクトリにあるファイルのみです。

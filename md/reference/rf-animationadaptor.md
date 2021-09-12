@@ -14,14 +14,14 @@ AnimationAdaptorとは、キャラクタパターンを次々に変化させる�
 まず簡単な例を示します。次のオブジェクトは、キャラクタパターン$pat_chars+0と$pat_chars+1を５フレームごとに交互に表示します。
 
 ### 例1
-```
+<pre>
 extends SpriteChar;
-a=newAnimation();
-a.loop($pat_chars+0,$pat_chars+1,5);
+a=<a href="./rf-spritechar#spritecharnewanimation">newAnimation</a>();
+a.<a href="./rf-animationadaptor#animationadaptorloop">loop</a>($pat_chars+0,$pat_chars+1,5);
 wait();
-```
+</pre>
 
-※ newAnimationメソッド, loopメソッドの説明も参照してください。
+※ [newAnimation](./rf-spritechar#spritecharnewanimation)メソッド, [loop](./rf-animationadaptor#animationadaptorloop)メソッドの説明も参照してください。
 
 次のオブジェクトは、カーソルキーを使って歩きながら移動するオブジェクトです。
 

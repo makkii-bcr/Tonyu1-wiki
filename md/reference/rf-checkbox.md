@@ -15,12 +15,12 @@ a=new Array();
 a.add("OFF");a.add("OFF");a.add("OFF");a.add("OFF");a.add("OFF");a.add("OFF");
 init(6);
 while(1) {
-  if (create(60,120,0,$clBlack)==1) a.set(0,"ON");else a.set(0,"OFF");
-  if (create(60,140,1,$clRed)==1) a.set(1,"ON");else a.set(1,"OFF");
-  if (create(60,160,2,$clGreen)==1) a.set(2,"ON");else a.set(2,"OFF");
-  if (create(110,120,3,$clYellow)==1) a.set(3,"ON");else a.set(3,"OFF");
-  if (create(110,140,4,$clPink)==1) a.set(4,"ON");else a.set(4,"OFF");
-  if (create(110,160,5,$clWhite)==1) a.set(5,"ON");else a.set(5,"OFF");
+  if (create(60,120,0,$clBlack)==1) a.set(0,"ON"); else a.set(0,"OFF");
+  if (create(60,140,1,$clRed)==1) a.set(1,"ON"); else a.set(1,"OFF");
+  if (create(60,160,2,$clGreen)==1) a.set(2,"ON"); else a.set(2,"OFF");
+  if (create(110,120,3,$clYellow)==1) a.set(3,"ON"); else a.set(3,"OFF");
+  if (create(110,140,4,$clPink)==1) a.set(4,"ON"); else a.set(4,"OFF");
+  if (create(110,160,5,$clWhite)==1) a.set(5,"ON"); else a.set(5,"OFF");
   drawText(75,120,a.get(0),$clBlack,10);
   drawText(75,140,a.get(1),$clBlack,10);
   drawText(75,160,a.get(2),$clBlack,10);
@@ -70,7 +70,7 @@ create(x,y,number,color,zOrder)
 - **zOrder**  
 &emsp;表示順序
 
-作成前に必ずinitメソッドを呼んでください
+作成前に必ず[init](#checkboxinit)メソッドを呼んでください
 
 ***
 

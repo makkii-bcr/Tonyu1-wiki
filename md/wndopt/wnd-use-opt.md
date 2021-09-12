@@ -10,6 +10,7 @@
 - [サテライト](./wnd-satellite)
 - [プロジェクトマネージャ](./wnd-prjmgr)
 - [オブジェクト一覧](./wnd-objlist)
+- [コンソールウィンドウ](./wnd-csl)
 - [パフォーマンス](./wnd-pfm)
 - [描画方法(オプション)](./wnd-draw)
 - [レシピ集](./wnd-recipe)
