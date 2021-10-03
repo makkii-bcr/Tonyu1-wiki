@@ -4,7 +4,7 @@
 <title>命令リファレンス - Sprite</title>
 
 ## Spriteクラス
-画面上に出現するすべてのオブジェクト(PlainCharクラス)の親クラスです。描画命令などが定義されています
+画面上に出現するすべてのオブジェクト([PlainChar](./rf-plainchar)クラス)の親クラスです。描画命令などが定義されています
 
 
 ### メソッド一覧
@@ -12,7 +12,7 @@
 |-|-|
 [textWidth](#spritetextwidth)|テキストの横幅を取得します
 [textHeight](#spritetextheight)|テキストの縦幅（高さ）を取得します
-[setFont](#spritesetfont)|drawTextメソッドで描画する文字フォントを指定します。
+[setFont](#spritesetfont)|[drawText](#spritedrawtext)メソッドで描画する文字フォントを指定します。
 [drawText](#spritedrawtext)|文字を描画します。
 [drawLine](#spritedrawline)|直線を描画します
 [drawBrokenLine](#spritedrawbrokenline)|点線を描画します
@@ -33,7 +33,7 @@
 [gradationRect](#spritegradationrect)|グラデーションつき長方形を描画します
 [gradationText](#spritegradationtext)|グラデーションつき文字を描画します。
 [fillPolygon](#spritefillpolygon)|多角形を描画し，塗りつぶします。
-[setPolygon](#spritesetpolygon)|Sprite.fillPolygon における頂点を指定します。
+[setPolygon](#spritesetpolygon)|[Sprite.fillPolygon](#spritefillpolygon) における頂点を指定します。
 
 ***
 
@@ -74,7 +74,7 @@ textHeight(t,s)
 ***
 
 ## Sprite.setFont
-drawTextメソッドで描画する文字フォントを指定します。
+[drawText](#spritedrawtext)メソッドで描画する文字フォントを指定します。
 
 **書式**
 ```
@@ -120,7 +120,7 @@ drawText(x,y,text,col,size,zOrder)
 - **text**  
 &emsp;描画する値
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **size(省略可能)**  
 &emsp;サイズ
 - **zOrder(省略可能)**  
@@ -140,7 +140,7 @@ while (1) {
 ▲ オブジェクトの頭上に1秒に1だけ増えるタイマーが表示されます
 
 ※ drawTextで描いた図形は、次のフレームを描画する前に消去されます。  
-必ず毎回(updateが呼ばれるたびに)drawTextを実行してください。
+必ず毎回([update](./rf-plainchar#plaincharupdate)が呼ばれるたびに)drawTextを実行してください。
 
 次のような例だと、一瞬だけ表示されてすぐ消えてしまいます。
 
@@ -176,7 +176,7 @@ drawLine(sx,sy,dx,dy,col,zOrder)
 - **dy**  
 &emsp;終点のy座標
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **zOrder(省略可能)**  
 &emsp;描画順序。値が小さいほど手前に描画される
 
@@ -222,7 +222,7 @@ fillRect(sx,sy,dx,dy,col,zOrder)
 - **dy**  
 &emsp;右下点のy座標
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **zOrder(省略可能)**  
 &emsp;描画順序。値が小さいほど手前に描画される
 
@@ -245,8 +245,9 @@ drawSprite(x,y,p,f,zOrder)
 &emsp;0でない数値の場合、元のキャラクタパターンを左右反転したパターンを描画する
 - **zOrder(省略可能)**  
 &emsp;描画順序。値が小さいほど手前に描画される  
-&emsp;通常、オブジェクトに対して自動的にスプライトが描画されますが(updateメソッド参照)、  
-&emsp;１つのオブジェクトで複数のスプライトを描画したいときに使用します。
+
+通常、オブジェクトに対して自動的にスプライトが描画されますが([update](./rf-plainchar#plaincharupdate)メソッド参照)、  
+１つのオブジェクトで複数のスプライトを描画したいときに使用します。
 
 **例1**
 ```
@@ -376,7 +377,7 @@ drawPolygon(x,y,number,size,col,ang,zOrder)
 - **size**  
 &emsp;中心から頂点までの距離
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **ang**  
 &emsp;回転角度
 - **zOrder(省略可能)**  
@@ -392,9 +393,10 @@ drawPolygon(x,y,number,size,col,ang,zOrder)
 drawScreenXY(sc)
 ```
 - **sc**  
-&emsp;0=ワールド座標を使う 1=スクリーン座標を使う
+&emsp;0=ワールド座標を使う 1=スクリーン座標を使う  
+
 主に、画面がスクロールするゲームにおいて、  
-&emsp;スコア表示など特定のオブジェクトを スクロールさせたくない場合に用います。
+スコア表示など特定のオブジェクトを スクロールさせたくない場合に用います。
 
 オブジェクトをスクロールにあわせて動かないようにするには次のようなメソッドを定義します。
 
@@ -413,11 +415,11 @@ wait();
 ```
 ▲ このオブジェクトはスクロールしても必ず画面上の(100,20)の位置にあります
 
-drawScreenXYメソッドは、drawSprite、drawDXSprite、drawText、drawLine、fillRectの各メソッドにおける引数xとyに機能します。
+drawScreenXYメソッドは、[drawSprite](#spritedrawsprite)、[drawDxSprite](#spritedrawdxsprite)、[drawText](#spritedrawtext)、[drawLine](#spritedrawline)、[fillRect](#spritefillrect)の各メソッドにおける引数xとyに機能します。
 
 ワールド座標を用いた場合、(x,y)の値をワールド座標として解釈します。この場合スクロールした位置により画面上の表示位置が変化します。  
 スクリーン座標を用いた場合、スクロールしても画面上の位置は変化しません。  
-スクリーン座標、ワールド座標についてはスクロールのサンプル ( http://tonyu.jp/html/scroll/html/HID00000001.htm )を参照してください。
+スクリーン座標、ワールド座標については[スクロールのサンプル](./html/scroll/html/HID00000001.htm)を参照してください。
 
 ***
 
@@ -435,7 +437,7 @@ centerText(x,y,text,col,size,zOrder)
 - **text**  
 &emsp;描画する値
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **size(省略可能)**  
 &emsp;文字のサイズ
 - **zOrder(省略可能)**  
@@ -457,7 +459,7 @@ drawVerticalText(x,y,text,col,size,zOrder)
 - **text**  
 &emsp;描画する値
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **size(省略可能)**  
 &emsp;サイズ
 - **zOrder(省略可能)**  
@@ -481,7 +483,7 @@ drawRect(sx,sy,dx,dy,col,zOrder)
 - **dy**  
 &emsp;右下の頂点のy座標
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **zOrder(省略可能)**  
 &emsp;描画順序。値が小さいほど手前に描画される
 
@@ -503,7 +505,7 @@ drawRectDx(sx,sy,dx,dy,col,angle,zOrder)
 - **dy**  
 &emsp;高さ
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **angle**  
 &emsp;回転角度
 - **zOrder(省略可能)**  
@@ -531,7 +533,7 @@ drawTriangle(ax,ay,bx,by,cx,cy,col,angle,zOrder)
 - **cy**  
 &emsp;頂点Cのy座標(※)
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **angle(省略可能)**  
 &emsp;回転角
 - **zOrder(省略可能)**  
@@ -557,9 +559,9 @@ gradationLine(sx,sy,dx,dy,cols,cold,zOrder)
 - **dy**  
 &emsp;終点のy座標
 - **cols**  
-&emsp;始点の色(通常colorメソッドで指定)
+&emsp;始点の色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **cold**  
-&emsp;終点の色(通常colorメソッドで指定)
+&emsp;終点の色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **zOrder(省略可能)**  
 &emsp;描画順序。値が小さいほど手前に描画される
 
@@ -584,9 +586,9 @@ gradationRect(sx,sy,dx,dy,type,cols,cold,zOrder)
 &emsp;0 - 左→右にグラデーションをかける  
 &emsp;1 - 上→下にグラデーションをかける
 - **cols**  
-&emsp;左端（上端）の色(通常colorメソッドで指定)
+&emsp;左端（上端）の色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **cold**  
-&emsp;右端（下端）(通常colorメソッドで指定)
+&emsp;右端（下端）(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **zOrder(省略可能)**  
 &emsp;描画順序。値が小さいほど手前に描画される
 
@@ -606,9 +608,9 @@ gradationText(x,y,text,colL,colR,size,zOrder)
 - **text**  
 &emsp;描画する値
 - **colL**  
-&emsp;左端の色(通常colorメソッドで指定)
+&emsp;左端の色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **colR**  
-&emsp;右端の色(通常colorメソッドで指定)
+&emsp;右端の色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **size(省略可能)**  
 &emsp;サイズ
 - **zOrder(省略可能)**  
@@ -630,10 +632,10 @@ fillPolygon(x,y,points,color,zOrder)
 - **points**  
 &emsp;頂点の数
 - **col**  
-&emsp;色(通常colorメソッドで指定)
+&emsp;色(通常[color](./rf-object#objectcolor)メソッドで指定)
 - **zOrder(省略可能)**  
 &emsp;描画順序。値が小さいほど手前に描画される
-各点の座標は，Sprite.setPolygonで指定します。
+各点の座標は、[Sprite.setPolygon](#spritesetpolygon)で指定します。
 
 ```
 extends SpriteChar;
@@ -656,7 +658,7 @@ while (1) {
 ***
 
 ## Sprite.setPolygon
-Sprite.fillPolygon における頂点を指定します。
+[Sprite.fillPolygon](#spritefillpolygon) における頂点を指定します。
 
 **書式**
 ```

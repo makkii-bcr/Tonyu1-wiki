@@ -6,7 +6,7 @@
 ## TimeStopperクラス
 時間の停止を行います
 
-使い方は、timeStopメソッドを参照してください。
+使い方は、[timeStop](./rf-object#objecttimestop)メソッドを参照してください。
 
 ### メソッド一覧
 |||
@@ -25,7 +25,7 @@ releaseAll(nonKill)
 ```
 - **nonKill**  
 &emsp;nonKill=0またはnonKillを省略した場合、時間が止まっている間に、  
-&emsp;appearメソッドを用いて出現させたオブジェクトは すべて消滅する。  
+&emsp;[appear](./rf-object#objectappear)メソッドを用いて出現させたオブジェクトは すべて消滅する。  
 &emsp;nonKill=1なら消滅しない。
 
 **例1**

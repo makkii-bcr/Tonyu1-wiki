@@ -64,7 +64,7 @@
                         if (!hashUrl) { // URLに#が無い時
                             window.scroll(0, 0);
                         } else {
-                            var hashElem = document.getElementById(hashUrl.substring(1));
+                            var hashElem = document.getElementById(decodeURI(hashUrl.substring(1)));
                             if (!hashElem) {
                                 window.scroll(0, 0);
                                 return;

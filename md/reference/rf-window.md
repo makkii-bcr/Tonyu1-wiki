@@ -3,7 +3,7 @@
 
 <title>命令リファレンス - Window</title>
 
-## Windowクラス
+## $windowオブジェクト
 ウィンドウの制御を行います
 
 ### メソッド一覧
@@ -18,24 +18,24 @@
 
 ***
 
-## Window.setDrawMode
+## $window.setDrawMode
 描画モードを変更します
 
 ```
-$Window.setDrawMode(m);
+$window.setDrawMode(m);
 ```
 - **m**  
 &emsp;"A" "B" "C" いずれかの文字列
 
 ***
 
-## Window.sizeable
+## $window.sizeable
 この値を1にすると、実行時にウィンドウの大きさをマウスによって変更できます
 
 **関連**
 
-- $screenWidth
-- $screenHeight 
+- [$screenWidth](./rf-screen-wh)
+- [$screenHeight](./rf-screen-wh)
 
 ***
 

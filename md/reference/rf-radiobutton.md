@@ -63,17 +63,17 @@ create(x,y,group,number,maxNumber,color,zOrder)
 - **y**  
 &emsp;ラジオボタンのy座標
 - **group**  
-&emsp;グループID (0-N) N=initで指定したグループの個数-1
+&emsp;グループID (0-N) N=[init](#radiobuttoninit)で指定したグループの個数-1
 - **number**  
 &emsp;グループ内の通し番号 (0 - maxNumber-1)
 - **maxNumber**  
-&emsp;グループ内にあるラジオボタンの個数(0-N) N=initにおける、group-1
+&emsp;グループ内にあるラジオボタンの個数(0-N) N=[init](#radiobuttoninit)における、group-1
 - **color**  
 &emsp;色
 - **zOrder**  
 &emsp;表示順序
 
-作成前に必ずinitメソッドを呼んでください
+作成前に必ず[init](#radiobuttoninit)メソッドを呼んでください
 
 ***
 

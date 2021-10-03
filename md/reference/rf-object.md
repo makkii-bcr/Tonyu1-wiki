@@ -66,7 +66,7 @@ xの絶対値 x>=0 なら x , x<0 なら-x
 ***
 
 ## Object.amod
-剰余を求めますが、負の値を割る場合%演算子と挙動が変わります。
+剰余を求めますが、負の値を割る場合[%演算子](./rf-arithmetic)と挙動が変わります。
 
 **書式**
 ```
@@ -111,7 +111,7 @@ angle(x,y)
 
 ※angleで計算される角度はあまり正確ではありません。  
 角度を45で割った余りが22付近になる場合、誤差が大きくなります。  
-もっと正確に求めたい場合は、$Math.angleメソッドを使います。
+もっと正確に求めたい場合は、[$Math.angle](./rf-math#mathangle)メソッドを使います。
 
 参照： [angle,sin,cos,distの関係](./rf-angle-sin-cos-dist)
 
@@ -169,7 +169,7 @@ appear(o)
 
 出現したオブジェクト(o自身)
 
-スプライトオブジェクト、DXスプライトオブジェクトの作成には、次の形式が便利です。
+[スプライトオブジェクト](./rf-spritechar)、[DXスプライトオブジェクト](./rf-dxchar)の作成には、次の形式が便利です。
 
 **書式:**
 <pre>
@@ -197,7 +197,7 @@ appear(new <b>クラス名</b>( <b>x座標</b>, <b>y座標</b>, <b>テキスト<
 - **テキスト**  
 &emsp;出現したときのテキストの内容を文字列で指定します
 - **色**  
-&emsp;テキストの色を決めます。通常colorメソッドを使います。
+&emsp;テキストの色を決めます。通常[color](#objectcolor)メソッドを使います。
 - **サイズ**  
 &emsp;文字の大きさを決めます。省略すると12です
 
@@ -258,7 +258,7 @@ clearAllValues();
 ***
 
 ## Object.color
-fillRect、drawLine、drawTextなどで、描画色を指定します
+[fillRect](./rf-sprite#spritefillrect)、[drawLine](./rf-sprite#spritedrawline)、[drawText](./rf-sprite#spritedrawtext)などで、描画色を指定します
 
 **書式**
 ```
@@ -308,7 +308,7 @@ drawText(10,70,"黄巻き紙",$clYellow);
 
 **参照**
 
-colorHSL
+[colorHSL](#objectcolorhsl)
 
 ***
 
@@ -351,7 +351,8 @@ cosがどのような値をもっているかは、[angle,sin,cos,distの関係]
 
 **参照**
 
-sinメソッド angleメソッド
+- [sin](#objectsin)メソッド  
+- [angle](#objectangle)メソッド
 
 ***
 
@@ -369,7 +370,7 @@ deleteFile(fileName)
 
 削除が成功ならば1、そうでなければ0
 
-ファイルについては、ファイルの扱いについてを参照してください。
+ファイルについては、[ファイルの扱いについて](./rf-file-handling)を参照してください。
 
 ***
 
@@ -412,12 +413,12 @@ while (1) {
 
 **参照**
 
-angle,sin,cos,distの関係
+[angle,sin,cos,distの関係](./rf-angle-sin-cos-dist)
 
 ***
 
 ## Object.fileExists
-ファイルが存在するかどうかを調べます。
+[ファイル](./rf-file-handling)が存在するかどうかを調べます。
 
 **書式**
 ```
@@ -446,12 +447,12 @@ floor(r)
 
 rを超えない最大の整数
 
-※ rが正または0の場合、trunc(r)と同じ値を返しますが、負の場合はtrunc(r)-1 が返されます。
+※ rが正または0の場合、[trunc](#objecttrunc)(r)と同じ値を返しますが、負の場合はtrunc(r)-1 が返されます。
 
 ***
 
 ## Object.getBlue
-colorメソッドや色定数などの色を表す整数から青色の成分を取り出します。
+[colorメソッドや色定数](#objectcolor)などの色を表す整数から青色の成分を取り出します。
 
 **書式**
 ```
@@ -506,7 +507,7 @@ t=getGlobal(n);
 ***
 
 ## Object.getGreen
-colorメソッドや色定数などの色を表す整数から緑色の成分を取り出します。
+[colorメソッドや色定数](#objectcolor)などの色を表す整数から緑色の成分を取り出します。
 
 **書式**
 ```
@@ -525,7 +526,7 @@ c = color(r,g,b) ならば、 getGreen( c ) == g
 ***
 
 ## Object.getRed
-colorメソッドや色定数などの色を表す整数から赤色の成分を取り出します。
+[colorメソッドや色定数](#objectcolor)などの色を表す整数から赤色の成分を取り出します。
 
 **書式**
 ```
@@ -608,6 +609,8 @@ getkey(i)
 |96-105|テンキーの0-9|
 |16|左、右シフト（両方16)|
 
+[その他のキーID](./rf-keycode)
+
 **例1**
 ```
 extends SpriteChar;
@@ -642,7 +645,7 @@ while (1) {
 $Options.set("deactivate_disableKey",1);
 ```
 
-参照： $Options.setメソッド
+参照： [$Options.set](./rf-options#optionsset)メソッド
 
 ***
 
@@ -697,7 +700,7 @@ moveFile(from,to)
 ```
 - **from**  
 &emsp;変更前のファイル名
-- **to**
+- **to**  
 &emsp;変更後のファイル名
 
 **戻り値**
@@ -707,7 +710,7 @@ moveFile(from,to)
 ***
 
 ## Object.print
-コンソールウィンドウとステータスバーに文字を出力します。
+[コンソールウィンドウ](./wnd-csl)とステータスバーに文字を出力します。
 
 **書式**
 ```
@@ -736,7 +739,8 @@ pset(x,y,c)
 ```
 - **x,y,c**  
 &emsp;指定した位置にドット描画を行います。  
-&emsp;**(使用できない関数)** 古いFormatに付き、現在は使用できないようになっています。
+
+**(使用できない関数)** 古いFormatに付き、現在は使用できないようになっています。
 
 **例1**
 ```
@@ -748,7 +752,7 @@ pset(100,100,$clBlack);
 ***
 
 ## Object.randomize
-rndメソッドが生成する乱数の系列(乱数の発生順序)を設定します。
+[rnd](#objectrnd)メソッドが生成する乱数の系列(乱数の発生順序)を設定します。
 
 **書式**
 ```
@@ -765,7 +769,7 @@ seedを省略した場合、プログラムを実行するたびにまったく�
 extends SpriteChar;
 randomize();
 while (1) {
-  if( rnd(10)==0) {
+  if (rnd(10)==0) {
     x=rnd()*$screenWidth;
     y=rnd()*$screenHeight;
   }
@@ -803,7 +807,7 @@ while (1) {
 
 ▲ 10フレームに１回の確率で、画面上のいろいろな場所にオブジェクトが移動します。
 
-実行のたびに違う順序で乱数を発生させるにはrandomizeメソッドを使います。
+実行のたびに違う順序で乱数を発生させるには[randomize](#objectrandomize)メソッドを使います。
 
 ***
 
@@ -841,8 +845,8 @@ while (1) {
 
 **参照**
 
-cosメソッド  
-angleメソッド
+- [cos](#objectcos)メソッド  
+- [angle](#objectangle)メソッド
 
 ***
 
@@ -871,7 +875,7 @@ while (1) {
 }
 ```
 
-▲ このオブジェクトとマウスカーソルの距離を計算します（本当はdistメソッドを使ったほうが楽です)
+▲ このオブジェクトとマウスカーソルの距離を計算します（本当は[dist](#objectdist)メソッドを使ったほうが楽です)
 
 ***
 
@@ -911,11 +915,11 @@ timeStop()
 
 **戻り値**
 
-新規作成されたTimeStopperオブジェクト。
+新規作成された[TimeStopper](./rf-timestopper)オブジェクト。
 
 TimeStopperオブジェクトは、止めた時間をふたたび動かす時に使います。
 
-時間を動かすにはTimeStopperオブジェクトに対して、 releaseメソッドや releaseAllメソッドを 呼び出します。
+時間を動かすにはTimeStopperオブジェクトに対して、 [release](./rf-timestopper#timestopperrelease)メソッドや [releaseAll](./rf-timestopper#timestopperreleaseall)メソッドを 呼び出します。
 
 **例1**
 
@@ -972,7 +976,7 @@ trunc(r)
 
 rの小数点を切り捨てた値
 
-※ rが正または0の場合、floor(r)と同じ値を返しますが、負の場合はfloor(r)+1 が返されます。
+※ rが正または0の場合、[floor](#objectfloor)(r)と同じ値を返しますが、負の場合はfloor(r)+1 が返されます。
 
 **例1**
 ```

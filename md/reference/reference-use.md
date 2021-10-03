@@ -63,7 +63,7 @@
 - [getGreen](./rf-object#objectgetgreen)
 - [getBlue](./rf-object#objectgetblue)
 - [drawSprite](./rf-sprite#spritedrawsprite)
-- [drawDXSprite](./rf-sprite#spritedrawdxsprite)
+- [drawDxSprite](./rf-sprite#spritedrawdxsprite)
 - [centerText](./rf-sprite#spritecentertext)
 - [drawVerticalText](./rf-sprite#spritedrawverticaltext)
 - [drawPolygon](./rf-sprite#spritedrawpolygon)
@@ -84,7 +84,7 @@
 - [$map.scrollTo](./rf-map#mapscrollto)
 - [$viewX,$viewY](./rf-view-xy)
 - [getScreenX](./rf-plainchar#plainchargetscreenx),[getScreenY](./rf-plainchar#plainchargetscreeny)
-- [$screenWidth,$screenHeight](./rf-screen-wh),[$Window.sizeable](./rf-window#windowsizeable)
+- [$screenWidth,$screenHeight](./rf-screen-wh),[$window.sizeable](./rf-window#windowsizeable)
 - [$windowX,$windowY](./rf-window-xy)
 - [$map.setBGColor](./rf-map#mapsetbgcolor)
 

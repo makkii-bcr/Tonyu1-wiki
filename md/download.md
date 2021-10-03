@@ -9,7 +9,7 @@
 （exeファイルを上書きしただけだと、エラーが発生する可能性があります）
 - 古いTonyu1のゲームで、Windows10, Windows8で起動しない場合は、最新版に更新すると起動します。  
   - [Windows10，Windows8で動作しないゲームについて](./start-error-win8-10)
-- Windows10でメニューが文字化けする場合、「[ワールドワイド言語サポートでUnicode UTF-8を使用](https://www.google.com/search?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%AF%E3%82%A4%E3%83%89%E8%A8%80%E8%AA%9E%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A7Unicode+UTF-8%E3%82%92%E4%BD%BF%E7%94%A8&oq=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%AF%E3%82%A4%E3%83%89%E8%A8%80%E8%AA%9E%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A7Unicode+UTF-8%E3%82%92%E4%BD%BF%E7%94%A8&aqs=chrome..69i57&sourceid=chrome&ie=UTF-8)」の設定を解除してください。
+- Windows10でメニューが文字化けする場合、「[ワールドワイド言語サポートでUnicode UTF-8を使用(Google検索)](https://www.google.com/search?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%AF%E3%82%A4%E3%83%89%E8%A8%80%E8%AA%9E%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A7Unicode+UTF-8%E3%82%92%E4%BD%BF%E7%94%A8&oq=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%83%AF%E3%82%A4%E3%83%89%E8%A8%80%E8%AA%9E%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A7Unicode+UTF-8%E3%82%92%E4%BD%BF%E7%94%A8&aqs=chrome..69i57&sourceid=chrome&ie=UTF-8)」の設定を解除してください。
   - 「コントロールパネル」→「時計、言語、および地域」→「地域と言語」→「管理」タブ→「システム ロケールの変更」→「ワールドワイド言語サポートでUnicode UTF-8を使用」のチェックを外す
 
 ### ダウンロード

@@ -43,7 +43,7 @@ open(title, prompt, default, left, top, width, height)
 - **height**  
 &emsp;ウィンドウの高さ（省略可）
 
-waitInputと異なり、ユーザがボタン（「Ok」 または「キャンセル」）を押すまで処理を中断しません。
+[waitInput](./rf-plainchar#plaincharwaitinput)と異なり、ユーザがボタン（「Ok」 または「キャンセル」）を押すまで処理を中断しません。
 
 ユーザがボタン（「OK」 または「キャンセル」）を押したかは[$InputBox.getStatus](#inputboxgetstatus) で調べることができます。  
 入力された文字の内容は [$InputBox.getText](#inputboxgettext) で調べることができます。
@@ -57,9 +57,9 @@ while ($InputBox.getStatus()==0) {
   update();
 }
 if ($InputBox.getStatus()==1) {  
-   text=$InputBox.getText()+"さん、よろしく！";
+  text=$InputBox.getText()+"さん、よろしく！";
 } else {
-   text="キャンセルしました";
+  text="キャンセルしました";
 }
 wait();
 ```

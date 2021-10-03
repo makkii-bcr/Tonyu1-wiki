@@ -5,13 +5,13 @@
 
 ## Panelクラス
 
-通常の描画メソッド(drawText,drawLine,drawSprite,fillRect)では、描画されたものは１フレームごとに消去されてしまいます。  
+通常の描画メソッド([drawText](./rf-sprite#spritedrawtext),[drawLine](./rf-sprite#spritedrawline),[drawSprite](./rf-sprite#spritedrawsprite),[fillRect](./rf-sprite#spritefillrect))では、描画されたものは１フレームごとに消去されてしまいます。  
 一度描画したグラフィックスを消さないでおくときは、パネルを使うと便利です。
 
 パネルにアクセスするには、次の２通りがあります。
 
 - $panelという変数を頭につけて、通常の描画命令と同様にメソッドを呼びます。
-- パネルオブジェクトを作成します。
+- [パネルオブジェクト](./rf-panelchar)を作成します。
 
 **例1**
 
@@ -108,7 +108,7 @@ drawSprite(x,y,p,f)
 - **f(省略可能)**  
 &emsp;0でない数値の場合、元のキャラクタパターンを左右反転したパターンを描画する
 
-パネルについては、パネルの使い方を参照してください。 $panelとpanelの違い
+パネルについては、[パネルの使い方](#)を参照してください。 [$panelとpanelの違い](./rf-panel-diff)
 
 ***
 
@@ -154,9 +154,9 @@ drawLine(sx,sy,dx,dy,col)
 - **col**  
 &emsp;色(通常colorメソッドで指定)
 
-パネルについては、パネルの使い方を参照してください。
+パネルについては、[パネルの使い方](#)を参照してください。
 
-参考： $panelとpanelの違い
+参考： [$panelとpanelの違い](./rf-panel-diff)
 
 ***
 
@@ -215,7 +215,7 @@ while(1) {
 }
 ```
 
-パネルについては、パネルの使い方を参照してください。 $panelとpanelの違い
+パネルについては、[パネルの使い方](#)を参照してください。 [$panelとpanelの違い](./rf-panel-diff)
 
 ***
 
@@ -237,7 +237,7 @@ fillRect(sx,sy,dx,dy,col)
 - **col**  
 &emsp;色(通常colorメソッドで指定)
 
-$panelとpanelの違い
+参考： [$panelとpanelの違い](./rf-panel-diff)
 
 ***
 
@@ -259,7 +259,7 @@ drawText(x,y,t,col,size)
 - **size**  
 &emsp;サイズ
 
-パネルについては、パネルの使い方を参照してください $panelとpanelの違い
+パネルについては、[パネルの使い方](#)を参照してください [$panelとpanelの違い](./rf-panel-diff)
 
 ***
 
@@ -281,7 +281,7 @@ drawText(x,y,t,col,size)
 - **size**  
 &emsp;サイズ
 
-パネルについては、パネルの使い方を参照してください $panelとpanelの違い
+パネルについては、[パネルの使い方](#)を参照してください [$panelとpanelの違い](./rf-panel-diff)
 
 ***
 
@@ -335,7 +335,7 @@ resize(width,height)
 setTransparentColor(c)
 ```
 - **c**  
-&emsp;透過色（colorメソッドで指定)
+&emsp;透過色（[color](./rf-object#objectcolor)メソッドで指定)
 
 ***
 
@@ -352,7 +352,7 @@ getTransparentColor()
 透過色を表す値
 
 **参考**
-Panel.setTransparentColor
+[Panel.setTransparentColor](#panelsettransparentcolor)
 
 ***
 
@@ -370,9 +370,9 @@ setPixel(x,y,c)
 - **c**  
 &emsp;パネル上(x,y)に設定する色（整数値） ＝赤成分 + 緑成分 * 256 + 青成分 * 65536
 
-パネルについては、パネルの使い方を参照してください。
+パネルについては、[パネルの使い方](#)を参照してください。
 
-参考： $panelとpanelの違い
+参考： [$panelとpanelの違い](./rf-panel-diff)
 
 ***
 

@@ -21,25 +21,25 @@ wait();
 ```
 
 HashTester.tonyu
-```
+<pre>
 extends SpriteChar;
 green=appear(new Colors(100,300,3));
 yellow=appear(new Colors(150,300,5));
 red=appear(new Colors(200,300,7));
 
 h=new Hashtable(); // ハッシュテーブル作成
-h.put("あか",red); // キー "あか" にオブジェクト red を割り当てる
+h.<a href="#hashtableput">put</a>("あか",red); // キー "あか" にオブジェクト red を割り当てる
 h.put("きいろ",yellow); // キー "きいろ" にオブジェクト yellow を割り当てる
 h.put("みどり",green); // キー "みどり" にオブジェクト green を割り当てる
 
 s="あか";
 while (1) {
   s=waitInput("いろ？","あかorみどりorきいろ",s);
-  target=h.get(s); // sをキーとして要素(green,yellow,red、またはnull)をとりだす。
+  target=h.<a href="#hashtableget">get</a>(s); // sをキーとして要素(green,yellow,red、またはnull)をとりだす。
   if (target!=null) target.y-=16;
   update();
 }
-```
+</pre>
 
 
 ### メソッド一覧

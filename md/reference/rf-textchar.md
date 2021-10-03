@@ -15,7 +15,7 @@ TextCharクラスのオブジェクトは、文字を表示することができ
 - **text**  
 &emsp;表示するテキストを設定します。
 - **col**  
-&emsp;テキストの色を指定します。色はcolorメソッドや色定数を使って指定します
+&emsp;テキストの色を指定します。色は[colorメソッドや色定数](./rf-object#objectcolor)を使って指定します
 - **size**  
 &emsp;テキストの大きさを指定します。
 - **font**  
@@ -32,10 +32,23 @@ TextCharクラスのオブジェクトは、文字を表示することができ
 &emsp;この値が小さいほど文字が手前に表示されます。
 
 ### メソッド
-- edit
-- PlainCharクラスのメソッド
-- Spriteクラスのメソッド
-- Objectクラスのメソッド
+- [edit](#textcharedit)
+- [PlainChar](./rf-plainchar)クラスのメソッド
+- [Sprite](./rf-sprite)クラスのメソッド
+- [Object](./rf-object)クラスのメソッド
+
+***
+
+## TextChar.edit
+
+テキストを編集状態にします
+
+**書式**
+```
+edit()
+```
+
+※複数行表示している場合でも1行のみのエディットになります
 
 ***
 

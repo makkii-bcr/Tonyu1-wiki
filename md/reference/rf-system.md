@@ -110,7 +110,10 @@ setVSync(enable)
 
 Tonyu起動時は、擬似VSyncは有効になっています。
 
-Windows 7以降でDWMが有効の場合、スタッタリングが軽減されます。
+Windows 7以降で**DWM**(*1)が有効の場合、 **スタッタリング** (*2)が軽減されます。
+
+*1）DWM ＝ Desktop Window Manager [(Wikipediaの説明)](https://ja.wikipedia.org/wiki/Desktop_Window_Manager)  
+*2）スタッタリング [(ドスパラの解説ページ)](http://faq3.dospara.co.jp/faq/show/8398?site_domain=default)
 
 ***
 
@@ -124,8 +127,11 @@ setAdjustScanLine(rate)
 - **rate**  
 &emsp;0～1の小数を指定して、擬似VSyncの基準位置(走査線)を調節します。
 
-Windows XP以前やWindows Vista/7でDWMが無効の場合、ティアリングが発生するため、  
-ティアリングを目立たない位置にずらしたりするときに使います。
+Windows XP以前やWindows Vista/7で**DWM**(*1)が無効の場合、 **ティアリング** (*2)が発生するため、  
+**ティアリング**を目立たない位置にずらしたりするときに使います。
+
+*1）DWM ＝ Desktop Window Manager [(Wikipediaの説明)](https://ja.wikipedia.org/wiki/Desktop_Window_Manager)  
+*2）ディアリング [(ドスパラの解説ページ)](http://faq3.dospara.co.jp/faq/show/8398?site_domain=default)
 
 ***
 

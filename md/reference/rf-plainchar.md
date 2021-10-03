@@ -4,11 +4,11 @@
 <title>命令リファレンス - PlainChar</title>
 
 ## PlainCharクラス
-画面上に表示されるオブジェクト(SpriteChar、DXChar、TextChar、SecretChar)の親クラスです。
+画面上に表示されるオブジェクト([SpriteChar](./rf-spritechar)、[DxChar](./rf-dxchar)、[TextChar](./rf-textchar)、[SecretChar](./rf-secretchar))の親クラスです。
 
 これら4種類のオブジェクトに共通な変数やメソッドが用意されています。
 
-このページで示したものの他にも、Spriteクラスのメソッド（描画命令）も使えます。併せて参照してください。
+このページで示したものの他にも、[Sprite](./rf-sprite)クラスのメソッド（描画命令）も使えます。併せて参照してください。
 
 ### メソッド一覧
 
@@ -40,6 +40,14 @@
 [waitInput](#plaincharwaitinput)|文字入力用のウィンドウを開き、ユーザがボタン（「Ok」 または「キャンセル」）を押すまで処理を中断します。
 [crashToLine](#plaincharcrashtoline)|オブジェクトと線分の衝突判定を行います。
 
+### 変数一覧
+
+|||
+|-|-|
+[x](#変数x)|オブジェクトのx座標をあらわす変数です
+[y](#変数y)|オブジェクトのy座標をあらわす変数です
+[zOrder](#変数zOrder)|複数のオブジェクトが重なった場合、この値が小さいオブジェクトのほうが手前に表示されます。
+
 ***
 
 ## PlainChar.onMouseDown
@@ -63,7 +71,7 @@ function onMouseDown(x,y,lb,rb) {
 
 ※ onMouseDownはユーザが直接呼び出さないでください。
 
-<span style="color: #f00">※ このメソッドの中でupdateメソッドを呼ばないようにしてください</span>
+<span style="color: #f00">※ このメソッドの中で[update](#plaincharupdate)メソッドを呼ばないようにしてください</span>
 
 ***
 
@@ -103,7 +111,7 @@ function onMouseDrag(sx,sy,dx,dy,lb,rb) {
 
 onMouseDragはユーザが直接呼び出さないでください。
 
-<span style="color: #f00">※ onMouseDragの中でupdateメソッドを呼ばないようにしてください</span>
+<span style="color: #f00">※ onMouseDragの中で[update](#plaincharupdate)メソッドを呼ばないようにしてください</span>
 
 ***
 
@@ -152,7 +160,7 @@ while(1) {
 
 **関連**
 
-- for (xx in $chars)
+- [for (xx in $chars)](./rf-for-chars)
 
 ***
 
@@ -180,7 +188,7 @@ function onDraw() {
 
 onDrawはユーザが直接呼び出さないでください。
 
-<span style="color: #f00">※ このメソッドの中でupdateメソッドを呼ばないようにしてください</span>
+<span style="color: #f00">※ このメソッドの中で[update](#plaincharupdate)メソッドを呼ばないようにしてください</span>
 
 **例1**
 
@@ -194,7 +202,7 @@ function onDraw() {
 (設計中でも表示されます)
 
 <span style="color: #f00">※ このメソッド内部でエラーが起きると、設計時にオブジェクトが正しく表示されなくなります。  
-その場合は、onDrawの部分を注釈にするなどして、表示の問題を回避してください。</span>
+その場合は、onDrawの部分を[注釈](./rf-comment)にするなどして、表示の問題を回避してください。</span>
 
 ***
 
@@ -211,13 +219,13 @@ draw()
 
 ## PlainChar.onUpdate
 
-updateメソッド、updateExメソッドが呼び出されたときに特別な処理をしたいときにユーザが定義するメソッドです。
+[update](#plaincharupdate)メソッド、[updateEx](#plaincharupdateex)メソッドが呼び出されたときに特別な処理をしたいときにユーザが定義するメソッドです。
 
 **書式**
 ```
 onUpdate()
 ```
-※ onUpdateはupdateメソッドから自動的に呼ばれます。ユーザが直接呼び出さないでください。
+※ onUpdateは[update](#plaincharupdate)メソッドから自動的に呼ばれます。ユーザが直接呼び出さないでください。
 
 ※ このメソッドの中でupdateメソッドを呼ぶことが可能です。但しその場合onUpdateが重複して呼ばれることはありません。
 
@@ -260,7 +268,7 @@ updateは１フレーム（コマ）が終了する毎に必ず呼び出して�
 
 ## PlainChar.updateEx
 
-updateメソッドを指定した回数分実行します。これにより、指定したフレーム数だけ待機することができます。
+[update](#plaincharupdate)メソッドを指定した回数分実行します。これにより、指定したフレーム数だけ待機することができます。
 
 **書式**
 ```
@@ -269,7 +277,7 @@ updateEx(t)
 - **t**  
 &emsp;update(); を呼び出す回数。
 
-※ この命令はwaitメソッドと似ていますが、 updateExの実行中はフレーム毎にonUpdateメソッドが呼ばれます。
+※ この命令は[wait](#plaincharwait)メソッドと似ていますが、 **updateEx**の実行中はフレーム毎に[onUpdate](#plaincharonupdate)メソッドが呼ばれます。
 
 ***
 
@@ -286,7 +294,7 @@ function onDie() {
 
 ※ onDieは自動的に呼ばれます。ユーザが直接呼び出さないでください。
 
-<span style="color: #f00">※ onDieの中でupdateメソッドを呼ばないようにしてください</span>
+<span style="color: #f00">※ onDieの中で[update](#plaincharupdate)メソッドを呼ばないようにしてください</span>
 
 **例1**
 ```
@@ -301,7 +309,7 @@ function onDie() {
 
 ## PlainChar.die
 
-オブジェクトを殺します。殺されたオブジェクトは次にupdate();が呼ばれた段階で処理を終了し、画面上から消えます。
+オブジェクトを殺します。殺されたオブジェクトは次に[update](#plaincharupdate)();が呼ばれた段階で処理を終了し、画面上から消えます。
 
 **書式**
 ```
@@ -334,12 +342,12 @@ isDead()
 
 **戻り値**
 
-死んでいる場合は真(0以外の値)、そうでなければ偽(0)
+死んでいる場合は[真](./rf-true-false)(0以外の値)、そうでなければ[偽](./rf-true-false)(0)
 
 ※ このメソッドは1.09以前では isDied という名前でした。今後はisDeadを使用してください。  
 互換性を保つため、isDied を使用したプログラムも従来通り動作するようになっています。
 
-dieメソッドが呼ばれるか、プログラムの最後に到達すると そのオブジェクトは死んだとみなされます、
+[die](#plainchardie)メソッドが呼ばれるか、プログラムの最後に到達すると そのオブジェクトは死んだとみなされます、
 
 **例1**
 
@@ -373,7 +381,7 @@ $Object2は$Object1が死ぬのを監視しながら、$Object1が死んでな�
 wait(frames)
 ```
 - **frames(省略可能)**  
-&emsp;待機するフレーム数。省略するとnotify()が呼ばれるまで永久に待機する。
+&emsp;待機するフレーム数。省略すると[notify](#plaincharnotify)()が呼ばれるまで永久に待機する。
 
 **例1**
 ```
@@ -385,14 +393,14 @@ while(1) {
 ```
 ▲ 8フレームに1回、8ドット横に移動します。
 
-updateExメソッドと異なり、待機中はonUpdateメソッドは呼ばれませんが、  
+[updateEx](#plaincharupdateex)メソッドと異なり、待機中は[onUpdate](#plaincharonupdate)メソッドは呼ばれませんが、  
 updateExより処理が軽くなります。
 
 ***
 
 ## PlainChar.notify
 
-waitメソッドで待機状態にあるオブジェクトの動作を再開します。
+[wait](#plaincharwait)メソッドで待機状態にあるオブジェクトの動作を再開します。
 
 **書式**
 ```
@@ -466,7 +474,7 @@ getVisible()
 
 **参考**
 
-setVisible
+[setVisible](#plaincharsetvisible)
 
 ***
 
@@ -515,25 +523,25 @@ getScreenX()
 
 スクリーン座標(x座標)
 
-※スクリーン座標についてはスクロールのサンプルを参考してください。
+※スクリーン座標については[スクロールのサンプル](./html/scroll/html/HID00000001.htm)を参考してください。
 
 **例1**
 
-ここに書いてあるプログラムは、実行する前に画面にマップを描くことをおすすめします(チュートリアル参照)
+ここに書いてあるプログラムは、実行する前に画面にマップを描くことをおすすめします([チュートリアル参照](./tr-maze01))
 
-```
+<pre>
 extends SpriteChar;
 while(1) {
   if (getkey(39)>0 && getScreenX()<$screenWidth-16) x+=3;
   if (getkey(37)>0 && getScreenX()>16) x-=3; 
   if (getkey(40)>0 && getScreenY()<$screenHeight-16) y+=3;
   if (getkey(38)>0 && getScreenY()>16) y-=3;
-  $map.scrollTo(0,t);
+  <a href="./rf-map#mapscrollto">$map.scrollTo</a>(0,t);
   y-=1;
   t-=1;
   update();
 }
-```
+</pre>
 ▲ この例では、カーソルキーでオブジェクトを動かしますが、 スクロール位置に関係なく画面端を飛び出さないようにします。  
 ※試しにgetScreenY()をyに変えてみると、しばらくすると上に動けなくなります。
 
@@ -552,11 +560,11 @@ getScreenY()
 
 スクリーン座標(y座標)
 
-※スクリーン座標についてはスクロールのサンプルを参考してください。
+※スクリーン座標については[スクロールのサンプル](./html/scroll/html/HID00000001.htm)を参考してください。
 
 **例1**
 
-getScreenX参照
+[getScreenX](#plainchargetscreenx)参照
 
 ***
 
@@ -573,12 +581,12 @@ gotoScreen(xx,yy)
 - **yy**  
 &emsp;移動先y座標（スクリーン座標）
 
-※スクリーン座標についてはスクロールのサンプルを参考してください。
+※スクリーン座標については[スクロールのサンプル](./html/scroll/html/HID00000001.htm)を参考してください。
 
 **例1**
 
 ここに書いてあるプログラムは、実行する前に  
-画面にマップを描くことをおすすめします(チュートリアル参照)
+画面にマップを描くことをおすすめします([チュートリアル参照](./tr-maze01))
 ```
 extends SpriteChar;
 sx=x;sy=y;
@@ -597,7 +605,7 @@ while (1) {
 
 ## PlainChar.onAppear
 
-実行開始時またはappearメソッドによりオブジェクトが出現したときに、  
+実行開始時または[appear](./rf-object#objectappear)メソッドによりオブジェクトが出現したときに、  
 特別な処理をする場合にユーザが定義するメソッドです。
 
 **書式**
@@ -608,7 +616,7 @@ function onAppear() {
 ```
 ※ onAppearはユーザが直接呼び出さないでください。
 
-<span style="color: #f00">※ このメソッドの中でupdateメソッドを呼ばないようにしてください。</span>
+<span style="color: #f00">※ このメソッドの中で[update](#plaincharupdate)メソッドを呼ばないようにしてください。</span>
 
 ***
 
@@ -629,9 +637,9 @@ waitSelect(prompt,title)
 
 「はい」を押したなら1 「いいえ」を押すか、ウィンドウ右上のxでウィンドウを閉じた場合0
 
-※ 処理を中断したくないときは$SelectBox.openを用います。
+※ 処理を中断したくないときは[$SelectBox.open](./rf-selectbox#selectboxopen)を用います。
 
-※ onMouseDown,onMouseDragメソッドの中ではこのメソッドを呼ばないでください
+※ [onMouseDown](#plaincharonmousedown),[onMouseDrag](#plaincharonmousedrag)メソッドの中ではこのメソッドを呼ばないでください
 
 **例1**
 ```
@@ -668,10 +676,10 @@ waitInput(title,prompt,default)
 
 **戻り値**
 
-入力された文字列。 ユーザが「Ok」「キャンセル」のどちらを押したかは$InputBox.getStatusで調べることができます。
+入力された文字列。 ユーザが「Ok」「キャンセル」のどちらを押したかは[$InputBox.getStatus](./rf-inputbox#inputboxgetstatus)で調べることができます。
 
-処理を中断したくないときは$InputBox.openを用います。  
-onMouseDown,onMouseDragメソッドの中ではこのメソッドを呼ばないでください
+処理を中断したくないときは[$InputBox.open](./rf-inputbox#inputboxopen)を用います。  
+[onMouseDown](#plaincharonmousedown),[onMouseDrag](#plaincharonmousedrag)メソッドの中ではこのメソッドを呼ばないでください
 
 **例1**
 ```

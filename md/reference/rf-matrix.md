@@ -7,22 +7,22 @@
 2次元配列を格納するオブジェクトです。
 
 ### 例1
-```
+<pre>
 extends TextChar;
 m=new Matrix(10); // 横10列の配列を作成
 m.addRows(5); // 縦に5行追加
-for (y=0; y<5; y++) {
-  for (x=0; x<10; x++) {
+for (y=0; y&lt;5; y++) {
+  for (x=0; x&lt;10; x++) {
      m.set(x,y,x+y);
   }
 }
 while (1) {
-  x=valueOf(waitInput("Xの値?"));
+  x=<a href="./rf-object#objectvalueof">valueOf</a>(<a href="./rf-plainchar#plaincharwaitinput">waitInput</a>("Xの値?"));
   y=valueOf(waitInput("Yの値?"));
   text="("+x+","+y+")="+m.get(x,y);
   update();
 }
-```
+</pre>
 
 ### メソッド一覧
 |||

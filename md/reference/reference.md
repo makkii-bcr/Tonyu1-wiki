@@ -55,6 +55,7 @@
 |[$ranking](./rf-ranking)|ネットランキングCGIの呼び出しを行います|
 |[$SelectBox](./rf-selectbox)|選択肢を表示するダイアログボックスです|
 |[$System](./rf-system)|システムの終了などを行います。|
+|[$window](./rf-window)|ウィンドウの制御を行います|
 |[AbstractHashtable](./rf-abstracthashtable)|[Hashtable](./rf-hashtable)、[LightHashtable](./rf-lighthashtable)の親クラスです。|
 |[AnimationAdaptor](./rf-animationadaptor)|AnimationAdaptorとは、キャラクタパターンを次々に変化させることによるアニメーションを簡単に実現するためのオブジェクトです。|
 |[Array](./rf-array)|Array(配列)クラスのオブジェクトには、複数の値（要素）を格納することができます。|
@@ -78,7 +79,6 @@
 |[String](./rf-string)|文字列を表すオブジェクトです|
 |[TextChar](./rf-textchar)|TextCharクラスのオブジェクトは、文字を表示することができます。|
 |[TimeStopper](./rf-timestopper)|時間の停止を行います|
-|[Window](./rf-window)|ウィンドウの制御を行います|
 
 ***
 
