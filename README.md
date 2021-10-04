@@ -1,10 +1,10 @@
 # Tonyu1-wiki
 
-Tonyu System 1 の 新Wiki　（作成中）
+Tonyu System 1 の 新Wiki
 
-[新Wikiページ](https://makkii-bcr.github.io/Tonyu1-wiki/)
+[新Wikiページ](https://makkii-bcr.github.io/Tonyu1-wiki/) （2021年～）
 
-Tonyu1 Wikiを更新しやすくするため、[旧Wiki](http://hoge1e3.sakura.ne.jp/tonyu/wiki/)から移植中です。
+Tonyu1 Wikiを更新しやすくするため、[旧Wiki](http://hoge1e3.sakura.ne.jp/tonyu/wiki/)から移転しました。
 
 今後Tonyu1の最新版リリースは、この新Wikiで公開します。
 

@@ -71,7 +71,7 @@
                             }
                             var offsetTop = hashElem.offsetTop;
                             var userAgent = window.navigator.userAgent.toLowerCase();
-                            if( userAgent.match(/msie/) || userAgent.match(/trident/) ) {
+                            if (userAgent.match(/msie/) || userAgent.match(/trident/)) {
                                 window.scroll(offsetTop, offsetTop); // IE
                             } else {
                                 window.scroll({
@@ -128,9 +128,9 @@
             if (page != null) {
                 showPage(page);
                 if (page == 'index') {
-                    history.replaceState(null, null, './');
+                    history.replaceState(null, null, './' + document.location.hash);
                 } else {
-                    history.replaceState(null, null, page);
+                    history.replaceState(null, null, page + document.location.hash);
                 }
             }
         }
