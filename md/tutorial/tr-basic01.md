@@ -14,6 +14,8 @@
 
 次のように入力し、OKをクリックします。
 
+![npage.png](./img/npage.png)
+
 ***
 
 [←目次](./tutorial)&emsp;[次→](./tr-basic02)&emsp;[チュートリアル](./tutorial)&emsp;[Wikiトップ](./)
