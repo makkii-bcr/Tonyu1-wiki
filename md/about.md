@@ -44,7 +44,7 @@ CGIが実行可能なWebページをお持ちであれば、作成したゲー�
 
 動作するOS  
 - 別途インストール無し
-  - Windows 10, 8.1, 8, 7, Vista, XP, 2000, Me, 98SE
+  - Windows 11, 10, 8.1, 8, 7, Vista, XP, 2000, Me, 98SE
 - DirectX6のインストールが必要
   - Windows 98, 95
 
