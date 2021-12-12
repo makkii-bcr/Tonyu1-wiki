@@ -18,7 +18,7 @@
 |[setAdjustScanLine](#systemsetadjustscanline)|擬似VSyncの基準位置(走査線)を調節します。|
 |[setAutoAdjustScanLine](#systemsetautoadjustscanline)|擬似VSyncの基準位置(走査線)の自動調節機能を使うか設定します。|
 |[setTimerResolution](#systemsettimerresolution)|タイマー分解能を設定します。|
-|[setLoopMode](#systemsetloopmode)|ゲームの実行方式を設定します。|
+|[setLoopMode](#systemsetloopmode)|ゲームループの実行方式を設定します。|
 
 ***
 
@@ -137,7 +137,7 @@ Windows XP以前やWindows Vista/7でAero無効（**DWM**(*1)が無効）の場�
 
 *1）DWM ＝ Desktop Window Manager [(Wikipediaの説明)](https://ja.wikipedia.org/wiki/Desktop_Window_Manager)  
 &emsp;&emsp;DWMが有効の場合、OSが自動的に垂直同期を行うので通常ティアリングが発生しなくなります  
-*2）ディアリング [(ドスパラの解説ページ)](http://faq3.dospara.co.jp/faq/show/8398?site_domain=default)
+*2）ティアリング [(ドスパラの解説ページ)](http://faq3.dospara.co.jp/faq/show/8398?site_domain=default)
 
 ***
 
@@ -174,7 +174,7 @@ setTimerResolution(ms)
 Tonyu起動時は、1ミリ秒で設定されています。
 
 短い時間を指定すると、カクつきが軽減されたりFPSが安定するなどの効果があります。  
-Windows XP以前のPCだとCPU負担が大きくなります。  
+Windows XP以前のPCではCPU負担が大きくなります。  
 Windows XP以前のPCでCPU負担軽減を優先したい場合、設定を変更できます。
 
 ***
@@ -195,7 +195,7 @@ Tonyu起動時は、マルチメディアタイマーで実行します。
 ※ Tonyu1_28以前は、ビジーループで実装されています。（マルチメディアタイマーへの切り替えは不可）
 
 - ビジーループ
-  - [sleep_time](./rf-options#optionsset)が0の場合、カクつきは抑えられますが、CPU使用率が1スレッド分を100%使います
+  - [sleep_time](./rf-options#optionsset)が0の場合、カクつきは抑えられますが、CPU使用率は1スレッド分100%使います
   - [sleep_time](./rf-options#optionsset)が1以上の場合、CPU負担は抑えられますが、カクつきが発生しやすくなります
   - ウィンドウ操作中はゲームが止まります
 - マルチメディアタイマー

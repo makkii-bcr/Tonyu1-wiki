@@ -92,7 +92,7 @@
   - オプションからサウンドoffにするとエラーが出るのを修正
 
 [Tonyu1_28_2021_0404.zip](./dl/Tonyu1_28_2021_0404.zip)
-- switch文の実装
+- [switch文](./rf-switch)の実装
   - switch、case、defaultは変数名等には使えなくなります
 - JoyStickの不具合を修正
   - JoyStickを刺して抜いた後、Tonyu1を再起動するとJoyStick取得が重くなる不具合を修正
