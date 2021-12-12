@@ -4,6 +4,7 @@
 <title>命令リファレンス - $_fps, $_rps</title>
 
 ## $_fps, $_rps
+##### (1_29_2021_0501以降)
 
 - **$_fps**  
 FPS（Frame per Second）  

@@ -16,12 +16,26 @@
 
 #### 最新バージョン
 
+[Tonyu1_29_2021_1212.zip](./dl/Tonyu1_29_2021_1212.zip)
+- 細かい修正
+  - マルチメディアタイマーの処理軽量化
+  - タイマー分解能変更メソッド追加
+    - [$System.setTimerResolution](./rf-system#systemsettimerresolution)
+  - ゲームループ変更メソッド追加
+    - [$System.setLoopMode](./rf-system#systemsetloopmode)
+  - スタッタリング防止自動調整メソッド追加
+    - [$System.setAutoAdjustScanLine](./rf-system#systemsetautoadjustscanline)
+- グローバル変数追加
+  - Windowsのビルド番号、[$osBuildNumber](./rf-getosversion)を追加
+    - Windows10とWindows11を判定できる
+- ネットランキングのURLを更新
+
+#### 以前のバージョン
+
 [Tonyu1_29_2021_0730.zip](./dl/Tonyu1_29_2021_0730.zip)
 - 細かい修正
   - Win98SEでVSyncが効いてないので修正。（リフレッシュレートが取得できないので、60Hzと仮定してVSyncを行う）
   - 内部処理のディスプレイ情報取得を５秒１回に変更
-
-#### 以前のバージョン
 
 [Tonyu1_29_2021_0705.zip](./dl/Tonyu1_29_2021_0705.zip)
 - 既存不具合の修正、細かい修正、処理速度改善など
@@ -51,7 +65,7 @@
   - ビジーループ＋Sleepから、マルチメディアタイマーに変更
 - CPU使用率を軽減
 - ゲーム画面のカクツキ（スタッタリング）軽減（DWM有効時）
-- カクツキ対策用のメソッド追加
+- カクツキ（ティアリング・スタッタリング）対策用のメソッド追加
   - [$System.setVSync](./rf-system#systemsetvsync)
   - [$System.setAdjustScanLine](rf-system#systemsetadjustscanline)
 - $System.setFrameRateでFPSを小数単位でも指定できるようにしました

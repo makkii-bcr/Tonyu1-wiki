@@ -28,15 +28,17 @@
 [null](./rf-null)  
 
 ### グローバル変数一覧
-[$mouseX<br>$mouseY](./rf-mouse-xy)  
-[$screenWidth<br>$screenHeight](./rf-screen-wh)  
-[$viewX<br>$viewY](./rf-view-xy)  
-[$windowX<br>$windowY](./rf-window-xy)  
-[$fullScreen](./rf-fullscreen)  
-[$displayWidth, $_displayRealWidth<br>$displayHeight, $_displayRealHeight](./rf-display-wh)  
-[$osPlatformId, $osMajorVer, $osMinorVer](./rf-getosversion)  
-[$_fps, $_rps](./rf-fps-rps)  
-[$windowActive](./rf-window-active)
+|||
+-|-
+[$mouseX<br>$mouseY](./rf-mouse-xy)|マウスカーソルの位置を返します。
+[$screenWidth<br>$screenHeight](./rf-screen-wh)|ウィンドウの幅や高さを取得・設定できます。
+[$viewX<br>$viewY](./rf-view-xy)|[$map.scrollTo](./rf-map#mapscrollto)でスクロールした位置を得ます。
+[$windowX<br>$windowY](./rf-window-xy)|ウィンドウの位置を得たり、ウィンドウの移動を行います。
+[$fullScreen](./rf-fullscreen)|フルスクリーンで起動したかどうか判定できます。
+[$displayWidth, $_displayRealWidth<br>$displayHeight, $_displayRealHeight](./rf-display-wh)|モニターの解像度を取得します。
+[$osPlatformId, $osMajorVer,<br>$osMinorVer, $osBuildNumber](./rf-getosversion)|Windowsのバージョンを返します。
+[$_fps, $_rps](./rf-fps-rps)|FPSやRPS(実行速度)を取得できます。
+[$windowActive](./rf-window-active)|Tonyuがアクティブかを返します。
 
 ### オブジェクト・クラス一覧  
   

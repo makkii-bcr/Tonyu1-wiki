@@ -8,6 +8,8 @@
 [ダウンロード](./download)
 ]　[
 [全ページ](./all)
+|
+[更新履歴](./update-history)
 ]　[
 [Tonyu公式HP](https://www.tonyu.jp/)
 |

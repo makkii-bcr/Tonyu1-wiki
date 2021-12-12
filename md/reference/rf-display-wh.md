@@ -4,6 +4,7 @@
 <title>命令リファレンス - $displayWidth, $displayHeight</title>
 
 ## $displayWidth, $displayHeight
+##### (1_29_2021_0501以降)
 
 モニターの解像度を取得します。
 
@@ -14,6 +15,7 @@ $displayHeight には縦のピクセル数が格納されています。
 &emsp; 仮想のピクセル数となります。
 
 ## $_displayRealWidth, $_displayRealHeight
+##### (1_29_2021_0630以降)
 
 実際の解像度は、下記の変数に格納されています。
 
