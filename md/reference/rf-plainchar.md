@@ -393,8 +393,10 @@ while(1) {
 ```
 ▲ 8フレームに1回、8ドット横に移動します。
 
-[updateEx](#plaincharupdateex)メソッドと異なり、待機中は[onUpdate](#plaincharonupdate)メソッドは呼ばれませんが、  
-updateExより処理が軽くなります。
+**[updateEx](#plaincharupdateex)メソッドとの違い**
+- 待機中は[onUpdate](#plaincharonupdate)メソッドは呼ばれません
+- スレッドの処理順を表すリストから一時的にこのオブジェクトのスレッドを除外し，再開時にこのオブジェクトのスレッドをリストの末尾に追加します．  
+- したがって，updateExより処理が軽くなりますが，処理順が変化する点に注意してください．
 
 ***
 
