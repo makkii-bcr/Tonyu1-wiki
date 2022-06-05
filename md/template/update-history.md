@@ -24,6 +24,10 @@
 **2021-04-07**  
 ・[ver1.28リリース](./download)  
 
+### 細かい更新履歴
+
+細かい更新履歴は「[makkii-bcr/Tonyu1-wiki](https://github.com/makkii-bcr/Tonyu1-wiki)」を参照してください。
+
 ***
 
 [Wikiトップ](./)
