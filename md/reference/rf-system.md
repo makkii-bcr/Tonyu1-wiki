@@ -14,9 +14,9 @@
 |[getVersion](#systemgetversion)|Tonyu Systemのバージョンを獲得します。|
 |[setFrameRate](#systemsetframerate)|フレーム（コマ）数とコマ落ちの設定を行います|
 |[setStackSize](#systemsetstacksize)|オブジェクトに割り当てるプロセスのスタックサイズを変更します。|
-|[setVSync](#systemsetvsync)|擬似VSyncの有効・無効を設定します。|
-|[setAdjustScanLine](#systemsetadjustscanline)|擬似VSyncの基準位置(走査線)を調節します。|
-|[setAutoAdjustScanLine](#systemsetautoadjustscanline)|擬似VSyncの基準位置(走査線)の自動調節機能を使うか設定します。|
+|[setVSync](#systemsetvsync)|VSyncの有効・無効を設定します。|
+|[setAdjustScanLine](#systemsetadjustscanline)|VSyncの基準位置(走査線)を調節します。|
+|[setAutoAdjustScanLine](#systemsetautoadjustscanline)|VSyncの基準位置(走査線)の自動調節機能を使うか設定します。|
 |[setTimerResolution](#systemsettimerresolution)|タイマー分解能を設定します。|
 |[setLoopMode](#systemsetloopmode)|ゲームループの実行方式を設定します。|
 
@@ -103,7 +103,8 @@ appear(new ConsumeMuchStackChar(x,y,p));
 
 ## $System.setVSync
 ##### (1_29_2021_0501以降)
-擬似VSyncの有効・無効を設定します。
+VSyncの有効・無効を設定します。  
+モニターの走査線を取得し、実行速度をミリ秒単位で微調整して垂直同期しています。
 
 **書式**
 ```
@@ -112,7 +113,7 @@ setVSync(enable)
 - **enable**  
 &emsp;1で有効、0で無効にします。
 
-Tonyu起動時は、擬似VSyncは有効になっています。
+Tonyu起動時は、VSyncは有効になっています。
 
 Windows 8以降やWindows Vista/7でAero有効（**DWM**(*1)が有効）の場合、 **スタッタリング** (*2)が軽減されます。
 
@@ -123,14 +124,14 @@ Windows 8以降やWindows Vista/7でAero有効（**DWM**(*1)が有効）の場�
 ***
 ## $System.setAdjustScanLine
 ##### (1_29_2021_0501以降)
-擬似VSyncの基準位置(走査線)を調節します。
+VSyncの基準位置(走査線)を調節します。
 
 **書式**
 ```
 setAdjustScanLine(rate)
 ```
 - **rate**  
-&emsp;0～1の小数を指定して、擬似VSyncの基準位置(走査線)を調節します。
+&emsp;0～1の小数を指定して、VSyncの基準位置(走査線)を調節します。
 
 Windows XP以前やWindows Vista/7でAero無効（**DWM**(*1)が無効）の場合、 **ティアリング** (*2)が発生するため、  
 **ティアリング**を目立たない位置にずらしたりするときに使います。
@@ -143,7 +144,7 @@ Windows XP以前やWindows Vista/7でAero無効（**DWM**(*1)が無効）の場�
 
 ## $System.setAutoAdjustScanLine
 ##### (1_29_2021_1212以降)
-擬似VSyncの基準位置(走査線)の自動調節機能を使うか設定します。
+VSyncの基準位置(走査線)の自動調節機能を使うか設定します。
 
 **書式**
 ```
@@ -154,8 +155,8 @@ setAutoAdjustScanLine(enable)
 
 Tonyu起動時は、Windows XP以前では有効、Windows Vista以降では無効になっています。
 
-1フレームの描画にかかった時間をもとに、擬似VSyncの基準位置(走査線)を自動調節します。  
-[setAdjustScanLine](#systemsetadjustscanline)と併用して使うと、「自動調節＋手動調整」が擬似VSyncの基準位置となります。
+1フレームの描画にかかった時間をもとに、VSyncの基準位置(走査線)を自動調節します。  
+[setAdjustScanLine](#systemsetadjustscanline)と併用して使うと、「自動調節＋手動調整」がVSyncの基準位置となります。
 
 
 ***
