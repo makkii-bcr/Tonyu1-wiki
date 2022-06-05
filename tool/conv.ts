@@ -23,7 +23,8 @@ function convMain() {
 
     const isDeploy = process.argv.some((v) => v === '--deploy');
     const isStaging = process.argv.some((v) => v === '--staging');
-    const isFullBuild = isDeploy || isStaging;
+    const isHelpFile = process.argv.some((v) => v === '--helpfile');
+    const isFullBuild = isDeploy || isStaging || isHelpFile;
     const curDir = process.cwd();
     const pubDirName = isDeploy ? deployPubDirName : testPubDirName;
 
@@ -112,7 +113,7 @@ function convMain() {
     // htmlを生成
     htmlAry.forEach(htmlObj => {
         // デバッグ時は404.htmlのみ作成
-        if (!(isDeploy || isStaging || htmlObj.name == '404')) {
+        if (!(isDeploy || isStaging || isHelpFile || htmlObj.name == '404')) {
             return;
         }
         const time = performance.now();
@@ -125,6 +126,10 @@ function convMain() {
         htmlAry.forEach(obj => {
             const name = obj.name;
             const isSelfPage = name == fileName;
+            // ヘルプファイルの場合は、1つのhtmlに1つのhtmlのみ入れる（1対1）
+            if (isHelpFile && !isSelfPage) {
+                return;
+            }
             const displayStyle = isSelfPage ? 'block' : 'none';
 
             let htmlData = obj.data;
@@ -168,10 +173,14 @@ function convMain() {
             allPageMd += '1. [' + title + '](' + name + ')  \n';
         });
         const allPageHtmlData = marked(allPageMd);
-        const tmplJsDataFixed = tmplJsData.replace(
+        // 組み込み定数の文字を置き換える
+        let tmplJsDataFixed = tmplJsData.replace(
             '$isDev',
             !(isDeploy || isStaging) && htmlObj.name == '404' ? 'true' : 'false'
-            ); // 組み込み定数の文字を置き換える
+        );
+        if (isHelpFile) { // ヘルプファイルの場合JSを除去する
+            tmplJsDataFixed = '';
+        }
 
         // テンプレートhtmlに、markdownのhtmlを埋め込み
         let outData: string | Buffer =
@@ -187,8 +196,9 @@ function convMain() {
 
         let htmlPath = path.join(curDir, pubDirName, base.toHtmlPath(htmlObj.mdPath));
 
-        if (isDeploy) {
+        if (isDeploy || isHelpFile) {
             // Github Pagesは.gzファイルを置いても静的gzipとして扱ってくれないので、deploy時は.htmlを置く
+            // ヘルプファイルの場合は.htmlを置く
             // html, js, css のminify
             outData = minify(outData, {
                 continueOnParseError: true,
