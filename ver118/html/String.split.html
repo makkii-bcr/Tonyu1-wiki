@@ -1,0 +1,76 @@
+<html>
+<title>String.split</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="String.html">Stringクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">splitメソッド(Stringクラス)</font>
+		    
+		    <BR><BR>
+<P>
+カンマ(",")などで区切られた文字列("abc,def,efg"など)を<a href="Array.html">配列</a>に分解します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     split(<font color="blue">separator</font>,<font color="blue">limit</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>separator</font><i>(省略可能)</i>
+</td>
+<td>:区切りに使う文字列。省略すると、文字列strをカンマ (",")で区切ります。</td>
+</tr><tr><td>
+<font color=blue>limit</font><i>(省略可能)</i>
+</td>
+<td>:limitで指定された個数を超える要素をもつ配列を生成しません。省略すると個数に制限はありません。</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//メニューの「ウィンドウ」＞「コンソール」でコンソールウィンドウを表示してください
+<P>
+extends SpriteChar;
+a="abc,de!f,ghi";
+print (a+"を , で区切ります");
+b=a.split();
+for (e in b) {
+   print (e);
+}
+print (a+"を ! で区切ります");
+b=a.split("!");
+for (e in b) {
+   print (e);
+}
+print (a+ "を , で区切ります(要素数は2つまで)。");
+b=a.split("," ,2);
+for (e in b) {
+   print (e);
+}
+<P>
+<P>
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

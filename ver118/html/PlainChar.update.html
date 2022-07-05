@@ -1,0 +1,67 @@
+<html>
+<title>PlainChar.update</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">updateメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+オブジェクトの書き換え処理を行います。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     update() 
+     
+   <table>   
+     
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+updateは１フレーム（コマ）が終了する毎に必ず呼び出してください。
+<P>
+通常のスプライトオブジェクトは、updateが呼ばれた時点で、次にあげる変数の内容にしたがってスプライトが描画されます。
+<P>
+<ul>
+<li><strong>x</strong>
+</ul>
+<blockquote>
+    x座標
+</blockquote>
+<ul>
+<li><strong>y</strong>
+</ul>
+<blockquote>
+    y座標
+</blockquote>
+<ul>
+<li><strong>p</strong>
+</ul>
+<blockquote>
+    キャラクタパターン
+</blockquote>
+<ul>
+<li><strong>f</strong>
+</ul>
+<blockquote>
+    0でない数値の場合、元のキャラクタパターンを左右反転したパターンを描画する
+</blockquote>
+<ul>
+<li><strong>zOrder</strong>
+</ul>
+<blockquote>
+   このスプライトの表示順序を決める。描画時に、この値の小さいスプライトが手前にくるように描画される。
+</blockquote>
+ 
+</font>
+</body></html>

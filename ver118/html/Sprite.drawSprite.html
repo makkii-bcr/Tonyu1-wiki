@@ -1,0 +1,99 @@
+<html>
+<title>Sprite.drawSprite</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Sprite.html">Spriteクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">drawSpriteメソッド(Spriteクラス)</font>
+		    
+		    <BR><BR>
+<P>
+スプライトを描画します。
+ 
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     drawSprite(<font color="blue">x</font>,<font color="blue">y</font>,<font color="blue">p</font>,<font color="blue">f</font>,<font color="blue">zOrder</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>x</font>
+</td>
+<td>:x座標</td>
+</tr><tr><td>
+<font color=blue>y</font>
+</td>
+<td>:y座標</td>
+</tr><tr><td>
+<font color=blue>p</font>
+</td>
+<td>:キャラクタパターン</td>
+</tr><tr><td>
+<font color=blue>f</font><i>(省略可能)</i>
+</td>
+<td>:0でない数値の場合、元のキャラクタパターンを左右反転したパターンを描画する</td>
+</tr><tr><td>
+<font color=blue>zOrder</font><i>(省略可能)</i>
+</td>
+<td>:描画順序。値が小さいほど手前に描画される</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+通常、オブジェクトに対して自動的にスプライトが描画されますが(<a href="PlainChar.update.html">update</a>メソッド参照)、１つの
+オブジェクトで複数のスプライトを描画したいときに使用します。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while (1) {
+  drawSprite(50,50,21);
+  x=100;y=100;p=5;
+  update();
+}
+ 
+</pre>
+▲ このようにすると、<a href="PlainChar.update.html">update</a>();により、自動的に(100,100)の位置に青い丸(パターン番号21)がかかれる他に、drawSpriteによって(50,50)の位置に
+青い丸(パターン番号21)がかかれます。
+</td></tr></table>
+<P>
+drawSpriteを使った場合、x,y,pの値に関係なく任意の場所に任意のパターンを描画できます。
+<P>
+<strong>※</strong>  drawSpriteはupdate()をするたびに毎回呼び出してください。
+次のような例だと、一瞬だけ表示されてすぐ消えてしまいます。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//悪い例：
+drawSprite(50,50,21);  // 最初の1フレームしか表示されない
+while (1) {
+  x=100;y=100;p=5;
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

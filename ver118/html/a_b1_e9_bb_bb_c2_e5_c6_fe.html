@@ -1,0 +1,76 @@
+<html>
+<title>演算代入</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<a name="1"><font size="5">演算代入</font>
+		    
+		    <BR><BR>
+<P>
+<P>
+<a href="a_c2_e5_c6_fe.html">代入</a>、<a href="a_bb_bb_bd_d1_b1_e9_bb_bb.html">算術演算</a>の箇所で説明した機能で、代入や計算は一通りできますが、ここで説明する演算子を使うとプログラムが簡潔になり、処理速度も上がります。
+<P>
+<a name="2"><font size="5"> += , -= 演算子 </font>
+		    
+		    <BR><BR>
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+ 変数名 += 式;<BR>
+ 変数名 -= 式;</tt></td></tr>
+</table>  
+<P>
+それぞれ、
+<P>
+変数名 = 変数名 + 式 ;<BR>
+変数名 = 変数名 - 式 ;
+<P>
+と同じ効果があります。変数名で示される変数の値を式の値だけ増やしたり減らしたりできます。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre>
+//オブジェクトを作成し、ダブルクリック後つぎのように入力します。
+extends SpriteChar;
+while (1) {
+  x+=2;
+  update();
+}
+</pre>
+▲ x+=2; は x=x+2; と書いても同じですが、x+=2のほうが処理速度が上がります。
+</td></tr></table>
+<P>
+<a name="3"><font size="5"> ++ , -- 演算子 </font>
+		    
+		    <BR><BR>
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+ 変数名 ++;<BR>
+ 変数名 --;</tt></td></tr>
+</table>  
+<P>
+それぞれ、
+<P>
+変数名 = 変数名 + 1 ;<BR>
+変数名 = 変数名 - 1 ;
+<P>
+と同じ効果があります。変数名で示される変数の値を1増やしたり減らしたりできます。
+<HR>
+<a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

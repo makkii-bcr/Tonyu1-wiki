@@ -1,0 +1,75 @@
+<html>
+<title>for</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<a name="1"><font size="5">for</font>
+		    
+		    <BR><BR>
+<P>
+<P>
+<strong>※</strong>  for文は、ここに示したもののほかに<a href="for..in.html">for..in</a>という文もあります。
+<P>
+条件にしたがって、繰り返し処理を行います。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> 
+for (<strong>初期化文</strong> ; <strong>条件</strong> ; <strong>カウント文</strong> ) <strong>手続き</strong></tt></td></tr>
+</table>  
+<P>
+次のwhile文と同じ動作をします。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> <pre>
+<strong>初期化文</strong>
+while (<strong>条件</strong> ) {
+  <strong>手続き</strong>
+  <strong>カウント文</strong>
+}</pre> </tt></td></tr>
+</table>  
+<P>
+主に、次の形式で使います
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> <pre>
+for ( xxx = 初期値 ; xxx &lt; 終了値+1 ; xxx+=増分 ) 手続き
+または
+for ( xxx = 初期値 ; xxx &lt; 終了値+1 ; xxx++ ) 手続き
+</pre> </tt></td></tr>
+</table>  
+<P>
+xxxは、ループに使う変数です。変数xxxを <strong>初期値</strong> から <strong>終了値</strong> まで、１づつ、または<strong>増分</strong> づつ増やしながら<strong>手続き</strong>を行います。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+for (i=0 ; i&lt;60 ; i++) {
+   drawText(x,y,i,$clWhite);
+   update();
+}
+ 
+</pre>
+▲ i を 0 から59 まで表示したあと、消滅します。
+</td></tr></table>
+<HR>
+<a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

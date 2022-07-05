@@ -1,0 +1,65 @@
+<html>
+<title>PlainChar.onMouseDrag</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">onMouseDragメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+マウスボタンが押された状態で、オブジェクト上でマウスが動いたときに特別な処理をしたいときにユーザが定義するメソッドです。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+      function 
+     onMouseDrag(<font color="blue">sx</font>,<font color="blue">sy</font>,<font color="blue">dx</font>,<font color="blue">dy</font>,<font color="blue">lb</font>,<font color="blue">rb</font>) 
+     {<BR>
+&nbsp; 処理内容<BR>
+}
+   <table>   
+     <tr><td>
+<font color=blue>sx</font>
+</td>
+<td>: 移動前のマウスカーソルのx座標（ウィンドウの左端が0)</td>
+</tr><tr><td>
+<font color=blue>sy</font>
+</td>
+<td>: 移動前のマウスカーソルのy座標（ウィンドウの上端が0)</td>
+</tr><tr><td>
+<font color=blue>dx</font>
+</td>
+<td>: 移動後のマウスカーソルのx座標（ウィンドウの左端が0)</td>
+</tr><tr><td>
+<font color=blue>dy</font>
+</td>
+<td>: 移動後のマウスカーソルのy座標（ウィンドウの上端が0)</td>
+</tr><tr><td>
+<font color=blue>lb</font>
+</td>
+<td>: 左ボタンがおされていれば1,そうでなければ0</td>
+</tr><tr><td>
+<font color=blue>rb</font>
+</td>
+<td>: 右ボタンがおされていれば1,そうでなければ0</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<ul>
+<li>onMouseDragはユーザが直接呼び出さないでください。
+</ul>
+<font color=red>※ onMouseDragの中で<a href="PlainChar.update.html">update</a>メソッドを呼ばないようにしてください
+</font>
+ 
+</font>
+</body></html>

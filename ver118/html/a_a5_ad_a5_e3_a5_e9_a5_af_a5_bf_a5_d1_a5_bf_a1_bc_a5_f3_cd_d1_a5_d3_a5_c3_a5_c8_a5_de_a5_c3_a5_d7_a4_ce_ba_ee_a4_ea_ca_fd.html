@@ -1,0 +1,39 @@
+<html>
+<title>キャラクタパターン用ビットマップの作り方</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Tonyu System.html">目次</a> <a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<P>
+<a href="a_a5_c1_a5_e5_a1_bc_a5_c8_a5_ea_a5_a2_a5_eb.html">チュートリアルトップ</a>
+<a href="a_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_ce_a5_ad_a5_e3_a5_e9_a5_af_a5_bf_a5_d1_a5_bf_a1_bc_a5_f3_a4_f2_bb_d8_c4_ea_a4_b9_a4_eb.html">チュートリアル「オブジェクトのキャラクタパターンを指定する」へ</a>
+<P>
+キャラクタパターン用ビットマップの作り方
+<P>
+Tonyuに読み込むキャラクタパターンは、bmpファイルから読み込みます。その際、bmp画像は次の規則に従って描画してください
+まず、全体を同じ色で塗ります。これがこの画像全体の「背景色」になります
+<P>
+<img src="../uploads/init_bmp%2epng" alt="init_bmp.png" border=0>
+<P>
+キャラクタパターンを描画するには、まず描画したい矩形領域全体を同じ色で塗ります。これがこのパターンの「透過色」になります。左上の1ドットは背景色を残して下さい。
+<P>
+<img src="../uploads/trans%2epng" alt="trans.png" border=0>
+<P>
+この領域にキャラクタパターンを描くのですが、周囲1ドットは透過色以外を塗らないでください。
+<P>
+<img src="../uploads/how2bmp%2epng" alt="how2bmp.png" border=0>
+<P>
+同様に他のパターンを描きます。このとき、パターン同士が隣接しないようにしてください。
+<P>
+<img src="../uploads/how3bmp%2epng" alt="how3bmp.png" border=0>
+<P>
+※ここで書いた方式に従っていない画像を読み込むと、次のようにパターンの切り分けに失敗した場所に×が点滅します。この場合は全体を1枚のパターンとみなします。
+<P>
+<img src="../uploads/failAna%2epng" alt="failAna.png" border=0>
+<P>
+<a href="a_a5_c1_a5_e5_a1_bc_a5_c8_a5_ea_a5_a2_a5_eb.html">チュートリアルトップ</a>
+<a href="a_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_ce_a5_ad_a5_e3_a5_e9_a5_af_a5_bf_a5_d1_a5_bf_a1_bc_a5_f3_a4_f2_bb_d8_c4_ea_a4_b9_a4_eb.html">チュートリアル「オブジェクトのキャラクタパターンを指定する」へ</a>
+ 
+</font>
+</body></html>

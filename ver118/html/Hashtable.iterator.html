@@ -1,0 +1,75 @@
+<html>
+<title>Hashtable.iterator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Hashtable.html">Hashtableクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">iteratorメソッド(Hashtableクラス)</font>
+		    
+		    <BR><BR>
+<P>
+ハッシュテーブルに格納されているキーや値をすべて調べるためのオブジェクト(イテレータ)を作成します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     iterator() 
+     
+   <table>   
+     
+   </table>   
+     <BR><strong>戻り値:</strong> ハッシュテーブルのイテレータ
+<P>
+イテレータに対しては <a href="Hashtable.hasNext.html">hasNext</a>メソッド , <a href="Hashtable.nextKey.html">nextKey</a>メソッド ,<a href="Hashtable.nextValue.html">nextValue</a>メソッドを呼ぶことができます。
+ 
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+h=new Hashtable();
+h.put("国語",40);
+h.put("英語",70);
+h.put("数学",50);
+y=20;
+$panel.drawText(20,y,"科目",$clWhite);
+$panel.drawText(100,y,"成績",$clAqua);
+y+=30;sum=0;
+it=h.iterator(); // hのイテレータを作成
+while (it.hasNext()) { // 次の要素がある間は
+   k=it.nextKey();     // 次のキー（科目）を取り出す
+   score=h.get(k);     // キーに対応する値（科目の点数)をとりだす
+   sum+=score;
+   $panel.drawText(20,y,k,$clWhite);     // キー(科目)を表示
+   $panel.drawText(100,y,score,$clAqua); // キーに対応する値(点数)を表示
+   y+=30;
+}
+$panel.drawText(20,y,"合計",$clWhite);
+$panel.drawText(100,y,sum,$clGreen);
+y+=30;
+$panel.drawText(20,y,"平均",$clWhite);
+$panel.drawText(100,y,trunc(sum/h.size()),$clYellow);
+y+=30;
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>
