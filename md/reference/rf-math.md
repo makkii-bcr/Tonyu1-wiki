@@ -30,6 +30,7 @@
 |[$Math.isEven](#mathiseven)|値が偶数であるかどうかを調べます|
 |[$Math.randBetween](#mathrandbetween)|2つの値の間を範囲とする、整数乱数を返します|
 |[$Math.randBetweenFloat](#mathrandbetweenfloat)|2つの値の間を範囲とする、実数乱数を返します|
+|[$Math.setSinCosAccuracy](#mathsetsincosaccuracy)|[sin](rf-object#objectsin),[cos](rf-object#objectcos)の精度を変更します|
 
 ***
 
@@ -401,6 +402,34 @@ randBetweenFloat(f,t)
 f&lt;tのときは、f以上t未満の乱数。 t&lt;fの場合t以上f未満。t==fの場合t。
 
 ***
+
+## $Math.setSinCosAccuracy
+##### (1_30_2022_0804以降)
+
+[sin](rf-object#objectsin),[cos](rf-object#objectcos)の精度を変更します
+
+- ver1.29以前は、[sin](rf-object#objectsin),[cos](rf-object#objectcos)は1°単位までしか受け付けず、0～360°で360段階となっていました
+- ver1.30以降は、[sin](rf-object#objectsin),[cos](rf-object#objectcos)は0.01°単位まで受け付け、0～360°で36000段階となります
+- default.tonyuprjのtargetVersion（無い場合はsavedVersion）によってデフォルトの精度が変わります
+  - 1290以下の場合は、互換性のため360段階
+  - 1300以上の場合は、36000段階
+- 手動で精度を変えたい場合、このメソッドを使用します
+
+**書式**
+```
+setSpriteAngleAccuracy(mode)
+```
+- **mode**  
+&emsp;-1: 最高精度（ただし計算をするため、他の精度よりも少し重くなります）  
+&emsp;0: 0～360°で360段階（三角関数表を使うため高速です）  
+&emsp;1: 0～360°で36000段階（三角関数表を使うため高速です）  
+
+※ [互換性の設定](./compatibility)[「sin,cosの精度」](./compatibility#sincosの精度)を参照
+
+***
+
+
+
 
 [命令リファレンス](./reference)&emsp;[Wikiトップ](./)
 
