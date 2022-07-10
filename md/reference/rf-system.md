@@ -19,6 +19,9 @@
 |[setAutoAdjustScanLine](#systemsetautoadjustscanline)|VSyncの基準位置(走査線)の自動調節機能を使うか設定します。|
 |[setTimerResolution](#systemsettimerresolution)|タイマー分解能を設定します。|
 |[setLoopMode](#systemsetloopmode)|ゲームループの実行方式を設定します。|
+|[setProcessSingle](#systemsetprocesssingle)|オブジェクト大量発生時の点滅防止の有効・無効を設定します。|
+|[setSleepTimeMMT](#systemsetsleeptimemmt)|マルチメディアタイマー設定時のsleepTimeを指定します。|
+|[setRegacyFrameRate](#systemsetregacyframerate)|ver1.21～1.29のフレームレートを再現します。|
 
 ***
 
@@ -175,8 +178,11 @@ setTimerResolution(ms)
 Tonyu起動時は、1ミリ秒で設定されています。
 
 短い時間を指定すると、カクつきが軽減されたりFPSが安定するなどの効果があります。  
-Windows XP以前のPCではCPU負担が大きくなります。  
-Windows XP以前のPCでCPU負担軽減を優先したい場合、設定を変更できます。
+Windows XP以前のPCでは、短い時間にするとCPU負担が大きくなります。  
+Windows XP以前のPCでCPU負担軽減を優先したい場合、設定を変更できます。  
+
+ただし、Kernel/midiPlayer2.exeがあると1ミリ秒に設定されてしまいます。  
+midiPlayer2.exeを削除する必要がありますが、Midi,Oggは再生できなくなります。
 
 ***
 
@@ -193,15 +199,74 @@ setLoopMode(mode)
 
 Tonyu起動時は、マルチメディアタイマーで実行します。
 
-※ Tonyu1_28以前は、ビジーループで実装されています。（マルチメディアタイマーへの切り替えは不可）
-
 - ビジーループ
   - [sleep_time](./rf-options#optionsset)が0の場合、カクつきは抑えられますが、CPU使用率は1スレッド分100%使います
   - [sleep_time](./rf-options#optionsset)が1以上の場合、CPU負担は抑えられますが、カクつきが発生しやすくなります
   - ウィンドウ操作中はゲームが止まります
 - マルチメディアタイマー
-  - [sleep_time](./rf-options#optionsset)が0でもCPU負担を抑えつつ、カクつきも抑えることができます
+  - CPU負担を抑えつつ、カクつきも抑えることができます
   - ウィンドウ操作中もゲームが動作し続けます
+
+※ Tonyu1_28以前は、ビジーループのみです
+
+***
+
+## $System.setProcessSingle
+##### (1_30_2022_0715以降)
+
+オブジェクト大量生成時に発生する、オブジェクト点滅や処理落ちを防ぐ機能の、  
+有効・無効を設定します。
+
+**書式**
+```
+setProcessSingle(enable)
+```
+- **mode**  
+&emsp;1:有効、0:無効  
+&emsp;デフォルトは1で有効
+
+***
+
+## $System.setSleepTimeMMT
+##### (1_30_2022_0715以降)
+
+※ **通常このメソッドを使用する必要はありません**  
+&emsp; 0設定でも十分にCPU負荷が低いため、基本的に使用する必要はありません  
+&emsp; 1以上にするとFPSが低下しやすくなります
+
+マルチメディアタイマー（[$System.setLoopMode(1)](./rf-system#systemsetloopmode)）設定時のSleepTimeを設定します。
+
+フレームごとにCPUをスリープする時間（単位：ミリ秒）を設定します。  
+「パフォーマンス」ウィンドウの「CPU負荷」をプログラムから動的に設定します。  
+
+**書式**
+```
+setSleepTimeMMT(ms)
+```
+- **ms**  
+&emsp;フレームごとにCPUをスリープする時間（単位：ミリ秒）を設定します。  
+&emsp;デフォルトは0です。
+
+***
+
+## $System.setRegacyFrameRate
+##### (1_30_2022_0715以降)
+
+ver1.21～1.29のフレームレートを再現します。
+
+- ver1.28以前は、FPSにずれがありました。
+  - 例えば、フレームレートを60に設定しても、FPSが約62.5になっていました。
+- ver1.29からはFPSが正確になりました。
+- ver1.28以前のFPSを再現したい場合に設定します。  
+
+**書式**
+```
+setRegacyFrameRate(enable)
+```
+- **enable**  
+&emsp;0:無効（FPSが正確になる）  
+&emsp;1:有効（ver1.28以前のFPSのずれを再現します）  
+&emsp;デフォルトは0です。  
 
 ***
 

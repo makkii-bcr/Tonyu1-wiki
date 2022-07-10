@@ -9,12 +9,58 @@
   - [ランタイムの更新方法](./start-error-win8-10)
 - 古いTonyu1のゲームで、Windows10,8等で起動しない場合は、最新版に更新すると起動します。
   - [ランタイムの更新方法](./start-error-win8-10)
+- ver1.30で仕様変更があり、以前のバージョンと動作が違う場合は、下記を設定してください。
+  - [仕様変更に対する、互換性を保つ設定](./compatibility)
 - Windows10でメニューが文字化けする場合、Windows上の設定「ワールドワイド言語サポートでUnicode UTF-8を使用」を解除してください。
   - 「コントロールパネル」→「時計、言語、および地域」→「地域と言語」→「管理」タブ→「システム ロケールの変更」→「ワールドワイド言語サポートでUnicode UTF-8を使用」のチェックを外す
 
 ### ダウンロード
 
 #### 最新バージョン
+
+[Tonyu1_30_2022_0715.zip](./dl/Tonyu1_30_2022_0715.zip)
+
+- 主な変更
+  - 効果音を途中停止する[$mplayer.stopSE](./rf-mplayer#mplayerstopse)を追加
+  - オブジェクト大量生成時の点滅防止ライブラリ（[スーパープロセッサ](https://www.tonyu.jp/project/viewProject.cgi?mainkey=277&)）を導入（デフォルト有効）
+  - wavのステレオ対応・音質向上
+    - 44100Hz8bitモノラル相当 → 44100Hz16bitステレオに音質向上
+  - wav,mzoの音源をDirectSoundに変更
+    - wavのレイテンシが短縮
+  - wav,mzoの音量が大きい場合、音割れを防ぐ機能を追加（デフォルト有効）
+  - [$mplayer.setSoundPlayMode](./rf-mplayer#mplayersetsoundplaymode)を追加
+  - ランタイム版で起動時のウィンドウサイズや位置を指定する機能を追加
+    - [$Options.setEnv](./rf-options#optionssetenv)を追加
+  - switch文の自動インデントに対応
+- 仕様変更
+  - wav,mzoの音量が100%になるよう変更
+    - ver1.21～1.29では音量が小さくなっていたため、ver1.30から音量が大きくなります
+  - [sleep_time](./rf-options#optionsset)はビジーループ設定時のみ効くよう変更
+    - 現在のマルチメディアタイマー動作ではCPU負荷が低く、基本的に[sleep_time](./rf-options#optionsset)設定の必要がないため仕様変更
+  - [$mplayer.setDelay](./rf-mplayer#mplayersetdelay)は[$mplayer.setSoundPlayMode(1or2)](./rf-mplayer#mplayersetsoundplaymode)に設定時のみ効くよう変更
+    - [$mplayer.setSoundPlayMode(3)](./rf-mplayer#mplayersetsoundplaymode)がデフォルト設定であり、自動でDelayを調整できるようになったため仕様変更
+- 上記[仕様変更に対する、互換性を保つ設定を追加](./compatibility)
+  - [$Options.set](./rf-options#optionsset)に関連項目を追加
+- 細かい修正
+  - wavの同時発音数を9→50に変更
+  - wav再生終了直後にノイズがなるのを修正
+  - 実行後の初回wav再生で音飛びするのを修正
+  - 11025Hz, 22050Hz, 44100Hz以外のwavの再生速度が速くなる不具合を修正
+  - 旧音源([$mplayer.setSoundPlayMode(1)](./rf-mplayer#mplayersetsoundplaymode))で、44.1kHzを超えるwavを鳴らすと実行エラーとなる不具合を修正
+  - [deactivation_pause](./rf-options#optionsset)が1の時、タスクバーから最小化した場合、一時停止しない不具合を修正
+  - 起動時プロジェクト読み込み中にエラーした場合、以降ウィンドウのメニューが増えなくなるので修正
+  - Copyrightの年を更新
+  - その他メソッドを追加
+    - [$mplayer.setDelayDs](./rf-mplayer#mplayersetdelayds)
+    - [$mplayer.getAutoDelayDs](./rf-mplayer#mplayergetautodelayds)
+    - [$mplayer.resetAutoDelayDs](./rf-mplayer#mplayerresetautodelayds)
+    - [$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)
+    - [$mplayer.setVolumeLimiter](./rf-mplayer#mplayersetvolumelimiter)
+    - [$System.setProcessSingle](./rf-system#systemsetprocesssingle)
+    - [$System.setSleepTimeMMT](./rf-system#systemsetsleeptimemmt)
+    - [$System.setRegacyFrameRate](./rf-system#systemsetregacyframerate)
+
+#### 以前のバージョン
 
 [Tonyu1_29_2021_1212.zip](./dl/Tonyu1_29_2021_1212.zip)
 - 細かい修正
@@ -29,8 +75,6 @@
   - Windowsのビルド番号、[$osBuildNumber](./rf-getosversion)を追加
     - Windows10とWindows11を判定できる
 - ネットランキングのURLを更新
-
-#### 以前のバージョン
 
 [Tonyu1_29_2021_0730.zip](./dl/Tonyu1_29_2021_0730.zip)
 - 細かい修正
