@@ -44,7 +44,7 @@
   - 基本的には設定の必要はありませんが、オプションとして用意しました
   - [$Options.set](./rf-options#optionsset)に関連項目を追加
 - 仕様変更
-  - [sleep_time](./rf-options#optionsset)はビジーループ設定時のみ効くよう変更
+  - [sleep_time](./rf-options#optionsset)はビジーループ設定時（[$System.setLoopMode(0)](./rf-system#systemsetloopmode)）のみ効くよう変更
     - 現在のマルチメディアタイマー動作ではCPU負荷が低く、基本的に[sleep_time](./rf-options#optionsset)設定の必要がないため仕様変更
     - どうしても変更したい場合は[$System.setSleepTimeMMT](./rf-system#systemsetsleeptimemmt)で変更できます
   - [$mplayer.setDelay](./rf-mplayer#mplayersetdelay)は[$mplayer.setSoundPlayMode(1or2)](./rf-mplayer#mplayersetsoundplaymode)に設定時のみ効くよう変更
