@@ -9,12 +9,88 @@
   - [ランタイムの更新方法](./start-error-win8-10)
 - 古いTonyu1のゲームで、Windows10,8等で起動しない場合は、最新版に更新すると起動します。
   - [ランタイムの更新方法](./start-error-win8-10)
+- ver1.29～1.30で仕様変更があり、以前のバージョンと動作が違う場合は、下記を設定してください。
+  - [互換性の設定](./compatibility)
 - Windows10でメニューが文字化けする場合、Windows上の設定「ワールドワイド言語サポートでUnicode UTF-8を使用」を解除してください。
   - 「コントロールパネル」→「時計、言語、および地域」→「地域と言語」→「管理」タブ→「システム ロケールの変更」→「ワールドワイド言語サポートでUnicode UTF-8を使用」のチェックを外す
 
 ### ダウンロード
 
 #### 最新バージョン
+
+[Tonyu1_30_2022_0804.zip](./dl/Tonyu1_30_2022_0804.zip)
+
+- 主な変更
+  - 効果音を途中停止する[$mplayer.stopSE](./rf-mplayer#mplayerstopse)を追加
+  - オブジェクト大量生成時の点滅防止ライブラリ（[スーパープロセッサ](https://www.tonyu.jp/project/viewProject.cgi?mainkey=277&)）を導入（デフォルト有効）
+  - wavのステレオ対応・音質向上
+    - 44100Hz8bitモノラル相当 → 44100Hz16bitステレオに音質向上
+  - wav,mzoの音源をDirectSoundに変更
+    - wavのレイテンシが短縮
+  - wav,mzoの音量が大きい場合、音割れを防ぐ機能を追加（デフォルト有効）
+  - ランタイム版で起動時のウィンドウサイズや位置を指定する機能を追加
+    - [$Options.getEnv](./rf-options#optionsgetenv), [$Options.setEnv](./rf-options#optionssetenv)を追加
+  - switch文の自動インデントに対応
+- ver1.30以降に作成したプロジェクトでの仕様変更(```targetVersion```>=1300の場合)
+  - wav,mzoの音量が100%になるよう変更
+    - ver1.21～1.29に作られたプロジェクトは、互換性のため音量が50%のままになります
+  - スプライト描画の回転(angle)が１回転256段階だったのを36000段階に向上
+    - ver1.29以前に作られたプロジェクトでは、互換性のため256段階のままになります
+    - [$System.setSpriteAngleAccuracy](rf-system#systemsetspriteangleaccuracy)で精度を切り替え可能
+  - [sin](rf-object#objectsin),[cos](rf-object#objectcos)の精度を0～360°で360段階だったのを36000段階に向上
+    - ver1.29以前に作られたプロジェクトは、互換性のため360段階のままになります
+    - [$Math.setSinCosAccuracy](rf-math#mathsetsincosaccuracy)で精度を切り替え可能
+- [互換性の設定](./compatibility)を追加
+  - 基本的には設定の必要はありませんが、オプションとして用意しました
+  - [$Options.set](./rf-options#optionsset)に関連項目を追加
+- 仕様変更
+  - [sleep_time](./rf-options#optionsset)はビジーループ設定時のみ効くよう変更
+    - 現在のマルチメディアタイマー動作ではCPU負荷が低く、基本的に[sleep_time](./rf-options#optionsset)設定の必要がないため仕様変更
+    - どうしても変更したい場合は[$System.setSleepTimeMMT](./rf-system#systemsetsleeptimemmt)で変更できます
+  - [$mplayer.setDelay](./rf-mplayer#mplayersetdelay)は[$mplayer.setSoundPlayMode(1or2)](./rf-mplayer#mplayersetsoundplaymode)に設定時のみ効くよう変更
+    - [$mplayer.setSoundPlayMode(3)](./rf-mplayer#mplayersetsoundplaymode)がデフォルト設定であり、自動でDelayを調整できるようになったため仕様変更
+    - 手動で変更したい場合は[$mplayer.setDelayDs](./rf-mplayer#mplayersetdelayds)で変更できます
+  - [$window.setDrawMode](./rf-window#windowsetdrawmode)はWindows Vista以降で動作時は効かないよう変更
+    - Windows Vista以降は描画方式A意外だと、重かったりカクついたりするため、メソッドからは変更できないようにしました
+      - どうしても変更したい場合は[$window.setDrawModeForceMode](./rf-window#windowsetdrawmodeforcemode)で効くように変更できます
+    - ウィンドウ上部のメニューから選択した場合は変更できます
+    - Windows XP以前では[$window.setDrawMode](./rf-window#windowsetdrawmode)は効きます
+- 細かい修正
+  - default.tonyuprjに```targetVersion```を自動追記する機能追加
+    - Tonyuのどのバージョンから対象プロジェクトを使っていたかを記録します
+    - 互換性の自動維持の判定に使用されます
+    - ```targetVersion```が記録されていない場合、```savedVersion```の値をコピーする(開発環境版)か、```savedVersion```の値を```targetVersion```として使います(ランタイム版)
+  - [$map.scrollTo](./rf-map#mapscrollto)でMap表示がおかしくなる場合があるのを修正
+    - Tonyu1_29_2021_0705から発生
+    - ゲーム画面サイズが奇数、かつ画面サイズ以上の移動をした後に左上スクロールすると発生
+  - wav再生終了直後にノイズがなるのを修正
+  - 実行後の初回wav再生で音飛びするのを修正
+  - 11025Hz, 22050Hz, 44100Hz以外のwavの再生速度が速くなる不具合を修正
+  - 44100Hzを超えるwavを鳴らすとエラー発生する不具合を修正
+    - ただし44100Hzを超えるwavを鳴らしても44100Hzの音質で再生されます
+  - wavの同時発音数を9→50に変更
+  - [deactivation_pause](./rf-options#optionsset)が1の時、タスクバーから最小化した場合、一時停止しない不具合を修正
+  - 起動時プロジェクト読み込み中にエラーした場合、以降ウィンドウのメニューが増えなくなるので修正
+  - Copyrightの年を更新
+- 追加したメソッド一覧
+  - [$mplayer.stopSE](./rf-mplayer#mplayerstopse)
+  - [$mplayer.setDelayDs](./rf-mplayer#mplayersetdelayds)
+  - [$mplayer.getAutoDelayDs](./rf-mplayer#mplayergetautodelayds)
+  - [$mplayer.resetAutoDelayDs](./rf-mplayer#mplayerresetautodelayds)
+  - [$mplayer.setSoundPlayMode](./rf-mplayer#mplayersetsoundplaymode)
+  - [$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)
+  - [$mplayer.setVolumeLimiter](./rf-mplayer#mplayersetvolumelimiter)
+  - [$mplayer.setSeLoopEnable](./rf-mplayer#mplayersetseloopenable)
+  - [$Options.getEnv](./rf-options#optionsgetenv)
+  - [$Options.setEnv](./rf-options#optionssetenv)
+  - [$System.setSleepTimeMMT](./rf-system#systemsetsleeptimemmt)
+  - [$System.setProcessSingle](./rf-system#systemsetprocesssingle)
+  - [$System.setLegacyFrameRate](./rf-system#systemsetlegacyframerate)
+  - [$System.setSpriteAngleAccuracy](./rf-system#systemsetspriteangleaccuracy)
+  - [$Math.setSinCosAccuracy](./rf-math#mathsetsincosaccuracy)
+  - [$window.setDrawModeForceMode](./rf-window#windowsetdrawmodeforcemode)
+
+#### 以前のバージョン
 
 [Tonyu1_29_2021_1212.zip](./dl/Tonyu1_29_2021_1212.zip)
 - 細かい修正
@@ -29,8 +105,6 @@
   - Windowsのビルド番号、[$osBuildNumber](./rf-getosversion)を追加
     - Windows10とWindows11を判定できる
 - ネットランキングのURLを更新
-
-#### 以前のバージョン
 
 [Tonyu1_29_2021_0730.zip](./dl/Tonyu1_29_2021_0730.zip)
 - 細かい修正
@@ -65,7 +139,7 @@
 - フレームレート制御の実装を変更
   - ビジーループ＋Sleepから、マルチメディアタイマーに変更
 - CPU使用率を軽減
-- ゲーム画面のカクツキ（スタッタリング）軽減（DWM有効時）
+- ゲーム画面のカクツキ（スタッタリング）軽減（Windows 8以降、Vista～7のAero有効時）
 - カクツキ（ティアリング・スタッタリング）対策用のメソッド追加
   - [$System.setVSync](./rf-system#systemsetvsync)
   - [$System.setAdjustScanLine](rf-system#systemsetadjustscanline)

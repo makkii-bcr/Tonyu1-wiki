@@ -18,6 +18,7 @@
 [onMouseDownForDesign](#plaincharonmousedownfordesign)|未稿
 [onMouseDrag](#plaincharonmousedrag)|マウスボタンが押された状態で、オブジェクト上でマウスが動いたときに特別な処理をしたいときにユーザが定義するメソッドです。
 [crashTo](#plaincharcrashto)|他のオブジェクトと衝突しているかどうかを判定します。
+[crashToLine](#plaincharcrashtoline)|オブジェクトと線分の衝突判定を行います。
 [crashAt](#plaincharcrashat)|未稿
 [onDraw](#plaincharondraw)|オブジェクトに描画をするときに、特別な処理をする場合にユーザが定義するメソッドです。
 [draw](#plainchardraw)|未稿
@@ -38,7 +39,6 @@
 [onAppear](#plaincharonappear)|実行開始時またはappearメソッドによりオブジェクトが出現したときに、特別な処理をする場合にユーザが定義するメソッドです。
 [waitSelect](#plaincharwaitselect)|はい・いいえ選択用のウィンドウを開き、ユーザがウィンドウを閉じるまで処理を中断します。
 [waitInput](#plaincharwaitinput)|文字入力用のウィンドウを開き、ユーザがボタン（「Ok」 または「キャンセル」）を押すまで処理を中断します。
-[crashToLine](#plaincharcrashtoline)|オブジェクトと線分の衝突判定を行います。
 
 ### 変数一覧
 
@@ -161,6 +161,66 @@ while(1) {
 **関連**
 
 - [for (xx in $chars)](./rf-for-chars)
+
+***
+
+## PlainChar.crashToLine
+
+オブジェクトと線分の衝突判定を行います。
+
+**書式**
+```
+crashToLine(sx,sy,dx,dy,width,xx,yy)
+```
+- **sx**  
+&emsp;始点のx座標
+- **sy**  
+&emsp;始点のy座標
+- **dx**  
+&emsp;終点のx座標
+- **dy**  
+&emsp;終点のy座標
+- **width**  
+&emsp;線分の幅
+- **xx(省略可能)**  
+&emsp;判定する点のx座標。省略するとオブジェクトのxの値
+- **yy(省略可能)**  
+&emsp;判定する点のy座標。省略するとオブジェクトのyの値
+
+**戻り値**
+
+(sx,sy)と(dx,dy)を結ぶ、幅がwidthドットの線分と点(xx,yy)がぶつかっていれば 真(0でない値)。そうでなければ偽 (0)
+
+※ (sx,sy)と(dx,dy) が一致してしまうとエラーになります
+
+**例1**
+
+LineRoll.tonyu
+```
+extends SpriteChar;
+a=0;
+while (1) {
+  sx=x+cos(a)*100;
+  sy=y+sin(a)*100;
+  drawLine(x,y,sx,sy,$clWhite);
+  update();
+  a+=rnd(10);
+}
+```
+Jiki.tonyu
+```
+extends SpriteChar;
+while(1) {
+  if (getkey(39)>0) x+=3;
+  if (getkey(37)>0) x-=3; 
+  if (getkey(40)>0) y+=3;
+  if (getkey(38)>0) y-=3;
+  if (crashToLine($LineRoll.x,$LineRoll.y,$LineRoll.sx,$LineRoll.sy,10)) {
+    die();
+  }
+  update();
+}
+```
 
 ***
 
@@ -701,66 +761,6 @@ while (1) {
       x++;
       update();
     }
-  }
-  update();
-}
-```
-
-***
-
-## PlainChar.crashToLine
-
-オブジェクトと線分の衝突判定を行います。
-
-**書式**
-```
-crashToLine(sx,sy,dx,dy,width,xx,yy)
-```
-- **sx**  
-&emsp;始点のx座標
-- **sy**  
-&emsp;始点のy座標
-- **dx**  
-&emsp;終点のx座標
-- **dy**  
-&emsp;終点のy座標
-- **width**  
-&emsp;線分の幅
-- **xx(省略可能)**  
-&emsp;判定する点のx座標。省略するとオブジェクトのxの値
-- **yy(省略可能)**  
-&emsp;判定する点のy座標。省略するとオブジェクトのyの値
-
-**戻り値**
-
-(sx,sy)と(dx,dy)を結ぶ、幅がwidthドットの線分と点(xx,yy)がぶつかっていれば 真(0でない値)。そうでなければ偽 (0)
-
-※ (sx,sy)と(dx,dy) が一致してしまうとエラーになります
-
-**例1**
-
-LineRoll.tonyu
-```
-extends SpriteChar;
-a=0;
-while (1) {
-  sx=x+cos(a)*100;
-  sy=y+sin(a)*100;
-  drawLine(x,y,sx,sy,$clWhite);
-  update();
-  a+=rnd(10);
-}
-```
-Jiki.tonyu
-```
-extends SpriteChar;
-while(1) {
-  if (getkey(39)>0) x+=3;
-  if (getkey(37)>0) x-=3; 
-  if (getkey(40)>0) y+=3;
-  if (getkey(38)>0) y-=3;
-  if (crashToLine($LineRoll.x,$LineRoll.y,$LineRoll.sx,$LineRoll.sy,10)) {
-    die();
   }
   update();
 }
