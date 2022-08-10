@@ -21,9 +21,10 @@ function convMain() {
 
   const time3 = performance.now();
 
-  const isDeploy = process.argv.some((v) => v === "--deploy");
-  const isStaging = process.argv.some((v) => v === "--staging");
-  const isHelpFile = process.argv.some((v) => v === "--helpfile");
+  // 引数無し：デバッグ用：ファイル1つ生成、gzip圧縮
+  const isDeploy = process.argv.some((v) => v === "--deploy"); // Github Pages公開用：ファイル複数生成、html圧縮、
+  const isStaging = process.argv.some((v) => v === "--staging"); // デバッグ用(本番に近い版)：ファイル複数生成、gzip圧縮
+  const isHelpFile = process.argv.some((v) => v === "--helpfile"); // Tonyu1同封help用
   const isFullBuild = isDeploy || isStaging || isHelpFile;
   const curDir = process.cwd();
   const pubDirName = isDeploy ? deployPubDirName : testPubDirName;
@@ -33,7 +34,7 @@ function convMain() {
     try {
       // node v14
       fs.rmSync(path.join(curDir, "docs"), { recursive: true, force: true });
-    } catch (e) {
+    } catch (_e) {
       //fs.rmdirSync(path.join(curDir, 'docs'), { recursive: true });
     }
   }
@@ -72,7 +73,7 @@ function convMain() {
       }
       // markdown -> html 変換
       const mdData = fs.readFileSync(mdPath);
-      let htmlData = marked(mdData.toString());
+      const htmlData = marked(mdData.toString());
 
       const mdName = path.parse(mdPath).name;
       htmlAry.push({
@@ -138,7 +139,7 @@ function convMain() {
       let title = base.getTitle(htmlData);
       htmlData = htmlData.replace(
         /\<title\>(.*)\<\/title\>/g,
-        (match, p1, offset, string) => {
+        (_match, p1, _offset, _string) => {
           title = p1;
           return "";
         },
@@ -156,7 +157,7 @@ function convMain() {
       // 表示時にjs側でsrcに戻す
       htmlData = htmlData.replace(
         /src=\"(.*?)\"/g,
-        (match, p1, offset, string) => {
+        (_match, p1, _offset, _string) => {
           // <img src="xxx.png">を<img src-t="xxx.png">にする
           // imgタグにwidth,heightを追加する
           const img = imgAry.find((obj) =>
