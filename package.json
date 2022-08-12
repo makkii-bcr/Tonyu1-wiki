@@ -7,9 +7,9 @@
     "build": "ts-node tool/conv",
     "build:tsc": "tsc tool/conv.ts && node tool/conv.js",
     "debug": "tsc tool/conv.ts --sourceMap",
-    "staging": "ts-node tool/conv --staging",
-    "helpfile": "ts-node tool/conv --helpfile",
-    "deploy": "ts-node tool/conv --deploy",
+    "staging": "ts-node tool/conv --mode=staging",
+    "helpfile": "ts-node tool/conv --mode=helpfile",
+    "deploy": "ts-node tool/conv --mode=deploy",
     "server": "http-server ./docs/ -o ./Tonyu1-wiki -g -b",
     "start": "npm i && npm run build && npm run server"
   },

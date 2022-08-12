@@ -63,6 +63,31 @@ export function getTitle(htmlData: string): string {
 }
 
 /**
+ * ヘルプファイル用。aタグのhref末尾に.htmlを付加する
+ * @param htmlData 
+ */
+export function convHelpATagHrefAddHtml(htmlData: string): string {
+  htmlData = htmlData.replace(
+    /(?<=.*\<a href\=\")(.*?)(?=\"\>)/g,
+    (match, _offset, _string) => {
+      if (
+        match != "./" && match.indexOf("http") != 0 &&
+        match.indexOf(".html") == -1 && match.indexOf(".htm") == -1
+      ) {
+        let hidx = match.indexOf("#");
+        if (hidx != 0) {
+          if (hidx == -1) hidx = match.length;
+          match = match.slice(0, hidx) + ".html" + match.slice(hidx);
+        }
+      }
+      // console.log(match);
+      return match;
+    },
+  );
+  return htmlData;
+}
+
+/**
  * ファイルが更新されたかどうか
  * @param srcFilePath 比較元ファイルパス
  * @param destFilePath 比較先ファイルパス
@@ -74,8 +99,8 @@ export function isUpdateFile(
   if (!fs.existsSync(srcFilePath) || !fs.existsSync(destFilePath)) {
     return true;
   }
-  let srcTime = fs.statSync(srcFilePath).mtime.getTime();
-  let destTime = fs.statSync(destFilePath).mtime.getTime();
+  const srcTime = fs.statSync(srcFilePath).mtime.getTime();
+  const destTime = fs.statSync(destFilePath).mtime.getTime();
   return srcTime > destTime;
 }
 

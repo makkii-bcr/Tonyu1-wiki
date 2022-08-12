@@ -21,11 +21,11 @@ function convMain() {
 
   const time3 = performance.now();
 
-  // 引数無し：デバッグ用：ファイル1つ生成、gzip圧縮
-  const isDeploy = process.argv.some((v) => v === "--deploy"); // Github Pages公開用：ファイル複数生成、html圧縮、
-  const isStaging = process.argv.some((v) => v === "--staging"); // デバッグ用(本番に近い版)：ファイル複数生成、gzip圧縮
-  const isHelpFile = process.argv.some((v) => v === "--helpfile"); // Tonyu1同封help用
-  const isFullBuild = isDeploy || isStaging || isHelpFile;
+  const isDeploy = process.argv.some((v) => v === "--mode=deploy"); // Github Pages公開用：ファイル複数生成、html圧縮、
+  const isStaging = process.argv.some((v) => v === "--mode=staging"); // デバッグ用(本番に近い版)：ファイル複数生成、gzip圧縮
+  const isHelpFile = process.argv.some((v) => v === "--mode=helpfile"); // Tonyu1同封help用
+  const isDevelop = !(isDeploy || isStaging || isHelpFile); // 引数無し：デバッグ用：ファイル1つ生成、gzip圧縮
+  const isFullBuild = isDeploy || isStaging /*  || isHelpFile */;
   const curDir = process.cwd();
   const pubDirName = isDeploy ? deployPubDirName : testPubDirName;
 
@@ -43,8 +43,12 @@ function convMain() {
   const mdPaths = base.lsrSync(mdDir);
 
   // テンプレートhtml, js, css
-  const tmplPath = path.join(curDir, templateDirName, "template.html");
-  const tmplHtmlData = Buffer.from(fs.readFileSync(tmplPath)).toString();
+  const tmplHtmlPath = path.join(
+    curDir,
+    templateDirName,
+    isHelpFile ? "template-help.html" : "template.html",
+  );
+  const tmplHtmlData = Buffer.from(fs.readFileSync(tmplHtmlPath)).toString();
   const tmplJsPath = path.join(curDir, templateDirName, "template.js");
   const tmplJsData = Buffer.from(fs.readFileSync(tmplJsPath)).toString();
   const tmplCssPath = path.join(curDir, templateDirName, "style.css");
@@ -52,13 +56,13 @@ function convMain() {
 
   // 共通部品md
   const sidebarPath = path.join(mdTemplateDirName, "tp-sidebar.md");
-  const sidebarHtmlData = base.convMdToHtml(sidebarPath);
+  let sidebarHtmlData = base.convMdToHtml(sidebarPath);
   const navPcPath = path.join(mdTemplateDirName, "tp-nav-pc.md");
-  const navPcHtmlData = base.convMdToHtml(navPcPath);
+  let navPcHtmlData = base.convMdToHtml(navPcPath);
   const navMobilePath = path.join(mdTemplateDirName, "tp-nav-mobile.md");
-  const navMobileHtmlData = base.convMdToHtml(navMobilePath);
+  let navMobileHtmlData = base.convMdToHtml(navMobilePath);
   const footerPath = path.join(mdTemplateDirName, "tp-footer.md");
-  const footerHtmlData = base.convMdToHtml(footerPath);
+  let footerHtmlData = base.convMdToHtml(footerPath);
 
   const htmlAry: { name: string; mdPath: string; data: string }[] = [];
   const imgAry: { path: string; width: number; height: number }[] = [];
@@ -108,13 +112,21 @@ function convMain() {
       }
     }
   });
+  if (isHelpFile) {
+    // style.cssをコピー
+    const outPath = path.join(curDir, pubDirName, "style.css");
+    if (isFullBuild || base.isUpdateFile(tmplCssPath, outPath)) {
+      fs.copyFileSync(tmplCssPath, outPath);
+      console.log("copy file :", outPath);
+    }
+  }
 
   const time2 = performance.now();
 
   // htmlを生成
   htmlAry.forEach(async (htmlObj) => {
     // デバッグ時は404.htmlのみ作成
-    if (!(isDeploy || isStaging || isHelpFile || htmlObj.name == "404")) {
+    if (isDevelop && htmlObj.name != "404") {
       return;
     }
     const time = performance.now();
@@ -153,6 +165,11 @@ function convMain() {
         titleHtmlData = titleAndSiteName;
       }
 
+      // aタグのhref末尾に.htmlを付加する
+      if (isHelpFile) {
+        htmlData = base.convHelpATagHrefAddHtml(htmlData);
+      }
+
       // 非表示のページはimgタグsrcをsrc-tにして画像を読まないようにする
       // 表示時にjs側でsrcに戻す
       htmlData = htmlData.replace(
@@ -180,7 +197,7 @@ function convMain() {
 
       allPageMd += "1. [" + title + "](" + name + ")  \n";
     });
-    const allPageHtmlData = marked(allPageMd);
+    let allPageHtmlData = marked(allPageMd);
     // 組み込み定数の文字を置き換える
     let tmplJsDataFixed = tmplJsData.replace(
       "$isDev",
@@ -188,6 +205,13 @@ function convMain() {
     );
     if (isHelpFile) { // ヘルプファイルの場合JSを除去する
       tmplJsDataFixed = "";
+      // aタグのhref末尾に.htmlを付加する
+      titleHtmlData = base.convHelpATagHrefAddHtml(titleHtmlData);
+      sidebarHtmlData = base.convHelpATagHrefAddHtml(sidebarHtmlData);
+      navPcHtmlData = base.convHelpATagHrefAddHtml(navPcHtmlData);
+      navMobileHtmlData = base.convHelpATagHrefAddHtml(navMobileHtmlData);
+      footerHtmlData = base.convHelpATagHrefAddHtml(footerHtmlData);
+      allPageHtmlData = base.convHelpATagHrefAddHtml(allPageHtmlData);
     }
 
     // テンプレートhtmlに、markdownのhtmlを埋め込み
@@ -214,19 +238,21 @@ function convMain() {
       // Github Pagesは.gzファイルを置いても静的gzipとして扱ってくれないので、deploy時は.htmlを置く
       // ヘルプファイルの場合は.htmlを置く
       // html, js, css のminify
-      outData = await minify(outData, {
-        continueOnParseError: true,
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-        processConditionalComments: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeTagWhitespace: true,
-      });
+      // if (isDeploy) {
+        outData = await minify(outData, {
+          continueOnParseError: true,
+          collapseWhitespace: true,
+          minifyCSS: true,
+          minifyJS: true,
+          processConditionalComments: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeTagWhitespace: true,
+        });
+      // }
     } else {
       // 開発時は404.htmlのみでSPAするので、404.htmlはルートに作る
-      if (!isStaging && htmlObj.name == "404") {
+      if (isDevelop && htmlObj.name == "404") {
         htmlPath = path.join(
           curDir,
           rootPubDirName,
@@ -242,9 +268,13 @@ function convMain() {
     fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
     fs.writeFileSync(htmlPath, outData);
 
-    console.log("write file :", performance.now() - time, htmlPath);
+    console.log(
+      "write file :",
+      (performance.now() - time).toFixed(3),
+      htmlPath,
+    );
   });
 
-  console.log("write time :", performance.now() - time2);
-  console.log("  all time :", performance.now() - time3);
+  console.log("write time :", (performance.now() - time2).toFixed(3));
+  console.log("  all time :", (performance.now() - time3).toFixed(3));
 }
