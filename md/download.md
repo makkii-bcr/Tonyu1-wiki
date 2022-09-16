@@ -134,6 +134,7 @@
 - VSyncやフレームレート制御を調整
 - グローバル変数追加
   - 実際のディスプレイの縦横ピクセル数、[$_displayRealWidth, $_displayRealHeight](./rf-display-wh)を追加
+  - ディスプレイのリフレッシュレート（周波数）と色数、[$_displayFrequency, $_displayColor](./rf-display-wh)を追加
 
 [Tonyu1_29_2021_0501.zip](./dl/Tonyu1_29_2021_0501.zip)
 - フレームレート制御の実装を変更

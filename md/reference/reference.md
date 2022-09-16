@@ -35,7 +35,7 @@
 [$viewX<br>$viewY](./rf-view-xy)|[$map.scrollTo](./rf-map#mapscrollto)でスクロールした位置を得ます。
 [$windowX<br>$windowY](./rf-window-xy)|ウィンドウの位置を得たり、ウィンドウの移動を行います。
 [$fullScreen](./rf-fullscreen)|フルスクリーンで起動したかどうか判定できます。
-[$displayWidth, $_displayRealWidth<br>$displayHeight, $_displayRealHeight](./rf-display-wh)|モニターの解像度を取得します。
+[$displayWidth, $_displayRealWidth<br>$displayHeight, $_displayRealHeight<br>$_displayFrequency, $_displayColor](./rf-display-wh)|モニターの解像度・リフレッシュレート・色数を取得します。
 [$osPlatformId, $osMajorVer,<br>$osMinorVer, $osBuildNumber](./rf-getosversion)|Windowsのバージョンを返します。
 [$_fps, $_rps](./rf-fps-rps)|FPSやRPS(実行速度)を取得できます。
 [$windowActive](./rf-window-active)|Tonyuがアクティブかを返します。
