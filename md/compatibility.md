@@ -22,7 +22,7 @@
 
 default.tonyuprjファイルの```targetVersion```（無い場合は```savedVersion```）の値で、  
 どのTonyuのバージョンで作られたのか判断し、自動的に互換性の設定をします。  
-手動で設定変更したい場合は、下記方法で設定するか、```targetVersion```（無い場合は```savedVersion```）の値を変更します。
+手動で設定変更したい場合は、下記方法で設定するか、```targetVersion```（無い場合は```targetVersion```を追記）の値を変更します。
 
 ※ ```targetVersion```と```savedVersion```の値は、バージョン値の1000倍です。  
 &emsp; 例）Tonyu**1_29**_2021_1212 → ver**1.29** → **1290**
