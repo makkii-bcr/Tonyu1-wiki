@@ -80,6 +80,9 @@ export function convHelpATagHrefAddHtml(htmlData: string): string {
           match = match.slice(0, hidx) + ".html" + match.slice(hidx);
         }
       }
+      if (match == "./") {
+        match = "./index.html";
+      }
       // console.log(match);
       return match;
     },

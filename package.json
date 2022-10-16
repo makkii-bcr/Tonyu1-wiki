@@ -11,7 +11,8 @@
     "helpfile": "ts-node tool/conv --mode=helpfile",
     "deploy": "ts-node tool/conv --mode=deploy",
     "server": "http-server ./docs/ -o ./Tonyu1-wiki -g -b",
-    "start": "npm i && npm run build && npm run server"
+    "start": "npm i && npm run build && npm run server",
+    "clean": "ts-node tool/conv --clean"
   },
   "directories": {
     "doc": "docs"

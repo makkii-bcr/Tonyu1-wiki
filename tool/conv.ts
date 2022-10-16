@@ -24,13 +24,14 @@ function convMain() {
   const isDeploy = process.argv.some((v) => v === "--mode=deploy"); // Github Pages公開用：ファイル複数生成、html圧縮、
   const isStaging = process.argv.some((v) => v === "--mode=staging"); // デバッグ用(本番に近い版)：ファイル複数生成、gzip圧縮
   const isHelpFile = process.argv.some((v) => v === "--mode=helpfile"); // Tonyu1同封help用
+  const isClean = process.argv.some((v) => v === "--clean"); // ビルドファイル削除
   const isDevelop = !(isDeploy || isStaging || isHelpFile); // 引数無し：デバッグ用：ファイル1つ生成、gzip圧縮
   const isFullBuild = isDeploy || isStaging /*  || isHelpFile */;
   const curDir = process.cwd();
   const pubDirName = isDeploy ? deployPubDirName : testPubDirName;
 
   // docsを全削除
-  if (isFullBuild) {
+  if (isFullBuild || isClean) {
     try {
       // node v14
       fs.rmSync(path.join(curDir, "docs"), { recursive: true, force: true });
@@ -38,6 +39,7 @@ function convMain() {
       //fs.rmdirSync(path.join(curDir, 'docs'), { recursive: true });
     }
   }
+  if (isClean) return;
 
   const mdDir = path.join(curDir, mdDirName);
   const mdPaths = base.lsrSync(mdDir);
@@ -119,6 +121,19 @@ function convMain() {
       fs.copyFileSync(tmplCssPath, outPath);
       console.log("copy file :", outPath);
     }
+    // img/old, ver118 を削除
+    const rmDirPath = [
+      path.join(curDir, testPubDirName, "img", "old"),
+      path.join(curDir, testPubDirName, "ver118")
+    ];
+    rmDirPath.forEach((_rmDirPath) => {
+      try { // node v14
+        fs.rmSync(_rmDirPath, { recursive: true, force: true });
+        console.log("remove " + _rmDirPath);
+      } catch (_e) {
+        console.log("failed remove " + _rmDirPath);
+      }
+    });
   }
 
   const time2 = performance.now();
@@ -173,21 +188,30 @@ function convMain() {
       // 非表示のページはimgタグsrcをsrc-tにして画像を読まないようにする
       // 表示時にjs側でsrcに戻す
       htmlData = htmlData.replace(
-        /src=\"(.*?)\"/g,
-        (_match, p1, _offset, _string) => {
-          // <img src="xxx.png">を<img src-t="xxx.png">にする
-          // imgタグにwidth,heightを追加する
-          const img = imgAry.find((obj) =>
-            path.join(mdDir, p1).indexOf(obj.path) != -1
+        /(\<img)(.*?)(\/\>)/g,
+        (_pmatch, pp1, pp2, pp3, _poffset, _pstring) => {
+          // imgタグにwidth,heightがあるかチェックする
+          const isNotExistWH = pp2.indexOf('width=')==-1 && pp2.indexOf('height=')==-1;
+          pp2 = pp2.replace(
+            /src=\"(.*?)\"/g,
+            (_match: string, p1: string, _offset: string, _string: string) => {
+              // <img src="xxx.png">を<img src-t="xxx.png">にする
+              // imgタグにwidth,heightを追加する
+              const img = imgAry.find((obj) =>
+                path.join(mdDir, p1).indexOf(obj.path) != -1
+              );
+              // imgタグにwidth,heightが無ければ追加する
+              const width = isNotExistWH && img ? ' width="' + img.width + '" ' : "";
+              const height = isNotExistWH && img ? ' height="' + img.height + '" ' : "";
+              if (isSelfPage) {
+                return 'src="' + p1 + '"' + width + height;
+              } else {
+                return 'src-t="' + p1 + '"' + width + height;
+              }
+            }
           );
-          const width = img ? ' width="' + img.width + '" ' : "";
-          const height = img ? ' height="' + img.height + '" ' : "";
-          if (isSelfPage) {
-            return 'src="' + p1 + '"' + width + height;
-          } else {
-            return 'src-t="' + p1 + '"' + width + height;
-          }
-        },
+          return pp1 + pp2 + pp3;
+        }
       );
 
       htmlDataSum += '<div style="display:' + displayStyle + '" id="' + name +
