@@ -6,12 +6,10 @@ body {
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 24px;
     margin: 0px;
-    background: #b3ff8e;
-    color: #000;
-    margin-bottom: 0px;
-    padding: 8px 20px 8px 20px;
+    color: #080;
+    padding: 2px 0px 2px 16px;
     line-height: 120%;
 }
 
@@ -78,6 +76,22 @@ a:visited {
 a:hover {
     color:#0a0;
     background-color:#bea;
+}
+
+.title_h {
+    margin: 0px;
+    background: #b3ff8e;
+}
+
+.title_h > a {
+    text-decoration: none;
+    color:#080;
+    background-color:#0000;
+}
+
+.logo {
+    vertical-align: middle;
+    padding: 0px 16px 0px 0px;
 }
 
 table {
