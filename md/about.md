@@ -8,13 +8,13 @@ Tonyu Systemは，アクションゲームの作成に適したプログラミ�
 ### 視覚的デザイン
 キャラクタの配置やマップの作成はマウス操作で行います。ゲーム画面のレイアウトが素早く簡単にできます。  
 
-[![vis-design2-mini.png](./img/vis-design2-mini.png)](./img/org/vis-design2-org.png)  
+<a href="./img/vis-design2.png"><img src="./img/vis-design2.png" alt="vis-design2.png" width="227" height="186"/></a>  
 ↑ブロック崩しの面パターンなどは，マップエディタで作ることができます．  
 
-[![vis-design1-mini.png](./img/vis-design1-mini.png)](./img/org/vis-design1-org.png)  
+<a href="./img/vis-design1.png"><img src="./img/vis-design1.png" alt="vis-design1.png" width="273" height="158"/></a>  
 ↑オブジェクトをクリックすると各種パラメータが表示されます。  
 
-[![editor-mini.png](./img/editor-mini.png)](./img/org/editor-org.png)  
+<a href="./img/editor.png"><img src="./img/editor.png" alt="editor.png" width="344" height="167"/></a>  
 ↑オブジェクトをダブルクリックすると、コードエディタが開きます。  
 
 ### 並列処理
@@ -24,7 +24,7 @@ Tonyu Systemは，アクションゲームの作成に適したプログラミ�
 ### グラフィックス・サウンドライブラリ
 グラフィックスの表示やキー入力、サウンドなど、ゲームに必要な機能を簡単に使えます。  
 
-[![alpha-mini.png](./img/alpha-mini.png)](./img/org/alpha-org.png)  
+<a href="./img/alpha.png"><img src="./img/alpha.png" alt="alpha.png" width="210" height="180"/></a>  
 ↑回転表示や半透明表示もできます。  
 
 ### ネットランキング対応
