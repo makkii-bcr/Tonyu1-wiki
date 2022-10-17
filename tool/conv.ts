@@ -188,7 +188,7 @@ function convMain() {
       // 非表示のページはimgタグsrcをsrc-tにして画像を読まないようにする
       // 表示時にjs側でsrcに戻す
       htmlData = htmlData.replace(
-        /(\<img)(.*?)(\/\>)/g,
+        /(\<img)(.*?)(\>)/g,
         (_pmatch, pp1, pp2, pp3, _poffset, _pstring) => {
           // imgタグにwidth,heightがあるかチェックする
           const isNotExistWH = pp2.indexOf('width=')==-1 && pp2.indexOf('height=')==-1;
@@ -201,8 +201,8 @@ function convMain() {
                 path.join(mdDir, p1).indexOf(obj.path) != -1
               );
               // imgタグにwidth,heightが無ければ追加する
-              const width = isNotExistWH && img ? ' width="' + img.width + '" ' : "";
-              const height = isNotExistWH && img ? ' height="' + img.height + '" ' : "";
+              const width = isNotExistWH && img ? ' width="' + img.width + '"' : "";
+              const height = isNotExistWH && img ? ' height="' + img.height + '"' : "";
               if (isSelfPage) {
                 return 'src="' + p1 + '"' + width + height;
               } else {
