@@ -18,7 +18,7 @@
 extends SpriteChar;
 while (y<$screenHeight) {
   y=y+2;
-  <span style="color: #f00">if (crashTo($myChar)) $myChar.die();</span>
+  <span style="color: #f00">if (crashTo($MyChar)) $MyChar.die();</span>
   update();
 }
 </pre>
@@ -26,10 +26,10 @@ while (y<$screenHeight) {
 まずifの条件部から見ていきましょう
 
 ```
-if (crashTo($myChar)) ...
+if (crashTo($MyChar)) ...
 ```
 
-[crashTo](./rf-plainchar#plaincharcrashto)は、この敵が自機($myChar)に当たっているかという判定を行います。 当たっている場合はif文の後ろが実行されます。  
+[crashTo](./rf-plainchar#plaincharcrashto)は、この敵が自機($MyChar)に当たっているかという判定を行います。 当たっている場合はif文の後ろが実行されます。  
 なお、自機の名前は、自機をクリックし、オブジェクトインスペクタで確認できます。
 
 ![mycharname.png](./img/mycharname.png)
@@ -37,7 +37,7 @@ if (crashTo($myChar)) ...
 ぶつかった場合の処理は次のようになります
 
 ```
-... $myChar.die();
+... $MyChar.die();
 ```
 
 これによって自機が死にます。
@@ -97,7 +97,7 @@ wait(待機フレーム数);
 extends SpriteChar;
 
 <span style="color: #f00">function onDie() {
-  appear(new Bomb($myChar.x , $myChar.y ,$pat_Sample+4));
+  appear(new Bomb($MyChar.x , $MyChar.y ,$pat_Sample+4));
 }</span>
 
 while(1) {
@@ -112,21 +112,21 @@ while(1) {
 しかし、先ほどと違ってこの [onDie](./rf-plainchar#plaincharondie)というメソッドはプログラム中から呼ばれていません。
 
 実はこの onDieという名前をつけたメソッドは特別な意味を持ち、そのオブジェクトが死んだときに行わせる処理を記述できます。  
-実際には、敵のオブジェクトが$myChar.die(); を呼んだときに、自動的にこの onDieメソッドが呼ばれます。
+実際には、敵のオブジェクトが$MyChar.die(); を呼んだときに、自動的にこの onDieメソッドが呼ばれます。
 
 onDieメソッドの中では、次の処理によって爆発オブジェクトを出現させています。
 
 ```
- appear(new Bomb($myChar.x , $myChar.y ,$pat_Sample+4));
+ appear(new Bomb($MyChar.x , $MyChar.y ,$pat_Sample+4));
 ```
 
 [appear](./rf-object#objectappear)の使い方をもう一度復習しておきましょう
 
 - **Bomb**は、出現させたいオブジェクトのクラスです。  
-- **$myChar.x** , **$myChar.y** は、オブジェクトの出現する座標です。  
+- **$MyChar.x** , **$MyChar.y** は、オブジェクトの出現する座標です。  
 - **$pat_Sample+4**は、オブジェクトのキャラクタパターンを指定します。ここでは![bomp.png](./img/bomp.png)です。  
 
-**$myChar.x**は、「$myChar**の**x」と解釈できます。  
+**$MyChar.x**は、「$MyChar**の**x」と解釈できます。  
 このように、オブジェクトに続いてドット(.)と変数名書くと、そのオブジェクトが持っている変数を参照することができます。  
 ここでは、自機のいる場所に爆発を出現させるのにこの参照を用いています。  
 

@@ -25,7 +25,7 @@ while(1) {
   if (x<0) vx=2;
   if (x>$screenWidth) vx=-2;
   if (rnd(500)==0) vx=-vx;
-  <span style="color: #f00">if (crashTo($myChar)) $myChar.die();</span>
+  <span style="color: #f00">if (crashTo($MyChar)) $MyChar.die();</span>
   if (vx<0) f=1; else f=0;
   update();
 }
@@ -34,10 +34,10 @@ while(1) {
 まずifの条件部から見ていきましょう
 
 ```
- if (crashTo($myChar)) ...
+ if (crashTo($MyChar)) ...
 ```
 
-crashToは、この敵が自機($myChar)に当たっているかという判定を行います。  
+crashToは、この敵が自機($MyChar)に当たっているかという判定を行います。  
 当たっている場合はif文の後ろが実行されます。
 
 なお、自機の名前は、自機をクリックし、オブジェクトインスペクタで確認できます。
@@ -78,14 +78,14 @@ vx=2;
 while(1) {
   x+=vx;
   if (x<0) vx=2; if (x>$screenWidth) vx=-2; if (rnd(500)==0) vx=-vx;
-  <span style="color: #f00">if (crashTo($myChar)) {
+  <span style="color: #f00">if (crashTo($MyChar)) {
   //↑敵と自機がぶつかったときに
-    if ((vx>0 && $myChar.x&lt;x) || (vx&lt;0 && $myChar.x&gt;x)) {
+    if ((vx>0 && $MyChar.x&lt;x) || (vx&lt;0 && $MyChar.x&gt;x)) {
     //↑敵が右方向、自機が左　または 敵が左方向、自機が右
       die();
       //↑ならば、敵が死ぬ
     } else {
-      $myChar.die();
+      $MyChar.die();
       //↑そうでなければ自機が死ぬ」
     }
   }</span>

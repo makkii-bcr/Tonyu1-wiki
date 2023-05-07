@@ -113,14 +113,14 @@ vx=2;
 while(1) {
   x+=vx;
   if (x&lt;0) vx=2; if (x&gt;$screenWidth) vx=-2; if (rnd(500)==0) vx=-vx;
-  if (crashTo($myChar)) {
+  if (crashTo($MyChar)) {
   //↑敵と自機がぶつかったときに
-    if ((vx&gt;0 && $myChar.x&lt;x) || (vx&lt;0 && $myChar.x&gt;x)) {
+    if ((vx&gt;0 && $MyChar.x&lt;x) || (vx&lt;0 && $MyChar.x&gt;x)) {
     //↑敵が右方向、自機が左　または 敵が左方向、自機が右
       die();
       //↑ならば、敵が死ぬ
     } else {
-      $myChar.die();
+      $MyChar.die();
       //↑そうでなければ自機が死ぬ」
       <span style="color: #f00">$projectManager.loadPage($page_start);</span>
     }

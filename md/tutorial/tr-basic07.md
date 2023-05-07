@@ -78,6 +78,9 @@
 <td><span style="color: #f0f">■</span></td><td>$clPink</td>
 </tr></table>
 
+- **font**  
+テキストのフォントを指定します。
+
 例：
 
 ![ex-text.png](./img/ex-text.png)

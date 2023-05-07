@@ -35,7 +35,7 @@ URLに、[前項](./tr-stg11-1)でアップロードしたCGIのURLを設定し�
 ```
 extends TextChar;
 setVisible(0);
-while(!$myChar.isDied()) {
+while(!$MyChar.isDied()) {
   update();
 }
 setVisible(1);
@@ -54,12 +54,12 @@ setVisible(0);
 ↑これはこのテキストを一旦非表示にするための命令です。
 
 ```
-while(!$myChar.isDead()) {
+while(!$MyChar.isDead()) {
   update();
 }
 ```
 
-↑これは、$myCharつまり自機が死んでいない間、update()を繰り返します。  
+↑これは、$MyCharつまり自機が死んでいない間、update()を繰り返します。  
 [isDead](./rf-plainchar#plaincharisdead) は、オブジェクトが死んでいる( die()メソッドがよばれている)かを検査するメソッドです。
 
 ```

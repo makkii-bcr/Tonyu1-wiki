@@ -22,7 +22,7 @@
 
 default.tonyuprjファイルの```targetVersion```（無い場合は```savedVersion```）の値で、  
 どのTonyuのバージョンで作られたのか判断し、自動的に互換性の設定をします。  
-手動で設定変更したい場合は、下記方法で設定するか、```targetVersion```（無い場合は```targetVersion```を追記）の値を変更します。
+手動で設定変更したい場合は、以降の説明の方法で設定するか、```targetVersion```（無い場合は```targetVersion```を追記）の値を変更します。
 
 ※ ```targetVersion```と```savedVersion```の値は、バージョン値の1000倍です。  
 &emsp; 例）Tonyu**1_29**_2021_1212 → ver**1.29** → **1290**
@@ -50,7 +50,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 ```value```の値は、[$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)を参照  
 
 **【ソースコードから設定する方法】**  
-実行開始時に一度だけ、[$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)を実行するようにプログラムしてください。
 
 #### スプライト描画の回転(angle)の精度
 
@@ -69,7 +69,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 ```value```の値は、[$System.setSpriteAngleAccuracy](./rf-system#systemsetspriteangleaccuracy)を参照  
 
 **【ソースコードから設定する方法】**  
-実行開始時に一度だけ、[$System.setSpriteAngleAccuracy](./rf-system#systemsetspriteangleaccuracy)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$System.setSpriteAngleAccuracy](./rf-system#systemsetspriteangleaccuracy)を実行するようにプログラムしてください。
 
 
 #### sin,cosの精度
@@ -89,7 +89,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 ```value```の値は、[$Math.setSinCosAccuracy](./rf-math#mathsetsincosaccuracy)を参照  
 
 **【ソースコードから設定する方法】**  
-実行開始時に一度だけ、[$Math.setSinCosAccuracy](./rf-math#mathsetsincosaccuracy)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$Math.setSinCosAccuracy](./rf-math#mathsetsincosaccuracy)を実行するようにプログラムしてください。
 
 #### ver1.22以前のゲームをver1.23以降で実行すると、wavがループしてしまう
 - wavのループはver1.23から対応しました
@@ -107,7 +107,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 ```value```の値は、[$mplayer.setSeLoopEnable](./rf-mplayer#mplayersetseloopenable)を参照  
 
 **【ソースコードから設定する方法】**  
-実行開始時に一度だけ、[$mplayer.setSeLoopEnable](./rf-mplayer#mplayersetseloopenable)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$mplayer.setSeLoopEnable](./rf-mplayer#mplayersetseloopenable)を実行するようにプログラムしてください。
 
 ### 手動で互換性の設定をする項目
 
@@ -134,7 +134,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 ```<param name="init_legacy_frame_rate" value="1"/>```を追記してください。  
 
 **【ソースコードから設定する方法】**  
-実行開始時に一度だけ、[$System.setLegacyFrameRate(1);](./rf-system#systemsetlegacyframerate)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$System.setLegacyFrameRate(1);](./rf-system#systemsetlegacyframerate)を実行するようにプログラムしてください。
 
 #### 11025Hz, 22050Hz, 44100Hz以外のwavで再生速度が速くなる（かつ音が高くなる）現象
 - ver1.29以前は、サンプリングレートが11025Hz, 22050Hz, 44100Hz以外のwavは再生速度が速くなるバグがありました。  
@@ -150,7 +150,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 ```<param name="init_sound_play_mode" value="1"/>```を追記してください。  
 
 **【ソースコードから設定する方法】**  
-実行開始時に一度だけ、[$mplayer.setSoundPlayMode(1);](./rf-mplayer#mplayersetsoundplaymode)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$mplayer.setSoundPlayMode(1);](./rf-mplayer#mplayersetsoundplaymode)を実行するようにプログラムしてください。
 
 
 #### 効果音を多数大音量で鳴らすと音割れする現象
@@ -164,7 +164,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 ```<param name="init_volume_limiter" value="0"/>```を追記してください。  
 
 **【ソースコードから設定する方法】**  
-実行開始時に一度だけ、[$mplayer.setVolumeLimiter(0);](./rf-mplayer#mplayersetvolumelimiter)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$mplayer.setVolumeLimiter(0);](./rf-mplayer#mplayersetvolumelimiter)を実行するようにプログラムしてください。
 
 
 #### オブジェクトを大量生成した際、点滅したり動作が遅くなる現象
@@ -177,7 +177,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 ```<param name="init_process_single" value="1"/>```を追記してください。  
 
 **【ソースコードから設定する方法】**  
-実行開始時に一度だけ、[$System.setProcessSingle(1);](./rf-system#systemsetprocesssingle)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$System.setProcessSingle(1);](./rf-system#systemsetprocesssingle)を実行するようにプログラムしてください。
 
 ***
 

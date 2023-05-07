@@ -26,11 +26,11 @@ while (y< nexty ) {
   for (t in $chars) {
     if ( t is Tama && crashTo(t) ) die();
   }
-  if (crashTo($myChar)) $myChar.die();
+  if (crashTo($MyChar)) $MyChar.die();
   update();
 }
 
-<span style="color: #f00">if (x<$myChar.x) vx=2; else vx=-2;
+<span style="color: #f00">if (x<$MyChar.x) vx=2; else vx=-2;
 while (y<$screenHeight) {
   y=y+3;
   x=x+vx;
@@ -59,16 +59,16 @@ yがnextyより小さい(nextyより上)にいるまでは、先ほどまでと�
 そして、動きが変化するところでは、次のような処理を行います
 
 ```
- if (x<$myChar.x) vx=2; else vx=-2;
+ if (x<$MyChar.x) vx=2; else vx=-2;
 ```
 
 vxは、後で説明するように、移動方向のx成分です。
 
-**x<$myChar.x**ならば（つまり、敵の位置が自機より左なら）右に移動するために、  
+**x<$MyChar.x**ならば（つまり、敵の位置が自機より左なら）右に移動するために、  
 vx=2のように移動方向を正の値(右方向)にします。
 
 その後ろについている elseは「そうでなかったら」という意味です。  
-すなわち x<$myChar.x**でない**ならば（つまり、敵の位置が自機より右なら）左に移動するために、  
+すなわち x<$MyChar.x**でない**ならば（つまり、敵の位置が自機より右なら）左に移動するために、  
 vx=-2のように移動方向を負の値(左方向)にします。
 
 上のようにしてvxを設定し、次の処理で実際に移動を行います。
@@ -98,17 +98,17 @@ while (y&lt;nexty) {
   for (t in $chars) {
     if ( t is Tama && crashTo(t) ) die();
   }
-  if (crashTo($myChar)) $myChar.die();
+  if (crashTo($MyChar)) $MyChar.die();
   update();
 }
-if (x<$myChar.x) vx=2; else vx=-2;
+if (x<$MyChar.x) vx=2; else vx=-2;
 while (y<$screenHeight) {
   y=y+3;
   x=x+vx;
   <span style="color: #f00">for (t in $chars) {
     if ( t is Tama && crashTo(t) ) die();
   }
-  if (crashTo($myChar)) $myChar.die();</span>
+  if (crashTo($MyChar)) $MyChar.die();</span>
   update();
 }
 </pre>
@@ -126,7 +126,7 @@ function onDie() {
   for (t in $chars) {
     if ( t is Tama && crashTo(t) ) die();
   }
-  if (crashTo($myChar)) $myChar.die();
+  if (crashTo($MyChar)) $MyChar.die();
 }</span>
 
 nexty=rnd(50)+100;
@@ -135,7 +135,7 @@ while (y&lt;nexty) {
   <span style="color: #f00">atariHantei();</span>
   update();
 }
-if (x<$myChar.x) vx=2; else vx=-2;
+if (x<$MyChar.x) vx=2; else vx=-2;
 while (y<$screenHeight) {
   y=y+3;
   x=x+vx;

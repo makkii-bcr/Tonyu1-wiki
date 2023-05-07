@@ -18,7 +18,7 @@ extends SpriteChar;
 while (y<$screenHeight) {
   y=y+2;
   <span style="color: #f00">if (crashTo($tama)) die();</span>
-  if (crashTo($myChar)) $myChar.die();
+  if (crashTo($MyChar)) $MyChar.die();
   update();
 }
 </pre>
@@ -46,7 +46,7 @@ while (y<$screenHeight) {
   <span style="color: #f00">for (t in $chars) {
     if ( t is Tama && crashTo(t) ) die();
   }</span>
-  if (crashTo($myChar)) $myChar.die();
+  if (crashTo($MyChar)) $MyChar.die();
   update();
 }
 </pre>
@@ -95,7 +95,7 @@ while (y<$screenHeight) {
   for (t in $chars) {
     if ( t is Tama && crashTo(t) ) die();
   }
-  if (crashTo($myChar)) $myChar.die();
+  if (crashTo($MyChar)) $MyChar.die();
   update();
 }
 </pre>

@@ -65,7 +65,7 @@ function atariHantei() {
       $score=$score+10;
     }</span>
   }
-  if (crashTo($myChar)) $myChar.die();
+  if (crashTo($MyChar)) $MyChar.die();
 }
 nexty=rnd(50)+100;
 while (y&lt;nexty) {
@@ -73,7 +73,7 @@ while (y&lt;nexty) {
   atariHantei();
   update();
 }
-if (x<$myChar.x) vx=2; else vx=-2;
+if (x<$MyChar.x) vx=2; else vx=-2;
 while (y<$screenHeight) {
   y=y+3;
   x=x+vx;
