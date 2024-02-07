@@ -4,10 +4,10 @@
 
 ![banner.png](./img/banner.png)
 
-2001-2023 (c) Hoge- Ship  
+2001-2024 (c) Hoge- Ship  
 https://www.tonyu.jp/  
 
-最新版 - Version 1.30（2022-08-05）
+最新版 - Version 1.301（2022-09-16）
 
 ***
 - [Tonyu1とは](./about)

@@ -15,12 +15,29 @@
   - 「コントロールパネル」→「時計、言語、および地域」→「地域と言語」→「管理」タブ→「システム ロケールの変更」→「ワールドワイド言語サポートでUnicode UTF-8を使用」のチェックを外す
 
 ### ダウンロード
-
+<!--
 #### プレリリースバージョン
 
 [開発中のバージョン](./pre-release)です。
-
+-->
 #### 最新バージョン
+
+[Tonyu1_301_2022_0916.zip](./dl/Tonyu1_301_2022_0916.zip)
+
+（2024-02-08 更新）プレリリース版だったものを最新版としてリリース
+
+- 細かい修正
+  - wavの再生処理を軽量化
+    - stopSE無効＆volumeLimiter無効の場合に、処理軽量化するよう実装
+    - モノラルwavしかないときはモノラル再生にして軽量化
+  - mzoでpcm(wav)音源が上手くならないのを修正（Tonyu1.30で発生）
+  - 速いCPUでloopMode==0&&sleepTime==0の時、mzoの音が伸びたような音になるので修正
+  - loopMode==0&&sleepTime==0の時、非アクティブになってもスリープがかからないので修正
+  - loopMode==2を追加
+    - loopMode==0(Busy Loop)とほぼ同じだが、FPSが維持できているときはsleepTime=1、FPSが維持できなくなるとsleepTime=0にする
+  - エディタのインデント挙動修正・インデント高速化
+
+#### 以前のバージョン
 
 [Tonyu1_30_2022_0804.zip](./dl/Tonyu1_30_2022_0804.zip)
 
@@ -93,8 +110,6 @@
   - [$System.setSpriteAngleAccuracy](./rf-system#systemsetspriteangleaccuracy)
   - [$Math.setSinCosAccuracy](./rf-math#mathsetsincosaccuracy)
   - [$window.setDrawModeForceMode](./rf-window#windowsetdrawmodeforcemode)
-
-#### 以前のバージョン
 
 [Tonyu1_29_2021_1212.zip](./dl/Tonyu1_29_2021_1212.zip)
 - 細かい修正
