@@ -25,7 +25,8 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 手動で設定変更したい場合は、以降の説明の方法で設定するか、```targetVersion```（無い場合は```targetVersion```を追記）の値を変更します。
 
 ※ ```targetVersion```と```savedVersion```の値は、バージョン値の1000倍です。  
-&emsp; 例）Tonyu**1_29**_2021_1212 → ver**1.29** → **1290**
+&emsp; 例1）Tonyu**1_29**_2021_1212 → ver**1.29** → **1290**  
+&emsp; 例2）Tonyu**1_302**_2024_0210 → ver**1.302** → **1302**
 
 **項目**
 - [wav,mzoの音量](#wavmzoの音量)
@@ -47,7 +48,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 該当プロジェクトのdefault.tonyuprjファイルを編集します。  
 ```<resourcelist name="params">```で囲われた中に  
 ```<param name="init_base_volume" value="0.5"/>```を追記してください。  
-```value```の値は、[$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)を参照  
+```value```の値（```0.5```の部分）は、[$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)を参照し、設定したい値に変えてください。  
 
 **【ソースコードから設定する方法】**  
 ゲーム起動時などのタイミングで、[$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)を実行するようにプログラムしてください。
@@ -66,7 +67,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 該当プロジェクトのdefault.tonyuprjファイルを編集します。  
 ```<resourcelist name="params">```で囲われた中に  
 ```<param name="init_sprite_angle_accuracy" value="0"/>```を追記してください。  
-```value```の値は、[$System.setSpriteAngleAccuracy](./rf-system#systemsetspriteangleaccuracy)を参照  
+```value```の値（```0```の部分）は、[$System.setSpriteAngleAccuracy](./rf-system#systemsetspriteangleaccuracy)を参照し、設定したい値に変えてください。  
 
 **【ソースコードから設定する方法】**  
 ゲーム起動時などのタイミングで、[$System.setSpriteAngleAccuracy](./rf-system#systemsetspriteangleaccuracy)を実行するようにプログラムしてください。
@@ -86,7 +87,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 該当プロジェクトのdefault.tonyuprjファイルを編集します。  
 ```<resourcelist name="params">```で囲われた中に  
 ```<param name="init_sin_cos_accuracy" value="0"/>```を追記してください。  
-```value```の値は、[$Math.setSinCosAccuracy](./rf-math#mathsetsincosaccuracy)を参照  
+```value```の値（```0```の部分）は、[$Math.setSinCosAccuracy](./rf-math#mathsetsincosaccuracy)を参照し、設定したい値に変えてください。  
 
 **【ソースコードから設定する方法】**  
 ゲーム起動時などのタイミングで、[$Math.setSinCosAccuracy](./rf-math#mathsetsincosaccuracy)を実行するようにプログラムしてください。
@@ -104,7 +105,7 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 該当プロジェクトのdefault.tonyuprjファイルを編集します。  
 ```<resourcelist name="params">```で囲われた中に  
 ```<param name="init_se_loop_enable" value="0"/>```を追記してください。  
-```value```の値は、[$mplayer.setSeLoopEnable](./rf-mplayer#mplayersetseloopenable)を参照  
+```value```の値（```0```の部分）は、[$mplayer.setSeLoopEnable](./rf-mplayer#mplayersetseloopenable)を参照し、設定したい値に変えてください。  
 
 **【ソースコードから設定する方法】**  
 ゲーム起動時などのタイミングで、[$mplayer.setSeLoopEnable](./rf-mplayer#mplayersetseloopenable)を実行するようにプログラムしてください。
@@ -156,15 +157,16 @@ default.tonyuprjファイルの```targetVersion```（無い場合は```savedVers
 #### 効果音を多数大音量で鳴らすと音割れする現象
 - ver1.30より、音割れを防ぐ機能を追加したため、音割れしにくくなります。
 - 大音量の際は音量が自動的に小さくなります。
-- 機能を無効にするには、下記の設定をしてください。
+- **ver1.302より、この機能はデフォルトでOFFになりました。**
+- 機能を有効にするには、下記の設定をしてください。
 
 **【ソースコードを編集しない方法】**  
 該当プロジェクトのdefault.tonyuprjファイルを編集します。  
 ```<resourcelist name="params">```で囲われた中に  
-```<param name="init_volume_limiter" value="0"/>```を追記してください。  
+```<param name="init_volume_limiter" value="1"/>```を追記してください。  
 
 **【ソースコードから設定する方法】**  
-ゲーム起動時などのタイミングで、[$mplayer.setVolumeLimiter(0);](./rf-mplayer#mplayersetvolumelimiter)を実行するようにプログラムしてください。
+ゲーム起動時などのタイミングで、[$mplayer.setVolumeLimiter(1);](./rf-mplayer#mplayersetvolumelimiter)を実行するようにプログラムしてください。
 
 
 #### オブジェクトを大量生成した際、点滅したり動作が遅くなる現象

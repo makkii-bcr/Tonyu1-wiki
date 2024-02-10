@@ -22,6 +22,21 @@
 -->
 #### 最新バージョン
 
+[Tonyu1_302_2024_0210.zip](./dl/Tonyu1_302_2024_0210.zip)
+
+- デフォルト値変更
+  - [$mplayer.setVolumeLimiter](./rf-mplayer#mplayersetvolumelimiter)　音割れを防ぐ機能
+    - 1(有効)→0(無効)
+  - [$System.setLoopMode](./rf-system#systemsetloopmode)　ゲームループ
+    - 2→1 (mmtimer Loop)
+  - [$mplayer.setSeStopEnable](./rf-mplayer#mplayersetsestopenable)　[$mplayer.stopSE](./rf-mplayer#mplayerstopse)の有効・無効設定
+    - 1(有効)→0(無効)
+- ネットランキング
+  - URLに「https」も使えるよう修正
+  - ネットランキングcgiを最近のPerlで動くように修正
+
+#### 以前のバージョン
+
 [Tonyu1_301_2022_0916.zip](./dl/Tonyu1_301_2022_0916.zip)
 
 （2024-02-08 更新）プレリリース版だったものを最新版としてリリース
@@ -33,11 +48,9 @@
   - mzoでpcm(wav)音源が上手くならないのを修正（Tonyu1.30で発生）
   - 速いCPUでloopMode==0&&sleepTime==0の時、mzoの音が伸びたような音になるので修正
   - loopMode==0&&sleepTime==0の時、非アクティブになってもスリープがかからないので修正
-  - loopMode==2を追加
+  - loopMode==2を追加し、デフォルト値に設定
     - loopMode==0(Busy Loop)とほぼ同じだが、FPSが維持できているときはsleepTime=1、FPSが維持できなくなるとsleepTime=0にする
   - エディタのインデント挙動修正・インデント高速化
-
-#### 以前のバージョン
 
 [Tonyu1_30_2022_0804.zip](./dl/Tonyu1_30_2022_0804.zip)
 
@@ -49,6 +62,7 @@
   - wav,mzoの音源をDirectSoundに変更
     - wavのレイテンシが短縮
   - wav,mzoの音量が大きい場合、音割れを防ぐ機能を追加（デフォルト有効）
+    - [$mplayer.setVolumeLimiter](./rf-mplayer#mplayersetvolumelimiter)で設定変更
   - ランタイム版で起動時のウィンドウサイズや位置を指定する機能を追加
     - [$Options.getEnv](./rf-options#optionsgetenv), [$Options.setEnv](./rf-options#optionssetenv)を追加
   - switch文の自動インデントに対応
@@ -102,6 +116,7 @@
   - [$mplayer.setBaseVolume](./rf-mplayer#mplayersetbasevolume)
   - [$mplayer.setVolumeLimiter](./rf-mplayer#mplayersetvolumelimiter)
   - [$mplayer.setSeLoopEnable](./rf-mplayer#mplayersetseloopenable)
+  - [$mplayer.setSeStopEnable](./rf-mplayer#mplayersetsestopenable)
   - [$Options.getEnv](./rf-options#optionsgetenv)
   - [$Options.setEnv](./rf-options#optionssetenv)
   - [$System.setSleepTimeMMT](./rf-system#systemsetsleeptimemmt)

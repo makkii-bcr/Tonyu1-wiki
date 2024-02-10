@@ -22,6 +22,7 @@
 |[setBaseVolume](#mplayersetbasevolume)|wav,mzo再生の全体音量を設定します|
 |[setVolumeLimiter](#mplayersetvolumelimiter)|wav,mzoの音量が大きい場合、音割れを防ぐ機能の有効・無効を設定します|
 |[setSeLoopEnable](#mplayersetseloopenable)|wavのループを有効・無効を設定します|
+|[setSeStopEnable](#mplayersetsestopenable)|stopSEの有効・無効を設定します|
 
 ***
 
@@ -85,6 +86,8 @@ $mplayer.stop();
 
 [setSoundPlayMode(1)](#mplayersetsoundplaymode)以外に設定時、動作します。
 
+※ **stopSEを使う時は、先に[setSeStopEnable](#mplayersetsestopenable)で有効化してください。**
+
 ※ wavの効果音とBGMが50音以上同時に再生されている場合は、正しく停止できない場合があります。
 
 **書式**
@@ -106,6 +109,7 @@ stopSE(id, shortFadeout)
 test.wavというサウンドファイルを読み込んでおく必要があります)
 ```
 extends SpriteChar;
+$mplayer.setSeStopEnable(1); // stopSE有効化
 while (1) {
   if (getkey(90)==1) seID=$mplayer.play($se_test); // Zキーで効果音再生
   if (getkey(88)==1) $mplayer.stopSE(seID); // Xキーで効果音を途中停止
@@ -305,7 +309,7 @@ setVolumeLimiter(enable)
 ```
 - **enable**  
 &emsp;1で有効、0で無効  
-&emsp;デフォルトは1で有効です。
+&emsp;デフォルトは0(無効)です。  
 
 ※ [互換性の設定](./compatibility)[「効果音を多数大音量で鳴らすと音割れする現象」](./compatibility#効果音を多数大音量で鳴らすと音割れする現象)を参照
 
@@ -337,6 +341,21 @@ setSeLoopEnable(enable)
 &emsp;ver1.23以降では、1がデフォルトで有効です。
 
 ※ [互換性の設定](./compatibility)[「ver1.22以前のゲームをver1.23以降で実行すると、wavがループしてしまう」](./compatibility#ver122以前のゲームをver123以降で実行すると、wavがループしてしまう)を参照
+
+***
+
+## $mplayer.setSeStopEnable
+##### (1_30_2022_0804以降)
+
+[$mplayer.stopSE](#mplayerstopse)の有効・無効を設定します
+
+**書式**
+```
+setSeStopEnable(enable)
+```
+- **enable**  
+&emsp;1で有効、0で無効  
+&emsp;デフォルトでは無効になっているので、[$mplayer.stopSE](#mplayerstopse)を使うときは有効化してください。
 
 ***
 
