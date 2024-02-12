@@ -22,18 +22,22 @@
 -->
 #### 最新バージョン
 
-[Tonyu1_302_2024_0210.zip](./dl/Tonyu1_302_2024_0210.zip)
+[Tonyu1_302_2024_0212.zip](./dl/Tonyu1_302_2024_0212.zip)
 
 - デフォルト値変更
   - [$mplayer.setVolumeLimiter](./rf-mplayer#mplayersetvolumelimiter)　音割れを防ぐ機能
     - 1(有効)→0(無効)
   - [$System.setLoopMode](./rf-system#systemsetloopmode)　ゲームループ
     - 2→1 (mmtimer Loop)
+    - 2は廃止
   - [$mplayer.setSeStopEnable](./rf-mplayer#mplayersetsestopenable)　[$mplayer.stopSE](./rf-mplayer#mplayerstopse)の有効・無効設定
     - 1(有効)→0(無効)
 - ネットランキング
   - URLに「https」も使えるよう修正
   - ネットランキングcgiを最近のPerlで動くように修正
+- 処理軽量化
+- [$mplayer.setSoundPlayMode(4)](./rf-mplayer#mplayersetsoundplaymode)で効果音ならなくなる不具合修正
+- 細かい不具合修正
 
 #### 以前のバージョン
 
