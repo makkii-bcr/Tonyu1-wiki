@@ -22,6 +22,12 @@
 -->
 #### 最新バージョン
 
+[Tonyu1_303_2024_0217.zip](./dl/Tonyu1_303_2024_0217.zip)
+
+- [$mplayer.stopSE](./rf-mplayer#mplayerstopse)の不具合修正
+
+#### 以前のバージョン
+
 [Tonyu1_302_2024_0212.zip](./dl/Tonyu1_302_2024_0212.zip)
 
 - デフォルト値変更
@@ -38,8 +44,6 @@
 - 処理軽量化
 - [$mplayer.setSoundPlayMode(4)](./rf-mplayer#mplayersetsoundplaymode)で効果音ならなくなる不具合修正
 - 細かい不具合修正
-
-#### 以前のバージョン
 
 [Tonyu1_301_2022_0916.zip](./dl/Tonyu1_301_2022_0916.zip)
 

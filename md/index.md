@@ -7,7 +7,7 @@
 2001-2024 (c) Hoge- Ship  
 https://www.tonyu.jp/  
 
-最新版 - Version 1.302（2024-02-12）
+最新版 - Version 1.303（2024-02-17）
 
 ***
 - [Tonyu1とは](./about)
