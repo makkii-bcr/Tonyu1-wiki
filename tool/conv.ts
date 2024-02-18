@@ -138,6 +138,9 @@ function convMain() {
 
   const time2 = performance.now();
 
+  // 作業用にhtmlAryをコピー
+  let htmlAryTemp = Array.from(htmlAry);
+
   // htmlを生成
   htmlAry.forEach(async (htmlObj) => {
     // デバッグ時は404.htmlのみ作成
@@ -151,7 +154,13 @@ function convMain() {
     let titleHtmlData = "";
     let htmlDataSum = "";
     let allPageMd = "";
-    htmlAry.forEach((obj) => {
+
+    // 自分のページを最初に持ってくる（低速回線で表示したいページが先に読み込まれるようにするため）
+    let delIdx = htmlAryTemp.findIndex((obj) => fileName == obj.name);
+    let delData = htmlAryTemp.splice(delIdx, 1);
+    htmlAryTemp.unshift(delData[0]);
+
+    htmlAryTemp.forEach((obj) => {
       const name = obj.name;
       const isSelfPage = name == fileName;
       // ヘルプファイルの場合は、1つのhtmlに1つのhtmlのみ入れる（1対1）
