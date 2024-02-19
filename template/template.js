@@ -4,7 +4,7 @@
     var rootPath = '/Tonyu1-wiki';
 
     /** 該当ページを表示 */
-    function showPage(page) {
+    function showPage(page, hash) {
         var isFoundPage = false;
         var pages = document.getElementsByClassName('pagediv');
         for (var i = 0; i < pages.length; i++) {
@@ -25,6 +25,29 @@
             notFoundPageDiv.style.display = 'block';
             document.title = notFoundPageDiv.title;
         }
+    }
+
+    function accessLog(a) {
+        var r = localStorage.getItem('r');
+        var obj = null;
+        if (r == null) {
+            obj = {r: Math.random()};
+            localStorage.setItem('r', JSON.stringify(obj));
+        } else {
+            obj = JSON.parse(r);
+        }
+        sendData({
+            a: a,
+            rf: document.referrer,
+            r: obj.r,
+            u: navigator.userAgent,
+            w: window.innerWidth,
+            h: window.innerHeight,
+            dw: window.screen.width,
+            dh: window.screen.height,
+            l1: navigator.language,
+            la: navigator.languages
+        });
     }
 
     /** 該当ページの画像を読み込む */
@@ -50,8 +73,13 @@
                     var nowPage = getPageFromPopState(document.location.pathname);
                     var page = getPageFromAtag(e);
                     var hashUrl = e.target.hash;
+                    if (!isDev) {
+                        setTimeout(function(){
+                            accessLog(e.target.origin + "/" + e.target.pathname + hashUrl);
+                        }, 0);
+                    }
                     if (page && !page.match(/[\.\/]+/)) { // 「.」や「/」が付いてない時
-                        showPage(page);
+                        showPage(page, hashUrl);
                         // console.log(page);
                         if (page == 'index') {
                             history.pushState(null, null, './' + hashUrl);
@@ -116,23 +144,33 @@
         return null;
     }
 
+    function sendData(data) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://mkbcr.net/api/kss/v1/kss");
+        xhr.send(JSON.stringify(data));
+      }
+
     var locate = function (event) {
         var page = getPageFromPopState(document.location.pathname);
-        showPage(page);
+        showPage(page, document.location.hash);
         event.preventDefault(); // なくてもいいかも
     };
 
     var ready = function (event) {
+        var page = getPageFromPopState(document.location.pathname);
         if (isDev) { // 初期ページの表示処理
-            var page = getPageFromPopState(document.location.pathname);
             if (page != null) {
-                showPage(page);
+                showPage(page, document.location.hash);
                 if (page == 'index') {
                     history.replaceState(null, null, './' + document.location.hash);
                 } else {
                     history.replaceState(null, null, page + document.location.hash);
                 }
             }
+        } else {
+            setTimeout(function(){
+                accessLog(document.location.origin + document.location.pathname + document.location.hash);
+            }, 0);
         }
         convAHref();
         if (typeof window.onpopstate !== 'undefined') {
