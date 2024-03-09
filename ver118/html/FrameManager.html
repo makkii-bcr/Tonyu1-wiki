@@ -1,0 +1,107 @@
+<html>
+<title>FrameManager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>FrameManagerクラス</h2>
+<P>
+１フレームに毎に特別な処理を行いたい場合に使うオブジェクトです
+<P>
+<P>
+ 
+<ul>
+<li>フレームマネージャは１ページに１個しか作成できません
+<li>作成されたフレームマネージャは、作成したときの名前に関係なく<strong>$frameManager</strong>というグローバル変数から参照することができます。
+</ul>
+	
+フレームマネージャには次の３つのメソッドを定義してください。
+<ul>
+<li>onStart
+<li>onBeforeMove
+<li>onAfterMove
+</ul>
+これらのメソッドは、次に示すようなタイミングで呼ばれます。
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>フレームマネージャの動作</strong></font>
+  </td></tr>
+  <tr><td><tt>  <pre>
+実行開始
+   ↓
+onStartを呼び出す
+   ↓
+ <i>*フレーム開始</i>             
+   ↓
+onBeforeMoveを呼び出す
+   ↓
+各オブジェクトが動作する
+   ↓
+onAfterMoveを呼び出す
+   ↓
+各オブジェクトを描画する
+   ↓
+フレーム終了。<i>*フレーム開始</i> へ戻る </pre></tt></td></tr>
+</table>  
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//-------- FrameTest.tonyu--------
+extends FrameManager;
+function onStart() {
+   print ("スタート");
+}
+function onBeforeMove() {
+  ctemp=0;   // TestObjの個数カウンタをリセット
+}
+function onAfterMove() {
+  count=ctemp;
+  drawText(x,y,"TestObj の個数: "+count,$clWhite);
+}
+//-------- End of FrameTest.tonyu--------
+//-------- TestObj.tonyu----(2,3個置いてみましょう)----
+extends SpriteChar;
+vx=rnd(6)-3;
+vy=rnd(6)-3;
+while (screenOut()==0) {
+   $frameManager.ctemp++; //TestObjの個数カウンタ増やす
+   x+=vx;y+=vy;
+   update(); 
+}
+//-------- End of TestObj.tonyu--------
+<P>
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li>onAppear
+<li>onStart
+<li>onBeforeMove
+<li>onAfterMove
+<li>onPause
+<li>onPauseEnd
+<li>doPause
+<li>doPauseEnd
+</ul>
+<P>
+<P>
+<a name="2"><font size="5">変数一覧</font>
+		    
+		    <BR><BR>
+<P>
+<P>
+<P>
+ 
+</font>
+</body></html>

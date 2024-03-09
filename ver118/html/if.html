@@ -1,0 +1,78 @@
+<html>
+<title>if</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<a name="1"><font size="5">if文</font>
+		    
+		    <BR><BR>
+<P>
+<P>
+条件にしたがって、手続きを振り分けます。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+if (条件) 手続き1 
+[
+ else 手続き2 
+]
+ </tt></td></tr>
+</table>  
+<P>
+<i>条件</i>に書かれた計算式の値が<a href="a_bf_bf_b5_b6.html">真</a>である場合は<i>手続き1</i>を実行し、<a href="a_bf_bf_b5_b6.html">偽</a>である場合で、else以降がある場合は<i>手続き2</i>を実行します。
+<P>
+<a name="2"><font size="+1"><strong>条件式の書き方</strong></font>
+		    
+                  <BR>
+<P>
+<i>条件</i>には、次の形式で条件を書きます。条件が成り立ったときが<a href="a_bf_bf_b5_b6.html">真</a>です
+<tt>
+<ul>
+<li>式1 == 式2 : 式1と式2が等しいならば
+<li>式1 =! 式2 : 式1と式2が等しくないならば
+<li>式1 &gt;  式2 : 式1が式2より大きいならば
+<li>式1 &lt;  式2 : 式1が式2より小さいならば
+<li>式1 &gt;= 式2 : 式1が式2以上ならば
+<li>式1 &lt;= 式2 : 式1が式2以下ならば
+<li>式1 (単体) : 式1が0でない、かつnullでもないならば
+</ul>
+</tt>
+<P>
+<a name="3"><font size="+1"><strong>{ } の使い方</strong></font>
+		    
+                  <BR>
+<P>
+<i>手続き1</i>または<i>手続き2</i>の部分に、2つ以上の命令（文）書きたい場合、それらを<strong>{</strong>と<strong>}</strong>で囲ってください。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre>
+(オブジェクトを作成し、ダブルクリック後つぎのように入力します。)
+extends SpriteChar;
+while(1) {
+  if (x&gt;300) {
+    x=0;
+    print ("x=0に戻りました");
+  } else {
+    x=x+1;
+  }
+  update();
+}
+</pre>
+▲ 実行すると、オブジェクトが右に移動しますが、x = 300 の地点で左端に戻り、「x=0に戻りました」と表示します。
+</td></tr></table>
+<HR>
+<a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

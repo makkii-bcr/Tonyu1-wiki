@@ -1,0 +1,71 @@
+<html>
+<title>PlainChar.isDead</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">isDeadメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+オブジェクトが死んでいるかどうかを判定します。
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     isDead() 
+     
+   <table>   
+     
+   </table>   
+     <BR><strong>戻り値:</strong> 死んでいる場合は<a href="a_bf_bf_b5_b6.html">真</a>(0以外の値)、そうでなければ<a href="a_bf_bf_b5_b6.html">偽</a>(0)
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+※ <i>このメソッドは1.09以前では isDied という名前でした。今後はisDeadを使用してください。互換性を保つため、isDied を使用したプログラムも従来通り動作するようになっています。</i>
+<P>
+<a href="PlainChar.die.html">die</a>メソッドが呼ばれるか、プログラムの最後に到達すると
+そのオブジェクトは死んだとみなされます、
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//-----Object1.tonyu-----
+extends SpriteChar;
+i=0;
+while (i&lt;100) {
+   i+=1;update();
+}
+//-----End of Object1.tonyu-----
+//-----Object2.tonyu-----
+extends SpriteChar;
+while (! $Object1.isDead()) {
+   x+=1; update();
+}
+//-----End of Object2.tonyu-----
+<P>
+<P>
+ 
+</pre>
+▲ 
+この例では、$Object1は100フレームたつとプログラムが終了し、死にます。
+$Object2は$Object1が死ぬのを監視しながら、$Object1が死んでない間移動を続け
+$Object1が死ぬと一緒に死にます。
+<P>
+  
+</td></tr></table>
+ 
+</font>
+</body></html>

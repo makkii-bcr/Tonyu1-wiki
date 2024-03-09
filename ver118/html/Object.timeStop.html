@@ -1,0 +1,86 @@
+<html>
+<title>Object.timeStop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Object.html">Objectクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">timeStopメソッド(Objectクラス)</font>
+		    
+		    <BR><BR>
+<P>
+すべてのオブジェクトの動作を停止します。ただし、このメソッドを呼び出したオブジェクトだけ停止しません
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     timeStop() 
+     
+   <table>   
+     
+   </table>   
+     <BR><strong>戻り値:</strong> 新規作成された<a href="TimeStopper.html">TimeStopper</a>オブジェクト。
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+ 
+TimeStopperオブジェクトは、止めた時間をふたたび動かす時に使います。
+<P>
+時間を動かすにはTimeStopperオブジェクトに対して、
+<a href="TimeStopper.release.html">release</a>メソッドや
+<a href="TimeStopper.releaseAll.html">releaseAll</a>メソッドを
+呼び出します。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+// ------- Ball.tonyu-----
+extends SpriteChar;
+while (x&lt;$screenWidth){
+   x+=2;
+   update();
+}
+// -------- Stop.tonyu-------
+extends SpriteChar;
+t=null;
+while (1) {
+  if (t==null) {// まだ時間をとめていなければ
+    if (rnd(60)==0) appear(new Ball(0,rnd($screenHeight),19)); // 玉を出現させる
+    if (getkey(32)==1) { //スペースキーが押されたら時間をとめる
+         t=timeStop();  
+    }          
+  } else {
+     // すでに時間をとめていたら
+     if (getkey(32)==1) { //スペースキーが押されたら時間を動かす
+       t.releaseAll();
+       t=null;
+     }
+     // 玉にふれるとその玉は動き出す
+     for (a in $chars) {
+        if (a is Ball && crashTo(a)) t.release(a);
+     }
+  }
+  if (getkey(39)&gt;0) x+=3;
+  if (getkey(37)&gt;0) x-=3; 
+  if (getkey(40)&gt;0) y+=3;
+  if (getkey(38)&gt;0) y-=3;
+  update(); 
+}
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

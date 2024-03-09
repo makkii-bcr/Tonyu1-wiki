@@ -1,0 +1,110 @@
+<html>
+<title>Object.getkey</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Object.html">Objectクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">getkeyメソッド(Objectクラス)</font>
+		    
+		    <BR><BR>
+<P>
+キーボードのキーやマウスボタンが押されているかどうか判定します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     getkey(<font color="blue">i</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>i</font>
+</td>
+<td>: 調べたいキーのキーID</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> 0:押されていない
+1:今押されたばかり
+2以上:押しっぱなしになっている
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<P>
+ 
+主なキーのキーIDを示します。
+<pre>
+1 マウスの左ボタン
+2 マウスの右ボタン
+4 マウスのホイールボタン
+32 スペースキー
+37 カーソルキー←
+38 カーソルキー↑
+39 カーソルキー→
+40 カーソルキー↓
+48-57 数字0-9(Q W E...の上段に並んでいるキー)
+65-90 アルファベットA-Z
+96-105 テンキーの0-9
+16     左、右シフト（両方16)
+</pre>
+<P>
+これ以外のキーについては、<a href="http://ryota222.hp.infoseek.co.jp/cgi-bin/wiki/wiki.cgi?page=%a5%ad%a1%bc%a5%b3%a1%bc%a5%c9%c9%bd">豆乳レシピ</a>に掲載されています。
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while (1) {
+  if (getkey(32)&gt;0) x+=1;
+  update();
+}
+ 
+</pre>
+▲ スペースキーの状態が押されていると横移動します。
+</td></tr></table>
+ 
+※その他のキーのキーIDの調べ方
+<P>
+<ol>
+<li>新規オブジェクト(新規クラス)を作成
+<li>オブジェクトをダブルクリックし、次のように入力して実行
+<li>押しているキーのキーIDが表示される
+</ol>
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>extends SpriteChar;
+while (1) {
+ i=0; while(i&lt;255) {
+   if (getkey(i)) drawText(i,10,i,color(255,255,255));
+   i=i+1;
+ }
+ update();
+}</pre></td>
+</tr></table>
+<P>
+ 
+※Tonyuがアクティブでないときにgetkeyを無効にする 
+<P>
+$Options.set("deactivate_disableKey",1);
+<P>
+参照： <a href="$Options.set.html">$Options.set</a>メソッド
+<P>
+<P>
+ 
+</font>
+</body></html>

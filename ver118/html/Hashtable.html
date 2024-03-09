@@ -1,0 +1,79 @@
+<html>
+<title>Hashtable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>Hashtableクラス</h2>
+<P>
+複数の値（要素）を入れることが可能なオブジェクトです。各要素へのアクセスにはキーと呼ばれる値を用います。
+<P>
+ 
+<P>
+ハッシュテーブルは、<a href="Array.html">配列</a>のように複数の値（要素）を入れることが可能なオブジェクトです。
+<P>
+配列に入っている要素を参照するときは、「3番目の要素」というように数値を使って要素を参照しましたが、ハッシュテーブルは、「文字
+列"red"に対応する要素」というように任意の値を使って要素を参照できます。
+ なお、上の例で示した"red"のような、要素を参照するための値をキーと呼びます。
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//----Colors.tonyu---------
+extends SpriteChar;
+wait();
+//----End of Colors.tonyu--
+<P>
+//----HashTester.tonyu---------
+extends SpriteChar;
+green=appear(new Colors(100,300,3));
+yellow=appear(new Colors(150,300,5));
+red=appear(new Colors(200,300,7));
+<P>
+h=<a href="new Hashtable.html">new Hashtable</a>();  // ハッシュテーブル作成
+h.<a href="Hashtable.put.html">put</a>("あか",red);       //  キー "あか"   にオブジェクト red  を割り当てる
+h.put("きいろ",yellow);  //  キー "きいろ" にオブジェクトyellowを割り当てる
+h.put("みどり",green);   //  キー "みどり" にオブジェクト greenを割り当てる
+<P>
+s="あか";
+while (1) {
+  s=waitInput("いろ？","あかorみどりorきいろ",s);
+  target=h.<a href="Hashtable.get.html">get</a>(s);  // sをキーとして要素(green,yellow,red、またはnull)をとりだす。
+  if (target!=null) target.y-=16;
+  update();
+}
+//----End of HashTester.tonyu---------
+<P>
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li><a href="Hashtable.get.html">Hashtable.get</a> 
+<li><a href="Hashtable.put.html">Hashtable.put</a> 
+<li><a href="Hashtable.iterator.html">Hashtable.iterator</a> 
+<li><a href="Hashtable.remove.html">Hashtable.remove</a> 
+<li><a href="Hashtable.size.html">Hashtable.size</a> 
+</ul>
+<a name="2"><font size="5">コンストラクタ</font>
+		    
+		    <BR><BR>
+<ul>
+<li><a href="new Hashtable.html">new Hashtable</a>
+</ul>
+<P>
+<P>
+<P>
+ 
+</font>
+</body></html>

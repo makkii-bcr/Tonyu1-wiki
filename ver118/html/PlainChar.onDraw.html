@@ -1,0 +1,56 @@
+<html>
+<title>PlainChar.onDraw</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">onDrawメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+オブジェクトに描画をするときに、特別な処理をする場合にユーザが定義するメソッドです。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+      function 
+     onDraw() 
+     {<BR>
+&nbsp; 処理内容<BR>
+}
+   <table>   
+     
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+onDrawはユーザが直接呼び出さないでください。
+<P>
+<font color=red>※ このメソッドの中でupdateメソッドを呼ばないようにしてください</font>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> function onDraw() {
+  drawText(x,y-30,"Text",$clWhite);
+}
+ 
+</pre>
+▲ このようにすると、オブジェクトの上にTextという文字が表示されまず。
+(設計中でも表示されます)
+</td></tr></table>
+<P>
+<font color=red>※ このメソッド内部でエラーが起きると、設計時にオブジェクトが正しく表示されなくなります。その場合は、onDrawの部分を<a href="a_c3_ed_bc_e1.html">注釈</a>にするなどして、表示の問題を回避してください。</font>
+ 
+</font>
+</body></html>

@@ -1,0 +1,63 @@
+<html>
+<title>$mplayer.play</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="$mplayer.html">$mplayerクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">playメソッド($mplayerクラス)</font>
+		    
+		    <BR><BR>
+<P>
+BGM,効果音を演奏します
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     play(<font color="blue">s</font>,<font color="blue">autoReplay</font>,<font color="blue">vol</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>s</font>
+</td>
+<td>: 演奏するサウンドオブジェクト</td>
+</tr><tr><td>
+<font color=blue>autoReplay</font><i>(省略可能)</i>
+</td>
+<td>: Midiを繰り返し演奏する場合は1</td>
+</tr><tr><td>
+<font color=blue>vol</font><i>(省略可能)</i>
+</td>
+<td>: 効果音の音量(0-128)</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+/*(予め、<a href="BGM_a1_a6_b8_fa_b2_cc_b2_bb.html">BGM・効果音</a>ウィンドウで
+test.wavというサウンドファイルを読み込んでおく必要があります)*/
+extends SpriteChar;
+while (1) {
+  if (getkey(32)==1) {$mplayer.play($se_test);}
+  update();
+}
+</pre>
+▲ スペースキーを押すとtest.wavが鳴ります
+</td></tr></table>
+ 
+</font>
+</body></html>

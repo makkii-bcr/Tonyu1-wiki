@@ -1,0 +1,100 @@
+<html>
+<title>Object.color</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Object.html">Objectクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">colorメソッド(Objectクラス)</font>
+		    
+		    <BR><BR>
+<P>
+<a href="Sprite.fillRect.html">fillRect</a>、<a href="Sprite.drawLine.html">drawLine</a>、<a href="Sprite.drawText.html">drawText</a>などで、描画色を指定します
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     color(<font color="blue">r</font>,<font color="blue">g</font>,<font color="blue">b</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>r</font>
+</td>
+<td>: 赤成分(0-255) </td>
+</tr><tr><td>
+<font color=blue>g</font>
+</td>
+<td>: 緑成分(0-255)</td>
+</tr><tr><td>
+<font color=blue>b</font>
+</td>
+<td>: 青成分(0-255)</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> 色を表す整数
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+drawText(10,10,"赤巻き紙",color(255,50,50));
+drawText(10,40,"青巻き紙",color(50,50,255));
+drawText(10,70,"黄巻き紙",color(255,255,50));
+</pre>
+<P>
+</td></tr></table>
+<P>
+ 
+また、次の8種類の色があらかじめ定義されています。
+<pre>
+変数名     色      colorメソッドによる定義
+$clBlack   <font color=#000000>■</font>黒    color(  8,  8, 16)
+$clRed     <font color=#ff0000>■</font>赤    color(255,  0,  0)
+$clGreen   <font color=#00ff00>■</font>緑    color(  0,255,  0)
+$clYellow  <font color=#ffff00>■</font>黄    color(255,255,  0)
+$clBlue    <font color=#0000ff>■</font>青    color(  0,  0,255)
+$clPink    <font color=#ff00ff>■</font>紫    color(255,  0,255)
+$clAqua    <font color=#00ffff>■</font>水色  color(  0,255,255)
+$clWhite   <font color=#000000>□</font>白    color(255,255,255)
+</pre>
+<P>
+<P>
+<strong>※</strong>  <a href="http://tonyu.kake.info.waseda.ac.jp/joyful/joyful.cgi?mode=res&no=5729">$clBlackの色が中途半端なのは..?</a>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+drawText(10,10,"赤巻き紙",$clRed);
+drawText(10,40,"青巻き紙",$clBlue);
+drawText(10,70,"黄巻き紙",$clYellow);
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="2"><font size="+1"><strong>参照</strong></font>
+		    
+                  <BR>
+<ul>
+<li><a href="Object.colorHSL.html">colorHSL</a>メソッド
+</ul>
+ 
+</font>
+</body></html>

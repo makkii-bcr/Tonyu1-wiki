@@ -1,0 +1,103 @@
+<html>
+<title>PlainChar.crashToLine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">crashToLineメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+オブジェクトと線分の衝突判定を行います。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     crashToLine(<font color="blue">sx</font>,<font color="blue">sy</font>,<font color="blue">dx</font>,<font color="blue">dy</font>,<font color="blue">width</font>,<font color="blue">xx</font>,<font color="blue">yy</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>sx</font>
+</td>
+<td>: 始点のx座標</td>
+</tr><tr><td>
+<font color=blue>sy</font>
+</td>
+<td>: 始点のy座標</td>
+</tr><tr><td>
+<font color=blue>dx</font>
+</td>
+<td>: 終点のx座標</td>
+</tr><tr><td>
+<font color=blue>dy</font>
+</td>
+<td>: 終点のy座標</td>
+</tr><tr><td>
+<font color=blue>width</font>
+</td>
+<td>:  線分の幅</td>
+</tr><tr><td>
+<font color=blue>xx</font><i>(省略可能)</i>
+</td>
+<td>: 判定する点のx座標。省略するとオブジェクトのxの値</td>
+</tr><tr><td>
+<font color=blue>yy</font><i>(省略可能)</i>
+</td>
+<td>: 判定する点のy座標。省略するとオブジェクトのyの値</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> (sx,sy)と(dx,dy)を結ぶ、幅がwidthドットの線分と点(xx,yy)がぶつかっていれば
+真(0でない値)。そうでなければ偽 (0)
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<strong>※</strong>  (sx,sy)と(dx,dy) が一致してしまうとエラーになります
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//------LineRoll.tonyu-----
+extends SpriteChar;
+a=0;
+while (1) {
+  sx=x+cos(a)*100;
+  sy=y+sin(a)*100;
+  drawLine(x,y,sx,sy,$clWhite);
+  update();
+  a+=rnd(10);
+}
+//--end of LineRoll.tonyu-----
+//---- Jiki.tonyu-----
+extends SpriteChar;
+while(1) {
+ if (getkey(39)&gt;0) x+=3;
+ if (getkey(37)&gt;0) x-=3; 
+ if (getkey(40)&gt;0) y+=3;
+ if (getkey(38)&gt;0) y-=3;
+ if (crashToLine($LineRoll.x,$LineRoll.y,$LineRoll.sx,$LineRoll.sy,10)) {
+   die();
+ }
+ update();
+<P>
+}
+//---- end of Jiki.tonyu-----
+<P>
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

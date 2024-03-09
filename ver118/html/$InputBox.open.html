@@ -1,0 +1,78 @@
+<html>
+<title>$InputBox.open</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="$InputBox.html">$InputBoxクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">openメソッド($InputBoxクラス)</font>
+		    
+		    <BR><BR>
+<P>
+文字入力用のウィンドウを開きます。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     open(<font color="blue">title</font>,<font color="blue">prompt</font>,<font color="blue">default</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>title</font>
+</td>
+<td>: 文字入力用のウィンドウのタイトルバーに表示する文字列</td>
+</tr><tr><td>
+<font color=blue>prompt</font>
+</td>
+<td>: プロンプト部分（入力部分のすぐ上）に表示する文字列。改行文字(
+)を使うと複数行表示できます。(Ver1.12から)</td>
+</tr><tr><td>
+<font color=blue>default</font>
+</td>
+<td>: 入力部分にあらかじめ入っている文字列</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<a href="PlainChar.waitInput.html">waitInput</a>と異なり、ユーザがボタン（「Ok」 または「キャンセル」）を押すまで処理を中断しません。
+<P>
+ 
+ユーザがボタン（「Ok」 または「キャンセル」）を押したかは<a href="$InputBox.getStatus.html">$InputBox.getStatus</a> で調べることができます。
+入力された文字の内容は <a href="$InputBox.getText.html">$InputBox.getText</a> で調べることができます。
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends TextChar;
+$InputBox.open("名前の入力","あなたは\nだあれ","ななしの　ごんべ");
+while ($InputBox.getStatus()==0) {
+  text="名前を入力しています..."+$InputBox.getText();
+  update();
+}
+if ($InputBox.getStatus()==1) {  
+   text=$InputBox.getText()+"さん、よろしく！";
+} else {
+   text="キャンセルしました";
+}
+wait();
+<P>
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

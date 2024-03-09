@@ -1,0 +1,57 @@
+<html>
+<title>PanelChar.setText</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PanelChar.html">PanelCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">setTextメソッド(PanelCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+パネルに描画する文字列を指定します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     setText(<font color="blue">t</font>,<font color="blue">c</font>,<font color="blue">sz</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>t</font><i>(省略可能)</i>
+</td>
+<td>:  描画する文字列。省略すると変数textの値を使う </td>
+</tr><tr><td>
+<font color=blue>c</font><i>(省略可能)</i>
+</td>
+<td>:  文字列の色。    省略すると変数col の値を使う </td>
+</tr><tr><td>
+<font color=blue>sz</font><i>(省略可能)</i>
+</td>
+<td>: 文字列の大きさ。省略すると変数sizeの値を使う </td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<strong>※</strong>  実行中は、変数textに値を代入しただけでは画面上のテキストは変わりません。必ずこのメソッドを呼び出してください。
+<P>
+<ul>
+<li>このメソッドを呼び出すとテキストに応じてパネルの大きさが自動的に変わります。
+<li>このメソッドによりテキスト以外の図形は消去されます。テキストと他の図形を混在させたい場合、<a href="Panel.drawText.html">panel.drawText</a>メソッドを使ってください。
+</ul>
+<P>
+ 
+描画時のフォントは、font,bold,italic,underline 変数で指定します。
+これらについては<a href="PanelChar.html">パネルオブジェクト</a>の説明を参照してください
+<P>
+ 
+</font>
+</body></html>

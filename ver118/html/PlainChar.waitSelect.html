@@ -1,0 +1,69 @@
+<html>
+<title>PlainChar.waitSelect</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">waitSelectメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+はい・いいえ選択用のウィンドウを開き、ユーザがウィンドウを閉じるまで処理を中断します。
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     waitSelect(<font color="blue">prompt</font>,<font color="blue">title</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>prompt</font>
+</td>
+<td>:質問文</td>
+</tr><tr><td>
+<font color=blue>title</font>
+</td>
+<td>:文字入力用のウィンドウのタイトルバーに表示する文字列</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> 
+「はい」を押したなら1
+「いいえ」を押すか、ウィンドウ右上のxでウィンドウを閉じた場合0
+<P>
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<strong>※</strong>  処理を中断したくないときは<a href="$SelectBox.open.html">$SelectBox.open</a>を用います。
+<P>
+<strong>※</strong>  <a href="PlainChar.onMouseDown.html">onMouseDown</a>,<a href="PlainChar.onMouseDrag.html">onMouseDrag</a>メソッドの中ではこのメソッドを呼ばないでください
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> extends TextChar;
+text="ここは武器屋です";
+if (waitSelect("剣を買いますか")) {
+   text="ありがとうございました";
+} else {
+   if (waitSelect("それでは、もっといい剣を買いますか")) {
+      text="お金がたりません";
+   } else {
+      text="またどうぞ";
+   }
+}
+wait();</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>
