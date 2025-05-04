@@ -1,0 +1,159 @@
+<html>
+<title>エラーメッセージ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Tonyu System.html">目次</a> <a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+プログラムに書き間違えがあったり、実行中に異常な動作をした場合は、次のようなエラーウィンドウが表示されます。
+<P>
+<img src="../uploads/errwnd%2epng" alt="errwnd.png" border=0>
+<P>
+「エラーのあった場所に移動」を押すと、エラーが起きた場所にカーソルが移動するので、原因を調べてプログラムを訂正してください。
+<P>
+<a name="1"><font size="5">コンパイルエラー</font>
+		    
+		    <BR><BR>
+コンパイルエラーは、ページを読み込んだ時や、実行させようとしたときに発生するエラーです。
+<P>
+<ul>
+<li><strong>「文法エラー」</strong>
+</ul>
+<blockquote>
+ 
+文法が正しくありません。例えば文の末尾にセミコロン(;)がないなどです。
+</blockquote>
+<P>
+<ul>
+<li><strong>「関数xxxは未定義です」</strong>
+</ul>
+<blockquote>
+ 
+呼び出そうとしている関数は定義されていません。関数の綴りが間違っていないか調べてみましょう。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//--ファイルClassA.tonyu--
+extends Object;
+function test(p) {
+&nbsp;print(p);
+}
+testo(p);  // 関数testoは未定義です
+//--ClassA.tonyu終わり--
+</pre>
+<P>
+</td></tr></table>
+<P>
+</blockquote>
+<P>
+<ul>
+<li><strong>「循環参照があります」</strong>
+</ul>
+<blockquote>
+ 
+クラスの親子関係が不正です。例えば、
+ClassAがClassBの親クラスで、かつClassBがClassAの親クラス
+であってはいけません。
+</blockquote>
+<P>
+<a name="2"><font size="5">実行時エラー</font>
+		    
+		    <BR><BR>
+実行時エラーは、プログラム実行中に発生するエラーです。
+<P>
+<ul>
+<li><strong>「xxxはオブジェクトではないため、関数yyyを呼び出せません」</strong>
+</ul>
+<blockquote>
+  a.method1();  のように、他のオブジェクトのメソッドを呼び出そうと
+していますが、aの値がオブジェクトでない（数値やnull）ため
+メソッドを呼べません。
+aの値がおかしくなっていないか調べましょう。
+aの綴りが間違っている場合がよくあります。綴りが間違った変数はnullとみなされます。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+ a=0;
+ a.run();  // 0はオブジェクトでないため、関数runを呼び出せません</pre>
+<P>
+</td></tr></table>
+<P>
+</blockquote>
+<P>
+<ul>
+<li><strong>「リストのインデックスが範囲を超えています(xx)」</strong>
+</ul>
+<blockquote>
+ 
+Array型オブジェクトにおいてget,setメソッドなどをもちいたアクセスを行った場合に、要素を指定するための番号(添字)が範囲外です
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例3</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+a=new Array();
+a.add("apple");a.add("orange");
+b=a.get(3);  // 配列aの要素は２つ（添字は0,1)なのに、添字の番号が3
+</pre>
+<P>
+</td></tr></table>
+<P>
+</blockquote>
+<P>
+<a name="3"><font size="5">その他のエラー</font>
+		    
+		    <BR><BR>
+<ul>
+<li><strong>「モジュールxxxxxのアドレスyyyyでzzzzへの読み込み（書き込み）違反がおきました」</strong>
+</ul>
+<blockquote>
+ 
+</blockquote>
+<ul>
+<li><strong>「参照カウントが負になりました」</strong>
+</ul>
+<blockquote>
+ 
+メソッドの呼び出しが無限に行われると発生する場合があります。
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例4</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+function test(x) {
+  print (x);
+  test(x+1); // 永久にtestが呼ばれる
+} 
+test(3);
+</pre>
+<P>
+</td></tr></table>
+<P>
+それ以外の原因としては、Tonyuシステム自身のバグが考えられます。
+その際は申し訳ありませんが、Tonyuを再起動してください。
+<P>
+</blockquote>
+<P>
+<a href="Tonyu System.html">目次へ</a>
+ 
+</font>
+</body></html>

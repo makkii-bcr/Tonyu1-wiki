@@ -1,0 +1,61 @@
+<html>
+<title>Panel.angle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Panel.html">Panelクラスの説明</a>に戻る
+<HR>
+<a name="1"><font size="5">変数angle</font>
+		    
+		    <BR><BR>
+パネルの回転角度を指定します。単位は度で右回りです。
+<P>
+ 
+<P>
+ 
+参考：
+パネルオブジェクトの回転角度は、次のように指定します。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends PanelChar;
+resize(100,100);
+panel.fillRect(0,0,100,100,$clWhite);
+panel.drawText(0,0,"パネル",$clBlue,18);
+wait(60);
+angle=128; // 回転角度を128度にする
+wait();
+<P>
+</pre>
+<P>
+</td></tr></table>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+// 悪い例
+extends PanelChar;
+resize(100,100);
+panel.fillRect(0,0,100,100,$clWhite);
+panel.drawText(0,0,"パネル",$clBlue,18);
+wait(60);
+panel.angle=128; // panel.alpha に代入しても回転しません
+wait();
+<P>
+<P>
+<P>
+</pre>
+<P>
+</td></tr></table>
+ 
+</font>
+</body></html>

@@ -1,0 +1,89 @@
+<html>
+<title>PanelChar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>PanelCharクラス</h2>
+<P>
+任意の図形（線、四角形、文字などの組み合わせ)が描けるオブジェクトです
+<P>
+<P>
+ 
+<P>
+PanelCharクラスのオブジェクトを作るには、図1のように「パネル」を選びます
+<P>
+<P>
+<strong>図1 :</strong><BR>
+<img src="../uploads/panel%2epng" alt="panel.png" border=0>
+<P>
+変数<a href="PanelChar.panel.html">panel</a>を通じて、<a href="Panel.html">Panel</a>クラスに用意されている描画命令を使うことができます。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends PanelChar;
+resize(200,200);
+while (1) {
+  x=x+1;
+  panel.drawLine(0,0,200,t,$clWhite);
+  t=t+1;
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li><a href="PanelChar.setText.html">setText</a> 
+<li>setFont 
+<li><a href="PanelChar.getWidth.html">getWidth</a> 
+<li><a href="PanelChar.getHeight.html">getHeight</a> 
+<li><a href="PanelChar.resize.html">resize</a>
+<li><a href="Panel.drawSprite.html">panel.drawSprite</a> 
+<li><a href="Panel.drawDxSprite.html">panel.drawDxSprite</a> 
+<li><a href="Panel.drawLine.html">panel.drawLine</a> 
+<li><a href="Panel.getPixel.html">panel.getPixel</a> 
+<li><a href="Panel.fillRect.html">panel.fillRect</a> 
+<li><a href="Panel.copyRect.html">Panel.copyRect</a> 
+<li><a href="Panel.drawText.html">panel.drawText</a>
+<li><a href="Panel.setTransparentColor.html">panel.setTransparentColor</a> 
+<li><a href="Panel.getTransparentColor.html">panel.getTransparentColor</a>
+<li><a href="Panel.setPixel.html">panel.setPixel</a>
+</ul>
+<P>
+<P>
+<a name="2"><font size="5">変数一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li><a href="PanelChar.alpha.html">alpha</a>
+<li><a href="PanelChar.angle.html">angle</a>
+<li><a href="PanelChar.bold.html">bold</a>
+<li><a href="PanelChar.col.html">col</a>
+<li><a href="PanelChar.font.html">font</a>
+<li><a href="PanelChar.height.html">height</a>
+<li><a href="PanelChar.italic.html">italic</a>
+<li><a href="PanelChar.panel.html">panel</a>
+<li><a href="PanelChar.scaleX.html">scaleX</a>
+<li>scaley
+<li><a href="PanelChar.size.html">size</a>
+<li>text
+<li><a href="PanelChar.underLine.html">underLine</a>
+<li><a href="PanelChar.width.html">width</a>
+</ul>
+<P>
+<P>
+ 
+</font>
+</body></html>

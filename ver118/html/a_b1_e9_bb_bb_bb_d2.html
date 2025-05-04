@@ -1,0 +1,72 @@
+<html>
+<title>.演算子</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<P>
+<a name="1"><font size="5">.演算子</font>
+		    
+		    <BR><BR>
+<P>
+<P>
+他のオブジェクトの変数を参照するには . を使います。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> 式 . 変数名</tt></td></tr>
+</table>  
+<P>
+<i>式</i> がオブジェクトの場合 、そのオブジェクトが持っている、<i>変数名</i> で指定された名前をもつ変数を返します。
+<i>式</i> が初期化されていなかったり、式がオブジェクトでないと、 次の<a href="a_a5_a8_a5_e9_a1_bc_a5_e1_a5_c3_a5_bb_a1_bc_a5_b8.html">エラーメッセージ</a>が表示されます。
+<P>
+<table bgcolor=#cccccc><tr><td>
+<font color=red><pre>
+変数$xxxは初期化されていないので、変数yyy を参照できません。
+または
+nullはオブジェクトではないので、変数yyy を参照できません。</pre></font>
+</td></tr></table>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//オブジェクトを２つ作成します。名前は $ObjectA と $ObjectB にして下さい
+//$ObjectAをダブルクリックし、次のように入力します。
+// ------ ObjectA.tonyu :
+extends SpriteChar;
+while (1) {
+  x=x+1;
+  update();
+}
+// ------ ObjectA.tonyu 終わり
+//$ObjectBをダブルクリックし、次のように入力します。
+// ------ ObjectB.tonyu :
+extends SpriteChar;
+while (1) {
+  x= $ObjectA.x +30; // x を、$ObjectAの変数xの値 + 30 にする
+   $ObjectA.y =300; // $ObjectAの変数yの値 を 300 にする
+  update();
+}
+// ------ ObjectB.tonyu終わり
+<P>
+</pre>
+▲ 実行すると、$ObjectA,$ObjectBはともに横に移動します。
+</td></tr></table>
+<P>
+$ObjectA という名前を書き間違えると次のようなメッセージが出ます。名前は間違えないようにしてください。
+<P>
+<table bgcolor=#cccccc><tr><td>
+<font color=red><pre> $xxx は初期化されていないので、変数x を参照できません。</pre></font>
+</td></tr></table>
+<HR>
+<a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

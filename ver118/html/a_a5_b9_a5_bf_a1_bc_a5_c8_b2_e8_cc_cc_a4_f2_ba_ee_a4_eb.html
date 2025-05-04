@@ -1,0 +1,167 @@
+<html>
+<title>スタート画面を作る</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_bc_ab_b5_a1_a4_e4_c5_a8_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">←前</a>　 <a href="a_bc_a1_a4_ce_cc_cc_a4_cb_b0_dc_a4_eb.html">次→</a>　 <a href="a_a4_e1_a4_a4_a4_ed_a4_f3.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">スタート画面を作る</font>
+		    
+		    <BR><BR>
+<P>
+ゲーム開始前のスタート画面を作ってみましょう
+<P>
+まずスタート画面用の新規ページを作ります。
+メニューの「ファイル」＞「プロジェクトに新規ページを追加」を選びます。
+<P>
+<img src="../uploads/npageMenu%2epng" alt="npageMenu.png" border=0>
+<P>
+<img src="../uploads/newTitle%2epng" alt="newTitle.png" border=0>
+<P>
+ゲーム画面のファイルがあるディレクトリと同じディレクトリに、 start.cmmlというファイル名のページを作成します。
+<P>
+&nbsp;ここでは単に"Press Space Key"と表示させ、スペースキーの入力が
+あったらゲーム画面に移動しましょう
+<P>
+<a name="2"><font size="+1"><strong>Press Space Key という文字を表示する</strong></font>
+		    
+                  <BR>
+<P>
+<a href="a_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_a4_f2_ba_ee_a4_eb.html">オブジェクトを作る</a>を参考にオブジェクトを作成します
+ただし、「オブジェクトの種類」に「テキスト」を選択してください。
+<P>
+<img src="../uploads/pressSpace%2epng" alt="pressSpace.png" border=0>
+<P>
+オブジェクトクリックし、オブジェクトインスペクタでtextの値を編集します。
+<P>
+<img src="../uploads/pressSPCText%2epng" alt="pressSPCText.png" border=0>
+<P>
+オブジェクトをダブルクリックし、次のように入力します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends TextChar;
+while(1) {
+  update();
+}</pre></td>
+</tr></table>
+<P>
+実行させると、画面に<strong>Press Space Key</strong>と出ます。
+<P>
+<a name="3"><font size="+1"><strong>ページを変える</strong></font>
+		    
+                  <BR>
+<P>
+さらに、スペースキーを押すと先ほどのゲーム画面に移動するようにします。
+<P>
+まず少し準備が要ります。ツールメインウィンドウの<img src="../uploads/prjMan%2epng" alt="prjMan.png" border=0>を選んでください。
+すると、このように<strong>$page_index</strong>、<strong>$page_start</strong>といった２つの項目が現れます。これは、このゲームが使用するページの一覧です
+<P>
+<img src="../uploads/toolprj%2epng" alt="toolprj.png" border=0>
+<P>
+ここでは、
+<ul>
+<li>スタート画面のページを$page_start
+<li>ゲーム画面のページを$page_index
+</ul>
+としてすすめていきます。
+<P>
+先ほどPress Space Keyを表示させるオブジェクトをダブルクリックし、次のように変更します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends TextChar;
+while(1) {
+<font color="ee1111">  if (getkey(32)&gt;0) $projectManager.loadPage($page_index);</font>
+  update();
+}</pre></td>
+</tr></table>
+<P>
+実行させてみましょう。スペースキーをおすと、先ほどのゲーム画面に移動します。
+&nbsp;プログラムを停止させ、もう一度プロジェクトマネージャを開いてください。"$page_start"の欄をダブルクリックして、スタート画面に移動してください。
+<P>
+<img src="../uploads/selStart%2epng" alt="selStart.png" border=0>
+<P>
+さきほどのプログラムの解説です。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+ if (getkey(32)&gt;0)</pre></td></tr></table>
+<P>
+この部分は、<a href="a_bc_ab_b5_a1_a4_f2_c6_b0_a4_ab_a4_b9(2).html">自機を動かす</a>で説明したように、キーボードの入力を判定します。32はスペースキーを表します。
+&nbsp;スペースキーが押されると、次の部分を実行します。
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+  $projectManager.loadPage($page_index);</pre></td></tr></table>
+<P>
+これは、他のページを読み込む命令で、次のような使い方をします
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt> <a href="$projectManager.loadPage.html">$projectManager.loadPage</a>(ページ名 );</tt></td></tr>
+</table>  
+<P>
+<i>ページ名</i>は、さきほどプロジェクトマネージャで確認したページの名前です。
+<P>
+<img src="../uploads/toolprj%2epng" alt="toolprj.png" border=0>
+<P>
+<ul>
+<li>自機が死んだらスタート画面に戻る
+</ul>
+<P>
+先ほどのページを読み込む命令を使って、自機が死んだらスタート画面に戻るようにしましょう
+<P>
+プロジェクトマネージャを開いてください。"$page_index"の欄をダブルクリックして、ゲーム画面に移動してください。
+<P>
+<img src="../uploads/selindex%2epng" alt="selindex.png" border=0>
+<P>
+敵をダブルクリックし、次のように変更します。
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+vx=2;
+while(1) {
+  x+=vx;
+  if (x&lt;0) vx=2; if (x&gt;$screenWidth) vx=-2; if (rnd(500)==0) vx=-vx;
+  if (crashTo($myChar)) {
+  //↑敵と自機がぶつかったときに
+    if ((vx&gt;0 && $myChar.x&lt;x) || (vx&lt;0 && $myChar.x&gt;x)) {
+    //↑敵が右方向、自機が左　または 敵が左方向、自機が右
+      die();
+      //↑ならば、敵が死ぬ
+    } else {
+      $myChar.die();
+      //↑そうでなければ自機が死ぬ」
+<font color="ee1111">      $projectManager.loadPage($page_start);</font>
+    }
+  }
+  if (vx&lt;0) f=1; else f=0;
+  update();
+}</pre></td>
+</tr></table>
+<P>
+これにより、自機が死ぬとスタート画面($page_start)が読み込まれます。
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_bc_ab_b5_a1_a4_e4_c5_a8_a4_f2_c7_cb_b2_f5_a4_b9_a4_eb.html">←前</a>　 <a href="a_bc_a1_a4_ce_cc_cc_a4_cb_b0_dc_a4_eb.html">次→</a>　 <a href="a_a4_e1_a4_a4_a4_ed_a4_f3.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

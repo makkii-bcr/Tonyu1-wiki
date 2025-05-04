@@ -1,0 +1,71 @@
+<html>
+<title>$map.scrollTo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="$map.html">$mapクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">scrollToメソッド($mapクラス)</font>
+		    
+		    <BR><BR>
+<P>
+画面をスクロールします
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     scrollTo(<font color="blue">sx</font>,<font color="blue">sy</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>sx</font>
+</td>
+<td>: スクロール方向のx座標</td>
+</tr><tr><td>
+<font color=blue>sy</font>
+</td>
+<td>: スクロール方向のy座標</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+ 
+画面全体を、最初の位置から右方向にsxドット,下方向にsyドットだけずらして表示します。
+<P>
+左や上にずらすには、sx,syを負の値にします。
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+// ここに書いてあるプログラムは、実行する前に画面に
+マップを描くことをおすすめします(<a href="a_a5_de_a5_c3_a5_d7_a4_f2_c9_c1_a4_af.html">マップを描く</a>参照)
+extends SpriteChar;
+while(1) {
+  $map.scrollTo(t,t);t+=1;
+  update();
+}
+ 
+</pre>
+▲ 画面全体を右下にスクロールさせます  
+</td></tr></table>
+<P>
+<a name="2"><font size="5">参考</font>
+		    
+		    <BR><BR>
+<a href="http://tonyu.kake.info.waseda.ac.jp/scroll/html/HID00000001.htm">スクロールのサンプル</a>
+ 
+</font>
+</body></html>

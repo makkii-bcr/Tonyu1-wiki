@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text-html; charset=utf-8">
+<TITLE>自機を動かす</TITLE>
+<STYLE TYPE="text/css">a:hover{font-weight:bold;}</STYLE>
+</HEAD>
+<BODY bgcolor="#FFFFE2">
+<SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">
+<a href="HID00000001.htm">トップへ</a>&emsp;
+<a href="../../../../tutorial">チュートリアル</a>&emsp;
+<a href="../../../../">Wikiトップ</a>
+<BR>
+<BR>
+<b>自機を動かす<BR>
+<BR>
+</b>自機を動かすプログラムを書きます<BR>
+<BR>
+</DIV><LI>カーソルキーで動かす<BR>
+</DIV><BR>
+自機をダブルクリックし、次のように入力します。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if (getkey(39)) x+=3; // カーソルキー右が押されたら右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37)) x-=3; // カーソルキー左が押されたら左へ移動<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"> F9を押して実行します。カーソルキーの左右を使って自機が動きます。<BR>
+F2で停止できます。<BR>
+<BR>
+</DIV><LI>落下する<BR>
+</DIV><BR>
+でも動きが何か変です。まず、横から見た画面ですから落下する必要があります。<BR>
+そこで次の文を追加してみましょう。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if (getkey(39)) x+=3; // カーソルキー右が押されたら右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37)) x-=3; // カーソルキー左が押されたら左へ移動<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">   y+=vy;    // vy: y 方向の速度。 yにvy を加える<BR>
+&nbsp;&nbsp;vy+=0.5;  // 落下速度を上げる<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">   update();<BR>
+}<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"> F9を押して実行します。すると自機はあっという間に落下していきました。<BR>
+<BR>
+</DIV><LI>床に着地する<BR>
+</DIV><BR>
+今度は落下しっぱなしで、ブロックに当たってもすりぬけてしまいました。<BR>
+そこで、ブロックに当たったら落下が止まる判定を行います。<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if (getkey(39)) x+=3; // カーソルキー右が押されたら右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37)) x-=3; // カーソルキー左が押されたら左へ移動<BR>
+&nbsp;&nbsp;y+=vy;    // vy: y 方向の速度。 yにvy を加える<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">   if ($map.getAt(x,y+24)==$pat_Block+0 ) { // ブロックに当たっていたら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy=0; // 落下速度を0にする<BR>
+&nbsp;&nbsp;} else { // ブロックに当たっていなかったら<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">      vy+=0.5;  // 落下速度を上げる<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">   }</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"> F9を押して実行します。自機は落下してブロックのところで止まりました。</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</SPAN><b><SPAN STYLE="color:#800000;font-size:12pt;font-family:ＭＳ ゴシック"> [ $map.getAt メソッド ]</SPAN></b><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+指定した場所にあるマップのキャラクタパターンを得ます。<BR>
+$map.getAt(x,y+24) は、自機の中心から24ドット下方向に行った点(自機の足元あたりに)におけるマップパターンを調べます。なにもないところでは-1になります。<BR>
+&nbsp;このメソッドが返してくる値は、その場にあるマップのキャラクタパターンですが、どのパターンがどの値を返すかは、つぎの手順で調べます。<BR>
+<BR>
+1. <a href="HID00000002.htm">マップを作る</a>で使ったキャラクタパターンウィンドウを開きます<BR>
+2. キャラクタパターンを選びます。次の図緑枠の部分にキャラクタパターンが表示されます。<BR>
+<BR>
+<IMG src="../images/confirmBlockPat.png" ALT="" BORDER=0></SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">この場合、自分の足元がブロックのパターンだったら、vy=0; とし、落下を止めます。<BR>
+そうでなければ、先程と同様落下します。<BR>
+<BR>
+</DIV><LI>左右の壁に入れなくする<BR>
+</DIV></SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">無事床に着地したので、ちょっと歩いてみましょう。カーソルキーの右で右へ移動します。<BR>
+<BR>
+<IMG src="../images/yokoMeri.png" ALT="" BORDER=0><BR>
+<BR>
+また変なことになったようです。そのまま右側の壁にめりこんでどんどん進めてしまいます。<BR>
+これを防止するには、先程の$map.getAtメソッドを使います。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if (getkey(39) </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> && $map.getAt(x+16,y)!=$pat_Block+0</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> ) x+=3;<BR>
+&nbsp;&nbsp;// ↑ カーソルキー右が押され、さらに</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">右側が壁でなければ</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37) </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> && $map.getAt(x-16,y)!=$pat_Block+0</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> ) x-=3;<BR>
+&nbsp;&nbsp;// ↑ カーソルキー左が押され、さらに</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">左側が壁でなければ</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">左へ移動<BR>
+&nbsp;&nbsp;y+=vy;    // vy: y 方向の速度。 yにvy を加える<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">   </SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> if ($map.getAt(x,y+24)==$pat_Block+0 ) { // ブロックに当たっていたら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy=0; // 落下速度を0にする<BR>
+&nbsp;&nbsp;} else { // ブロックに当たっていなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy+=0.5;  // 落下速度を上げる<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;update();<BR>
+}</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $map.getAt(x+16,y)</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">  は自分より16ドットだけ右側の場所におけるマップパターンを調べます。<BR>
+この値がブロック(壁)のパターン=$pat_Block+0 でない場合だけ右に進めるようにします。左方向についても同様な処理を書きます。<BR>
+<BR>
+</SPAN><i><SPAN STYLE="color:#008080;font-size:12pt;font-family:ＭＳ ゴシック"> * 左に動かしたら ...?<BR>
+</i><BR>
+プログラム開始後、自機を左に動かすと画面外に消えてしまいます。この場合、F2でプログラムを止めてください。この問題は後で解決しますので、とりあえず画面をでないように動かしてください。<BR>
+<BR>
+</DIV><LI></SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">ジャンプする</SPAN><SPAN STYLE="color:#008080;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</DIV><BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">スペースキーを押すとジャンプできるようにします。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if (getkey(39) && $map.getAt(x+16,y)!=$pat_Block+0) x+=3;<BR>
+&nbsp;&nbsp;// ↑ カーソルキー右が押され、さらに右側が壁でなければ右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37) && $map.getAt(x-16,y)!=$pat_Block+0) x-=3;<BR>
+&nbsp;&nbsp;// ↑ カーソルキー左が押され、さらに左側が壁でなければ左へ移動<BR>
+&nbsp;&nbsp;y+=vy;    // vy: y 方向の速度。 yにvy を加える<BR>
+&nbsp;&nbsp;if ($map.getAt(x,y+24)==$pat_Block+0 ) { // ブロックに当たっていたら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy=0; // 落下速度を0にする<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> if (getkey(32)) vy=-10; // スペースキーを押したらジャンプ<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">   } else { // ブロックに当たっていなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy+=0.5;  // 落下速度を上げる<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"> vy を負の値(-10)にすることにより、上方向の力を加えることができます。<BR>
+<BR>
+</DIV><LI>向きを変える</SPAN><SPAN STYLE="color:#008080;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</DIV></SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+現在の状態では、自機がずっと右を向いています。左に移動しているときは左右反転して表示するようにします。<BR>
+</SPAN><SPAN STYLE="color:#008080;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if (getkey(39) && $map.getAt(x+16,y)!=$pat_Block+0) </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">{<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">     x+=3;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> f=0;<BR>
+&nbsp;&nbsp;}</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+&nbsp;&nbsp;// ↑ カーソルキー右が押され、さらに右側が壁でなければ右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37) && $map.getAt(x-16,y)!=$pat_Block+0) </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">{<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">     x-=3;<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">     f=1;<BR>
+&nbsp;&nbsp;}<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">   // ↑ カーソルキー左が押され、さらに左側が壁でなければ左へ移動<BR>
+&nbsp;&nbsp;y+=vy;    // vy: y 方向の速度。 yにvy を加える<BR>
+&nbsp;&nbsp;if ($map.getAt(x,y+24)==$pat_Block+0 ) { // ブロックに当たっていたら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy=0; // 落下速度を0にする<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (getkey(32)) vy=-10; // スペースキーを押したらジャンプ<BR>
+&nbsp;&nbsp;} else { // ブロックに当たっていなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy+=0.5;  // 落下速度を上げる<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;update();<BR>
+}</SPAN><SPAN STYLE="color:#008080;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">変数fに1を代入すると、左右を反転した絵を表示します。 0 でもとの絵を表示します。<BR>
+<BR>
+<a href="HID00000005.htm">次へ</a><BR>
+</SPAN></DIV><BR>
+</BODY>
+</HTML>

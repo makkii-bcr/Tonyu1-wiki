@@ -1,0 +1,81 @@
+<html>
+<title>Sprite.setFont</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Sprite.html">Spriteクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">setFontメソッド(Spriteクラス)</font>
+		    
+		    <BR><BR>
+<P>
+<a href="Sprite.drawText.html">drawText</a>メソッドで描画する文字フォントを指定します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     setFont(<font color="blue">name</font>,<font color="blue">bold</font>,<font color="blue">italic</font>,<font color="blue">underLine</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>name</font>
+</td>
+<td>: フォント名</td>
+</tr><tr><td>
+<font color=blue>bold</font><i>(省略可能)</i>
+</td>
+<td>: 太字にする場合は1、そうでない場合0にするか省略する</td>
+</tr><tr><td>
+<font color=blue>italic</font><i>(省略可能)</i>
+</td>
+<td>: 斜体にする場合は1、そうでない場合0にするか省略する</td>
+</tr><tr><td>
+<font color=blue>underLine</font><i>(省略可能)</i>
+</td>
+<td>: 下線つきにする場合は1、そうでない場合0にするか省略する</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+ 
+フォント名と指定できる文字列は
+"ＭＳ 明朝"
+"ＭＳ ゴシック"
+などです。ＭＳと明朝の間は半角スペースです
+<P>
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+while (1) {
+  setFont ("ＭＳ 明朝",0,1);
+  drawText(x,y-30,"フォントが変わりました",$clWhite);
+  update();
+}
+<P>
+<P>
+ 
+</pre>
+▲ 
+オブジェクトの上に明朝体、斜体で"フォントが変わりました"を表示します。
+なお、実行開始時は"ＭＳ Ｐゴシック"、太字、斜体、下線すべてなしに設定されます
+  
+</td></tr></table>
+ 
+</font>
+</body></html>

@@ -1,0 +1,68 @@
+<html>
+<title>AnimationAdaptor.loop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="AnimationAdaptor.html">AnimationAdaptorクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">loopメソッド(AnimationAdaptorクラス)</font>
+		    
+		    <BR><BR>
+<P>
+指定したアニメーションを繰り返し実行します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     loop(<font color="blue">from</font>,<font color="blue">to</font>,<font color="blue">spd</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>from</font>
+</td>
+<td>: アニメーションの最初のキャラクタパターン</td>
+</tr><tr><td>
+<font color=blue>to</font>
+</td>
+<td>: アニメーションの最後のキャラクタパターン </td>
+</tr><tr><td>
+<font color=blue>spd</font>
+</td>
+<td>: アニメーション速度( spdフレームにつき1パターン進む 。 1が最速 )</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+anim=newAnimation();
+anim.loop($Pat_Sample+4,$Pat_Sample+6,3);
+wait();
+ 
+</pre>
+▲ このオブジェクトは、図1のように$Pat_Sample+4から$Pat_Sample+6までを順番に表示し、再び$Pat_Sample+4に戻るという動作を繰り返
+します。  
+</td></tr></table>
+<P>
+<P>
+<strong>図1 :</strong><BR>
+<img src="../uploads/bpats4%2epng" alt="bpats4.png" border=0>
+ 
+</font>
+</body></html>

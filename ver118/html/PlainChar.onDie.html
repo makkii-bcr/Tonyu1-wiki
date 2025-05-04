@@ -1,0 +1,56 @@
+<html>
+<title>PlainChar.onDie</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">onDieメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+オブジェクトが死んだときに特別な処理をしたいときにユーザが定義するメソッドです。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+      function 
+     onDie() 
+     {<BR>
+&nbsp; 処理内容<BR>
+}
+   <table>   
+     
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<strong>※</strong>  onDieは自動的に呼ばれます。ユーザが直接呼び出さないでください。
+<P>
+<font color=red>※ onDieの中でupdateメソッドを呼ばないようにしてください</font>
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+function onDie() {
+  $score=$score+10;
+}
+<P>
+ 
+</pre>
+▲ このように定義しておくと、このオブジェクトが死ぬ度に$scoreが10増えます。
+</td></tr></table>
+ 
+</font>
+</body></html>

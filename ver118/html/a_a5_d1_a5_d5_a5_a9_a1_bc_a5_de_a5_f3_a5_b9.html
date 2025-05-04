@@ -1,0 +1,80 @@
+<html>
+<title>パフォーマンス</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<a href="a_b3_c6_bc_ef_a5_a6_a5_a3_a5_f3_a5_c9_a5_a6_a4_ce_bb_c8_a4_a4_ca_fd_2f_a5_aa_a5_d7_a5_b7_a5_e7_a5_f3.html">各種ウィンドウの使い方</a>
+<P>
+<a name="1"><font size="5">パフォーマンス</font>
+		    
+		    <BR><BR>
+実行速度に関する情報を表示します。
+メニューの「ウィンドウ」＞「パフォーマンス」で開くことができます。
+<P>
+<img src="../uploads/perform%2epng" alt="perform.png" border=0>
+<P>
+<ul>
+<li><strong>FPS</strong>
+</ul>
+<blockquote>
+ 1秒間あたりの描画枚数を表示します。
+</blockquote>
+<P>
+<ul>
+<li><strong>オブジェクト数</strong>
+</ul>
+<blockquote>
+ 現在出現しているオブジェクトの数です。多くなるほど処理は重くなります。
+どのオブジェクトがどれくらい出現しているかは、<a href="a_a5_aa_a5_d6_a5_b8_a5_a7_a5_af_a5_c8_b0_ec_cd_f7.html">オブジェクト一覧</a>を参照してください
+</blockquote>
+<P>
+<ul>
+<li><strong>CPU負荷</strong>
+</ul>
+<blockquote>
+ 通常は「最大」にしておいて問題ありませんが、他のアプリケーションとTonyuを同時に使っていて、他のアプリケーションが遅すぎる場合は、「節約」側にすることで処理が軽くなります。ただし、描画枚数も減ります。
+</blockquote>
+<P>
+<ul>
+<li><strong><font color=red>!!処理が重過ぎます。update()を忘れている可能性があります。!!</font></strong>
+</ul>
+<blockquote>
+ 
+  通常は表示されませんが、例えば、つぎのようなプログラムを実行すると表示されます。
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre>
+extends SpriteChar;
+while(1) {
+&nbsp;&nbsp;x+=1;
+}</pre>
+<P>
+</td></tr></table>
+<P>
+このようにwhileループ中に<a href="PlainChar.update.html">update</a>メソッドがないと、処理が大変重くなる場合があります。プログラムを見直してください。この場合次のように修正します。
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例2</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre>
+extends SpriteChar;
+while(1) {
+&nbsp;&nbsp;x+=1;
+<font color="ee1111">  update();</font>
+}</pre>
+<P>
+</td></tr></table>
+<P>
+</blockquote>
+ 
+</font>
+</body></html>

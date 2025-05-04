@@ -1,0 +1,124 @@
+<html>
+<title>自機や敵を破壊する</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_c5_a8_a4_f2_c6_b0_a4_ab_a4_b9(2).html">←前</a>　 <a href="a_a5_b9_a5_bf_a1_bc_a5_c8_b2_e8_cc_cc_a4_f2_ba_ee_a4_eb.html">次→</a>　 <a href="a_a4_e1_a4_a4_a4_ed_a4_f3.html">トップ</a></td>
+</tr></table>
+<P>
+<a name="1"><font size="5">自機や敵を破壊する</font>
+		    
+		    <BR><BR>
+<P>
+このゲームでは、敵をやっつける方法が少々変わっていて
+「敵の背後から体当たりする」という方法を使います
+<P>
+<img src="../uploads/how2kill%2epng" alt="how2kill.png" border=0>
+<P>
+<a name="2"><font size="+1"><strong>敵と自機がぶつかったら、自機が死ぬ</strong></font>
+		    
+                  <BR>
+<P>
+とりあえず、敵にぶつかったら自機が死ぬようにしましょう
+<P>
+敵オブジェクトをダブルクリックして、次の行を追加します
+<P>
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+vx=2;
+while(1) {
+ x+=vx;
+ if (x&lt;0) vx=2;
+ if (x&gt;$screenWidth) vx=-2;
+ if (rnd(500)==0) vx=-vx;
+<font color="ee1111"> if (crashTo($myChar)) $myChar.die();</font>
+ if (vx&lt;0) f=1; else f=0;
+ update();
+}</pre></td>
+</tr></table>
+<P>
+まずifの条件部から見ていきましょう
+<P>
+<table bgcolor=#ddddff><tr><td><pre>
+ if (crashTo($myChar)) ...</pre></td></tr></table>
+<P>
+ crashToは、この敵が自機($myChar)に当たっているかという判定を行います。
+当たっている場合はif文の後ろが実行されます。
+<P>
+なお、自機の名前は、自機をクリックし、オブジェクトインスペクタで確認できます。
+<P>
+<a name="3"><font size="+1"><strong>敵と自機がぶつかったら、敵が死ぬ</strong></font>
+		    
+                  <BR>
+<P>
+このままだと必ず自機が死ぬので、自機が敵の背後からぶつかった場合には、敵のほうが死ぬようにしましょう。
+<P>
+　ところで「背後からぶつかる」というのをもう少し詳しく説明すると
+<P>
+　「敵の進行方向と<strong>反対側</strong>から自機がぶつかる」
+<P>
+ということになります、もうすこし具体的にいうと
+<P>
+　「敵が<strong>右</strong>(左)に進んでいるとき、自機が<strong>左</strong>(右)からぶつかる」
+<P>
+となります。
+<P>
+さらに、「自機が左(右)からぶつかる」は、いいかえると
+<P>
+  「敵と自機がぶつかったとき、自機が敵より左(右)にいる」
+<P>
+となります。
+<P>
+　これらのことをまとめると
+<P>
+<blockquote><pre>
+「敵と自機がぶつかったときに、
+　　敵が右に進んでいて、自機が左にいる　または
+　　敵が左に進んでいて、自機が右にいる
+　　ならば、敵が死ぬ。そうでなければ自機が死ぬ」
+</pre></blockquote>
+<P>
+という条件を記述すればよさそうです。
+ これらを踏まえて、プログラムは次のようになります。
+　　
+<table border=1 bgcolor="#ffffee">
+<P>
+<P>
+<tr>
+<td><pre>
+extends SpriteChar;
+vx=2;
+while(1) {
+  x+=vx;
+  if (x&lt;0) vx=2; if (x&gt;$screenWidth) vx=-2; if (rnd(500)==0) vx=-vx;
+<font color="ee1111">  if (crashTo($myChar)) {
+  //↑敵と自機がぶつかったときに
+    if ((vx&gt;0 && $myChar.x&lt;x) || (vx&lt;0 && $myChar.x&gt;x)) {
+    //↑敵が右方向、自機が左　または 敵が左方向、自機が右
+      die();
+      //↑ならば、敵が死ぬ
+    } else {
+      $myChar.die();
+      //↑そうでなければ自機が死ぬ」
+    }
+  }</font>
+  if (vx&lt;0) f=1; else f=0;
+  update();
+}</pre></td>
+</tr></table>
+<P>
+<table bgcolor=#eeddff>
+<tr>
+<td bgcolor=#ccaaff width=16></td>
+<td> <a href="a_c5_a8_a4_f2_c6_b0_a4_ab_a4_b9(2).html">←前</a>　 <a href="a_a5_b9_a5_bf_a1_bc_a5_c8_b2_e8_cc_cc_a4_f2_ba_ee_a4_eb.html">次→</a>　 <a href="a_a4_e1_a4_a4_a4_ed_a4_f3.html">トップ</a></td>
+</tr></table>
+ 
+</font>
+</body></html>

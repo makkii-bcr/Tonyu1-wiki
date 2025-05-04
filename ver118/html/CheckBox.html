@@ -1,0 +1,58 @@
+<html>
+<title>CheckBox</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<H2>CheckBoxクラス</h2>
+<P>
+チェックボックスを作成します
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends CheckBox; // 必ずCheckBoxを親クラスにしてください
+<P>
+a=new Array();
+a.add("OFF");a.add("OFF");a.add("OFF");a.add("OFF");a.add("OFF");a.add("OFF");
+init(6);
+while(1) {
+  if (create(60,120,0,$clBlack)==1) a.set(0,"ON");else a.set(0,"OFF");
+  if (create(60,140,1,$clRed)==1) a.set(1,"ON");else a.set(1,"OFF");
+  if (create(60,160,2,$clGreen)==1) a.set(2,"ON");else a.set(2,"OFF");
+  if (create(110,120,3,$clYellow)==1) a.set(3,"ON");else a.set(3,"OFF");
+  if (create(110,140,4,$clPink)==1) a.set(4,"ON");else a.set(4,"OFF");
+  if (create(110,160,5,$clWhite)==1) a.set(5,"ON");else a.set(5,"OFF");
+  drawText(75,120,a.get(0),$clBlack,10);
+  drawText(75,140,a.get(1),$clBlack,10);
+  drawText(75,160,a.get(2),$clBlack,10);
+  drawText(125,120,a.get(3),$clBlack,10);
+  drawText(125,140,a.get(4),$clBlack,10);
+  drawText(125,160,a.get(5),$clBlack,10);
+  update();
+}
+</pre>
+<P>
+</td></tr></table>
+<P>
+<a name="1"><font size="5">メソッド一覧</font>
+		    
+		    <BR><BR>
+<P>
+<ul>
+<li><a href="CheckBox.init.html">init</a>
+<li><a href="CheckBox.create.html">create</a>
+</ul>
+<P>
+<P>
+<P>
+ 
+</font>
+</body></html>

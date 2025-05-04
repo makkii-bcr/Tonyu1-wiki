@@ -1,0 +1,68 @@
+<html>
+<title>PlainChar.notify</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="PlainChar.html">PlainCharクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">notifyメソッド(PlainCharクラス)</font>
+		    
+		    <BR><BR>
+<P>
+<a href="PlainChar.wait.html">wait</a>メソッドで待機状態にあるオブジェクトの動作を再開します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     notify() 
+     
+   <table>   
+     
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+//------- WaitObj.tonyu ($waitObj) --------
+extends SpriteChar;
+wait();
+while(1) {
+  x+=8;
+  wait(8);
+}
+//-----End of WaitObj.tonyu---------------------
+<P>
+//--------NotifyObj.tonyu ($notifyObj)-------
+extends SpriteChar;
+while(getkey(32)==0) {
+  update();
+}
+$waitObj.notify();
+//--------End of NotifyObj.tonyu------------
+ 
+</pre>
+▲ 
+$waitObjは、プログラム開始時にwait()によって待機状態になります。
+スペースキーを押すと、$notifyObjが$waitObjに対してnotify() を呼び、
+$waitObjの動作が始まります。
+<P>
+<P>
+  
+</td></tr></table>
+ 
+</font>
+</body></html>

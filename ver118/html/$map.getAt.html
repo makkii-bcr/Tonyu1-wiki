@@ -1,0 +1,61 @@
+<html>
+<title>$map.getAt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="$map.html">$mapクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">getAtメソッド($mapクラス)</font>
+		    
+		    <BR><BR>
+<P>
+画面上の座標からマップパターンを取得します
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     getAt(<font color="blue">sx</font>,<font color="blue">sy</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>sx</font>
+</td>
+<td>: 画面の座標上のx座標</td>
+</tr><tr><td>
+<font color=blue>sy</font>
+</td>
+<td>: 画面の座標上のy座標</td>
+</tr>
+   </table>   
+     <BR><strong>戻り値:</strong> 画面の座標sx,syにおけるキャラクタパターン番号を返します。<BR>
+「画面の座標」とは、図1のように1ドットを単位とした座標です。
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> pa=$map.getAt(72,56);
+ 
+</pre>
+▲ 
+図1の緑枠の部分のキャラクタパターンを返します
+  
+</td></tr></table>
+<P>
+<P>
+<strong>図1 :</strong><BR>
+<img src="../uploads/map_getAt%2epng" alt="map_getAt.png" border=0>
+ 
+</font>
+</body></html>

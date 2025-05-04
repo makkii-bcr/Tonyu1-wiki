@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text-html; charset=utf-8">
+<TITLE>敵を作る</TITLE>
+<STYLE TYPE="text/css">a:hover{font-weight:bold;}</STYLE>
+</HEAD>
+<BODY bgcolor="#FFFFE2">
+<SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">
+<a href="HID00000001.htm">トップへ</a>&emsp;
+<a href="../../../../tutorial">チュートリアル</a>&emsp;
+<a href="../../../../">Wikiトップ</a>
+<BR>
+<BR>
+<b>敵を作る</b><BR>
+<BR>
+今回作る敵は次のような動きにします<BR>
+<BR>
+</DIV><LI>地上を歩く<BR>
+<LI>進行方向に壁（自分と同じ高さのブロック）があると引き返す<BR>
+<LI>進行方向に床（自分の足元にあるブロック）がなくなっても引き返す<BR>
+</DIV><BR>
+メニューの「オブジェクト」＞「新規」選び、次のように入力します。<BR>
+<BR>
+<IMG src="../images/newEnemy.png" ALT="" BORDER=0><BR>
+<BR>
+リソースキットから、Enemy1.bmpを追加します。<BR>
+<a href="HID00000003.htm">自機を作る</a>を参考に、キャラクタパターンを設定します。<BR>
+<BR>
+<IMG src="../images/selEnemyPat.png" ALT="" BORDER=0><BR>
+<BR>
+まず、次の２つの動きを作成します<BR>
+</DIV><LI>地上を歩く<BR>
+<LI>進行方向に壁（自分と同じ高さのブロック）があると引き返す<BR>
+</DIV><BR>
+とりあえず<BR>
+</DIV><LI>進行方向に床（自分の足元にあるブロック）がなくなっても引き返す<BR>
+</DIV>という処理はまだしなくていいように、壁と壁の間に敵を配置します。<BR>
+このような地形がない場合、<a href="HID00000002.htm">マップを作る</a>を参考に壁を置いてください<BR>
+<BR>
+<IMG src="../images/oufuku.png" ALT="" BORDER=0><BR>
+<BR>
+敵オブジェクトをダブルクリックして次のように入力します。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+vx=2;  // 進行方向<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if ($map.getAt(x+vx,y)==$pat_Block+0) { // 進行方向のマップパターンを調べ、ブロックのパターンだったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;updateEx(30);    // 30フレーム待機<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;vx=-vx;          // 進行方向を反転する<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;x+=vx;  // 進行方向へ進む<BR>
+&nbsp;&nbsp;update();<BR>
+}</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+実行すると、敵が壁の間を往復します。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> updateEx(n)</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">  は、nで指定されたフレーム数だけ待機するメソッドです。<BR>
+<BR>
+</DIV><LI>向きを変える<BR>
+</DIV><BR>
+<a href="HID00000004.htm">自機</a>と同様、進行方向に応じて向きを変えるには、変数fを使って次のようにします<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+vx=2;  // 進行方向<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if ($map.getAt(x+vx,y)==$pat_Block+0) { // 進行方向のマップパターンを調べ、ブロックのパターンだったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;updateEx(30);    // 30フレーム待機<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;vx=-vx;          // 進行方向を反転する<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;x+=vx;  // 進行方向へ進む<BR>
+&nbsp;&nbsp;</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> if (vx<0) f=1; else f=0;  // vx が負（左向き）なら反転</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+&nbsp;&nbsp;update();<BR>
+}</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+</DIV><LI>アニメーションをつける<BR>
+</DIV><BR>
+<a href="HID00000005.htm">自機のアニメーションを作る</a>と同様、敵にもアニメーションをつけます。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+vx=2;  // 進行方向<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> a=newAnimation();    // AnimationAdapterを作成<BR>
+a.loop($pat_Enemy1+0,$pat_Enemy1+1,10); // 敵の２つのパターンを往復するアニメーション<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> while (1) {<BR>
+&nbsp;&nbsp;if ($map.getAt(x+vx,y)==$pat_Block+0) { // 進行方向のマップパターンを調べ、ブロックのパターンだったら<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">     </SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> updateEx(30);    // 30フレーム待機<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;vx=-vx;          // 進行方向を反転する<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;x+=vx;  // 進行方向へ進む<BR>
+&nbsp;&nbsp;if (vx<0) f=1; else f=0;  // vx が負（左向き）なら反転<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">これを実行すると、確かに敵のパターンが交互に表示されるのですが、壁に当たって止まっている間もアニメーションをしてしまいます。<BR>
+待機中はアニメーションをしないようにするには、次のようにします。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+vx=2;  // 進行方向<BR>
+a=newAnimation();    // AnimationAdapterを作成<BR>
+a.loop($pat_Enemy1+0,$pat_Enemy1+1,10); // 敵の２つのパターンを往復するアニメーション<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if ($map.getAt(x+vx,y)==$pat_Block+0) { // 進行方向のマップパターンを調べ、ブロックのパターンだったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> a.pause(); // 待機前にアニメーションを止める<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> updateEx(30);    // 30フレーム待機<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> a.resume(); // 待機後にアニメーション再開</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;vx=-vx;          // 進行方向を反転する<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;x+=vx;  // 進行方向へ進む<BR>
+&nbsp;&nbsp;if (vx<0) f=1; else f=0;  // vx が負（左向き）なら反転<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+<BR>
+</DIV><LI></SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">進行方向に床（自分の足元にあるブロック）がなくなっても引き返す<BR>
+</DIV><BR>
+最後にこの処理を追加します。進行方向の斜め下を調べ、そこがブロックのパターンでなかったら引き返すようにすればよいので、次のようにします。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+vx=2;  // 進行方向<BR>
+a=newAnimation();    // AnimationAdapterを作成<BR>
+a.loop($pat_Enemy1+0,$pat_Enemy1+1,10); // 敵の２つのパターンを往復するアニメーション<BR>
+while (1) {<BR>
+&nbsp;&nbsp;if ($map.getAt(x+vx,y)==$pat_Block+0 </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> || $map.getAt(x+vx,y+32)!=$pat_Block+0</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> ) {<BR>
+// 進行方向のマップパターンがブロック、</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">または斜め下がブロックでなかったら</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;a.pause(); // 待機前にアニメーションを止める<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;updateEx(30);    // 30フレーム待機<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;a.resume(); // 待機後にアニメーション再開<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;vx=-vx;          // 進行方向を反転する<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;x+=vx;  // 進行方向へ進む<BR>
+&nbsp;&nbsp;if (vx<0) f=1; else f=0;  // vx が負（左向き）なら反転<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">敵を別の場所においてテストします。今度は両側が壁になっていないところに起きます。<BR>
+まず敵を選択し、右クリックして「コピー」を選びます。<BR>
+<BR>
+<IMG src="../images/copyMon.png" ALT="" BORDER=0><BR>
+<BR>
+続いて、右クリックして「貼り付け」を選びます。新しい敵が複製されます<BR>
+新しい敵を次のように配置します。<BR>
+<BR>
+<IMG src="../images/gake.png" ALT="" BORDER=0><BR>
+<BR>
+実行してみると、２匹とも敵が往復します。<BR>
+<BR>
+なお、引き返しの部分の判定を詳しく解説すると、次のようになります。<BR>
+<BR>
+<IMG src="../images/hikiHantei.png" ALT="" BORDER=0><BR>
+<BR>
+<a href="HID00000008.htm">次へ</a><BR>
+<BR>
+<BR>
+</SPAN></DIV><BR>
+</BODY>
+</HTML>

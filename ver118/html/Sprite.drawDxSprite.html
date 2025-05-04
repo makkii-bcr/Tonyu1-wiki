@@ -1,0 +1,92 @@
+<html>
+<title>Sprite.drawDxSprite</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="Sprite.html">Spriteクラスの説明</a>に戻る
+<HR>
+<P>
+<P>
+<a name="1"><font size="5">drawDxSpriteメソッド(Spriteクラス)</font>
+		    
+		    <BR><BR>
+<P>
+回転、拡大、縮小、半透明のスプライトを描画します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+     
+     drawDxSprite(<font color="blue">x</font>,<font color="blue">y</font>,<font color="blue">p</font>,<font color="blue">f</font>,<font color="blue">zOrder</font>,<font color="blue">angle</font>,<font color="blue">alpha</font>,<font color="blue">scaleX</font>,<font color="blue">scaleY</font>) 
+     
+   <table>   
+     <tr><td>
+<font color=blue>x</font>
+</td>
+<td>:  x座標</td>
+</tr><tr><td>
+<font color=blue>y</font>
+</td>
+<td>:  y座標</td>
+</tr><tr><td>
+<font color=blue>p</font>
+</td>
+<td>:  キャラクタパターン</td>
+</tr><tr><td>
+<font color=blue>f</font>
+</td>
+<td>:  0でない数値の場合、元のキャラクタパターンを左右反転したパターンを描画する</td>
+</tr><tr><td>
+<font color=blue>zOrder</font>
+</td>
+<td>: 描画順序。値が小さいほど手前に描画される</td>
+</tr><tr><td>
+<font color=blue>angle</font>
+</td>
+<td>: 回転角度。単位は度(°)を表す整数</td>
+</tr><tr><td>
+<font color=blue>alpha</font>
+</td>
+<td>:  不透明度を0から255の整数であらわす。小さい値ほど透けて見える</td>
+</tr><tr><td>
+<font color=blue>scaleX</font>
+</td>
+<td>: 横方向の拡大率。１が原寸</td>
+</tr><tr><td>
+<font color=blue>scaleY</font><i>(省略可能)</i>
+</td>
+<td>: 縦方向の拡大率。省略するとscaleXと同じ</td>
+</tr>
+   </table>   
+     
+  </tt></td></tr>
+</table>  
+<P>
+ 
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td width=100>
+<P>
+<strong>例1</strong></td><td align=right width=70>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+<P>
+p=-1;
+while (1) {
+  drawDxSprite(50,50,4,0,0,i,128,2);
+  i=(i+1) % 360;
+  update();
+}
+<P>
+<P>
+ 
+</pre>
+▲ このようにすると、回転する立方体が見えます。  
+</td></tr></table>
+ 
+</font>
+</body></html>

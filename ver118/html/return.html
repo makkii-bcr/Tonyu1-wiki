@@ -1,0 +1,53 @@
+<html>
+<title>return</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<body>
+<font size=3><a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+<HR>
+<font size="5">return</font><BR><BR>
+ 
+<a href="a_a5_e1_a5_bd_a5_c3_a5_c9_a4_ce_c4_ea_b5_c1.html">メソッドの定義</a>の途中で、メソッドの処理を終了します。
+<P>
+<table bgcolor="#ddffee" border=0>
+  <tr bgcolor="#ccffdd"><td> 
+   <font color=black><strong>書式</strong></font>
+  </td></tr>
+  <tr><td><tt>
+ return 戻り値; </tt></td></tr>
+</table>  
+<P>
+<i>戻り値</i>は、メソッドを呼び出した側に返される値です。(省略可能)
+<P>
+<table bgcolor=#ffeedd border=0>
+<tr bgcolor=#ffddcc><td >
+<P>
+<strong>例1</strong></td><td align=right>
+<font size=-1><a href="a_a5_d7_a5_ed_a5_b0_a5_e9_a5_e0_ce_e3_a4_ce_bc_c2_b9_d4_ca_fd_cb_a1.html">実行方法...</a></font>
+</td></tr>
+<tr><td>
+<pre> 
+extends SpriteChar;
+function inRect(sx,sy,dx,dy) {
+  if (x&gt;=sx && y&gt;=sy && x&lt;=dx && y&lt;=dy) return 1;
+  return 0;
+}
+t=200;
+while (1) {
+if (getkey(39)&gt;0) x+=3;
+   if (getkey(37)&gt;0) x-=3;
+   if (getkey(40)&gt;0) y+=3;
+   if (getkey(38)&gt;0) y-=3;
+   t+=0.1;
+   fillRect(t,200,t+100,300,$clRed);
+   if ( inRect( t,200,t+100,300)==1 ) die();
+   update();
+}
+<P>
+</pre>
+▲ カーソルキーで移動しますが、赤枠のなかに入ると消滅します。
+</td></tr></table>
+<HR>
+<a href="a_cc_bf_ce_e1_a5_ea_a5_d5_a5_a1_a5_ec_a5_f3_a5_b9.html">命令リファレンス</a>
+ 
+</font>
+</body></html>

@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text-html; charset=utf-8">
+<TITLE>自機のアニメーションを作る</TITLE>
+<STYLE TYPE="text/css">a:hover{font-weight:bold;}</STYLE>
+</HEAD>
+<BODY bgcolor="#FFFFE2">
+<SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">
+<a href="HID00000001.htm">トップへ</a>&emsp;
+<a href="../../../../tutorial">チュートリアル</a>&emsp;
+<a href="../../../../">Wikiトップ</a>
+<BR>
+<BR>
+<b>自機のアニメーションを作る<BR>
+<BR>
+</b>自機が歩いているように見せるため、アニメーションをつけます。<BR>
+<BR>
+先程追加したキャラクタパターンには、３つのパターンが用意されていますので<BR>
+このパターンを次々に切り替えることでアニメーションを実現します。<BR>
+<BR>
+<IMG src="../images/anim.png" ALT="" BORDER=0><BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> anim=newAnimation();</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+while (1) {<BR>
+&nbsp;&nbsp;if (getkey(39) && $map.getAt(x+16,y)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;x+=3;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;f=0;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> anim.swing($pat_player+0,$pat_player+2,5);<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック">   }<BR>
+&nbsp;&nbsp;// ↑ カーソルキー右が押され、さらに右側が壁でなければ右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37) && $map.getAt(x-16,y)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;x-=3;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;f=1;<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">     anim.swing($pat_player+0,$pat_player+2,5);</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;// ↑ カーソルキー左が押され、さらに左側が壁でなければ左へ移動<BR>
+&nbsp;&nbsp;y+=vy;    // vy: y 方向の速度。 yにvy を加える<BR>
+&nbsp;&nbsp;if ($map.getAt(x,y+24)==$pat_Block+0 ) { // ブロックに当たっていたら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy=0; // 落下速度を0にする<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (getkey(32)) vy=-10; // スペースキーを押したらジャンプ<BR>
+&nbsp;&nbsp;} else { // ブロックに当たっていなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy+=0.5;  // 落下速度を上げる<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;update();<BR>
+}<BR>
+</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+実行すると、自機が歩いているようなアニメーションがみられます。<BR>
+<BR>
+</DIV><LI></SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> anim=newAnimation();</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</DIV><BR>
+これは、アニメーションを使うときに書いてください。<BR>
+こうすることにより、変数anim が</SPAN><b><SPAN STYLE="color:#800000;font-size:12pt;font-family:ＭＳ ゴシック">アニメーションアダプタ</SPAN></b><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">  (アニメーションを行うための特別な仕組み) になります。<BR>
+"anim"の部分は別の名前でもかまいませんが、その後の anim.swing の部分などもanimの代わりにその名前を使ってください。<BR>
+<BR>
+</DIV><LI></SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> anim.swing($pat_player+0,$pat_player+2,5);</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</DIV></SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+アニメーションアダプタanimに対して、アニメーションの実行を指示します。<BR>
+最初の </SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> $pat_player+0  </SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">と</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">  $pat_player+2</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック">  は、アニメーションに使うキャラクタパターンを指定します。 2番目のほうに大きい値を指定してください。<BR>
+最後の 5 はアニメーションの速さを指定します。大きいほど遅くなります。<BR>
+<BR>
+ところで、実行すると気づくのですが、カーソルキーを離してもずっと歩いているようなアニメーションをしています。この問題を解決するには次のようにします。<BR>
+<BR>
+</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"> extends SpriteChar;<BR>
+<BR>
+$map.setBGColor(color(0,200,255)); // 背景色を設定<BR>
+anim=newAnimation();<BR>
+while (1) {<BR>
+</SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック">   anim.pause();</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+&nbsp;&nbsp;if (getkey(39) && $map.getAt(x+16,y)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;x+=3;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;f=0;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;anim.swing($pat_player+0,$pat_player+2,5);<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;// ↑ カーソルキー右が押され、さらに右側が壁でなければ右へ移動<BR>
+&nbsp;&nbsp;if (getkey(37) && $map.getAt(x-16,y)!=$pat_Block+0) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;x-=3;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;f=1;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;anim.swing($pat_player+0,$pat_player+2,5);<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;// ↑ カーソルキー左が押され、さらに左側が壁でなければ左へ移動<BR>
+&nbsp;&nbsp;y+=vy;    // vy: y 方向の速度。 yにvy を加える<BR>
+&nbsp;&nbsp;if ($map.getAt(x,y+24)==$pat_Block+0 ) { // ブロックに当たっていたら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy=0; // 落下速度を0にする<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (getkey(32)) vy=-10; // スペースキーを押したらジャンプ<BR>
+&nbsp;&nbsp;} else { // ブロックに当たっていなかったら<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vy+=0.5;  // 落下速度を上げる<BR>
+&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;update();<BR>
+}</SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+<BR>
+</DIV><LI></SPAN><SPAN STYLE="color:#FF0000;font-size:12pt;font-family:ＭＳ ゴシック"> anim.pause();</SPAN><SPAN STYLE="color:#0000FF;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+</DIV></SPAN><SPAN STYLE="color:#000000;font-size:12pt;font-family:ＭＳ ゴシック"><BR>
+これは、アニメーションを停止する命令です。なにもキーがおされていないと、毎回このpauseだけが実行されるため、アニメーションが作動しませんが、キーを押している間はswingが実行され、アニメーションが作動します。<BR>
+<BR>
+<a href="HID00000006.htm">次へ</a><BR>
+<BR>
+</SPAN></DIV><BR>
+</BODY>
+</HTML>
