@@ -22,11 +22,15 @@
 -->
 #### 最新バージョン
 
-[Tonyu1_303_2024_0217.zip](./dl/Tonyu1_303_2024_0217.zip)
+[Tonyu1_303_2025_0505.zip](./dl/Tonyu1_303_2025_0505.zip)
 
-- [$mplayer.stopSE](./rf-mplayer#mplayerstopse)の不具合修正
+- Midiプレイヤー（Kernel/Midiplayer2.exe）で使っているライブラリ（GuruGuruSMF）を更新（4.0.6→4.0.8）
 
 #### 以前のバージョン
+
+[Tonyu1_303_2024_0217.zip](./dl/Tonyu1_303_2024_0217.zip)
+
+- [$mplayer.stopSE](./rf-mplayer#mplayerstopse)の不具合修正（まだ完全に直ってない）
 
 [Tonyu1_302_2024_0212.zip](./dl/Tonyu1_302_2024_0212.zip)
 
@@ -232,7 +236,7 @@
 - MidiPlay.exeは現在使っていないので削除
 
 [Tonyu1_27_2019_0930.zip](./dl/Tonyu1_27_2019_0930.zip)
-- Midiプレイヤー（Kernel/MidiPlayer2.exe）に[YellowMusicPlayer](https://www.tonyu.jp/project/viewProject.cgi?mainkey=667&)を使用するようにしました．
+- Midiプレイヤー（Kernel/Midiplayer2.exe）に[YellowMusicPlayer](https://www.tonyu.jp/project/viewProject.cgi?mainkey=667&)を使用するようにしました．
 
 [Tonyu1_27_2015_0714.zip](./dl/Tonyu1_27_2015_0714.zip)
 - 描画方式を設定ファイル（Kernel/Cookies.ini）に保存するようにしました
